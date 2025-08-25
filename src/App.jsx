@@ -15,8 +15,8 @@ function App() {
 
   return (
     <>
-    <Home/>
     <HowItWorks />
+    <Home/>
     </>
   )
 }
