@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
- 
+
 // Images
 import cardimg2 from '../assets/icons/home/MyRewards/Quiz.svg';
 import cardimg4 from '../assets/icons/home/MyRewards/Tic.svg';
@@ -30,15 +30,15 @@ const playEarnCardJson = [
     wid: '25%',
   },
 ];
- 
+
 const PlayAndEarnCard = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
- 
+
   return (
     <>
-  <div className="playearn-section d-flex justify-content-center">
-          <div className="playearn-card">
-            {/* {playEarnCardJson?.map((option, index) => (
+      <div className="playearn-section d-flex justify-content-center">
+        <div className="playearn-card">
+          {/* {playEarnCardJson?.map((option, index) => (
               <div
                 key={index}
                 className={playearn-content d-grid position-relative ${option?.cls} ${activeIndex === index ? 'active' : ''}}
@@ -71,46 +71,46 @@ const PlayAndEarnCard = () => {
                 </div>
               </div>
             ))} */}
- 
-            {playEarnCardJson?.map((option, index) => {
-              const isActive =
-                hoveredIndex === index ||
-                (hoveredIndex === null && index === playEarnCardJson.length - 1);
- 
-              return (
-                <div
-                  key={index}
-                  className={`playearn-content d-grid position-relative ${option?.cls} ${isActive ? 'active' : ''}`}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  style={{
-                    backgroundImage: `url(${option.backgroundUrl})`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    flexGrow: isActive ? 100 : 1,
-                  }}
-                >
-                  <img
-                    className={`position-absolute end-0 ${isActive ? 'background-light-white m-3 p-1 rounded-circle' : 'd-none'
-                      }`}
-                    src={arrowTop}
-                    alt="toparrow"
-                  />
-                  <div className={`align-self-end p-3 ${isActive ? '' : 'd-none'}`}>
-                    <h2 className="mb-0 font-24 montserrat-semibold text-white">Jackpot 777</h2>
-                    <p className="mb-0 font-14 montserrat-regular text-white">
-                      One spin could change everything
-                    </p>
-                  </div>
+
+          {playEarnCardJson?.map((option, index) => {
+            const isActive =
+              hoveredIndex === index ||
+              (hoveredIndex === null && index === playEarnCardJson.length - 1);
+
+            return (
+              <div
+                key={index}
+                className={`playearn-content d-grid position-relative ${option?.cls} ${isActive ? 'active' : ''}`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                style={{
+                  backgroundImage: `url(${option.backgroundUrl})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  flexGrow: isActive ? 100 : 1,
+                }}
+              >
+                <img
+                  className={`position-absolute end-0 ${isActive ? 'background-light-white m-3 p-1 rounded-circle' : 'd-none'
+                    }`}
+                  src={arrowTop}
+                  alt="toparrow"
+                />
+                <div className={`align-self-end p-3 ${isActive ? '' : 'd-none'}`}>
+                  <h2 className="mb-0 font-24 montserrat-semibold text-white">Jackpot 777</h2>
+                  <p className="mb-0 font-14 montserrat-regular text-white">
+                    One spin could change everything
+                  </p>
                 </div>
-              );
-            })}
- 
-          </div>
+              </div>
+            );
+          })}
+
         </div>
+      </div>
     </>
   );
 };
- 
+
 export default PlayAndEarnCard;
