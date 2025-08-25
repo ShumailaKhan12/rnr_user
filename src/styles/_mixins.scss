@@ -35,3 +35,10 @@
   @include font-be-vietnam($weight, $style);
 }
 
+@mixin font-jura($weight, $style: normal) {
+  font-family: 'Jura', sans-serif;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+

@@ -46,6 +46,18 @@ li {
 .poppins-extrabold  { @include font-poppins(800); }
 .poppins-black      { @include font-poppins(900); }
 
+// Jura font utilities
+.jura-thin       { @include font-jura(100); }
+.jura-extralight { @include font-jura(200); }
+.jura-light      { @include font-jura(300); }
+.jura-regular    { @include font-jura(400); }
+.jura-medium     { @include font-jura(500); }
+.jura-semibold   { @include font-jura(600); }
+.jura-bold       { @include font-jura(700); }
+.jura-extrabold  { @include font-jura(800); }
+.jura-black      { @include font-jura(900); }
+
+
 // Space Grotesk font utilities
 .space-grotesk-light    { @include font-space-grotesk(300); }
 .space-grotesk-regular  { @include font-space-grotesk(400); }
