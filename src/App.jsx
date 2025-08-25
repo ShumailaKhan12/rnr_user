@@ -8,12 +8,13 @@ import './styles/_function.scss';
 import './styles/_variables.scss';
 import './styles/main.scss';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import HowItWorks from './pages/HowItWorks';
 
 function App() {
 
   return (
     <>
-    
+    <HowItWorks />
     </>
   )
 }
