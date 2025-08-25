@@ -15,7 +15,7 @@ const Button = ({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`w-100 py-2 rounded-3
+      className={`py-2 border-0
         ${isHovered ? hoverClass : ""} 
         ${className}`}
     >

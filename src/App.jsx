@@ -8,11 +8,13 @@ import './styles/_function.scss';
 import './styles/_variables.scss';
 import './styles/main.scss';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Home from './pages/home/home';
 
 function App() {
 
   return (
     <>
+    <Home/>
     
     </>
   )
