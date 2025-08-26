@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Navbar from '../../components/navbar';
 import Button from '../../components/button';
 import FAQ from "../../components/faq";
+import InviteModal from '../../components/invite/InviteModal';
 
 
 // Import Json
@@ -22,7 +23,9 @@ const faqData = [
     },
 ];
 
+
 const Home = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Footer Planet animation
     const footerRef = useRef(null);
@@ -48,7 +51,7 @@ const Home = () => {
             if (footerRef.current) observer.unobserve(footerRef.current);
         };
     }, []);
-    
+
     return (
         <>
             <Navbar />
@@ -58,8 +61,17 @@ const Home = () => {
                         <p className='font-40 montserrat-bold text-blue mb-0 lh-sm'>Share the Love, Get <br /> Rewarded – The More You <br /> Invite, the More You Earn!</p>
                         <p className='font-20 montserrat-medium text-gray'>Invite → Earn → Repeat. Let your knows be your gains.</p>
                         <div>
-                            <Button label={"Invite a MFD"} className='bg-blue text-white border-0 rounded-pill px-5 jura-semibold' />
-                        </div>
+                            <button
+                                className="bg-blue text-white border-0 rounded-pill px-5 jura-semibold"
+                                onClick={() => setIsModalOpen(true)}
+                            >
+                                Invite a MFD
+                            </button>
+
+                            <InviteModal
+                                isOpen={isModalOpen}
+                                onClose={() => setIsModalOpen(false)}
+                            />                      </div>
                     </div>
 
                 </div>
