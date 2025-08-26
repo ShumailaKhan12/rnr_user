@@ -5,6 +5,7 @@ import one from '../assets/1.png'
 import two from '../assets/2.png'
 import three from '../assets/3.png'
 import four from '../assets/4.png'
+import { NavLink } from 'react-router-dom';
 
 const HowItWorks = () => {
     return (
@@ -67,9 +68,11 @@ const HowItWorks = () => {
                     </div>
 
                     <div className="text-center mt-5">
-                        <button className="btn btn-primary get-started-btn ">
+                      <NavLink to={"/home"}>
+                          <button className="btn btn-primary get-started-btn ">
                             Get Started
                         </button>
+                      </NavLink>
                     </div>
                 </div>
             </div>
