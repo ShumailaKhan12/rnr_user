@@ -1,857 +1,859 @@
-@use 'sass:math';
+    @use 'sass:math';
 
-// ============= VARIABLES SCSS========================
-$mobile-breakpoint: 768px;
-$tablet-breakpoint: 1024px;
+    // ============= VARIABLES SCSS========================
+    $mobile-breakpoint: 768px;
+    $tablet-breakpoint: 1024px;
 
-$white: #ffffff;
-$white-secondry: #f8f7ff;
-$primary-color: #1a2a6c;
-$secondry-color: #cebacf;
-$dark-color: #675262;
-$dark-secondary: #a595a6;
-$light-color: #a1a1a1;
-$black: #000000;
-$blue-secondry: #0b1e44;
-// Base Variables
-$blue: rgba(26, 42, 108, 1);
-$dark-blue: rgba(11, 30, 68, 1);
-$light-white: rgba(250, 250, 250, 1);
-$light-blue: rgba(64, 123, 255, 1);
-$border-light: rgba(255, 255, 255, 0.4);
-$light-white-bg: rgba(255, 255, 255, 0.15);
-$blue-2: rgba(73, 52, 149, 1);
-$dark-pink: rgba(224, 77, 176, 1);
-$light-purple-transparent: #ba68c81a;
-$push-notification: rgba(157, 146, 210, 1);
-$light-yellow: rgba(255, 240, 96, 1);
-$text-light-black: rgba(51, 51, 51, 1);
-$light-white-0-7: rgba(239, 243, 247, 0.7);
-$light-white-full: rgba(239, 243, 247, 1);
-$light-cream: rgba(255, 242, 178, 1);
-$slider-arrow-color: rgba(75, 50, 173, 1);
-$light-pink: rgba(255, 153, 153, 1);
-$register-inp: rgba(92, 75, 161, 0.1);
-$text-light-gray: rgba(161, 161, 161, 1);
-$shadow-Purple: #55024ccc;
-$shadow-yellow: #fc941acc;
-$shadow-green: #66968b;
-$shadow-blue: #4babdf;
-$light-blue-opacity-30: rgba(64, 123, 255, 0.3);
-$light-purple: rgba(184, 179, 203, 1);
-$light-indigo-transparent: #646cffaa;
-$react-blue-transparent: #61dafbaa;
-$yellow-gradient: linear-gradient(180deg,
-        rgba(255, 228, 147, 0.2) 47.11%,
-        rgba(255, 200, 39, 0.4) 105.98%);
-$light-purple-bg: rgba(157, 146, 210, 0.15);
-$semi-transparent-purple: rgba(85, 68, 158, 0.3);
-$muted-purple: #9d92d2;
-$bright-violet: #a259ff;
-$deep-violet: #493495;
-$transparent: transparent;
-$light-gray-blue: #eff3f7;
+    $white: #ffffff;
+    $white-secondry: #f8f7ff;
+    $primary-color: #1a2a6c;
+    $secondry-color: #cebacf;
+    $dark-color: #675262;
+    $dark-secondary: #a595a6;
+    $light-color: #a1a1a1;
+    $black: #000000;
+    $blue-secondry: #0b1e44;
+    // Base Variables
+    $blue: rgba(26, 42, 108, 1);
+    $dark-blue: rgba(11, 30, 68, 1);
+    $light-white: rgba(250, 250, 250, 1);
+    $light-blue: rgba(64, 123, 255, 1);
+    $border-light: rgba(255, 255, 255, 0.4);
+    $light-white-bg: rgba(255, 255, 255, 0.15);
+    $blue-2: rgba(73, 52, 149, 1);
+    $dark-pink: rgba(224, 77, 176, 1);
+    $light-purple-transparent: #ba68c81a;
+    $push-notification: rgba(157, 146, 210, 1);
+    $light-yellow: rgba(255, 240, 96, 1);
+    $text-light-black: rgba(51, 51, 51, 1);
+    $light-white-0-7: rgba(239, 243, 247, 0.7);
+    $light-white-full: rgba(239, 243, 247, 1);
+    $light-cream: rgba(255, 242, 178, 1);
+    $slider-arrow-color: rgba(75, 50, 173, 1);
+    $light-pink: rgba(255, 153, 153, 1);
+    $register-inp: rgba(92, 75, 161, 0.1);
+    $text-light-gray: rgba(161, 161, 161, 1);
+    $shadow-Purple: #55024ccc;
+    $shadow-yellow: #fc941acc;
+    $shadow-green: #66968b;
+    $shadow-blue: #4babdf;
+    $light-blue-opacity-30: rgba(64, 123, 255, 0.3);
+    $light-purple: rgba(184, 179, 203, 1);
+    $light-indigo-transparent: #646cffaa;
+    $react-blue-transparent: #61dafbaa;
+    $yellow-gradient: linear-gradient(180deg,
+            rgba(255, 228, 147, 0.2) 47.11%,
+            rgba(255, 200, 39, 0.4) 105.98%);
+    $light-purple-bg: rgba(157, 146, 210, 0.15);
+    $semi-transparent-purple: rgba(85, 68, 158, 0.3);
+    $muted-purple: #9d92d2;
+    $bright-violet: #a259ff;
+    $deep-violet: #493495;
+    $transparent: transparent;
+    $light-gray-blue: #eff3f7;
 
-// Background Colors Map
-$background-colors: (
-    'blue': $blue,
-    'dark-blue': $dark-blue,
-    'light-white': $light-white,
-    'light-blue': $light-blue,
-    'border-light': $border-light,
-    'light-white-bg': $light-white-bg,
-    'blue-2': $blue-2,
-    'dark-pink': $dark-pink,
-    'push-notification': $push-notification,
-    'light-yellow': $light-yellow,
-    'light-white-0-7': $light-white-0-7,
-    'light-white-full': $light-white-full,
-    'light-cream': $light-cream,
-    'slider-arrow-color': $slider-arrow-color,
-    'light-pink': $light-pink,
-    'register-inp': $register-inp,
-    'blue-secondry': $blue-secondry,
-    'primary-color': $primary-color,
-    'light-purple-transparent': $light-purple-transparent,
-    'light-color': $light-color,
-    'transparent': $transparent,
-    'light-gray-blue': $light-gray-blue,
-);
+    // Background Colors Map
+    $background-colors: (
+        'blue': $blue,
+        'dark-blue': $dark-blue,
+        'light-white': $light-white,
+        'light-blue': $light-blue,
+        'border-light': $border-light,
+        'light-white-bg': $light-white-bg,
+        'blue-2': $blue-2,
+        'dark-pink': $dark-pink,
+        'push-notification': $push-notification,
+        'light-yellow': $light-yellow,
+        'light-white-0-7': $light-white-0-7,
+        'light-white-full': $light-white-full,
+        'light-cream': $light-cream,
+        'slider-arrow-color': $slider-arrow-color,
+        'light-pink': $light-pink,
+        'register-inp': $register-inp,
+        'blue-secondry': $blue-secondry,
+        'primary-color': $primary-color,
+        'light-purple-transparent': $light-purple-transparent,
+        'light-color': $light-color,
+        'transparent': $transparent,
+        'light-gray-blue': $light-gray-blue,
+    );
 
-// Font Colors Map
-$font-colors: (
-    'blue': $blue,
-    'dark-blue': $dark-blue,
-    'light-white': $light-white,
-    'light-blue': $light-blue,
-    'blue-2': $blue-2,
-    'dark-pink': $dark-pink,
-    'push-notification': $push-notification,
-    'light-yellow': $light-yellow,
-    'text-light-black': $text-light-black,
-    'light-white-0-7': $light-white-0-7,
-    'light-white-full': $light-white-full,
-    'light-pink': $light-pink,
-    'text-light-gray': $text-light-gray,
-    'blue-secondry': $blue-secondry,
-    'primary-color': $primary-color,
-    'light-purple-transparent': $light-purple-transparent,
-    'light-color': $light-color,
-    'transparent': $transparent,
-    'light-gray-blue': $light-gray-blue,
-);
+    // Font Colors Map
+    $font-colors: (
+        'blue': $blue,
+        'dark-blue': $dark-blue,
+        'light-white': $light-white,
+        'light-blue': $light-blue,
+        'blue-2': $blue-2,
+        'dark-pink': $dark-pink,
+        'push-notification': $push-notification,
+        'light-yellow': $light-yellow,
+        'text-light-black': $text-light-black,
+        'light-white-0-7': $light-white-0-7,
+        'light-white-full': $light-white-full,
+        'light-pink': $light-pink,
+        'text-light-gray': $text-light-gray,
+        'blue-secondry': $blue-secondry,
+        'primary-color': $primary-color,
+        'light-purple-transparent': $light-purple-transparent,
+        'light-color': $light-color,
+        'transparent': $transparent,
+        'light-gray-blue': $light-gray-blue,
+    );
 
-// =========================
-// FONT COLOR CLASSES
-// =========================
-@each $name, $color in $font-colors {
-    .text-#{$name} {
-        color: $color !important;
+    // =========================
+    // FONT COLOR CLASSES
+    // =========================
+    @each $name, $color in $font-colors {
+        .text-#{$name} {
+            color: $color !important;
+        }
     }
-}
 
-// =========================
-// BACKGROUND COLOR CLASSES
-// =========================
-@each $name, $color in $background-colors {
-    .bg-#{$name} {
-        background-color: $color !important;
+    // =========================
+    // BACKGROUND COLOR CLASSES
+    // =========================
+    @each $name, $color in $background-colors {
+        .bg-#{$name} {
+            background-color: $color !important;
+        }
     }
-}
 
-// ============= VARIABLES SCSS END ===================
-// =============Functions==============================
+    // ============= VARIABLES SCSS END ===================
+    // =============Functions==============================
 
-// =========================
-// CONFIGURATION
-// =========================
+    // =========================
+    // CONFIGURATION
+    // =========================
 
-// Functions
-@function pxToRem($px, $base: 16) {
-    @return math.div($px, $base) * 1rem;
-}
+    // Functions
+    @function pxToRem($px, $base: 16) {
+        @return math.div($px, $base) * 1rem;
+    }
 
-@function lineHeight($font-size, $multiplier: 1.5) {
-    $scaled: math.div($font-size * $multiplier, 1);
-    @return pxToRem($scaled);
-}
+    @function lineHeight($font-size, $multiplier: 1.5) {
+        $scaled: math.div($font-size * $multiplier, 1);
+        @return pxToRem($scaled);
+    }
 
-@function responsive-scale($value, $ratio) {
-    @return $value * $ratio;
-}
+    @function responsive-scale($value, $ratio) {
+        @return $value * $ratio;
+    }
 
-// Breakpoints
-$breakpoint-sm: 768px; // Mobile
-$breakpoint-md: 1200px; // Tablet
-$breakpoint-lg: 1536px; // Desktop
-$breakpoint-xl: 1920px; // Large Desktop
-$breakpoint-2xl: 2560px; // Ultra-Wide
-$breakpoint-4k: 3840px; // 4K Display
+    // Breakpoints
+    $breakpoint-sm: 768px; // Mobile
+    $breakpoint-md: 1200px; // Tablet
+    $breakpoint-lg: 1536px; // Desktop
+    $breakpoint-xl: 1920px; // Large Desktop
+    $breakpoint-2xl: 2560px; // Ultra-Wide
+    $breakpoint-4k: 3840px; // 4K Display
 
 // Font and spacing values
-$font-sizes: 8, 10, 12, 14, 16, 18, 20, 22, 24, 28, 32, 34, 36, 40, 44, 46, 48, 52, 56, 60, 64,
+$font-sizes: 8, 10, 12, 14, 16, 18, 20, 22, 24,26, 28, 32, 34, 36, 40, 44, 46, 48, 52, 56, 60, 64,
     68, 72;
 $spacing-values: 0, 4, 8, 10, 12, 14, 16, 20, 24, 32, 34, 36, 40, 44, 46, 48, 52, 56, 58, 60,
     62, 68, 72, 78, 80, 88, 90, 92, 100, 120, 150;
 
-// =========================
-// FONT SIZE CLASSES
-// =========================
+    // =========================
+    // FONT SIZE CLASSES
+    // =========================
 
-// @each $size in $font-sizes {
-//   .font-#{$size} {
-//     font-size: pxToRem($size);
-//     line-height: lineHeight($size);
+    // @each $size in $font-sizes {
+    //   .font-#{$size} {
+    //     font-size: pxToRem($size);
+    //     line-height: lineHeight($size);
 
-//     @media (max-width: $breakpoint-md) {
-//       font-size: pxToRem(responsive-scale($size, 0.66));
-//       line-height: lineHeight(responsive-scale($size, 0.66));
-//     }
+    //     @media (max-width: $breakpoint-md) {
+    //       font-size: pxToRem(responsive-scale($size, 0.66));
+    //       line-height: lineHeight(responsive-scale($size, 0.66));
+    //     }
 
-//     @media (min-width: $breakpoint-lg) {
-//       font-size: pxToRem(responsive-scale($size, 1.25));
-//       line-height: lineHeight(responsive-scale($size, 1.25));
-//     }
+    //     @media (min-width: $breakpoint-lg) {
+    //       font-size: pxToRem(responsive-scale($size, 1.25));
+    //       line-height: lineHeight(responsive-scale($size, 1.25));
+    //     }
 
-//     @media (min-width: $breakpoint-xl) {
-//       font-size: pxToRem(responsive-scale($size, 1.5));
-//       line-height: lineHeight(responsive-scale($size, 1.5));
-//     }
+    //     @media (min-width: $breakpoint-xl) {
+    //       font-size: pxToRem(responsive-scale($size, 1.5));
+    //       line-height: lineHeight(responsive-scale($size, 1.5));
+    //     }
 
-//     @media (min-width: $breakpoint-2xl) {
-//       font-size: pxToRem(responsive-scale($size, 1.75));
-//       line-height: lineHeight(responsive-scale($size, 1.75));
-//     }
+    //     @media (min-width: $breakpoint-2xl) {
+    //       font-size: pxToRem(responsive-scale($size, 1.75));
+    //       line-height: lineHeight(responsive-scale($size, 1.75));
+    //     }
 
-//     @media (min-width: $breakpoint-4k) {
-//       font-size: pxToRem(responsive-scale($size, 2));
-//       line-height: lineHeight(responsive-scale($size, 2));
-//     }
-//   }
-// }
+    //     @media (min-width: $breakpoint-4k) {
+    //       font-size: pxToRem(responsive-scale($size, 2));
+    //       line-height: lineHeight(responsive-scale($size, 2));
+    //     }
+    //   }
+    // }
 
-@each $size in $font-sizes {
-    .font-#{$size} {
-        font-size: pxToRem($size);
-        line-height: lineHeight($size);
+    @each $size in $font-sizes {
+        .font-#{$size} {
+            font-size: pxToRem($size);
+            line-height: lineHeight($size);
+
+            @media (max-width: $breakpoint-md) {
+                font-size: pxToRem($size);
+                line-height: lineHeight($size);
+                // font-size: pxToRem(responsive-scale($size, 0.66));
+                // line-height: lineHeight(responsive-scale($size, 0.66));
+                font-size: pxToRem($size);
+                line-height: lineHeight($size);
+                // font-size: pxToRem(responsive-scale($size, 0.66));
+                // line-height: lineHeight(responsive-scale($size, 0.66));
+            }
+
+            @media (min-width: $breakpoint-lg) {
+                font-size: pxToRem($size);
+                line-height: lineHeight($size);
+                // font-size: pxToRem(responsive-scale($size, 1.125));
+                // line-height: lineHeight(responsive-scale($size, 1.125));
+            }
+
+            @media (min-width: $breakpoint-xl) {
+                font-size: pxToRem(responsive-scale($size, 1.25));
+                line-height: lineHeight(responsive-scale($size, 1.25));
+            }
+
+            @media (min-width: $breakpoint-2xl) {
+                font-size: pxToRem(responsive-scale($size, 1.5));
+                line-height: lineHeight(responsive-scale($size, 1.5));
+            }
+
+            @media (min-width: $breakpoint-4k) {
+                font-size: pxToRem(responsive-scale($size, 1.875));
+                line-height: lineHeight(responsive-scale($size, 1.875));
+            }
+        }
+    }
+
+    // =========================
+    // SPACING CLASSES
+    // =========================
+    @each $value in $spacing-values {
+
+        @each $prefix,
+        $property in (m: margin,
+            mt: margin-top,
+            mr: margin-right,
+            mb: margin-bottom,
+            ml: margin-left,
+            p: padding,
+            pt: padding-top,
+            pr: padding-right,
+            pb: padding-bottom,
+            pl: padding-left) {
+
+            // Default utility (applies without breakpoint)
+            .#{$prefix}-#{$value} {
+                #{$property}: pxToRem($value);
+            }
+
+            // Responsive classes for each breakpoint
+
+            // sm
+            .#{$prefix}-sm-#{$value} {
+                @media (max-width: $breakpoint-sm) {
+                    #{$property}: pxToRem(responsive-scale($value, 0.66));
+                }
+            }
+
+            // md
+            .#{$prefix}-md-#{$value} {
+                @media (max-width: $breakpoint-md) {
+                    #{$property}: pxToRem(responsive-scale($value, 0.66));
+                }
+            }
+
+            // lg
+            .#{$prefix}-lg-#{$value} {
+                @media (min-width: $breakpoint-lg) {
+                    #{$property}: pxToRem(responsive-scale($value, 1.25));
+                }
+            }
+
+            // xl
+            .#{$prefix}-xl-#{$value} {
+                @media (min-width: $breakpoint-xl) {
+                    #{$property}: pxToRem(responsive-scale($value, 1.5));
+                }
+            }
+
+            // 2xl
+            .#{$prefix}-2xl-#{$value} {
+                @media (min-width: $breakpoint-2xl) {
+                    #{$property}: pxToRem(responsive-scale($value, 1.75));
+                }
+            }
+
+            // 4k
+            .#{$prefix}-4k-#{$value} {
+                @media (min-width: $breakpoint-4k) {
+                    #{$property}: pxToRem(responsive-scale($value, 2));
+                }
+            }
+        }
+    }
+
+    // =========================
+    // WIDTH CLASSES (1% to 100%) with BREAKPOINT SUFFIXES
+    // =========================
+
+    @for $i from 1 through 100 {
+
+        // Default width class
+        .width-#{$i} {
+            width: $i * 1%;
+        }
+
+        // Responsive width classes
+        @media (max-width: $breakpoint-sm) {
+            .width-sm-#{$i} {
+                width: $i * 1%;
+            }
+        }
 
         @media (max-width: $breakpoint-md) {
-            font-size: pxToRem($size);
-            line-height: lineHeight($size);
-            // font-size: pxToRem(responsive-scale($size, 0.66));
-            // line-height: lineHeight(responsive-scale($size, 0.66));
-            font-size: pxToRem($size);
-            line-height: lineHeight($size);
-            // font-size: pxToRem(responsive-scale($size, 0.66));
-            // line-height: lineHeight(responsive-scale($size, 0.66));
+            .width-md-#{$i} {
+                width: $i * 1%;
+            }
         }
 
         @media (min-width: $breakpoint-lg) {
-            font-size: pxToRem($size);
-            line-height: lineHeight($size);
-            // font-size: pxToRem(responsive-scale($size, 1.125));
-            // line-height: lineHeight(responsive-scale($size, 1.125));
+            .width-lg-#{$i} {
+                width: $i * 1%;
+            }
         }
 
         @media (min-width: $breakpoint-xl) {
-            font-size: pxToRem(responsive-scale($size, 1.25));
-            line-height: lineHeight(responsive-scale($size, 1.25));
+            .width-xl-#{$i} {
+                width: $i * 1%;
+            }
         }
 
         @media (min-width: $breakpoint-2xl) {
-            font-size: pxToRem(responsive-scale($size, 1.5));
-            line-height: lineHeight(responsive-scale($size, 1.5));
+            .width-2xl-#{$i} {
+                width: $i * 1%;
+            }
         }
 
         @media (min-width: $breakpoint-4k) {
-            font-size: pxToRem(responsive-scale($size, 1.875));
-            line-height: lineHeight(responsive-scale($size, 1.875));
-        }
-    }
-}
-
-// =========================
-// SPACING CLASSES
-// =========================
-@each $value in $spacing-values {
-
-    @each $prefix,
-    $property in (m: margin,
-        mt: margin-top,
-        mr: margin-right,
-        mb: margin-bottom,
-        ml: margin-left,
-        p: padding,
-        pt: padding-top,
-        pr: padding-right,
-        pb: padding-bottom,
-        pl: padding-left) {
-
-        // Default utility (applies without breakpoint)
-        .#{$prefix}-#{$value} {
-            #{$property}: pxToRem($value);
-        }
-
-        // Responsive classes for each breakpoint
-
-        // sm
-        .#{$prefix}-sm-#{$value} {
-            @media (max-width: $breakpoint-sm) {
-                #{$property}: pxToRem(responsive-scale($value, 0.66));
-            }
-        }
-
-        // md
-        .#{$prefix}-md-#{$value} {
-            @media (max-width: $breakpoint-md) {
-                #{$property}: pxToRem(responsive-scale($value, 0.66));
-            }
-        }
-
-        // lg
-        .#{$prefix}-lg-#{$value} {
-            @media (min-width: $breakpoint-lg) {
-                #{$property}: pxToRem(responsive-scale($value, 1.25));
-            }
-        }
-
-        // xl
-        .#{$prefix}-xl-#{$value} {
-            @media (min-width: $breakpoint-xl) {
-                #{$property}: pxToRem(responsive-scale($value, 1.5));
-            }
-        }
-
-        // 2xl
-        .#{$prefix}-2xl-#{$value} {
-            @media (min-width: $breakpoint-2xl) {
-                #{$property}: pxToRem(responsive-scale($value, 1.75));
-            }
-        }
-
-        // 4k
-        .#{$prefix}-4k-#{$value} {
-            @media (min-width: $breakpoint-4k) {
-                #{$property}: pxToRem(responsive-scale($value, 2));
+            .width-4k-#{$i} {
+                width: $i * 1%;
             }
         }
     }
-}
 
-// =========================
-// WIDTH CLASSES (1% to 100%) with BREAKPOINT SUFFIXES
-// =========================
-
-@for $i from 1 through 100 {
-
-    // Default width class
-    .width-#{$i} {
-        width: $i * 1%;
-    }
-
-    // Responsive width classes
-    @media (max-width: $breakpoint-sm) {
-        .width-sm-#{$i} {
-            width: $i * 1%;
+    // Generate border-radius classes from 4px to 100px in steps of 4px
+    @each $value in $spacing-values {
+        .border-radius-#{$value} {
+            border-radius: pxToRem($value);
         }
     }
 
-    @media (max-width: $breakpoint-md) {
-        .width-md-#{$i} {
-            width: $i * 1%;
-        }
+    // ===========function end=============================
+    // =========== MIXINS SCSS ============================
+    // Import Google Fonts in your main index.html or layout file, not here!
+
+    // Font Mixins
+    @mixin font-be-vietnam($weight, $style: normal) {
+        font-family: 'Be Vietnam Pro', sans-serif;
+        font-weight: $weight;
+        font-style: $style;
     }
 
-    @media (min-width: $breakpoint-lg) {
-        .width-lg-#{$i} {
-            width: $i * 1%;
-        }
+    @mixin font-montserrat($weight, $style: normal) {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: $weight;
+        font-style: $style;
     }
 
-    @media (min-width: $breakpoint-xl) {
-        .width-xl-#{$i} {
-            width: $i * 1%;
-        }
+    @mixin font-poppins($weight, $style: normal) {
+        font-family: 'Poppins', sans-serif;
+        font-weight: $weight;
+        font-style: $style;
     }
 
-    @media (min-width: $breakpoint-2xl) {
-        .width-2xl-#{$i} {
-            width: $i * 1%;
-        }
+    @mixin font-space-grotesk($weight, $style: normal) {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: $weight;
+        font-style: $style;
     }
 
-    @media (min-width: $breakpoint-4k) {
-        .width-4k-#{$i} {
-            width: $i * 1%;
-        }
+    @mixin font-montserrat-alternates($weight, $style: normal) {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: $weight;
+        font-style: $style;
     }
-}
 
-// Generate border-radius classes from 4px to 100px in steps of 4px
-@each $value in $spacing-values {
-    .border-radius-#{$value} {
-        border-radius: pxToRem($value);
+    // Alias mixin (optional, for Be Vietnam only)
+    @mixin font-variation($weight, $style: normal) {
+        @include font-be-vietnam($weight, $style);
     }
-}
-
-// ===========function end=============================
-// =========== MIXINS SCSS ============================
-// Import Google Fonts in your main index.html or layout file, not here!
-
-// Font Mixins
-@mixin font-be-vietnam($weight, $style: normal) {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: $weight;
-    font-style: $style;
-}
-
-@mixin font-montserrat($weight, $style: normal) {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: $weight;
-    font-style: $style;
-}
-
-@mixin font-poppins($weight, $style: normal) {
-    font-family: 'Poppins', sans-serif;
-    font-weight: $weight;
-    font-style: $style;
-}
-
-@mixin font-space-grotesk($weight, $style: normal) {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: $weight;
-    font-style: $style;
-}
-
-@mixin font-montserrat-alternates($weight, $style: normal) {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: $weight;
-    font-style: $style;
-}
-
-// Alias mixin (optional, for Be Vietnam only)
-@mixin font-variation($weight, $style: normal) {
-    @include font-be-vietnam($weight, $style);
-}
-
-// =========== MIXINS SCSS END=========================
-// =========== COMMON CSS===============================
-// @import './mixins';
-
-body {
-    margin: 0;
-    overflow-x: hidden;
-    background-color: #f9f9f9; // Replace $white-secondry with a real value or define the variable
-}
-
-a {
-    text-decoration: none;
-}
-
-li {
-    list-style: none;
-}
-
-// Be Vietnam Pro font utilities
-.be-vietnam-pro-thin {
-    @include font-be-vietnam(100);
-}
-
-.be-vietnam-pro-extralight {
-    @include font-be-vietnam(200);
-}
-
-.be-vietnam-pro-light {
-    @include font-be-vietnam(300);
-}
-
-.be-vietnam-pro-regular {
-    @include font-be-vietnam(400);
-}
-
-.be-vietnam-pro-medium {
-    @include font-be-vietnam(500);
-}
-
-.be-vietnam-pro-semibold {
-    @include font-be-vietnam(600);
-}
-
-.be-vietnam-pro-bold {
-    @include font-be-vietnam(700);
-}
-
-.be-vietnam-pro-extrabold {
-    @include font-be-vietnam(800);
-}
-
-.be-vietnam-pro-black {
-    @include font-be-vietnam(900);
-}
-
-// Montserrat font utilities
-.montserrat-thin {
-    @include font-montserrat(100);
-}
-
-.montserrat-extralight {
-    @include font-montserrat(200);
-}
-
-.montserrat-light {
-    @include font-montserrat(300);
-}
-
-.montserrat-regular {
-    @include font-montserrat(400);
-}
-
-.montserrat-medium {
-    @include font-montserrat(500);
-}
-
-.montserrat-semibold {
-    @include font-montserrat(600);
-}
-
-.montserrat-bold {
-    @include font-montserrat(700);
-}
-
-.montserrat-extrabold {
-    @include font-montserrat(800);
-}
-
-.montserrat-black {
-    @include font-montserrat(900);
-}
-
-// Poppins font utilities
-.poppins-thin {
-    @include font-poppins(100);
-}
-
-.poppins-extralight {
-    @include font-poppins(200);
-}
-
-.poppins-light {
-    @include font-poppins(300);
-}
-
-.poppins-regular {
-    @include font-poppins(400);
-}
-
-.poppins-medium {
-    @include font-poppins(500);
-}
-
-.poppins-semibold {
-    @include font-poppins(600);
-}
-
-.poppins-bold {
-    @include font-poppins(700);
-}
-
-.poppins-extrabold {
-    @include font-poppins(800);
-}
-
-.poppins-black {
-    @include font-poppins(900);
-}
-
-// Space Grotesk font utilities
-.space-grotesk-light {
-    @include font-space-grotesk(300);
-}
-
-.space-grotesk-regular {
-    @include font-space-grotesk(400);
-}
-
-.space-grotesk-medium {
-    @include font-space-grotesk(500);
-}
-
-.space-grotesk-semibold {
-    @include font-space-grotesk(600);
-}
-
-.space-grotesk-bold {
-    @include font-space-grotesk(700);
-}
-
-.montserrat-alternates-thin {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 100;
-    font-style: normal;
-}
-
-.montserrat-alternates-extralight {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 200;
-    font-style: normal;
-}
-
-.montserrat-alternates-light {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.montserrat-alternates-regular {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.montserrat-alternates-medium {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.montserrat-alternates-semibold {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 600;
-    font-style: normal;
-}
-
-.montserrat-alternates-bold {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.montserrat-alternates-extrabold {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 800;
-    font-style: normal;
-}
-
-.montserrat-alternates-black {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 900;
-    font-style: normal;
-}
-
-.montserrat-alternates-thin-italic {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 100;
-    font-style: italic;
-}
-
-.montserrat-alternates-extralight-italic {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 200;
-    font-style: italic;
-}
-
-.montserrat-alternates-light-italic {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 300;
-    font-style: italic;
-}
-
-.montserrat-alternates-regular-italic {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 400;
-    font-style: italic;
-}
-
-.montserrat-alternates-medium-italic {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 500;
-    font-style: italic;
-}
-
-.montserrat-alternates-semibold-italic {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 600;
-    font-style: italic;
-}
-
-.montserrat-alternates-bold-italic {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 700;
-    font-style: italic;
-}
-
-.montserrat-alternates-extrabold-italic {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 800;
-    font-style: italic;
-}
-
-.montserrat-alternates-black-italic {
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 900;
-    font-style: italic;
-}
-
-// Headings
-.heading-h1 {
-    font-size: pxToRem(72);
-    line-height: 150%;
-    @include font-be-vietnam(600);
-}
-
-.heading-h2 {
-    font-size: pxToRem(60);
-}
-
-.heading-h3 {
-    font-size: pxToRem(52);
-}
-
-.heading-h4 {
-    font-size: pxToRem(48);
-}
-
-// Section padding
-.section-larg-padding-T-B {
-    padding-top: pxToRem(80);
-    padding-bottom: pxToRem(80);
-}
-
-.section-medium-padding-T-B {
-    padding-top: pxToRem(40);
-    padding-bottom: pxToRem(40);
-}
-
-.section-small-padding-T-B {
-    padding-top: pxToRem(24);
-    padding-bottom: pxToRem(24);
-}
-
-// Margin utility
-.margin-larg-T-B {
-    margin-top: pxToRem(80);
-    margin-bottom: pxToRem(80);
-}
-
-.margin-medium-T-B {
-    margin-top: pxToRem(48);
-    margin-bottom: pxToRem(48);
-}
-
-.margin-small-T-B {
-    margin-top: pxToRem(24);
-    margin-bottom: pxToRem(24);
-}
-
-.w-80 {
-    width: 80%;
-}
-
-// =========== COMMON CSS END===========================
-
-
-
-
-
-:root {
-    --text-blue: rgba(26, 42, 108, 1);
-    --text-dark-blue: rgba(11, 30, 68, 1);
-    --light-white: rgba(250, 250, 250, 1);
-    --light-blue: rgba(64, 123, 255, 1);
-    --border-light: rgba(255, 255, 255, 0.4);
-    --light-white-bg: rgba(255, 255, 255, 0.15);
-    --text-blue-2: rgba(73, 52, 149, 1);
-    --dark-pink: rgba(224, 77, 176, 1);
-    --push-notification: rgba(157, 146, 210, 1);
-    --light-yellow: rgba(255, 217, 57, 1);
-    --text-light-black: rgba(51, 51, 51, 1);
-    --light-white: rgba(239, 243, 247, 0.7);
-    --light-white-1: rgba(239, 243, 247, 0.7);
-    --light-white-2: rgba(239, 243, 247, 1);
-    --light-cream: rgba(255, 242, 178, 1);
-    --slider-arrow-color: rgba(75, 50, 173, 1);
-    --light-pink: rgba(255, 153, 153, 1);
-    --light-yellow: rgba(255, 240, 96, 1);
-    --register-inp: rgba(92, 75, 161, 0.1);
-    --text-light-gray: rgba(161, 161, 161, 1);
-    --light-blue-background: rgba(73, 52, 149, 0.1);
-    --light-purple: rgba(235, 229, 243, 1);
-    --light-green: rgb(89, 231, 76);
-}
-
-/* ================ font colors ============== */
-.text-blue {
-    color: var(--text-blue);
-}
-
-.text-green {
-    color: var(--light-green) !important;
-}
-
-.text-light-white {
-    color: var(--light-white);
-}
-
-.text-dark-blue {
-    color: var(--text-dark-blue);
-}
-
-.text-blue-2 {
-    color: var(--text-blue-2);
-}
-
-.text-light-yellow {
-    color: var(--light-yellow);
-}
-
-.text-light-black {
-    color: var(--text-light-black);
-}
-
-.text-light-yellow {
-    color: var(--light-yellow);
-}
-
-.text-light-gray {
-    color: var(--text-light-gray);
-}
-
-/* ============================================= */
-
-/* ================ background colors ================ */
-
-.background-text-blue {
-    background-color: var(--text-blue) !important;
-}
-
-.background-light-blue {
-    background-color: var(--light-blue);
-}
-
-.background-dark-pink {
-    background-color: var(--dark-pink);
-}
-
-.background-push-notification {
-    background-color: var(--push-notification) !important;
-}
-
-.background-light-white {
-    background-color: var(--light-white);
-}
-
-.background-light-white-2 {
-    background-color: var(--light-white-2);
-}
-
-.background-light-cream {
-    background-color: var(--light-cream);
-}
-
-.background-light-pink {
-    background-color: var(--light-pink);
-}
-
-.background-light-white {
-    background-color: var(--light-white-bg);
-}
-
-.background-register-input {
-    background-color: var(--register-inp);
-}
-
-.background-light-white-1 {
-    background-color: var(--light-white-1);
-}
-
-.background-light-purple {
-    background-color: var(--light-purple);
-}
-
-// =============== BORDER ================================================
-.border-blue {
-    border: 1px solid var(--text-blue);
-}
+
+    // =========== MIXINS SCSS END=========================
+    // =========== COMMON CSS===============================
+    // @import './mixins';
+
+    body {
+        margin: 0;
+        overflow-x: hidden;
+        background-color: #f9f9f9; // Replace $white-secondry with a real value or define the variable
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    // Be Vietnam Pro font utilities
+    .be-vietnam-pro-thin {
+        @include font-be-vietnam(100);
+    }
+
+    .be-vietnam-pro-extralight {
+        @include font-be-vietnam(200);
+    }
+
+    .be-vietnam-pro-light {
+        @include font-be-vietnam(300);
+    }
+
+    .be-vietnam-pro-regular {
+        @include font-be-vietnam(400);
+    }
+
+    .be-vietnam-pro-medium {
+        @include font-be-vietnam(500);
+    }
+
+    .be-vietnam-pro-semibold {
+        @include font-be-vietnam(600);
+    }
+
+    .be-vietnam-pro-bold {
+        @include font-be-vietnam(700);
+    }
+
+    .be-vietnam-pro-extrabold {
+        @include font-be-vietnam(800);
+    }
+
+    .be-vietnam-pro-black {
+        @include font-be-vietnam(900);
+    }
+
+    // Montserrat font utilities
+    .montserrat-thin {
+        @include font-montserrat(100);
+    }
+
+    .montserrat-extralight {
+        @include font-montserrat(200);
+    }
+
+    .montserrat-light {
+        @include font-montserrat(300);
+    }
+
+    .montserrat-regular {
+        @include font-montserrat(400);
+    }
+
+    .montserrat-medium {
+        @include font-montserrat(500);
+    }
+
+    .montserrat-semibold {
+        @include font-montserrat(600);
+    }
+
+    .montserrat-bold {
+        @include font-montserrat(700);
+    }
+
+    .montserrat-extrabold {
+        @include font-montserrat(800);
+    }
+
+    .montserrat-black {
+        @include font-montserrat(900);
+    }
+
+    // Poppins font utilities
+    .poppins-thin {
+        @include font-poppins(100);
+    }
+
+    .poppins-extralight {
+        @include font-poppins(200);
+    }
+
+    .poppins-light {
+        @include font-poppins(300);
+    }
+
+    .poppins-regular {
+        @include font-poppins(400);
+    }
+
+    .poppins-medium {
+        @include font-poppins(500);
+    }
+
+    .poppins-semibold {
+        @include font-poppins(600);
+    }
+
+    .poppins-bold {
+        @include font-poppins(700);
+    }
+
+    .poppins-extrabold {
+        @include font-poppins(800);
+    }
+
+    .poppins-black {
+        @include font-poppins(900);
+    }
+
+    // Space Grotesk font utilities
+    .space-grotesk-light {
+        @include font-space-grotesk(300);
+    }
+
+    .space-grotesk-regular {
+        @include font-space-grotesk(400);
+    }
+
+    .space-grotesk-medium {
+        @include font-space-grotesk(500);
+    }
+
+    .space-grotesk-semibold {
+        @include font-space-grotesk(600);
+    }
+
+    .space-grotesk-bold {
+        @include font-space-grotesk(700);
+    }
+
+    .montserrat-alternates-thin {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 100;
+        font-style: normal;
+    }
+
+    .montserrat-alternates-extralight {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 200;
+        font-style: normal;
+    }
+
+    .montserrat-alternates-light {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    .montserrat-alternates-regular {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .montserrat-alternates-medium {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    .montserrat-alternates-semibold {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    .montserrat-alternates-bold {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .montserrat-alternates-extrabold {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 800;
+        font-style: normal;
+    }
+
+    .montserrat-alternates-black {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 900;
+        font-style: normal;
+    }
+
+    .montserrat-alternates-thin-italic {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 100;
+        font-style: italic;
+    }
+
+    .montserrat-alternates-extralight-italic {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 200;
+        font-style: italic;
+    }
+
+    .montserrat-alternates-light-italic {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 300;
+        font-style: italic;
+    }
+
+    .montserrat-alternates-regular-italic {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    .montserrat-alternates-medium-italic {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 500;
+        font-style: italic;
+    }
+
+    .montserrat-alternates-semibold-italic {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 600;
+        font-style: italic;
+    }
+
+    .montserrat-alternates-bold-italic {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 700;
+        font-style: italic;
+    }
+
+    .montserrat-alternates-extrabold-italic {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 800;
+        font-style: italic;
+    }
+
+    .montserrat-alternates-black-italic {
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-weight: 900;
+        font-style: italic;
+    }
+
+    // Headings
+    .heading-h1 {
+        font-size: pxToRem(72);
+        line-height: 150%;
+        @include font-be-vietnam(600);
+    }
+
+    .heading-h2 {
+        font-size: pxToRem(60);
+    }
+
+    .heading-h3 {
+        font-size: pxToRem(52);
+    }
+
+    .heading-h4 {
+        font-size: pxToRem(48);
+    }
+
+    // Section padding
+    .section-larg-padding-T-B {
+        padding-top: pxToRem(80);
+        padding-bottom: pxToRem(80);
+    }
+
+    .section-medium-padding-T-B {
+        padding-top: pxToRem(40);
+        padding-bottom: pxToRem(40);
+    }
+
+    .section-small-padding-T-B {
+        padding-top: pxToRem(24);
+        padding-bottom: pxToRem(24);
+    }
+
+    // Margin utility
+    .margin-larg-T-B {
+        margin-top: pxToRem(80);
+        margin-bottom: pxToRem(80);
+    }
+
+    .margin-medium-T-B {
+        margin-top: pxToRem(48);
+        margin-bottom: pxToRem(48);
+    }
+
+    .margin-small-T-B {
+        margin-top: pxToRem(24);
+        margin-bottom: pxToRem(24);
+    }
+
+    .w-80 {
+        width: 80%;
+    }
+
+    // =========== COMMON CSS END===========================
+
+
+
+
+
+    :root {
+        --text-blue: rgba(26, 42, 108, 1);
+        --text-dark-blue: rgba(11, 30, 68, 1);
+        --light-white: rgba(250, 250, 250, 1);
+        --light-blue: rgba(64, 123, 255, 1);
+        --border-light: rgba(255, 255, 255, 0.4);
+        --light-white-bg: rgba(255, 255, 255, 0.15);
+        --text-blue-2: rgba(73, 52, 149, 1);
+        --dark-pink: rgba(224, 77, 176, 1);
+        --push-notification: rgba(157, 146, 210, 1);
+        --light-yellow: rgba(255, 217, 57, 1);
+        --text-light-black: rgba(51, 51, 51, 1);
+        --light-white: rgba(239, 243, 247, 0.7);
+        --light-white-1: rgba(239, 243, 247, 0.7);
+        --light-white-2: rgba(239, 243, 247, 1);
+        --light-cream: rgba(255, 242, 178, 1);
+        --slider-arrow-color: rgba(75, 50, 173, 1);
+        --light-pink: rgba(255, 153, 153, 1);
+        --light-yellow: rgba(255, 240, 96, 1);
+        --register-inp: rgba(92, 75, 161, 0.1);
+        --text-light-gray: rgba(161, 161, 161, 1);
+        --light-blue-background: rgba(73, 52, 149, 0.1);
+        --light-purple: rgba(235, 229, 243, 1);
+        --light-green: rgb(89, 231, 76);
+    }
+
+    /* ================ font colors ============== */
+    .text-blue {
+        color: var(--text-blue);
+    }
+
+    .text-green {
+        color: var(--light-green) !important;
+    }
+
+    .text-light-white {
+        color: var(--light-white);
+    }
+
+    .text-dark-blue {
+        color: var(--text-dark-blue);
+    }
+
+    .text-blue-2 {
+        color: var(--text-blue-2);
+    }
+
+    .text-light-yellow {
+        color: var(--light-yellow);
+    }
+
+    .text-light-black {
+        color: var(--text-light-black);
+    }
+
+    .text-light-yellow {
+        color: var(--light-yellow);
+    }
+
+    .text-light-gray {
+        color: var(--text-light-gray);
+    }
+
+    /* ============================================= */
+
+    /* ================ background colors ================ */
+
+    .background-text-blue {
+        background-color: var(--text-blue) !important;
+    }
+
+    .background-light-blue {
+        background-color: var(--light-blue);
+    }
+
+    .background-dark-pink {
+        background-color: var(--dark-pink);
+    }
+
+    .background-push-notification {
+        background-color: var(--push-notification) !important;
+    }
+
+    .background-light-white {
+        background-color: var(--light-white);
+    }
+
+    .background-light-white-2 {
+        background-color: var(--light-white-2);
+    }
+
+    .background-light-cream {
+        background-color: var(--light-cream);
+    }
+
+    .background-light-pink {
+        background-color: var(--light-pink);
+    }
+
+    .background-light-white {
+        background-color: var(--light-white-bg);
+    }
+
+    .background-register-input {
+        background-color: var(--register-inp);
+    }
+
+    .background-light-white-1 {
+        background-color: var(--light-white-1);
+    }
+
+    .background-light-purple {
+        background-color: var(--light-purple);
+    }
+
+    // =============== BORDER ================================================
+    .border-blue {
+        border: 1px solid var(--text-blue);
+    }
 
 .purple-border-bottom {
     border-bottom: 1px solid var(--push-notification);
 }
 
-.border-radius-10{
+.border-radius-10 {
     border-radius: 10px;
 }
-.border-radius-12{
-border-radius: 12px;
-}
-// =======================================================================
 
-// =============== LETTER SPACING ================================================
-
-.ls-4 {
-    letter-spacing: 4px;
+.border-radius-12 {
+    border-radius: 12px;
 }
 
-// =======================================================================
+    // =======================================================================
+
+    // =============== LETTER SPACING ================================================
+
+    .ls-4 {
+        letter-spacing: 4px;
+    }
+
+    // =======================================================================
 
 
 // ========================= Navbar Section Start =============================
@@ -873,136 +875,389 @@ border-radius: 12px;
 }
 
 
-// ======================== Home Section Css Start ==========================
-.bg-gradient-color {
-    background: linear-gradient(180deg, #493495 0%, #8FD3EA 46%, #D2F1F9 69%, #EFF3F7 100%);
-}
+    // ======================== Home Section Css Start ==========================
+    .bg-gradient-color {
+        background: linear-gradient(180deg, #493495 0%, #8FD3EA 46%, #D2F1F9 69%, #EFF3F7 100%);
+    }
+
 .text-gray {
     color: rgba(69, 90, 100, 1);
 }
+
 // .hero-bottom-text{
 //     margin-top: 15%;
 // }
 
 .hero-bottom-text {
-  position: absolute;
-  bottom: 30px; /* jitna gap chahiye */
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
+    position: absolute;
+    bottom: 30px;
+    /* jitna gap chahiye */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
 }
+
 //  =============== Score Cards Css Start Here ======================
-.score-card{
+.score-card {
     background-color: rgba(26, 42, 108, 0.2);
 }
 
 
-
-
-
-// ================= FAQ Section  Start ============================
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition:
-        max-height 0.8s ease,
-        opacity 0.8s ease,
-        transform 0.8s ease;
-
-    &.open {
-        max-height: 500px; // or large enough to fit content
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    & .card-body {
-        padding: pxToRem(24) pxToRem(16) pxToRem(38) pxToRem(8);
-        border-bottom: 1px solid $push-notification;
-    }
-}
-
-// ======================== Footer Section Start  ===============================
-
-.offer-section {
-    width: 100%;
-    // background-position: top;
-    background-repeat: no-repeat;
+/*===================== HOW IT WORKS SECTION CSS END====================================*/
+.section-howitworks {
+    height: 100vh;
+    position: relative;
+    //   background-image: url('../src//assets/images/home/HowItWorks/bg-HIW.png');
+    background-position: top;
     background-size: cover;
-    // height: 350vh;
-    background-image: url(../src/assets/images/home/offer/offerbg.png);
+    background-repeat: repeat;
+    width: 100%;
+    padding: pxToRem(80) 0;
 
-    &::-webkit-scrollbar {
-        display: none;
+    .howitswork-title {
+        color: rgba(101, 103, 101, 1);
     }
 
-    @keyframes fadeUp {
-        0% {
+    &.start-animation {
+        .howitwork-first {
+            animation: robotMoveUp 2s forwards;
+            animation-delay: 1s;
+
+            .robort-image {
+                width: pxToRem(200);
+                transition: all 2s ease;
+            }
+
+            .robot-exit {
+                // Additional animation if needed
+            }
+
+            @keyframes robotMoveUp {
+                0% {
+                    transform: translateY(0) scale(1);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(pxToRem(-700)) scale(0.9);
+                    opacity: 0;
+                }
+            }
+        }
+
+        .howitwork-second {
             opacity: 0;
-            transform: translateY(pxToRem(70));
+            animation: fadeIn 1s forwards;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes robotExit {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(pxToRem(-100));
+            }
+        }
+    }
+
+    &.fade-out {
+        animation: fadeOut 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
         }
 
         100% {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 0;
         }
     }
 
-    .footer-fade-up {
+    &.zoom-down-out {
+        -webkit-animation: scale-down-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: scale-down-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        opacity: 1;
+    }
+
+    @-webkit-keyframes scale-down-right {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+        }
+
+        100% {
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+        }
+    }
+
+    @keyframes scale-down-right {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+        }
+
+        100% {
+            -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+            -webkit-transform-origin: 100% 70%;
+            transform-origin: 100% 80%;
+        }
+    }
+
+    .rocket-gif {
+        position: absolute;
+        left: 0;
+        top: 33%;
+        width: 15%;
+        margin-top: -7.5%;
+        z-index: 2;
+        animation: moveRocket 5s linear forwards;
+    }
+
+    @keyframes moveRocket {
+        0% {
+            left: 0%;
+            opacity: 1;
+        }
+
+        33% {
+            left: 15%;
+        }
+
+        66% {
+            left: 49%;
+        }
+
+        100% {
+            left: 92%;
+        }
+    }
+
+    .timeline-border {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 0;
+        border-top: pxToRem(2) dashed $bright-violet;
+        z-index: 0;
+        width: 0;
+        animation: drawTimeline 5.5s linear forwards;
+        border-top: 3px solid transparent;
+        border-image: repeating-linear-gradient(to right,
+                $dark-blue,
+                $dark-blue 5px,
+                transparent 5px,
+                transparent 12px) 3;
+    }
+
+    @keyframes drawTimeline {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 100%;
+        }
+    }
+
+    .inner-row-index {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: space-around;
+        margin-right: pxToRem(50);
+
+        .timeline-dot {
+            width: pxToRem(30);
+            height: pxToRem(30);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            background-color: var(--text-dark-blue);
+            opacity: 0;
+            z-index: 2;
+            transition: opacity 0.5s ease-in;
+
+            &.visible {
+                opacity: 1;
+            }
+
+            &:nth-of-type(1) {
+                left: 15%;
+            }
+
+            &:nth-of-type(2) {
+                left: 49%;
+            }
+
+            &:nth-of-type(3) {
+                left: 82%;
+            }
+        }
+
+        .planet-width {
+            width: pxToRem(126);
+        }
+    }
+
+    .howitworks-step {
         opacity: 0;
-        animation: fadeUp 1s forwards;
+        transform: translateX(pxToRem(-100));
+        transition: all 0.1s ease-in-out;
+
+        &.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
 
-    .footer-delay-700 {
-        animation-delay: 0.7s;
+    .section-heading {
+        z-index: 5;
+        position: relative;
+        color: $blue-secondry;
     }
 }
 
-.offer-footer-section {
-    background: url('../src/assets/images/footer/Footer.svg') top / cover no-repeat;
-    width: 100%;
-    height: 75dvh;
-    z-index: 9;
-    overflow: hidden;
+@keyframes zoomInUpCustom {
+    0% {
+        opacity: 0;
+        transform: scale(0.6) translateY(pxToRem(400));
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
-.footer-semi-planet {
-    background: url('../src/assets/Images/footer/semiplanet.svg') top / cover no-repeat;
-    width: 50%;
-    height: 94%;
-    bottom: 0%;
-    z-index: 1;
-    left: 25%;
+.zoom-in-up-custom {
+    animation: zoomInUpCustom 1s ease forwards;
 }
 
-.footer-semi-planet {
-    //  opacity: 0;
-    transform: translateY(40px);
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-    pointer-events: none;
-}
+/*===================== HOW IT WORKS SECTION CSS END====================================*/
 
-.footer-semi-planet.fade-in-up {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-    z-index: 3;
-}
+    // ================= FAQ Section  Start ============================
 
-.footer-semi-planet.invisible {
-    opacity: 0;
-    transform: translateY(200px);
-    pointer-events: none;
-}
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition:
+            max-height 0.8s ease,
+            opacity 0.8s ease,
+            transform 0.8s ease;
 
-//===================== FOOTER CSS AND ANIMATION CSS END -=============================
+        &.open {
+            max-height: 500px; // or large enough to fit content
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        & .card-body {
+            padding: pxToRem(24) pxToRem(16) pxToRem(38) pxToRem(8);
+            border-bottom: 1px solid $push-notification;
+        }
+    }
+
+    // ======================== Footer Section Start  ===============================
+
+    .offer-section {
+        width: 100%;
+        // background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        // height: 350vh;
+        background-image: url(../src/assets/images/home/offer/offerbg.png);
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(pxToRem(70));
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer-fade-up {
+            opacity: 0;
+            animation: fadeUp 1s forwards;
+        }
+
+        .footer-delay-700 {
+            animation-delay: 0.7s;
+        }
+    }
+
+    .offer-footer-section {
+        background: url('../src/assets/images/footer/Footer.svg') top / cover no-repeat;
+        width: 100%;
+        height: 75dvh;
+        z-index: 9;
+        overflow: hidden;
+    }
+
+    .footer-semi-planet {
+        background: url('../src/assets/Images/footer/semiplanet.svg') top / cover no-repeat;
+        width: 50%;
+        height: 94%;
+        bottom: 0%;
+        z-index: 1;
+        left: 25%;
+    }
+
+    .footer-semi-planet {
+        //  opacity: 0;
+        transform: translateY(40px);
+        transition:
+            opacity 0.8s ease,
+            transform 0.8s ease;
+        pointer-events: none;
+    }
+
+    .footer-semi-planet.fade-in-up {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        z-index: 3;
+    }
+
+    .footer-semi-planet.invisible {
+        opacity: 0;
+        transform: translateY(200px);
+        pointer-events: none;
+    }
+
+    //===================== FOOTER CSS AND ANIMATION CSS END -=============================
 
 
-// ============== How It Works CSS ==================
+    // ============== How It Works CSS ==================
 
 
 
@@ -1277,4 +1532,477 @@ border-radius: 12px;
     }
 
 
+    }
+
+
+
+
+
+      // ================ Invite a modal ===================
+
+        .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        }
+
+        .modal-content {
+  font-family: "Montserrat";
+
+  background: linear-gradient(
+    180deg,
+    #493495 0%,
+    #8FD3EA 46%,
+    #D2F1F9 69%,
+    #EFF3F7 100%
+  );
+
+  .modal-header {
+    border-bottom: none;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  form {
+    label {
+      display: flex;
+      flex-direction: column;
+      font-weight: 500;
+      text-align: left;
+      font-size: 16px;
+      color: #1A2A6C;
+    }
+
+    input,
+    select {
+      padding: 0.5rem;
+      border-radius: 8px;
+      width: 100%;        
+      height: 46px;
+      border: none;
+      outline: none;
+
+      &:focus,
+      &:hover {
+        outline: none !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  }
+
+  h2 {
+    margin-top: 2rem;
+    text-align: center;
+    color: #1A2A6C;
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 16px;
+    color: #1A2A6C;
+    margin-top: 1rem;  
+
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      background-color: #1A2A6C;
+      margin-right: 6px;
+
+      &:checked::after {
+        content: "✔";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+        font-size: 14px;
+        color: white;
+      }
+    }
+  }
+
+  .modal-footer {
+    border-top: none;
+    margin-top: 1rem;
+
+    .btn-custom {
+      background-color: #3B4A8C;
+      color: white;
+      width: 100%;         
+      border-radius: 8px;
+      padding: 0.7rem;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 1rem;
+
+      &:hover {
+        background-color: #2d3a70;
+      }
+    }
+  }
 }
+
+
+
+
+
+        /* Success Modal */
+
+        .success-modal-content{
+            width: 540px;
+            height: 388px;
+            background: white;
+            // padding: 1rem;
+            border-radius: 12px;
+            position: relative;
+
+        background: linear-gradient(
+            180deg,
+            #493495 0%,
+            #8FD3EA 46%,
+            #D2F1F9 69%,
+            #EFF3F7 100%
+            );
+
+            .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            border: none;
+            background: none;
+            border-radius: 100%;
+            background-image: url('./assets/Images/Ellipse\ 32.png');
+            cursor: pointer;
+            align-self: center;
+        }
+
+        h2{
+            color: #1A2A6C;
+            font-weight: 600;
+            font-size: 24px;
+            font-family: "Inter";
+            margin-top: 6rem;
+        } 
+        p{
+            font-family: "Space Grotesk";
+            font-size: 18px;
+            font-weight: 500;
+            color: #1A2A6C;
+        }
+            .btn-submit {
+            width: 523px;
+            height: 47px;
+            background-color: #3B4A8C;
+            color: white;
+            border: none;
+            // padding: 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 1rem;
+
+            &:hover {
+                background-color: #2d3a70;
+            }
+            }
+        }
+
+    // ================== Acknowledment css ==============
+    .my-custom-dialog .modal-content {
+    border: none;
+    overflow-y: auto;
+    color: #1A2A6C;
+    font-family: "Montserrat";
+
+    background: linear-gradient(
+        180deg,
+        #493495 0%,
+        #8fd3ea 46%,
+        #d2f1f9 69%,
+        #eff3f7 100%
+    );
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    .modal-header {
+        display: flex;
+        justify-content: center; 
+        border: none;
+
+        .modal-title {
+        color: #1a2a6c;
+        font-weight: 600;
+        font-size: 24px;
+        text-align: center;
+        width: 100%;
+        }
+    }
+
+    .modal-body {
+        text-align: left; 
+        font-family: "Montserrat";
+
+        p{
+            font-size: 14px;
+            a{
+                color: #1a2a6c;
+            }
+        }
+
+        
+    .checkbox-label {
+    display: flex;
+    align-items: flex-start; 
+    font-size: 14px;
+    color: #1A2A6C;
+    font-weight: 700;
+    flex-wrap: nowrap;
+    gap: 8px;
+
+    input[type="checkbox"] {
+        all: unset;
+        appearance: none;
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        position: relative;
+        background-color: #1A2A6C;
+        margin-top: 2px; 
+
+        &:checked::after {
+        content: "✔";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+        font-size: 14px;
+        color: white;
+        }
+    }
+
+    span {
+        flex: 1; 
+        line-height: 1.4;
+    }
+    }
+
+
+    }
+
+    .modal-footer {
+        display: flex;
+        justify-content: center; 
+        gap: 12px;
+
+
+        .btn {
+        min-width: 100px;
+        background-color: #1A2A6C;
+        }
+
+        .btn-decline{
+        background-color: transparent;
+        color: #1A2A6C;
+        border: 1px solid  #1A2A6C;
+        font-weight: 600;
+    
+        }
+    }
+    }
+
+    ul {
+    //   padding-left: 20px; 
+    margin: 0;
+
+    li {
+        text-align: left;   
+        list-style-type: none; 
+        margin-bottom: 6px;
+    }
+    }
+
+
+
+
+    // =================================  Acknowledment success 
+.success-modal-auto {
+  background: linear-gradient(
+    180deg,
+    #493495 0%,
+    #8fd3ea 46%,
+    #d2f1f9 69%,
+    #eff3f7 100%
+  );
+  border: none;
+  border-radius: 16px;
+  padding: 15px 20px;
+  display: inline-block;  
+  width: auto;             
+  max-width: 90%;          
+  height: auto;    
+
+  .success-title {
+    color: #1A2A6C;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .btn-custom{
+    background-color: #3B4A8C;
+    color: white;
+    border-radius: 50px;
+    padding-inline: 2.5rem;
+    margin-top: 1rem;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+// ========================================================================
+// My Referral Css start Here
+// ========================================================================
+.section-referral {
+  position: relative;
+
+  .referral-slider {
+    .referral-card {
+      height: 350px;
+      padding: 2rem !important;
+    }
+
+    .slick-track {
+      display: flex !important;
+      gap: 20px; // Adjust the gap as needed
+    }
+
+    .me-3 {
+      margin-top: 20%;
+
+      margin-right: 0 !important;
+    }
+
+    .slick-next {
+      display: block !important;
+    }
+  }
+}
+
+.referral-wrapper {
+  position: relative;
+}
+
+.referral-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, $white 100%);
+  border-radius: 12px;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+  transform-origin: bottom;
+  cursor: pointer;
+  z-index: 1;
+  height: 290px;
+  padding: 2.5rem 0;
+}
+
+.referral-card:hover {
+  background:
+    url(./assets/images/MyReferral/ufo-light.svg),
+    // linear-gradient(180deg, rgba(77, 60, 155, 0) 0%, #4d3c9b 94.59%);
+     linear-gradient(180deg, #4D3C9B 0%, #1A2A6C 94.59%);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0px 4px 16px 0px rgba(255, 255, 255, 0.25);
+  animation: moveUp 0.5s ease both;
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-60px);
+  }
+}
+
+.referral-card:hover .referral-txt {
+  color: rgba(250, 251, 253, 1) !important;
+}
+
+.referral-yellow-text {
+  color: #ffe14d;
+}
+
+.card-ufo-img {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: auto;
+  z-index: 1;
+}
+
+// Referral table css
+.referral-table{
+    border-radius: 12px !important;
+}
+.td{
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+}
+th, .referral-table-header {
+    background: rgba(73, 52, 149, 0.3)!important;
+       color:rgba(255, 255, 255, 1) !important;
+}
+
+td, .referral-table-body {
+     background: rgba(73, 52, 149, 0.2) !important;
+     color: #1A2A6C !important;
+}
+.referral-table-user{
+    width: 48px;
+    height: 48px;
+    background: rgba(242, 194, 109, 0.6);
+}
+
+
+// ========================================================================
+// My Referral CSS END
+// ========================================================================

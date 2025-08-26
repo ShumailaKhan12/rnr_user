@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Navbar from '../../components/navbar';
 import Button from '../../components/button';
 import FAQ from "../../components/faq";
+import InviteModal from '../../components/invite/InviteModal';
 
 
 // Import Images
@@ -12,6 +13,7 @@ import Referral from "../../assets/icons/scoreCard/referral.svg";
 import Plane from "../../assets/icons/scoreCard/plane.svg";
 import Clock from "../../assets/icons/scoreCard/clock.svg";
 import Cross from "../../assets/icons/scoreCard/cross.svg";
+import HomeHowitworks from './howItsWork';
 
 // Import Json
 const ScoreCardData = [
@@ -57,7 +59,9 @@ const faqData = [
     },
 ];
 
+
 const Home = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Footer Planet animation
     const footerRef = useRef(null);
@@ -93,8 +97,17 @@ const Home = () => {
                         <p className='font-40 montserrat-bold text-blue mb-0 lh-sm'>Share the Love, Get <br /> Rewarded – The More You <br /> Invite, the More You Earn!</p>
                         <p className='font-20 montserrat-medium text-gray'>Invite → Earn → Repeat. Let your knows be your gains.</p>
                         <div>
-                            <Button label={"Invite a MFD"} className='bg-blue text-white border-0 rounded-pill px-5 jura-semibold' />
-                        </div>
+                            <button
+                                className="bg-blue text-white border-0 rounded-pill px-5 jura-semibold"
+                                onClick={() => setIsModalOpen(true)}
+                            >
+                                Invite a MFD
+                            </button>
+
+                            <InviteModal
+                                isOpen={isModalOpen}
+                                onClose={() => setIsModalOpen(false)}
+                            />                      </div>
                     </div>
 
                 </div>
@@ -104,10 +117,10 @@ const Home = () => {
                 </div>
             </div>
             {/* ScoreCards Start Here */}
-            <div className='container'>
-                <div className='row py-5 gap-3 justify-content-center'>
+            <div className='container my-5'>
+                <div className='row pt-5 gap-3 justify-content-center'>
                     {ScoreCardData?.map((item, index) => (
-                        <div className='col-6 col-md-4 col-lg custom-5' key={index}>
+                        <div className='col-12 col-md-4 col-lg custom-5' key={index}>
                             <div className='score-card position-relative border-radius-12 d-flex flex-column align-items-center justify-content-center p-3'>
                                 <img src={item.image} className='position-absolute start-100 top-0 translate-middle' alt="Loading" />
                                 <p className='font-40 montserrat-bold text-blue mb-0'>{item?.score}</p>
@@ -118,6 +131,9 @@ const Home = () => {
                 </div>
             </div>
 
+
+            {/* How Its Work Start Here */}
+            <HomeHowitworks />
 
             {/* FAQ Section Start here */}
             <div className="mb-5">
