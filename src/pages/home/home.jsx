@@ -12,6 +12,7 @@ import Referral from "../../assets/icons/scoreCard/referral.svg";
 import Plane from "../../assets/icons/scoreCard/plane.svg";
 import Clock from "../../assets/icons/scoreCard/clock.svg";
 import Cross from "../../assets/icons/scoreCard/cross.svg";
+import HomeHowitworks from './howItsWork';
 
 // Import Json
 const ScoreCardData = [
@@ -104,10 +105,10 @@ const Home = () => {
                 </div>
             </div>
             {/* ScoreCards Start Here */}
-            <div className='container'>
-                <div className='row py-5 gap-3 justify-content-center'>
+            <div className='container my-5'>
+                <div className='row pt-5 gap-3 justify-content-center'>
                     {ScoreCardData?.map((item, index) => (
-                        <div className='col-6 col-md-4 col-lg custom-5' key={index}>
+                        <div className='col-12 col-md-4 col-lg custom-5' key={index}>
                             <div className='score-card position-relative border-radius-12 d-flex flex-column align-items-center justify-content-center p-3'>
                                 <img src={item.image} className='position-absolute start-100 top-0 translate-middle' alt="Loading" />
                                 <p className='font-40 montserrat-bold text-blue mb-0'>{item?.score}</p>
@@ -118,6 +119,9 @@ const Home = () => {
                 </div>
             </div>
 
+
+            {/* How Its Work Start Here */}
+            <HomeHowitworks />
 
             {/* FAQ Section Start here */}
             <div className="mb-5">
