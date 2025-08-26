@@ -6,7 +6,42 @@ import Button from '../../components/button';
 import FAQ from "../../components/faq";
 
 
+// Import Images
+import Meteors from "../../assets/icons/scoreCard/meteors.svg";
+import Referral from "../../assets/icons/scoreCard/referral.svg";
+import Plane from "../../assets/icons/scoreCard/plane.svg";
+import Clock from "../../assets/icons/scoreCard/clock.svg";
+import Cross from "../../assets/icons/scoreCard/cross.svg";
+
 // Import Json
+const ScoreCardData = [
+    {
+        score: 1900,
+        title: "Meteors",
+        image: Meteors,
+    },
+    {
+        score: 2000,
+        title: "Referrals",
+        image: Referral,
+    },
+    {
+        score: 300,
+        title: "Approved",
+        image: Plane,
+    },
+    {
+        score: 500,
+        title: "Pending",
+        image: Clock,
+    },
+    {
+        score: 1000,
+        title: "Rejected",
+        image: Cross,
+    },
+];
+
 const faqData = [
     {
         question: "What is Wealth Elite’s Reward & Referral Program?",
@@ -48,11 +83,11 @@ const Home = () => {
             if (footerRef.current) observer.unobserve(footerRef.current);
         };
     }, []);
-    
+
     return (
         <>
             <Navbar />
-            <div className='bg-gradient-color vh-100 d-flex flex-column align-items-center justify-content-center'>
+            <div className='bg-gradient-color vh-100 position-relative d-flex flex-column align-items-center justify-content-center'>
                 <div className='row align-items-center justify-content-center'>
                     <div className='col-lg-12 text-center'>
                         <p className='font-40 montserrat-bold text-blue mb-0 lh-sm'>Share the Love, Get <br /> Rewarded – The More You <br /> Invite, the More You Earn!</p>
@@ -63,9 +98,23 @@ const Home = () => {
                     </div>
 
                 </div>
-                <div className='pt-5'>
+                <div className='hero-bottom-text text-center'>
                     <p className='font-40 montserrat-bold text-blue mb-0 lh-sm'>Score - That will excite You</p>
-                    <p>Your metrics are here to track your progress </p>
+                    <p className='font-20 montserrat-medium text-gray'>Your metrics are here to track your progress </p>
+                </div>
+            </div>
+            {/* ScoreCards Start Here */}
+            <div className='container'>
+                <div className='row py-5 gap-3 justify-content-center'>
+                    {ScoreCardData?.map((item, index) => (
+                        <div className='col-6 col-md-4 col-lg custom-5' key={index}>
+                            <div className='score-card position-relative border-radius-12 d-flex flex-column align-items-center justify-content-center p-3'>
+                                <img src={item.image} className='position-absolute start-100 top-0 translate-middle' alt="Loading" />
+                                <p className='font-40 montserrat-bold text-blue mb-0'>{item?.score}</p>
+                                <p className='text-blue font-32 montserrat-medium'>{item?.title}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
