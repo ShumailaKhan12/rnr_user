@@ -1,11 +1,11 @@
+
 import React from 'react';
-import '../App.scss'
-import stepindicator from '../assets/stepindicator.png'
-import one from '../assets/1.png'
-import two from '../assets/2.png'
-import three from '../assets/3.png'
-import four from '../assets/4.png'
 import { NavLink } from 'react-router-dom';
+import stepindicator from '../../assets/Images/how-it-work/stepindicator.png'
+import one from '../../assets/Images/how-it-work/1.png'
+import two from '../../assets/Images/how-it-work/2.png'
+import three from '../../assets/Images/how-it-work/3.png'
+import four from '../../assets/Images/how-it-work/4.png'
 
 const HowItWorks = () => {
     return (
