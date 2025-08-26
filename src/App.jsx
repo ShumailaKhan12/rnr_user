@@ -8,12 +8,15 @@ import './styles/_function.scss';
 import './styles/_variables.scss';
 import './styles/main.scss';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import AppRoutes from './routes/appRoutes';
+// import HowItWorks from './pages/HowItWorks';
+// import Home from './pages/home/home';
 
 function App() {
 
   return (
     <>
-    
+      <AppRoutes />
     </>
   )
 }
