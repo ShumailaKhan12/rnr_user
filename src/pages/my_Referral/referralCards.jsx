@@ -46,23 +46,54 @@ const ReferralCards = ({ RefralDataAPI }) => {
     },
   ];
 
-   const sliderSettings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    arrows: true,
-    responsive: [
-      {
-        breakpoint: 768, // mobile
-        settings: {
-          slidesToShow: 1.2,
-          slidesToScroll: 1,
-          arrows: true,
-        },
+  //  const sliderSettings = {
+  //   dots: false,
+  //   infinite: false,
+  //   speed: 500,
+  //   slidesToShow: 2,
+  //   slidesToScroll: 1,
+  //   arrows: true,
+  //   responsive: [
+  //     {
+  //       breakpoint: 768, // mobile
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //         arrows: true,
+  //       },
+  //     },
+  //   ],
+
+  const sliderSettings = {
+  dots: false,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  arrows: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
       },
-    ],
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 480, 
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
   };
 
   const Card = ({ card }) => (
