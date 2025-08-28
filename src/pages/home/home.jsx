@@ -14,6 +14,7 @@ import Plane from "../../assets/icons/scoreCard/plane.svg";
 import Clock from "../../assets/icons/scoreCard/clock.svg";
 import Cross from "../../assets/icons/scoreCard/cross.svg";
 import HomeHowitworks from './howItsWork';
+import ReferralTimeline from '../../components/ReferalTimeline/ReferalTimeline';
 
 // Import Json
 const ScoreCardData = [
@@ -131,6 +132,8 @@ const Home = () => {
                 </div>
             </div>
 
+            {/* Referral Time Line */}
+            {/* <ReferralTimeline /> */}
 
             {/* How Its Work Start Here */}
             <HomeHowitworks />
