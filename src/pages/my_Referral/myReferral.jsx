@@ -93,7 +93,6 @@ const MyReferral = () => {
         <div className='container'>
           <NavLink to={"/home"} className={"text-decoration-none"}>
             <p className='text-white font-14 montserrat-medium'> <IoIosArrowBack className='font-18' /> Back</p>
-
           </NavLink>
           {/* Referral Cards Start Here */}
           <div className='py-5'>
@@ -104,7 +103,7 @@ const MyReferral = () => {
           <div className='pt-5'>
             <p className='font-32 space-grotesk-bold text-dark-blue'>My Referrals</p>
             <div className='referral-table table-responsive mt-5'>
-              <table className="table align-middle">
+              <table className="table align-middle text-nowrap">
                 <thead className='referral-table-header text-center'>
                   <tr>
                     <th scope="col" className='font-size-20 montserrat-medium text-start ps-5 py-3'>Name</th>
@@ -128,14 +127,13 @@ const MyReferral = () => {
                       <td className='font-size-16 montserrat-semibold'>{item?.status}</td>
                       <td className='font-size-16 montserrat-semibold'>{item?.points}</td>
                       <td className='font-size-24 montserrat-medium'>
-                        {item?.referral_status !== "completed" ? (
+                        {/* {item?.referral_status !== "completed" ? ( */}
                           <>
-                            <TrackMo
-                              dal />
+                            <TrackModal />
                           </>
-                        ) : (
+                        {/* ) : (
                           "-"
-                        )}
+                        )} */}
                       </td>
                     </tr>
                   ))}

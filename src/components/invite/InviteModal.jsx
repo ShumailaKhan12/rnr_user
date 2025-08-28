@@ -38,8 +38,8 @@ const InviteModal = ({ isOpen, onClose }) => {
             {/* Invite Modal */}
             {!successModalOpen && (
                 <div className="modal fade show overlay modal-overlay" style={{ display: "block" }}>
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
+                    <div className="modal-dialog modal-dialog-centered" role="document">
+                        <div className="modal-content px-2">
 
                             {/* Close btn */}
                             <button className="close-btn" onClick={onClose}>
@@ -52,7 +52,7 @@ const InviteModal = ({ isOpen, onClose }) => {
 
                             <form onSubmit={handleSubmit}>
                                 <div className="modal-body">
-                                    <div className="form-group">
+                                    <div className="form-group mb-3">
                                         <label>Referee Name</label>
                                         <input
                                             type="text"
@@ -64,7 +64,7 @@ const InviteModal = ({ isOpen, onClose }) => {
                                         />
                                     </div>
 
-                                    <div className="form-group">
+                                    <div className="form-group mb-3">
                                         <label>Referee Mobile</label>
                                         <input
                                             type="text"
@@ -76,7 +76,7 @@ const InviteModal = ({ isOpen, onClose }) => {
                                         />
                                     </div>
 
-                                    <div className="form-group">
+                                    <div className="form-group mb-3">
                                         <label>Referrer Firm / ARN</label>
                                         <input
                                             type="text"
