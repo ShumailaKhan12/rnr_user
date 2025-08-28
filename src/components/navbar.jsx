@@ -42,13 +42,13 @@ const Navbar = () => {
                                     <ul className="dropdown-menu nav-profile-drop position-absolute">
 
                                         <li className='py-1'>
-                                            {/* <Link className='montserrat-semibold text-blue'> */}
+                                            <NavLink to={"/profile"} className={"text-decoration-none"}>
                                             <span className='nav-link mx-3 cursor-pointer text-center font-16 jura-semibold text-blue'>
                                                 Profile Setting
                                             </span>
-                                            {/* </Link> */}
+                                            </NavLink>
                                         </li>
-                                        <hr className=' my-2' />
+                                        <hr className=' my-2 mx-3' />
                                         <li className='text-center py-1'>
                                             <button
                                                 // onClick={() => HandleLogout()} 
