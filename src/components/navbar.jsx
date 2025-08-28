@@ -9,7 +9,7 @@ const Navbar = () => {
         <>
             <nav className="navbar fixed-top navbar-expand-md navbar-light bg-transparent">
                 <div className="container-fluid">
-                    <a className="navbar-brand nav-logo-bg d-flex align-items-center justify-content-center " href="#">
+                    <a className="navbar-brand nav-logo-bg d-flex align-items-center justify-content-center" href="#">
                             <img src={Logo} alt="Logo" />
                         </a>
                         <button
