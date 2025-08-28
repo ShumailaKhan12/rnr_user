@@ -865,13 +865,88 @@ $spacing-values: 0, 4, 8, 10, 12, 14, 16, 20, 24, 32, 34, 36, 40, 44, 46, 48, 52
     background: url("./assets/Images/Logo/Ellipse\ 727.png") center center no-repeat;
     background-size: cover;
     width: 240px;
-    height: 100%;
+    height: 100px;
 }
 
 .dropdown-menu {
     min-width: 12rem !important;
     border: none !important;
     border-radius: 15px !important;
+}
+
+.navbar-toggler {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.navbar-brand {
+  margin-left: 15px; 
+}
+
+@media (min-width: 768px) {
+    .nav-logo-bg {
+        height: 115px;  
+    }
+}
+
+@media (max-width: 767px) {
+
+    .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: -100%; /* by default hidden */
+    width: 80%;  /* kitna area lena hai (80% screen width) */
+    height: 100vh;
+    background: rgba(237, 228, 228, 0.95);
+    padding-top: 80px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+
+  .navbar-collapse.show {
+    left: 0;
+  }
+
+  .navbar-collapse .nav-item {
+    text-align: left;
+    margin: 20px;
+  }
+
+  .navbar-toggler {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+  }
+}
+@media (max-width: 767px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: -100%; 
+    width: 100%; 
+    background: linear-gradient(180deg, #493495 0%, #8FD3EA 46%, #D2F1F9 69%, #EFF3F7 100%);    
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .navbar-collapse.show {
+    left: 0;
+  }
+
+  .navbar-collapse .nav-item {
+    text-align: left;
+    margin: 20px;
+  }
+
+  .navbar-toggler {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+  }
 }
 
 
@@ -1266,7 +1341,7 @@ $spacing-values: 0, 4, 8, 10, 12, 14, 16, 20, 24, 32, 34, 36, 40, 44, 46, 48, 52
     min-height: 100vh;
     min-width: 100vw;
     padding-inline: 40px;
-    font-family: "Montserrat";
+  @extend .montserrat-alternates-medium; 
 
     .row {
         margin: 0;
@@ -1553,8 +1628,8 @@ $spacing-values: 0, 4, 8, 10, 12, 14, 16, 20, 24, 32, 34, 36, 40, 44, 46, 48, 52
         z-index: 9999;
         }
 
-        .modal-content {
-  font-family: "Montserrat";
+        .custom-modal-content {
+ @extend .montserrat-alternates-regular; 
 
   background: linear-gradient(
     180deg,
@@ -1701,7 +1776,7 @@ $spacing-values: 0, 4, 8, 10, 12, 14, 16, 20, 24, 32, 34, 36, 40, 44, 46, 48, 52
             margin-top: 6rem;
         } 
         p{
-            font-family: "Space Grotesk";
+            @extend .space-grotesk-medium;
             font-size: 18px;
             font-weight: 500;
             color: #1A2A6C;
@@ -1730,7 +1805,7 @@ $spacing-values: 0, 4, 8, 10, 12, 14, 16, 20, 24, 32, 34, 36, 40, 44, 46, 48, 52
     border: none;
     overflow-y: auto;
     color: #1A2A6C;
-    font-family: "Montserrat";
+    @extend .montserrat-alternates-regular; 
 
     background: linear-gradient(
         180deg,
@@ -1763,7 +1838,7 @@ $spacing-values: 0, 4, 8, 10, 12, 14, 16, 20, 24, 32, 34, 36, 40, 44, 46, 48, 52
 
     .modal-body {
         text-align: left; 
-        font-family: "Montserrat";
+        @extend .montserrat-alternates-regular; 
 
         p{
             font-size: 14px;
@@ -2006,3 +2081,171 @@ td, .referral-table-body {
 // ========================================================================
 // My Referral CSS END
 // ========================================================================
+
+
+
+// ========================================== Referal Timeline CSS 
+
+.referral-timeline {
+   @extend .montserrat-alternates-regular; 
+  .progress-line {
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+     width: 90%; 
+    margin: 2rem auto; 
+
+    .line-bg {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      height: 14px;
+      background: #dcdcdc;
+      border-radius: 15px;
+      z-index: 1;
+      
+    }
+
+    .line-active {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      height: 14px;
+      background: #1a2a6c;
+      border-radius: 4px;
+      z-index: 2;
+      transition: width 0.5s ease-in-out;
+    }
+
+    .step {
+      position: relative;
+      z-index: 3;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .step-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+      }
+
+      p {
+        font-size: 16px;
+        color: #656765;
+      }
+.star{
+    position: absolute;
+    top: 2px;
+}
+      .inactive {
+        position: absolute;
+        top: 5px;
+      }
+      &.active .dot {
+        position: absolute;
+        top: 5px;
+      }
+    }
+
+   
+
+        .rocket {
+      position: absolute;
+      top: -2px;
+      transform: translateX(-50%);
+      transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
+      z-index: 5;
+      
+    }
+  }
+
+   .custom-btn {
+  background-color: #FFFFFF;   
+  border-radius: 50px;         
+  box-shadow: 0px 0px 25px #1A2A6C;  /* 4-side shadow */
+  padding: 10px 25px;         
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+  /* ✅ Mobile  */
+  @media (max-width: 768px) {
+    .progress-line {
+      flex-direction: column;
+      padding-left: 0;
+      align-items: center;
+
+      .line-bg {
+        top: 0;
+        left: 50%;
+        width: 14px;
+        height: 100%;
+    
+      }
+
+      .line-active {
+        top: 0;
+        left: 50%;
+        width: 14px;
+        height: 0;
+        transition: height 0.5s ease-in-out;
+      }
+      
+
+      .step {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+.star{
+    position: absolute;
+    left: 47%;
+}
+      .inactive {
+        position: absolute;
+        left: 48%;
+      }
+      &.active .dot {
+        position: absolute;
+        left: 48%;
+      }
+
+        p {
+          text-align: left;
+          font-size: 14px;
+          margin-left: 25%;
+          flex : 1;
+        }   
+      }
+
+     .rocket {
+      left: 51%;
+      top: 0;
+      transition: top 0.5s ease-in-out;
+       transform: translateX(-50%) rotate(90deg);
+    }
+    .star{
+    position: absolute;
+    left: 50%;
+}
+      .inactive {
+        position: absolute;
+        left: 50%;
+      }
+      &.active .dot {
+        position: absolute;
+        left: 50%;
+      }
+}
+  }
+}
+
+// =========================================
+// Referal timeline css End
+// =========================================

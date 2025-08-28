@@ -39,7 +39,7 @@ const InviteModal = ({ isOpen, onClose }) => {
             {!successModalOpen && (
                 <div className="modal fade show overlay modal-overlay" style={{ display: "block" }}>
                     <div className="modal-dialog" role="document">
-                        <div className="modal-content">
+                        <div className="modal-content custom-modal-content">
 
                             {/* Close btn */}
                             <button className="close-btn" onClick={onClose}>
