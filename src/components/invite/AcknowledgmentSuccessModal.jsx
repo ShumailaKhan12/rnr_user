@@ -14,7 +14,7 @@ const AcknowledgmentSuccessModal = ({ onClose }) => {
             style={{ display: "block" }}
         >
             <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content success-modal-auto">
+                <div className="modal-content custom-modal-content success-modal-auto">
                     {/* Close Button */}
                     <button className="close-btn" onClick={onClose}>
                         <img src={X} alt="close" />
