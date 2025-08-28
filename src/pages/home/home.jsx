@@ -118,9 +118,9 @@ const Home = () => {
             </div>
             {/* ScoreCards Start Here */}
             <div className='container my-5'>
-                <div className='row pt-5 gap-3 justify-content-center'>
+                <div className='row pt-5 gap-lg-3 gap-5 justify-content-center'>
                     {ScoreCardData?.map((item, index) => (
-                        <div className='col-12 col-md-4 col-lg custom-5' key={index}>
+                        <div className='col-10 col-md-4 col-lg' key={index}>
                             <div className='score-card position-relative border-radius-12 d-flex flex-column align-items-center justify-content-center p-3'>
                                 <img src={item.image} className='position-absolute start-100 top-0 translate-middle' alt="Loading" />
                                 <p className='font-40 montserrat-bold text-blue mb-0'>{item?.score}</p>

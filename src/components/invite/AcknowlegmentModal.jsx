@@ -35,7 +35,7 @@ const AcknowlegmentModal = ({ onClose }) => {
       style={{ display: "block" }}
     >
       <div className="modal-dialog modal-dialog-centered my-custom-dialog" role="document">
-        <div className="modal-content">
+        <div className="modal-content custom-modal-content">
           {/* Close */}
           <button className="close-btn" onClick={onClose}>
             <img src={X} alt="close" />
