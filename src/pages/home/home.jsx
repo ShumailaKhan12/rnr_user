@@ -98,7 +98,7 @@ const Home = () => {
                         <p className='font-20 montserrat-medium text-gray'>Invite → Earn → Repeat. Let your knows be your gains.</p>
                         <div>
                             <button
-                                className="bg-blue text-white border-0 rounded-pill px-5 jura-semibold"
+                                className="bg-blue text-white border-0 rounded-pill px-5 py-2 jura-semibold"
                                 onClick={() => setIsModalOpen(true)}
                             >
                                 Invite a MFD
