@@ -859,6 +859,12 @@
     // ========================= Navbar Section Start =============================
     .navbar {
         padding-top: 0 !important;
+         transition: background-color 0.5s ease-in-out;
+    }
+    .nav-bg{
+        background-color: #05103E;
+        // background: linear-gradient(180deg, #493495 0%, #8FD3EA 46%, #D2F1F9 69%,);
+         backdrop-filter: blur(6px);
     }
 
     .nav-logo-bg {

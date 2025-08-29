@@ -1,28 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 // Import Images
 import Logo from "../assets/Images/Logo/LOGO (1).svg";
 import { NavLink } from 'react-router-dom';
 import List from '../assets/Images/Logo/List.png'
 const Navbar = () => {
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+    const handleScroll = () => {
+      const firstSectionHeight = window.innerHeight * 0.8; // 80% of viewport height
+      if (window.scrollY > firstSectionHeight) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
     return (
         <>
-            <nav className="navbar fixed-top navbar-expand-md navbar-light bg-transparent">
+            <nav className={`navbar fixed-top navbar-expand-md navbar-light ${scrolled ? "nav-bg shadow-sm" : "bg-transparent"
+                }`}>
                 <div className="container-fluid">
                     <a className="navbar-brand nav-logo-bg d-flex align-items-center justify-content-center" href="#">
-                            <img src={Logo} className='mb-4' alt="Logo" />
-                        </a>
-                        <button
-                            className="navbar-toggler ms-auto border-0 shadow-none"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation"
-                        >
-                            <img src={List} alt="menu" width={48} height={48} />
-                        </button>
+                        <img src={Logo} className='mb-4' alt="Logo" />
+                    </a>
+                    <button
+                        className="navbar-toggler ms-auto border-0 shadow-none"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <img src={List} alt="menu" width={48} height={48} />
+                    </button>
                     <div className="collapse navbar-collapse container" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item">
@@ -52,9 +68,9 @@ const Navbar = () => {
 
                                         <li className='py-1'>
                                             <NavLink to={"/profile"} className={"text-decoration-none"}>
-                                            <span className='nav-link mx-3 cursor-pointer text-center font-16 jura-semibold text-blue'>
-                                                Profile Setting
-                                            </span>
+                                                <span className='nav-link mx-3 cursor-pointer text-center font-16 jura-semibold text-blue'>
+                                                    Profile Setting
+                                                </span>
                                             </NavLink>
                                         </li>
                                         <hr className=' my-2 mx-3' />
