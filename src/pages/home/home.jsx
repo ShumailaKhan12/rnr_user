@@ -133,7 +133,7 @@ const Home = () => {
             </div>
 
             {/* Referral Time Line */}
-            {/* <ReferralTimeline /> */}
+             <ReferralTimeline />
 
             {/* How Its Work Start Here */}
             <HomeHowitworks />

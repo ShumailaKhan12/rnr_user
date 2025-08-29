@@ -53,7 +53,7 @@ const ReferralTimeline = () => {
     let progress = safeStep === 0 ? 0 : (safeStep / (steps.length - 1)) * 100;
 
     return (
-        <div className={`referral-timeline ${isMobile ? "mobile" : ""}`}>
+        <div className={`referral-timeline pt-5 ${isMobile ? "mobile" : ""}`}>
             <div className={`progress-line position-relative ${!isMobile ? "d-flex" : ""}`}>
                 <div className="line-bg"></div>
                 <div
