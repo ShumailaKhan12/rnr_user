@@ -94,8 +94,8 @@ const ReferralTimeline = () => {
             </div>
 
 
-            <div className=" d-flex justify-content-end ">
-                <button className="btn custom-btn">
+            <div className=" d-flex justify-content-end mr-40 ">
+                <button className="btn custom-btn bg-white">
                     View More
                 </button>
             </div>
