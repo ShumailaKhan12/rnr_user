@@ -109,7 +109,7 @@ const ReferralCards = ({ RefralDataAPI }) => {
       />
       <p className="font-size-28 referral-txt montserrat-bold text-white pt-4">{card.count}</p>
       <p className="font-26 referral-txt montserrat-semibold text-blue mb-0">{card.title}</p>
-      <p className="font-size-14 montserrat-semibold referral-yellow-text">{card.subtitle}</p>
+      <p className="font-size-14 montserrat-semibold referred-card-subtitle">{card.subtitle}</p>
       {/* <button className="border-0 text-white rounded background-text-blue px-4 py-2 mt-3">
         View
       </button> */}

@@ -14,7 +14,7 @@ const AcknowledgmentDeclineModal = ({ onClose }) => {
             style={{ display: "block" }}
         >
             <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content success-modal-auto">
+                <div className="modal-content custom-modal-content success-modal-auto  bg-gradient-color">
                     {/* Close Button */}
                     <button className="close-btn" onClick={onClose}>
                         <img src={X} alt="close" />
@@ -23,10 +23,10 @@ const AcknowledgmentDeclineModal = ({ onClose }) => {
                     {/* Content */}
                     <div className="modal-body text-center p-4">
                         <img src={declineIcon} alt="decline" className="mb-3" />
-                        <h1 className="success-title">Invitation Declined</h1>
+                        <h1 className="success-title text-primary-color font-20">Invitation Declined</h1>
                         <Button 
                             label="Continue"
-                            className="btn-custom"
+                            className="btn-custom bg-blue text-white font-20"
                             onClick={onClose} 
                         />
                     </div>
