@@ -17,13 +17,13 @@ const InviteSuccessModal = ({ setSuccessModalOpen, onClose }) => {
                 >
                     <img src={X} alt="close" />
                 </button>
-                <h2 className='text-primary-color font-24'>Invite Sent Successfully!</h2>
+                <h2 className='text-primary-color font-24 montserrat-semibold'>Invite Sent Successfully!</h2>
                 <p className='space-grotesk-medium font-18 text-primary-color'>
                     Your invitation has been sent. <br />
                     Your friend will receive an Acknowledgement <br /> shortly.
                 </p>
                 <button
-                    className="btn-submit bg-blue font-16 text-white "
+                    className="btn-submit bg-blue font-16 text-white montserrat-semibold "
                     onClick={() => setSuccessModalOpen(false)} // Ye sirf success modal band karega
                 >
                     Send Another Invite
