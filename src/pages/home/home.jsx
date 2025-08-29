@@ -94,12 +94,12 @@ const Home = () => {
             <Navbar />
             <div className='bg-gradient-color vh-100 position-relative d-flex flex-column align-items-center justify-content-center'>
                 <div className='row align-items-center justify-content-center'>
-                    <div className='col-lg-12 text-center'>
-                        <p className='font-40 montserrat-bold text-blue mb-0 lh-sm'>Share the Love, Get <br /> Rewarded – The More You <br /> Invite, the More You Earn!</p>
+                    <div className='col-lg-12 text-center text-body'>
+                        <p className='font-40 montserrat-bold text-blue mb-0 lh-sm heading'>Share the Love, Get <br /> Rewarded – The More You <br /> Invite, the More You Earn!</p>
                         <p className='font-20 montserrat-medium text-gray'>Invite → Earn → Repeat. Let your knows be your gains.</p>
                         <div>
                             <button
-                                className="bg-blue text-white border-0 rounded-pill px-5 py-2 jura-semibold"
+                                className="bg-blue text-white border-0 rounded-pill px-5 py-2 jura-semibold invite-btn"
                                 onClick={() => setIsModalOpen(true)}
                             >
                                 Invite a MFD
@@ -113,8 +113,8 @@ const Home = () => {
 
                 </div>
                 <div className='hero-bottom-text text-center'>
-                    <p className='font-40 montserrat-bold text-blue mb-0 lh-sm'>Score - That will excite You</p>
-                    <p className='font-20 montserrat-medium text-gray'>Your metrics are here to track your progress </p>
+                    <p className='font-40 montserrat-bold text-blue mb-0 lh-sm score-text'>Score - That will excite You</p>
+                    <p className='font-20 montserrat-medium text-gray '>Your metrics are here to track your progress </p>
                 </div>
             </div>
             {/* ScoreCards Start Here */}

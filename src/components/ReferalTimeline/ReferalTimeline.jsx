@@ -15,7 +15,7 @@ const ReferralTimeline = () => {
         { id: 5, text: <>Congrats !! <br />Happy-go-lucky.</>, icon: star },
     ];
 
-    const [activeStep, setActiveStep] = useState(3);
+    const [activeStep, setActiveStep] = useState(2);
     const [rocketPos, setRocketPos] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
