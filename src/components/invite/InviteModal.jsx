@@ -92,11 +92,12 @@ const InviteModal = ({ isOpen, onClose }) => {
                                         <label className="font-16 montserrat-medium text-primary-color">
                                             Product of Interest (Optional)
                                             <select
+                                                className="form-select"
                                                 name="product"
                                                 value={formData.product}
                                                 onChange={handleChange}
                                             >
-                                                <option value=""></option>
+                                                <option value="Select">Select</option>
                                                 <option value="product1">Product 1</option>
                                                 <option value="product2">Product 2</option>
                                             </select>
@@ -131,7 +132,7 @@ const InviteModal = ({ isOpen, onClose }) => {
             {/* Success Modal */}
             {successModalOpen && (
                 <InviteSuccessModal setSuccessModalOpen={setSuccessModalOpen} onClose={onClose} />
-                
+
             )}
         </>
     );

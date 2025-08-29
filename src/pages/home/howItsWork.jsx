@@ -148,20 +148,20 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
           >
             <div className="row text-center position-relative inner-row-index">
               <div
-                className={`col-4 howitworks-step ${step >= 1 ? 'visible' : ''}`}
+                className={`col-12 col-md-4 howitworks-step ${step >= 1 ? 'visible' : ''}`}
               >
-                <h6 className="montserrat-bold font-20 mb-22 text-blue">
+                <h6 className="montserrat-bold font-20 mb-22 text-blue  lh-sm">
                   {/* {ContextFaqsDataAPI?.how_it_works?.[0]?.title1} */}
                   Launch Your Cosmic Journey
                 </h6>
-                <p className="montserrat-regular font-18 text-blue">
+                <p className="montserrat-regular font-18 text-blue  lh-sm">
                   {/* {ContextFaqsDataAPI?.how_it_works?.[0]?.desc1} */}
                   Start your adventure by signing up and setting course for your first galaxy. Every star you navigate brings you closer to exciting rewards. Ready to explore?
                 </p>
               </div>
 
               <div
-                className={`col-4 d-flex align-items-end justify-content-center howitworks-step ${step >= 3 ? 'visible' : ''}`}
+                className={`col-12 col-md-4 d-flex align-items-end justify-content-center howitworks-step ${step >= 3 ? 'visible' : ''}`}
               >
                 <img
                   src={Planet2}
@@ -171,13 +171,13 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
               </div>
 
               <div
-                className={`col-4 howitworks-step ${step >= 5 ? 'visible' : ''}`}
+                className={`col-12 col-md-4 howitworks-step ${step >= 5 ? 'visible' : ''}`}
               >
-                <h6 className="montserrat-bold font-20 mb-22 text-blue">
+                <h6 className="montserrat-bold font-20 mb-22 text-blue lh-sm">
                   {/* {ContextFaqsDataAPI?.how_it_works?.[0]?.title3} */}
                   Discover New Worlds & Unlock Rewards
                 </h6>
-                <p className="montserrat-regular font-18 text-blue">
+                <p className="montserrat-regular font-18 text-blue lh-sm">
                   {/* {ContextFaqsDataAPI?.how_it_works?.[0]?.desc3} */}
                   Every galaxy you explore holds new treasures! Collect points along the way and redeem
                   them for exclusive rewards. The final cosmic gem awaits, keep exploring!
@@ -194,7 +194,7 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
               </div>
 
               <div
-                className={`col-4 howitworks-step ${step >= 2 ? 'visible' : ''}`}
+                className={`col-12 col-md-4 howitworks-step ${step >= 2 ? 'visible' : ''}`}
               >
                 <img
                   src={Planet1}
@@ -204,13 +204,13 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
               </div>
 
               <div
-                className={`col-4 howitworks-step ${step >= 4 ? 'visible' : ''}`}
+                className={`col-12 col-md-4 howitworks-step ${step >= 4 ? 'visible' : ''}`}
               >
-                <h6 className="montserrat-bold font-20 mb-22 text-blue">
+                <h6 className="montserrat-bold font-20 mb-22 text-blue  lh-sm">
                   Invite a Friend & Travel Together
                   {/* {ContextFaqsDataAPI?.how_it_works?.[0]?.title2} */}
                 </h6>
-                <p className="montserrat-regular font-18 text-blue">
+                <p className="montserrat-regular font-18 text-blue  lh-sm">
                   {/* {ContextFaqsDataAPI?.how_it_works?.[0]?.desc2} */}
                   Space expeditions are more thrilling with a co-pilot! Invite a friend to join the journey, and you’ll both earn
                   points as you explore the universe together.
@@ -218,7 +218,7 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
               </div>
 
               <div
-                className={`col-4 howitworks-step ${step >= 6 ? 'visible' : ''}`}
+                className={`col-12 col-md-4 howitworks-step ${step >= 6 ? 'visible' : ''}`}
               >
                 <img
                   src={Planet3}

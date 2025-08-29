@@ -5,7 +5,7 @@
     $tablet-breakpoint: 1024px;
 
     $white: #ffffff;
-    $white-secondry: #f8f7ff; 
+    $white-secondry: #f8f7ff;
     $primary-color: #1a2a6c;
     $secondry-color: #cebacf;
     $dark-color: #675262;
@@ -33,7 +33,7 @@
     $light-pink: rgba(255, 153, 153, 1);
     $register-inp: rgba(92, 75, 161, 0.1);
     $text-light-gray: rgba(161, 161, 161, 1);
-    $shadow-Purple: #55024ccc; 
+    $shadow-Purple: #55024ccc;
     $shadow-yellow: #fc941acc;
     $shadow-green: #66968b;
     $shadow-blue: #4babdf;
@@ -859,12 +859,13 @@
     // ========================= Navbar Section Start =============================
     .navbar {
         padding-top: 0 !important;
-         transition: background-color 0.5s ease-in-out;
+        transition: background-color 0.5s ease-in-out;
     }
-    .nav-bg{
+
+    .nav-bg {
         background-color: #05103E;
         // background: linear-gradient(180deg, #493495 0%, #8FD3EA 46%, #D2F1F9 69%,);
-         backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
     }
 
     .nav-logo-bg {
@@ -971,11 +972,12 @@
         color: #455A64 !important;
     }
 
-    .text-body{
-        .heading br{
+    .text-body {
+        .heading br {
             display: inline;
         }
     }
+
     // .hero-bottom-text{
     //     margin-top: 15%;
     // }
@@ -990,29 +992,31 @@
     }
 
 
-    @media (max-width : $breakpoint-sm) { 
-        .text-body{
-            .heading{
+    @media (max-width : $breakpoint-sm) {
+        .text-body {
+            .heading {
                 font-size: 32px;
                 padding-inline: 5px;
                 padding-bottom: 10px;
                 padding-top: 15%;
-            } 
-            .heading br{
+            }
+
+            .heading br {
                 display: none;
             }
 
-        .invite-btn{
-            margin-block: 1rem;
-        }
-        }
-        
-        .hero-bottom-text {
-            .score-text{
-font-size: 20px;
+            .invite-btn {
+                margin-block: 1rem;
             }
-            p{
-              font-size: 16px;
+        }
+
+        .hero-bottom-text {
+            .score-text {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 16px;
             }
         }
     }
@@ -1272,6 +1276,7 @@ font-size: 20px;
     .zoom-in-up-custom {
         animation: zoomInUpCustom 1s ease forwards;
     }
+
 
     /*===================== HOW IT WORKS SECTION CSS END====================================*/
 
@@ -1554,6 +1559,14 @@ font-size: 20px;
 
     // Tablet responsive design
     @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+        .howitworks-step h6 {
+            font-size: 14px !important;
+        }
+
+        .howitworks-step p {
+            font-size: 12px !important;
+        }
+
         .offer-footer-section {
             height: 40vh;
             overflow: hidden;
@@ -1689,7 +1702,7 @@ font-size: 20px;
         z-index: 9999;
     }
 
-        .custom-modal-content {
+    .custom-modal-content {
 
         .modal-header {
             border-bottom: none;
@@ -1793,7 +1806,8 @@ font-size: 20px;
 
         h2 {
             margin-top: 6rem;
-        } 
+        }
+
         .btn-submit {
             width: 470px;
             height: 47px;
@@ -1807,8 +1821,8 @@ font-size: 20px;
 
     // ================== Acknowledment css ==============
     .my-custom-dialog .modal-content {
-    border: none;
-    overflow-y: auto;
+        border: none;
+        overflow-y: auto;
 
         &::-webkit-scrollbar {
             display: none;
@@ -1828,8 +1842,8 @@ font-size: 20px;
             }
         }
 
-    .modal-body {
-        text-align: left; 
+        .modal-body {
+            text-align: left;
 
             .checkbox-label {
                 display: flex;
@@ -1999,9 +2013,12 @@ font-size: 20px;
     .referred-card-subtitle {
         color: rgba(111, 122, 169, 1);
     }
-    .referral-card:hover .referred-card-subtitle{
-        color: #ffe14d;;
+
+    .referral-card:hover .referred-card-subtitle {
+        color: #ffe14d;
+        ;
     }
+
     @keyframes moveUp {
         0% {
             transform: translateY(0);
@@ -2428,14 +2445,15 @@ font-size: 20px;
 
     // ========================================== Referal Timeline CSS 
 
-.referral-timeline {
-height: auto;
-  .progress-line {
-    position: relative;
-    width: 100%;
-    justify-content: space-between;
-     width: 90%; 
-    margin: 2rem auto; 
+    .referral-timeline {
+        height: auto;
+
+        .progress-line {
+            position: relative;
+            width: 100%;
+            justify-content: space-between;
+            width: 90%;
+            margin: 2rem auto;
 
             .line-bg {
                 position: absolute;
@@ -2449,15 +2467,15 @@ height: auto;
 
             }
 
-    .line-active {
-      position: absolute;
-      top: 20px;
-      left: 0;
-      height: 14px;
-      border-radius: 4px;
-      z-index: 2;
-      transition: width 0.5s ease-in-out;
-    }
+            .line-active {
+                position: absolute;
+                top: 20px;
+                left: 0;
+                height: 14px;
+                border-radius: 4px;
+                z-index: 2;
+                transition: width 0.5s ease-in-out;
+            }
 
             .step {
                 position: relative;
@@ -2475,22 +2493,25 @@ height: auto;
                     height: 40px;
                 }
 
-      p {
-        color: #656765;
-      }
-.star{
-    position: absolute;
-    top: 2px;
-}
-      .inactive {
-        position: absolute;
-        top: 5px;
-      }
-      &.active .dot {
-        position: absolute;
-        top: 5px;
-      }
-    }
+                p {
+                    color: #656765;
+                }
+
+                .star {
+                    position: absolute;
+                    top: 2px;
+                }
+
+                .inactive {
+                    position: absolute;
+                    top: 5px;
+                }
+
+                &.active .dot {
+                    position: absolute;
+                    top: 5px;
+                }
+            }
 
 
 
@@ -2504,15 +2525,15 @@ height: auto;
             }
         }
 
-   .custom-btn {     
-  border-radius: 50px;         
-  box-shadow: 0px 0px 15px #1A2A6C; 
-  padding: 10px 25px;         
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
- margin-bottom: 0;
-}
+        .custom-btn {
+            border-radius: 50px;
+            box-shadow: 0px 0px 15px #1A2A6C;
+            padding: 10px 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+        }
 
 
         /* ✅ Mobile  */
@@ -2539,57 +2560,63 @@ height: auto;
                 }
 
 
-      .step {
-        flex-direction: row;
-        align-items: center;
-        margin-bottom: 10px;
-.star{
-    position: absolute;
-    left: 47%;
-}
-      .inactive {
-        position: absolute;
-        left: 48%;
-      }
-      &.active .dot {
-        position: absolute;
-        left: 47%;
-      }
+                .step {
+                    flex-direction: row;
+                    align-items: center;
+                    margin-bottom: 10px;
 
-        p {
-          text-align: left;
-          font-size: 14px;
-          margin-left: 20%;
-          flex : 1;
-        }   
-      }
+                    .star {
+                        position: absolute;
+                        left: 47%;
+                    }
 
-     .rocket {
-      left: 51%;
-      top: 0;
-      transition: top 0.5s ease-in-out;
-       transform: translateX(-50%) rotate(90deg);
+                    .inactive {
+                        position: absolute;
+                        left: 48%;
+                    }
+
+                    &.active .dot {
+                        position: absolute;
+                        left: 47%;
+                    }
+
+                    p {
+                        text-align: left;
+                        font-size: 14px;
+                        margin-left: 20%;
+                        flex: 1;
+                    }
+                }
+
+                .rocket {
+                    left: 51%;
+                    top: 0;
+                    transition: top 0.5s ease-in-out;
+                    transform: translateX(-50%) rotate(90deg);
+                }
+
+                .star {
+                    position: absolute;
+                    left: 50%;
+                }
+
+                .inactive {
+                    position: absolute;
+                    left: 50%;
+                }
+
+                &.active .dot {
+                    position: absolute;
+                    left: 50%;
+                }
+            }
+
+            //    .custom-btn {     
+            //  margin-bottom: 30%;
+            // }
+        }
+
     }
-    .star{
-    position: absolute;
-    left: 50%;
-}
-      .inactive {
-        position: absolute;
-        left: 50%;
-      }
-      &.active .dot {
-        position: absolute;
-        left: 50%;
-      }
-}
-
-//    .custom-btn {     
-//  margin-bottom: 30%;
-// }
-  }
-
-}
 
     // =========================================
     // Referal timeline css End
