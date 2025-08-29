@@ -81,7 +81,7 @@ const ReferralTimeline = () => {
                                 )
                             )}
                         </div>
-                        <p className="mt-3 font-20">{step.text}</p>
+                        <p className="mt-3 font-20 montserrat-medium lh-sm">{step.text}</p>
                     </div>
                 ))}
 
