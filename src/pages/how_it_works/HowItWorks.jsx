@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import stepindicator from '../../assets/Images/how-it-work/stepindicator.png'
+import stepindicator from '../../assets/Images/how-it-work/line.svg'
 import one from '../../assets/Images/how-it-work/1.png'
 import two from '../../assets/Images/how-it-work/2.png'
 import three from '../../assets/Images/how-it-work/3.png'
@@ -14,8 +14,8 @@ const HowItWorks = () => {
             <div className="row justify-content-center">
                 <div className="    ">
                     <div className="program-header text-center ">
-                        <h1 className="program-title montserrat-bold font-40">Referral & Earn program</h1>
-                        <p className="program-subtitle montserrat-medium font-20">
+                        <h1 className="program-title montserrat-bold font-40 ">Referral & Earn program</h1>
+                        <p className="program-subtitle montserrat-medium font-20 lh-sm">
                             Share the Love, Get Rewarded - The More You Invite,<br />
                             the More You Earn!
                         </p>
@@ -31,7 +31,7 @@ const HowItWorks = () => {
                                 <h3 className="step-title">INVITE</h3>
                                 <p className="step-description">
                                     Invite your <br /> friends and take <br /> the first step
-                                </p>
+                                </p>    
                             </div>
                         </div>
                         <img className='one' src={one} alt="" />

@@ -92,11 +92,11 @@ const Home = () => {
     return (
         <>
             <Navbar />
-            <div className='bg-gradient-color vh-100 position-relative d-flex flex-column align-items-center justify-content-center'>
+            <div className='bg-gradient-color  position-relative d-flex flex-column align-items-center justify-content-center hero-body'>
                 <div className='row align-items-center justify-content-center'>
                     <div className='col-lg-12 text-center text-body'>
                         <p className='font-40 montserrat-bold text-blue mb-0 lh-sm heading'>Share the Love, Get <br /> Rewarded – The More You <br /> Invite, the More You Earn!</p>
-                        <p className='font-20 montserrat-medium text-gray'>Invite → Earn → Repeat. Let your knows be your gains.</p>
+                        <p className='font-20 montserrat-medium text-gray px-4'>Invite → Earn → Repeat. Let your knows be your gains.</p>
                         <div>
                             <button
                                 className="bg-blue text-white border-0 rounded-pill px-5 py-2 jura-semibold invite-btn"

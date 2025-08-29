@@ -23,7 +23,7 @@ const InviteSuccessModal = ({ setSuccessModalOpen, onClose }) => {
                     Your friend will receive an Acknowledgement <br /> shortly.
                 </p>
                 <button
-                    className="btn-submit bg-blue font-16 text-white montserrat-semibold "
+                    className="btn-submit bg-blue font-16 text-white montserrat-medium "
                     onClick={() => setSuccessModalOpen(false)} // Ye sirf success modal band karega
                 >
                     Send Another Invite
