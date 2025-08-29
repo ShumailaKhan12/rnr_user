@@ -971,6 +971,7 @@
         color: #455A64 !important;
     }
 
+    
     .text-body{
         .heading br{
             display: inline;
@@ -994,7 +995,7 @@
         .text-body{
             .heading{
                 font-size: 32px;
-                padding-inline: 5px;
+                padding-inline: 20px;
                 padding-bottom: 10px;
                 padding-top: 15%;
             } 
@@ -1003,20 +1004,33 @@
             }
 
         .invite-btn{
-            margin-block: 1rem;
+            margin-block: 2rem;
         }
         }
         
         .hero-bottom-text {
+            position: absolute;
+            bottom: 10px;
             .score-text{
-font-size: 20px;
+            font-size: 20px;
             }
             p{
-              font-size: 16px;
+            font-size: 16px;
+            //   padding-inline: 20px;
             }
         }
     }
+       .hero-body {
+  height: 100vh; 
 
+//   @media (max-width: 991px) and (min-width: 768px) {
+//     height: 600px !important;
+//   }
+}
+
+
+
+    
     //  =============== Score Cards Css Start Here ======================
     .score-card {
         background-color: rgba(26, 42, 108, 0.2);
@@ -1515,12 +1529,6 @@ font-size: 20px;
             right: 5%;
             bottom: 10%;
             color: white;
-
-            &:hover {
-                background: #2d3a70;
-                // transform: translateY(-2px);
-                box-shadow: 0 8px 25px rgba(59, 74, 140, 0.25);
-            }
 
         }
 

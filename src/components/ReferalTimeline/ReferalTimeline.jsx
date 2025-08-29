@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../App.scss";
-import InActiveIcon from "../../assets/Images/referel-timeline/InActive-dot.png";
-import ActiveDot from "../../assets/Images/referel-timeline/acitve-dot.png";
+import InActiveIcon from "../../assets/Images/referel-timeline/InActive-dot.svg";
+import ActiveDot from "../../assets/Images/referel-timeline/active-dot.svg";
 import rocket from "../../assets/Images/referel-timeline/rocket.png";
-import star from "../../assets/Images/referel-timeline/star.png";
+import star from "../../assets/Images/referel-timeline/star.svg";
 
 const ReferralTimeline = () => {
     const steps = [
