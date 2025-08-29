@@ -335,9 +335,9 @@ const Profile = () => {
     <section className="profile-section" id="Profile_Section">
       {/* <Navbar /> */}
       <div className="container py-4 profile-container">
-      <NavLink to={"/home"} className={"text-decoration-none"}>
-        <p className='text-white font-14 montserrat-medium'> <IoIosArrowBack className='font-18' /> Back</p>
-      </NavLink>
+        <NavLink to={"/home"} className={"text-decoration-none"}>
+          <p className='text-white font-14 montserrat-medium'> <IoIosArrowBack className='font-18' /> Back</p>
+        </NavLink>
         {/* Header */}
         <div className="bg-profile-detail rounded-4 mb-32 p-4">
           <div className="d-flex justify-content-between  mb-36">
@@ -405,39 +405,45 @@ const Profile = () => {
             </h3>
             {[
               {
-                value: UserDataAPI?.part9,
+                // value: UserDataAPI?.part9,
+                value: 122,
                 label: 'Total Meteors Earned',
                 RewardIcons: Reward,
               },
               {
-                value: UserDataAPI?.part5,
+                // value: UserDataAPI?.part5,
+                value: 122,
                 label: 'Referral Earnings',
                 RewardIcons: Balance,
               },
               {
-                value: UserDataAPI?.part6,
+                // value: UserDataAPI?.part6,
+                value: 122,
                 label: 'Redeemed Meteors',
                 RewardIcons: Redeemed,
               },
               {
-                value: UserDataAPI?.part4,
+                // value: UserDataAPI?.part4,
+                value: 122,
                 label: 'Available Meteors',
                 RewardIcons: Pending,
               },
             ].map((item, idx) => (
-              <div className="col-6 col-lg-3 mt-0 mb-3 mb-lg-0" key={idx}>
+              <div className="col-12 col-md-6 col-lg-3 mt-0 mb-3 mb-lg-0" key={idx}>
                 <div className="d-flex flex-column justify-content-between bg-light-purple-transparent p-3 rounded">
                   <div className="d-flex justify-content-between">
                     <div className="reward-icons-div">
                       <img src={item?.RewardIcons} alt="Icons" />
                     </div>
-                    <h3 className="text-primary-color montserrat-semibold mb-8 font-24">
-                      {item?.value}
-                    </h3>
+                    <div>
+                      <h3 className="text-primary-color text-end montserrat-semibold mb-8 font-24 mb-0">
+                        {item?.value}
+                      </h3>
+                      <small className="montserrat-bold font-16 text-end text-primary-color lh-sm">
+                        {item?.label}
+                      </small>
+                    </div>
                   </div>
-                  <small className="montserrat-medium font-16 text-end text-primary-color">
-                    {item?.label}
-                  </small>
                 </div>
               </div>
             ))}
@@ -497,7 +503,7 @@ const Profile = () => {
           <div className="accordion-item bg-transparent border-0 border-radius-0">
             <h2 className="accordion-header bg-transparent">
               <button
-                className={`accordion-button text-light-color bg-transparent font-18 montserrat-semibold pt-4 pb-4 border-radius-0 ${activeSection === 'wallet' ? '' : 'collapsed'}`}
+                className={`accordion-button profile-accordian-text text-light-color bg-transparent font-18 montserrat-semibold pt-4 pb-4 border-radius-0 ${activeSection === 'wallet' ? '' : 'collapsed'}`}
                 type="button"
                 onClick={() => toggleSection('wallet')}
               >
@@ -511,7 +517,7 @@ const Profile = () => {
                 <p className="font-16 montserrat-semibold text-primary-color mb-24">
                   Your Current Wallet Balance
                 </p>
-                <div className="d-flex gap-4 fw-bold mb-32">
+                <div className="d-flex flex-wrap align-items-center gap-3 fw-bold mb-32">
                   <span
                     className="font-24 montserrat-bold text-primary-color"
                     role="button"
@@ -524,7 +530,7 @@ const Profile = () => {
                   </span>
                   <span className="ml-60 mr-60 text-light-color">|</span>
                   <span
-                    className="font-24 montserrat-bold text-primary-rr"
+                    className="font-24 montserrat-bold text-blue"
                     role="button"
                   >
                     {/* {
@@ -548,7 +554,8 @@ const Profile = () => {
                     </span>
                   </span>
                 </div>
-                <div className="d-flex gap-3 mb-24">
+
+                <div className="d-flex flex-wrap gap-3 mb-24">
                   <button
                     onClick={() => setIsmeteroModalOpen(true)}
                     className="btn background-text-blue rounded-pill font-14 text-white montserrat-semibold px-4"
@@ -557,7 +564,7 @@ const Profile = () => {
                   </button>
                   <button
                     onClick={() => setIsStarModalOpen(true)}
-                    className="btn background-light-white-2 font-14 border-blue text-blue rounded-pill montserrat-semibold px-4"
+                    className="btn background-light-white-2 font-14 border-blue text-blue rounded-pill montserrat-semibold px-lg-4 px-3"
                   >
                     Convert stars into cash/points
                   </button>
@@ -580,7 +587,7 @@ const Profile = () => {
           <div className="accordion-item bg-transparent border-0">
             <h2 className="accordion-header bg-transparent">
               <button
-                className={`accordion-button text-light-color bg-transparent font-18 montserrat-semibold pt-4 pb-4 ${activeSection === 'notifications' ? '' : 'collapsed'}`}
+                className={`accordion-button profile-accordian-text text-light-color bg-transparent font-18 montserrat-semibold pt-4 pb-4 ${activeSection === 'notifications' ? '' : 'collapsed'}`}
                 type="button"
                 onClick={() => toggleSection('notifications')}
               >
@@ -642,7 +649,7 @@ const Profile = () => {
           <div className="accordion-item bg-transparent border-0">
             <h2 className="accordion-header bg-transparent">
               <button
-                className={`accordion-button text-light-color bg-transparent font-18 montserrat-semibold pt-4 pb-4 ${activeSection === 'account' ? '' : 'collapsed'}`}
+                className={`accordion-button profile-accordian-text text-light-color bg-transparent font-18 montserrat-semibold pt-4 pb-4 ${activeSection === 'account' ? '' : 'collapsed'}`}
                 type="button"
                 onClick={() => toggleSection('account')}
               >
@@ -720,7 +727,7 @@ const Profile = () => {
                   >
                     <Link
                       className="text-decoration-none text-blue"
-                      to={'/profile-faqs'}
+                      to={'/profile-faq'}
                     >
                       Frequently Asked Questions
                     </Link>

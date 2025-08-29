@@ -15,7 +15,7 @@ const ReferralTimeline = () => {
         { id: 5, text: <>Congrats !! <br />Happy-go-lucky.</>, icon: star },
     ];
 
-    const [activeStep, setActiveStep] = useState(0);
+    const [activeStep, setActiveStep] = useState(3);
     const [rocketPos, setRocketPos] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -53,11 +53,11 @@ const ReferralTimeline = () => {
     let progress = safeStep === 0 ? 0 : (safeStep / (steps.length - 1)) * 100;
 
     return (
-        <div className={`referral-timeline pt-5 ${isMobile ? "mobile" : ""}`}>
+        <div className={`referral-timeline montserrat-medium pt-5 ${isMobile ? "mobile" : ""}`}>
             <div className={`progress-line position-relative ${!isMobile ? "d-flex" : ""}`}>
                 <div className="line-bg"></div>
                 <div
-                    className="line-active"
+                    className="line-active bg-blue"
                     style={!isMobile ? { width: `${progress}%` } : { height: `${progress}%` }}
                 ></div>
                 {steps.map((step, index) => (
@@ -81,7 +81,7 @@ const ReferralTimeline = () => {
                                 )
                             )}
                         </div>
-                        <p className="mt-3">{step.text}</p>
+                        <p className="mt-3 font-20">{step.text}</p>
                     </div>
                 ))}
 
@@ -94,8 +94,8 @@ const ReferralTimeline = () => {
             </div>
 
 
-            <div className=" d-flex justify-content-end ">
-                <button className="btn custom-btn">
+            <div className=" d-flex justify-content-end mr-40 ">
+                <button className="btn custom-btn bg-white">
                     View More
                 </button>
             </div>

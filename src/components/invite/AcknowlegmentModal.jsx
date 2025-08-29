@@ -34,7 +34,7 @@ const AcknowlegmentModal = ({ onClose }) => {
       aria-hidden="true"
       style={{ display: "block" }}
     >
-      <div className="modal-dialog modal-dialog-centered my-custom-dialog" role="document">
+      <div className="modal-dialog modal-dialog-centered my-custom-dialog bg-gradient-color text-primary-color" role="document">
         <div className="modal-content custom-modal-content">
           {/* Close */}
           <button className="close-btn" onClick={onClose}>
@@ -48,16 +48,16 @@ const AcknowlegmentModal = ({ onClose }) => {
 
           {/* Header */}
           <div className="modal-header justify-content-center border-0">
-            <h5 className="modal-title">Acknowledgement</h5>
+            <h5 className="modal-title montserrat-semibold font-24 text-primary-color">Acknowledgement</h5>
           </div>
 
           {/* Body */}
-          <div className="modal-body text-start">
-            <p><strong>Referral ID -</strong> SAK123</p>
-            <p><strong>Date -</strong> dd-mm-yyyy</p>
+          <div className="modal-body text-start  montserrat text-primary-color">
+            <p className="font-14"><strong>Referral ID -</strong> SAK123</p>
+            <p className="font-14"><strong>Date -</strong> dd-mm-yyyy</p>
 
-            <p className="fw-bold mb-1">Details of Referrer -</p>
-            <p>
+            <p className="fw-bold mb-1 font-14">Details of Referrer -</p>
+            <p className="font-14">
               The invite has been sent by <strong>Sakshee</strong>, holding
               mobile number{" "}
               <strong><a href="tel:9685492401">9685492401</a></strong>{" "}
@@ -66,15 +66,15 @@ const AcknowlegmentModal = ({ onClose }) => {
               with referral code <strong>WESAK11</strong>.
             </p>
 
-            <p className="fw-bold ">Purpose of Invitation -</p>
-            <p className="mb-0">This invitation has been sent for:</p>
-            <p className="mb-0">→ Inviting the Referred Person to join</p>
-            <p className="mb-0">→ Availing referral rewards</p>
-            <p>→ Accessing offers and discounts.</p>
+            <p className="fw-bold font-14">Purpose of Invitation -</p>
+            <p className="mb-0 font-14">This invitation has been sent for:</p>
+            <p className="mb-0 font-14">→ Inviting the Referred Person to join</p>
+            <p className="mb-0 font-14">→ Availing referral rewards</p>
+            <p className="font-14">→ Accessing offers and discounts.</p>
 
             <label className="checkbox-label">
               <input type="checkbox" name="permission" required />
-              <span>
+              <span className="montserrat-bold font-14 text-primary-color">
                 I hereby acknowledge that I have joined/registered through the
                 referral of the above individual.
               </span>
@@ -85,14 +85,14 @@ const AcknowlegmentModal = ({ onClose }) => {
           <div className="modal-footer justify-content-center border-0">
             <button
               type="button"
-              className="btn btn-decline btn-secondary me-2"
+              className="btn btn-decline btn-secondary me-2 "
               onClick={() => setStep("decline")}
             >
               Decline
             </button>
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-primary bg-blue"
               onClick={() => setStep("success")}
             >
               Accept

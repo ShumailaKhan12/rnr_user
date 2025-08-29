@@ -5,7 +5,7 @@
     $tablet-breakpoint: 1024px;
 
     $white: #ffffff;
-    $white-secondry: #f8f7ff;
+    $white-secondry: #f8f7ff; 
     $primary-color: #1a2a6c;
     $secondry-color: #cebacf;
     $dark-color: #675262;
@@ -33,7 +33,7 @@
     $light-pink: rgba(255, 153, 153, 1);
     $register-inp: rgba(92, 75, 161, 0.1);
     $text-light-gray: rgba(161, 161, 161, 1);
-    $shadow-Purple: #55024ccc;
+    $shadow-Purple: #55024ccc; 
     $shadow-yellow: #fc941acc;
     $shadow-green: #66968b;
     $shadow-blue: #4babdf;
@@ -861,93 +861,96 @@
         padding-top: 0 !important;
     }
 
-.nav-logo-bg {
-    background: url("./assets/Images/Logo/Ellipse\ 727.png") center center no-repeat;
-    background-size: cover;
-    width: 240px;
-    height: 100px;
-}
-
-.dropdown-menu {
-    min-width: 12rem !important;
-    border: none !important;
-    border-radius: 15px !important;
-}
-
-.navbar-toggler {
-    border: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-}
-
-.navbar-brand {
-  margin-left: 15px; 
-}
-
-@media (min-width: 768px) {
     .nav-logo-bg {
-        height: 115px;  
+        background: url("./assets/Images/Logo/Ellipse\ 727.png") center center no-repeat;
+        background-size: cover;
+        width: 240px;
+        height: 100px;
     }
-}
 
-@media (max-width: 767px) {
+    .dropdown-menu {
+        min-width: 12rem !important;
+        border: none !important;
+        border-radius: 15px !important;
+    }
 
-    .navbar-collapse {
-    position: fixed;
-    top: 0;
-    left: -100%; /* by default hidden */
-    width: 80%;  /* kitna area lena hai (80% screen width) */
-    height: 100vh;
-    background: rgba(237, 228, 228, 0.95);
-    padding-top: 80px;
-    transition: left 0.3s ease-in-out;
-    z-index: 1000;
-}
+    .navbar-toggler {
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    .navbar-brand {
+        margin-left: 15px;
+    }
+
+    @media (min-width: 768px) {
+        .nav-logo-bg {
+            height: 115px;
+        }
+    }
+
+    @media (max-width: 767px) {
+
+        .navbar-collapse {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            /* by default hidden */
+            width: 80%;
+            /* kitna area lena hai (80% screen width) */
+            height: 100vh;
+            background: rgba(237, 228, 228, 0.95);
+            padding-top: 80px;
+            transition: left 0.3s ease-in-out;
+            z-index: 1000;
+        }
 
 
-  .navbar-collapse.show {
-    left: 0;
-  }
+        .navbar-collapse.show {
+            left: 0;
+        }
 
-  .navbar-collapse .nav-item {
-    text-align: left;
-    margin: 20px;
-  }
+        .navbar-collapse .nav-item {
+            text-align: left;
+            margin: 20px;
+        }
 
-  .navbar-toggler {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1100;
-  }
-}
-@media (max-width: 767px) {
-  .navbar-collapse {
-    position: fixed;
-    top: 0;
-    left: -100%; 
-    width: 100%; 
-    background: linear-gradient(180deg, #493495 0%, #8FD3EA 46%, #D2F1F9 69%, #EFF3F7 100%);    
-    transition: left 0.3s ease-in-out;
-    z-index: 1000;
-  }
+        .navbar-toggler {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1100;
+        }
+    }
 
-  .navbar-collapse.show {
-    left: 0;
-  }
+    @media (max-width: 767px) {
+        .navbar-collapse {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            background: linear-gradient(180deg, #493495 0%, #8FD3EA 46%, #D2F1F9 69%, #EFF3F7 100%);
+            transition: left 0.3s ease-in-out;
+            z-index: 1000;
+        }
 
-  .navbar-collapse .nav-item {
-    text-align: left;
-    margin: 20px;
-  }
+        .navbar-collapse.show {
+            left: 0;
+        }
 
-  .navbar-toggler {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1100;
-  }
-}
+        .navbar-collapse .nav-item {
+            text-align: left;
+            margin: 20px;
+        }
+
+        .navbar-toggler {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1100;
+        }
+    }
 
     .dropdown-menu[data-bs-popper] {
         top: 124% !important;
@@ -1334,12 +1337,13 @@
 
     //===================== FOOTER CSS AND ANIMATION CSS END -=============================
 
+
+    // ================== How it works
     .referral-program {
         background: white;
         min-height: 100vh;
         min-width: 100vw;
         padding-inline: 40px;
-        font-family: "Montserrat";
 
         .row {
             margin: 0;
@@ -1358,18 +1362,16 @@
         .program-header {
 
             .program-title {
-                font-size: 40px;
-                font-weight: 700;
                 color: #05103E;
                 margin: 0%;
                 padding-top: 30px;
+                text-align: left;
             }
 
             .program-subtitle {
-                font-size: 20px;
                 color: #656765;
                 line-height: 100%;
-                font-weight: 500;
+                text-align: left;
             }
         }
 
@@ -1396,8 +1398,8 @@
                 z-index: 2;
 
                 &.step-1 {
-                    left: 17%;
-                    bottom: 6%;
+                    left: 15%;
+                    bottom: 3%;
                     // transform: translateY(-50%);
                 }
 
@@ -1485,7 +1487,7 @@
 
         .one {
             position: absolute;
-            left: 27%;
+            left: 25%;
             bottom: 2%
         }
 
@@ -1512,11 +1514,12 @@
     }
 
     // Tablet responsive design
-    @media (min-width: 768px) and (max-width: 1500px) {
-          .offer-footer-section {
+    @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+        .offer-footer-section {
             height: 40vh;
             overflow: hidden;
         }
+
         .footer-semi-planet {
             width: 100%;
             bottom: 0%;
@@ -1529,7 +1532,7 @@
 
             .program-header {
                 .program-title {
-                    font-size: 34px;
+                    font-size: 30px;
                 }
 
                 .program-subtitle {
@@ -1554,8 +1557,8 @@
                     }
 
                     &.step-1 {
-                        left: 12%;
-                        bottom: -10%;
+                        left: 10%;
+                        bottom: -15%;
                     }
 
                     &.step-2 {
@@ -1566,7 +1569,7 @@
 
                     &.step-3 {
                         right: 28%;
-                        bottom: 0%;
+                        bottom: -3%;
                     }
 
                     &.step-4 {
@@ -1579,7 +1582,7 @@
                     }
 
                     .step-description {
-                        font-size: 18px;
+                        font-size: 10px;
                     }
                 }
             }
@@ -1595,8 +1598,8 @@
             }
 
             .one {
-                left: 27%;
-                bottom: -10%;
+                left: 28%;
+                bottom: -15%;
             }
 
             .two {
@@ -1606,7 +1609,7 @@
 
             .three {
                 right: 25%;
-                bottom: 3%;
+                bottom: 1%;
             }
 
             .four {
@@ -1619,6 +1622,10 @@
     }
 
     @media (max-width: 676px) {
+        .profile-accordian-text {
+            font-size: 14px !important;
+        }
+
         .footer-semi-planet {
             width: 100%;
             bottom: 0%;
@@ -1644,13 +1651,6 @@
     }
 
         .custom-modal-content {
- @extend .montserrat-alternates-regular; 
-
-        background: linear-gradient(180deg,
-                #493495 0%,
-                #8FD3EA 46%,
-                #D2F1F9 69%,
-                #EFF3F7 100%);
 
         .modal-header {
             border-bottom: none;
@@ -1662,10 +1662,7 @@
             label {
                 display: flex;
                 flex-direction: column;
-                font-weight: 500;
                 text-align: left;
-                font-size: 16px;
-                color: #1A2A6C;
             }
 
             input,
@@ -1688,18 +1685,12 @@
 
         h2 {
             margin-top: 2rem;
-            text-align: center;
-            color: #1A2A6C;
-            font-size: 30px;
-            font-weight: 600;
         }
 
         .checkbox-label {
             display: flex;
             align-items: center;
             flex-direction: row;
-            font-size: 16px;
-            color: #1A2A6C;
             margin-top: 1rem;
 
             input[type="checkbox"] {
@@ -1730,18 +1721,11 @@
             margin-top: 1rem;
 
             .btn-custom {
-                background-color: #3B4A8C;
-                color: white;
+                // color: white;
                 width: 100%;
                 border-radius: 8px;
                 padding: 0.7rem;
-                font-size: 16px;
-                font-weight: 500;
                 margin-bottom: 1rem;
-
-                &:hover {
-                    background-color: #2d3a70;
-                }
             }
         }
     }
@@ -1751,16 +1735,9 @@
     .success-modal-content {
         width: 540px;
         height: 388px;
-        background: white;
         // padding: 1rem;
         border-radius: 12px;
         position: relative;
-
-        background: linear-gradient(180deg,
-                #493495 0%,
-                #8FD3EA 46%,
-                #D2F1F9 69%,
-                #EFF3F7 100%);
 
         .close-btn {
             position: absolute;
@@ -1776,35 +1753,20 @@
         }
 
         h2 {
-            color: #1A2A6C;
             font-weight: 600;
-            font-size: 24px;
             font-family: "Inter";
             margin-top: 6rem;
         } 
-        p{
-            @extend .space-grotesk-medium;
-            font-size: 18px;
-            font-weight: 500;
-            color: #1A2A6C;
-        }
-
         .btn-submit {
             width: 523px;
             height: 47px;
-            background-color: #3B4A8C;
-            color: white;
             border: none;
             // padding: 12px;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 16px;
             margin-top: 1rem;
-
-            &:hover {
-                background-color: #2d3a70;
-            }
+            font-family: "Inter";
         }
     }
 
@@ -1812,14 +1774,6 @@
     .my-custom-dialog .modal-content {
     border: none;
     overflow-y: auto;
-    color: #1A2A6C;
-    @extend .montserrat-alternates-regular; 
-
-        background: linear-gradient(180deg,
-                #493495 0%,
-                #8fd3ea 46%,
-                #d2f1f9 69%,
-                #eff3f7 100%);
 
         &::-webkit-scrollbar {
             display: none;
@@ -1834,9 +1788,6 @@
             border: none;
 
             .modal-title {
-                color: #1a2a6c;
-                font-weight: 600;
-                font-size: 24px;
                 text-align: center;
                 width: 100%;
             }
@@ -1844,23 +1795,10 @@
 
     .modal-body {
         text-align: left; 
-        @extend .montserrat-alternates-regular; 
-
-            p {
-                font-size: 14px;
-
-                a {
-                    color: #1a2a6c;
-                }
-            }
-
 
             .checkbox-label {
                 display: flex;
                 align-items: flex-start;
-                font-size: 14px;
-                color: #1A2A6C;
-                font-weight: 700;
                 flex-wrap: nowrap;
                 gap: 8px;
 
@@ -1904,7 +1842,6 @@
 
             .btn {
                 min-width: 100px;
-                background-color: #1A2A6C;
             }
 
             .btn-decline {
@@ -1929,15 +1866,9 @@
     }
 
 
-
-
     // =================================  Acknowledment success 
     .success-modal-auto {
-        background: linear-gradient(180deg,
-                #493495 0%,
-                #8fd3ea 46%,
-                #d2f1f9 69%,
-                #eff3f7 100%);
+
         border: none;
         border-radius: 16px;
         padding: 15px 20px;
@@ -1947,16 +1878,13 @@
         height: auto;
 
         .success-title {
-            color: #1A2A6C;
+            font-family: "Inter";
             font-weight: 600;
-            font-size: 20px;
             margin-bottom: 8px;
             text-align: center;
         }
 
         .btn-custom {
-            background-color: #3B4A8C;
-            color: white;
             border-radius: 50px;
             padding-inline: 2.5rem;
             margin-top: 1rem;
@@ -2033,6 +1961,12 @@
         animation: moveUp 0.5s ease both;
     }
 
+    .referred-card-subtitle {
+        color: rgba(111, 122, 169, 1);
+    }
+    .referral-card:hover .referred-card-subtitle{
+        color: #ffe14d;;
+    }
     @keyframes moveUp {
         0% {
             transform: translateY(0);
@@ -2457,10 +2391,10 @@
 
 
 
-// ========================================== Referal Timeline CSS 
+    // ========================================== Referal Timeline CSS 
 
 .referral-timeline {
-   @extend .montserrat-alternates-regular; 
+height: auto;
   .progress-line {
     position: relative;
     width: 100%;
@@ -2468,47 +2402,45 @@
      width: 90%; 
     margin: 2rem auto; 
 
-    .line-bg {
-      position: absolute;
-      top: 20px;
-      left: 0;
-      right: 0;
-      height: 14px;
-      background: #dcdcdc;
-      border-radius: 15px;
-      z-index: 1;
-      
-    }
+            .line-bg {
+                position: absolute;
+                top: 20px;
+                left: 0;
+                right: 0;
+                height: 14px;
+                background: #dcdcdc;
+                border-radius: 15px;
+                z-index: 1;
+
+            }
 
     .line-active {
       position: absolute;
       top: 20px;
       left: 0;
       height: 14px;
-      background: #1a2a6c;
       border-radius: 4px;
       z-index: 2;
       transition: width 0.5s ease-in-out;
     }
 
-    .step {
-      position: relative;
-      z-index: 3;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+            .step {
+                position: relative;
+                z-index: 3;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
 
-      .step-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 40px;
-      }
+                .step-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 40px;
+                }
 
       p {
-        font-size: 16px;
         color: #656765;
       }
 .star{
@@ -2525,52 +2457,52 @@
       }
     }
 
-   
 
-        .rocket {
-      position: absolute;
-      top: -2px;
-      transform: translateX(-50%);
-      transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
-      z-index: 5;
-      
-    }
-  }
 
-   .custom-btn {
-  background-color: #FFFFFF;   
+            .rocket {
+                position: absolute;
+                top: -2px;
+                transform: translateX(-50%);
+                transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
+                z-index: 5;
+
+            }
+        }
+
+   .custom-btn {     
   border-radius: 50px;         
-  box-shadow: 0px 0px 25px #1A2A6C;  /* 4-side shadow */
+  box-shadow: 0px 0px 15px #1A2A6C; 
   padding: 10px 25px;         
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+ margin-bottom: 0;
 }
 
 
-  /* ✅ Mobile  */
-  @media (max-width: 768px) {
-    .progress-line {
-      flex-direction: column;
-      padding-left: 0;
-      align-items: center;
+        /* ✅ Mobile  */
+        @media (max-width: 768px) {
+            .progress-line {
+                flex-direction: column;
+                padding-left: 0;
+                align-items: center;
 
-      .line-bg {
-        top: 0;
-        left: 50%;
-        width: 14px;
-        height: 100%;
-    
-      }
+                .line-bg {
+                    top: 0;
+                    left: 50%;
+                    width: 14px;
+                    height: 100%;
 
-      .line-active {
-        top: 0;
-        left: 50%;
-        width: 14px;
-        height: 0;
-        transition: height 0.5s ease-in-out;
-      }
-      
+                }
+
+                .line-active {
+                    top: 0;
+                    left: 50%;
+                    width: 14px;
+                    height: 0;
+                    transition: height 0.5s ease-in-out;
+                }
+
 
       .step {
         flex-direction: row;
@@ -2586,13 +2518,13 @@
       }
       &.active .dot {
         position: absolute;
-        left: 48%;
+        left: 47%;
       }
 
         p {
           text-align: left;
           font-size: 14px;
-          margin-left: 25%;
+          margin-left: 20%;
           flex : 1;
         }   
       }
@@ -2616,9 +2548,14 @@
         left: 50%;
       }
 }
+
+//    .custom-btn {     
+//  margin-bottom: 30%;
+// }
   }
+
 }
 
-// =========================================
-// Referal timeline css End
-// =========================================
+    // =========================================
+    // Referal timeline css End
+    // =========================================
