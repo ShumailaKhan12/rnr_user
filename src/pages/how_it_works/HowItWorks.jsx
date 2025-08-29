@@ -6,16 +6,16 @@ import one from '../../assets/Images/how-it-work/1.png'
 import two from '../../assets/Images/how-it-work/2.png'
 import three from '../../assets/Images/how-it-work/3.png'
 import four from '../../assets/Images/how-it-work/4.png'
-
+import "../../App.scss";
 const HowItWorks = () => {
     return (
-        <div className="referral-program">
+        <div className="referral-program bg-white montserrat-medium ">
 
             <div className="row justify-content-center">
                 <div className="    ">
                     <div className="program-header text-center ">
-                        <h1 className="program-title">Referral & Earn program</h1>
-                        <p className="program-subtitle">
+                        <h1 className="program-title montserrat-bold font-40">Referral & Earn program</h1>
+                        <p className="program-subtitle montserrat-medium font-20">
                             Share the Love, Get Rewarded - The More You Invite,<br />
                             the More You Earn!
                         </p>
@@ -23,7 +23,7 @@ const HowItWorks = () => {
 
                     <div className="referral-journey">
 
-                        <img src={stepindicator} alt=""  className="stepindicator"/>
+                        <img src={stepindicator} alt="" className="stepindicator" />
 
                         {/* Step 1: Invite */}
                         <div className="step step-1">
@@ -68,11 +68,11 @@ const HowItWorks = () => {
                     </div>
 
                     <div className="text-center mt-5">
-                      <NavLink to={"/home"}>
-                          <button className="btn btn-primary get-started-btn ">
-                            Get Started
-                        </button>
-                      </NavLink>
+                        <NavLink to={"/home"}>
+                            <button className="btn btn-primary get-started-btn ">
+                                Get Started
+                            </button>
+                        </NavLink>
                     </div>
                 </div>
             </div>
