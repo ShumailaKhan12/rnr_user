@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 // Import Images
 import Logo from "../assets/Images/Logo/LOGO (1).svg";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import List from '../assets/Images/Logo/List.png'
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -25,9 +25,9 @@ const Navbar = () => {
             <nav className={`navbar fixed-top navbar-expand-md navbar-light ${scrolled ? "nav-bg shadow-sm" : "bg-transparent"
                 }`}>
                 <div className="container-fluid">
-                    <a className="navbar-brand nav-logo-bg d-flex align-items-center justify-content-center" href="#">
+                    <Link className="navbar-brand nav-logo-bg d-flex align-items-center justify-content-center" href="#">
                         <img src={Logo} className='mb-4' alt="Logo" />
-                    </a>
+                    </Link>
                     <button
                         className="navbar-toggler ms-auto border-0 shadow-none"
                         type="button"
@@ -43,17 +43,17 @@ const Navbar = () => {
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <NavLink to={"/home"} className={"text-decoration-none"}>
-                                    <a className="nav-link active font-22 text-white pe-5 jura-semibold" aria-current="page" href="#">Home</a>
+                                    <Link className="nav-link active font-22 text-white pe-5 jura-semibold" aria-current="page" href="#">Home</Link>
                                 </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink to={"/myreferral"} className={"text-decoration-none"}>
-                                    <a className="nav-link font-22 text-white pe-5 jura-semibold" href="#">Referrals</a>
+                                    <Link className="nav-link font-22 text-white pe-5 jura-semibold" href="#">Referrals</Link>
                                 </NavLink>
 
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link font-22 text-white pe-5 jura-semibold" href="#">Progress</a>
+                                <Link className="nav-link font-22 text-white pe-5 jura-semibold" href="#">Progress</Link>
                             </li>
                             <li className="nav-item">
                                 <div className="dropdown  position-relative">
