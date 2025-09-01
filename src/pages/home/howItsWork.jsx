@@ -123,7 +123,7 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
         } ${isActive ? 'aos-animate zoom-in-up-custom start-animation' : 'zoom-down'}`}
     >
       <div className="container position-relative h-100">
-        <h2 className="montserrat-bold section-heading font-40 text-blue mb-0">
+        <h2 className="montserrat-bold section-heading font-40 text-blue mb-0 lh-sm">
           Mechanism - Makes your flow clear
         </h2>
         <p className='font-20 mostserrat-medium howitswork-title'>Here you will know how this program works.</p>
