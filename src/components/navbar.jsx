@@ -8,18 +8,18 @@ const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-    const handleScroll = () => {
-      const firstSectionHeight = window.innerHeight * 0.8; // 80% of viewport height
-      if (window.scrollY > firstSectionHeight) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+        const handleScroll = () => {
+            const firstSectionHeight = window.innerHeight * 0.8; // 80% of viewport height
+            if (window.scrollY > firstSectionHeight) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
     return (
         <>
             <nav className={`navbar fixed-top navbar-expand-md navbar-light ${scrolled ? "nav-bg shadow-sm" : "bg-transparent"
@@ -42,14 +42,12 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse container" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <NavLink to={"/home"} className={"text-decoration-none"}>
-                                    <Link className="nav-link active font-22 text-white pe-5 jura-semibold" aria-current="page" href="#">Home</Link>
-                                </NavLink>
+                                <NavLink to={"/home"} 
+                                className="nav-link active font-22 text-decoration-none text-white pe-5 jura-semibold" aria-current="page" href="#">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink to={"/myreferral"} className={"text-decoration-none"}>
-                                    <Link className="nav-link font-22 text-white pe-5 jura-semibold" href="#">Referrals</Link>
-                                </NavLink>
+                                <NavLink to={"/myreferral"} 
+                                className="nav-link font-22 text-white text-decoration-none pe-5 jura-semibold" href="#">Referrals</NavLink>
 
                             </li>
                             <li className="nav-item">
