@@ -23,7 +23,7 @@ const FAQ = ({ items, classes }) => {
               <div className="purple-border-bottom mb-0 pt-1 d-block pt-4 pb-4" id={`heading${index}`}>
                 <h6 className="mb-0 font-16 text-dark-blue montserrat-medium">
                   <button
-                    className="border-0 bg-transparent d-flex justify-content-between align-items-center w-100"
+                    className="border-0 bg-transparent text-start d-flex justify-content-between align-items-center w-100"
                     onClick={() => toggle(index)}
                     aria-expanded={openIndex === index}
                   >

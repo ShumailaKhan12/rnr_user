@@ -1,21 +1,22 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import stepindicator from '../../assets/Images/how-it-work/stepindicator.png'
+import stepindicator from '../../assets/Images/how-it-work/line.svg'
 import one from '../../assets/Images/how-it-work/1.png'
 import two from '../../assets/Images/how-it-work/2.png'
 import three from '../../assets/Images/how-it-work/3.png'
 import four from '../../assets/Images/how-it-work/4.png'
 import "../../App.scss";
+import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
 const HowItWorks = () => {
     return (
         <div className="referral-program bg-white montserrat-medium ">
 
             <div className="row justify-content-center">
-                <div className="    ">
+                <div className="  ">
                     <div className="program-header text-center ">
-                        <h1 className="program-title montserrat-bold font-40">Referral & Earn program</h1>
-                        <p className="program-subtitle montserrat-medium font-20">
+                        <h1 className="program-title montserrat-bold font-40 ">Referral & Earn program</h1>
+                        <p className="program-subtitle montserrat-medium font-20 lh-sm">
                             Share the Love, Get Rewarded - The More You Invite,<br />
                             the More You Earn!
                         </p>
@@ -23,13 +24,17 @@ const HowItWorks = () => {
 
                     <div className="referral-journey">
 
-                        <img src={stepindicator} alt="" className="stepindicator" />
+                        {/* Desktop line */}
+                        <img src={stepindicator} alt="" className="stepindicator desktop-line" />
+                        {/* Mobile line */}
+                        <img src={stepindicatorMobile} alt="" className="stepindicator mobile-line" />
+                        {/* <img src={stepindicator} alt="" className="stepindicator" /> */}
 
                         {/* Step 1: Invite */}
                         <div className="step step-1">
                             <div className="step-content">
-                                <h3 className="step-title">INVITE</h3>
-                                <p className="step-description">
+                                <h3 className="step-title font-30">INVITE</h3>
+                                <p className="step-description font-20">
                                     Invite your <br /> friends and take <br /> the first step
                                 </p>
                             </div>
@@ -38,8 +43,8 @@ const HowItWorks = () => {
                         {/* Step 2: Accept & Purchase */}
                         <div className="step step-2">
                             <div className="step-content">
-                                <h3 className="step-title">ACCEPT</h3>
-                                <p className="step-description">
+                                <h3 className="step-title font-30">ACCEPT</h3>
+                                <p className="step-description font-20">
                                     Acceptance of <br /> invite is the <br /> second n most <br />   important step
                                 </p>
                             </div>
@@ -48,8 +53,8 @@ const HowItWorks = () => {
                         {/* Step 3 Purchase */}
                         <div className="step step-3">
                             <div className="step-content">
-                                <h3 className="step-title">PURCHASE</h3>
-                                <p className="step-description">
+                                <h3 className="step-title font-30">PURCHASE</h3>
+                                <p className="step-description font-20">
                                     With all that <br /> hustle of invite n <br /> accept, its time <br /> to get rewarded
                                 </p>
                             </div>
@@ -58,8 +63,8 @@ const HowItWorks = () => {
                         {/* Step 4: Earn */}
                         <div className="step step-4">
                             <div className="step-content">
-                                <h3 className="step-title">EARN</h3>
-                                <p className="step-description">
+                                <h3 className="step-title font-30">EARN</h3>
+                                <p className="step-description font-20">
                                     With all that <br /> hustle of invite n <br /> accept, its time <br /> to get rewarded
                                 </p>
                             </div>

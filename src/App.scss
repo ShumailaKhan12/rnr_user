@@ -5,7 +5,7 @@
     $tablet-breakpoint: 1024px;
 
     $white: #ffffff;
-    $white-secondry: #f8f7ff; 
+    $white-secondry: #f8f7ff;
     $primary-color: #1a2a6c;
     $secondry-color: #cebacf;
     $dark-color: #675262;
@@ -33,7 +33,7 @@
     $light-pink: rgba(255, 153, 153, 1);
     $register-inp: rgba(92, 75, 161, 0.1);
     $text-light-gray: rgba(161, 161, 161, 1);
-    $shadow-Purple: #55024ccc; 
+    $shadow-Purple: #55024ccc;
     $shadow-yellow: #fc941acc;
     $shadow-green: #66968b;
     $shadow-blue: #4babdf;
@@ -859,6 +859,13 @@
     // ========================= Navbar Section Start =============================
     .navbar {
         padding-top: 0 !important;
+        transition: background-color 0.5s ease-in-out;
+    }
+
+    .nav-bg {
+        background-color: #05103E;
+        // background: linear-gradient(180deg, #493495 0%, #8FD3EA 46%, #D2F1F9 69%,);
+        backdrop-filter: blur(6px);
     }
 
     .nav-logo-bg {
@@ -965,6 +972,13 @@
         color: #455A64 !important;
     }
 
+
+    .text-body {
+        .heading br {
+            display: inline;
+        }
+    }
+
     // .hero-bottom-text{
     //     margin-top: 15%;
     // }
@@ -972,11 +986,56 @@
     .hero-bottom-text {
         position: absolute;
         bottom: 30px;
-        /* jitna gap chahiye */
-        left: 50%;
-        transform: translateX(-50%);
+        // /* jitna gap chahiye */
+        // left: 50%;
+        // transform: translateX(-50%);
         text-align: center;
     }
+
+
+    @media (max-width : $breakpoint-sm) {
+        .text-body {
+            .heading {
+                font-size: 32px;
+                padding-inline: 20px;
+                padding-bottom: 10px;
+                padding-top: 15%;
+            }
+
+            .heading br {
+                display: none;
+            }
+
+            .invite-btn {
+                margin-block: 2rem;
+            }
+        }
+
+        .hero-bottom-text {
+            position: absolute;
+            bottom: 10px;
+
+            .score-text {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 16px;
+                //   padding-inline: 20px;
+            }
+        }
+    }
+
+    .hero-body {
+        height: 100vh;
+
+        //   @media (max-width: 991px) and (min-width: 768px) {
+        //     height: 600px !important;
+        //   }
+    }
+
+
+
 
     //  =============== Score Cards Css Start Here ======================
     .score-card {
@@ -1009,9 +1068,6 @@
                     transition: all 2s ease;
                 }
 
-                .robot-exit {
-                    // Additional animation if needed
-                }
 
                 @keyframes robotMoveUp {
                     0% {
@@ -1338,181 +1394,6 @@
     //===================== FOOTER CSS AND ANIMATION CSS END -=============================
 
 
-    // ================== How it works
-    .referral-program {
-        background: white;
-        min-height: 100vh;
-        min-width: 100vw;
-        padding-inline: 40px;
-
-        .row {
-            margin: 0;
-        }
-
-        .col-12,
-        .col-lg-10 {
-            padding: 0;
-        }
-
-        .program-header {
-            margin-top: 0; // Remove top margin if any
-            // margin-bottom: 1.5rem; // Optional: controlled bottom spacing
-        }
-
-        .program-header {
-
-            .program-title {
-                color: #05103E;
-                margin: 0%;
-                padding-top: 30px;
-                text-align: left;
-            }
-
-            .program-subtitle {
-                color: #656765;
-                line-height: 100%;
-                text-align: left;
-            }
-        }
-
-        .referral-journey {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 444px;
-            // width: 1087px;
-
-
-            .journey-path {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 1;
-                padding-inline: 20px;
-            }
-
-            .step {
-                position: absolute;
-                z-index: 2;
-
-                &.step-1 {
-                    left: 15%;
-                    bottom: 3%;
-                    // transform: translateY(-50%);
-                }
-
-                &.step-2 {
-                    left: 33%;
-                    top: 35%;
-                    transform: translateX(-50%) translateY(-50%);
-                    display: flex;
-                    flex-direction: column;
-                    gap: 2rem;
-                }
-
-                &.step-3 {
-                    right: 28%;
-                    bottom: 22%;
-                    //  transform: translateX(-50%) translateY(-50%);
-                    display: flex;
-                    flex-direction: column;
-                    gap: 2rem;
-                }
-
-                &.step-4 {
-                    right: 8%;
-                    top: 14%;
-                    //  transform: translateX(-50%) translateY(-50%);
-                    display: flex;
-                    flex-direction: column;
-                    gap: 2rem;
-                }
-
-                .step-content {
-                    padding: 1.5rem;
-                    min-width: 200px;
-                    text-align: left;
-
-                    .step-title {
-                        font-size: 30px;
-                        font-weight: 700;
-                        color: #05103E;
-                        margin-bottom: 0.5rem;
-                        letter-spacing: 0.5px;
-                    }
-
-                    .step-description {
-                        font-size: 20px;
-                        color: #6b7280;
-                        margin: 0;
-                        line-height: 1.4;
-                    }
-                }
-
-            }
-        }
-
-        .stepindicator {
-            position: relative;
-            top: 0;
-            transform: none;
-            margin-bottom: 10%;
-            // width: 100%;
-            transform: translateX(-40px);
-        }
-
-        .get-started-btn {
-            background: #3B4A8C;
-            border: none;
-            // padding: 12px 32px;
-            width: 476px;
-            height: 52px;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: absolute;
-            right: 5%;
-            bottom: 10%;
-            color: white;
-
-            &:hover {
-                background: #2d3a70;
-                // transform: translateY(-2px);
-                box-shadow: 0 8px 25px rgba(59, 74, 140, 0.25);
-            }
-
-        }
-
-        .one {
-            position: absolute;
-            left: 25%;
-            bottom: 2%
-        }
-
-        .two {
-            position: absolute;
-            left: 36%;
-            top: 26%;
-            // height: 100px;
-        }
-
-        .three {
-            position: absolute;
-            right: 26%;
-            bottom: 25%
-        }
-
-        .four {
-            position: absolute;
-            right: 8%;
-            top: 20%;
-        }
-
-
-    }
-
     // Tablet responsive design
     @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
         .offer-footer-section {
@@ -1526,98 +1407,6 @@
             z-index: 1;
             left: 0%;
         }
-
-        .referral-program {
-            padding: 30px 20px;
-
-            .program-header {
-                .program-title {
-                    font-size: 30px;
-                }
-
-                .program-subtitle {
-                    font-size: 18px;
-                    line-height: 1.3;
-                }
-            }
-
-            .stepindicator {
-                width: 700px;
-                height: auto;
-                margin: 0 auto 60px auto;
-                transform: none;
-            }
-
-            .referral-journey {
-                height: 500px;
-
-                .step {
-                    .step-content {
-                        min-width: 180px;
-                    }
-
-                    &.step-1 {
-                        left: 10%;
-                        bottom: -15%;
-                    }
-
-                    &.step-2 {
-                        left: 28%;
-                        top: 32%;
-                        transform: none;
-                    }
-
-                    &.step-3 {
-                        right: 28%;
-                        bottom: -3%;
-                    }
-
-                    &.step-4 {
-                        right: 15%;
-                        top: 8%;
-                    }
-
-                    .step-title {
-                        font-size: 24px;
-                    }
-
-                    .step-description {
-                        font-size: 10px;
-                    }
-                }
-            }
-
-            .get-started-btn {
-                width: 214px;
-                height: 48px;
-                font-size: 15px;
-                right: 18%;
-                transform: translateX(50%);
-                bottom: -8%;
-                border-radius: 10px;
-            }
-
-            .one {
-                left: 28%;
-                bottom: -15%;
-            }
-
-            .two {
-                left: 40%;
-                top: 40%;
-            }
-
-            .three {
-                right: 25%;
-                bottom: 1%;
-            }
-
-            .four {
-                right: 10%;
-                top: 15%;
-            }
-        }
-
 
     }
 
@@ -1635,6 +1424,209 @@
     }
 
 
+
+    // =================== How it works css
+.referral-program {
+
+    .program-header {
+        .program-title {
+            color: #05103E;
+            margin: 0%;
+            text-align: left;
+            padding-inline-start:10%;
+        }
+
+        .program-subtitle {
+            color: #656765;
+            line-height: 100%;
+            text-align: left;
+            padding-inline-start:10%;
+        }
+
+         @media (max-width: 768px){
+ .program-title {
+          font-size: 20px;
+          line-height: 2;
+        }
+
+        .program-subtitle {
+            font-size: 12px;
+        }
+        }
+
+}
+
+.referral-journey {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: 450px;
+
+
+    .step-title {
+        font-weight: 700;
+        color: #05103E;
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.5px;
+    }
+
+    .step-description {
+        color: #6b7280;
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    .stepindicator {
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    .desktop-line {
+        display: block;
+    }
+    .mobile-line {
+        display: none;
+    }
+
+    .step {
+      position: absolute;
+      z-index: 2;
+      max-width: 200px;
+    }
+
+    .step-1 {
+      left: 5%;
+      bottom: -30%;
+    }
+    .step-2 {
+      left: 17%;
+      top: 25%;
+    }
+    .step-3 {
+      right: 30%;
+      bottom: -3%;
+    }
+    .step-4 {
+      right: -5%;
+      top: 15%;
+    }
+
+    .one {
+      position: absolute;
+      left: 17%;
+      bottom: -35%;
+    }
+    .two {
+      position: absolute;
+      left: 30%;
+      top: 25%;
+    }
+    .three {
+      position: absolute;
+      right: 24%;
+      bottom: -5%;
+    }
+    .four {
+      position: absolute;
+      right: -10%;
+      top: 15%;
+    }
+
+    @media (min-width: 176px) and (max-width: 768px) {
+     min-height: auto;
+
+      .desktop-line {
+        display: none;
+      }
+      .mobile-line {
+        display: block;
+        height: 70vh;
+        max-width: 70%;  
+      margin: 0 auto;
+        
+      }
+
+      
+    .step-title {
+        font-size: 20px;
+    }
+
+    .step-description {
+        font-size: 12px;
+    }
+
+       .step-1 {
+      left: 40%;
+    top: 10%;
+    }
+    .step-2 {
+      left: 10%;
+      top: 35%;
+    }
+    .step-3 {
+      right: 15%;
+      bottom: 27%;
+    }
+    .step-4 {
+      left: 30%;
+      top: 85%;
+    }
+     .one {
+        height: 80px;
+        width: 30px;
+      left: 32%;
+      top: 10%;
+    }
+    .two {
+         height: 86px;
+        width: 60px;
+      left: 20%;
+      top: 35%;
+    }
+    .three {
+         height: 80px;
+        width: 60px;
+      right: 33%;
+      bottom:30%;
+    }
+    .four {
+         height: 90px;
+        width: 60px;
+    left: 47%;
+      top:85%;
+    }
+
+    }
+    
+    
+  }
+
+  .get-started-btn {
+    background: #3b4a8c;
+    border: none;
+    width: 476px;
+    height: 52px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: white;
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+
+    @media (max-width : 768px) {
+        width: 158px;
+    height: 32px;
+    font-size: 12px;
+    }
+  }
+}
+
+
+
     // ================ Invite a modal ===================
 
     .modal-overlay {
@@ -1650,7 +1642,7 @@
         z-index: 9999;
     }
 
-        .custom-modal-content {
+    .custom-modal-content {
 
         .modal-header {
             border-bottom: none;
@@ -1753,27 +1745,24 @@
         }
 
         h2 {
-            font-weight: 600;
-            font-family: "Inter";
             margin-top: 6rem;
-        } 
+        }
+
         .btn-submit {
-            width: 523px;
+            width: 470px;
             height: 47px;
             border: none;
             // padding: 12px;
             border-radius: 50px;
             cursor: pointer;
-            font-weight: 600;
             margin-top: 1rem;
-            font-family: "Inter";
         }
     }
 
     // ================== Acknowledment css ==============
     .my-custom-dialog .modal-content {
-    border: none;
-    overflow-y: auto;
+        border: none;
+        overflow-y: auto;
 
         &::-webkit-scrollbar {
             display: none;
@@ -1793,8 +1782,8 @@
             }
         }
 
-    .modal-body {
-        text-align: left; 
+        .modal-body {
+            text-align: left;
 
             .checkbox-label {
                 display: flex;
@@ -1964,9 +1953,12 @@
     .referred-card-subtitle {
         color: rgba(111, 122, 169, 1);
     }
-    .referral-card:hover .referred-card-subtitle{
-        color: #ffe14d;;
+
+    .referral-card:hover .referred-card-subtitle {
+        color: #ffe14d;
+        ;
     }
+
     @keyframes moveUp {
         0% {
             transform: translateY(0);
@@ -2120,7 +2112,7 @@
                 // background-color: #d9d9d9;
                 border-radius: 50%;
 
-                .user-profile-icon {}
+               
             }
 
             .border-l-r-b-0 {
@@ -2369,9 +2361,6 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
 
-            &:hover {
-                // background-color: #2e2e80;
-            }
 
             input[type='file'] {
                 display: none;
@@ -2393,14 +2382,15 @@
 
     // ========================================== Referal Timeline CSS 
 
-.referral-timeline {
-height: auto;
-  .progress-line {
-    position: relative;
-    width: 100%;
-    justify-content: space-between;
-     width: 90%; 
-    margin: 2rem auto; 
+    .referral-timeline {
+        height: auto;
+
+        .progress-line {
+            position: relative;
+            width: 100%;
+            justify-content: space-between;
+            width: 90%;
+            margin: 2rem auto;
 
             .line-bg {
                 position: absolute;
@@ -2414,15 +2404,15 @@ height: auto;
 
             }
 
-    .line-active {
-      position: absolute;
-      top: 20px;
-      left: 0;
-      height: 14px;
-      border-radius: 4px;
-      z-index: 2;
-      transition: width 0.5s ease-in-out;
-    }
+            .line-active {
+                position: absolute;
+                top: 20px;
+                left: 0;
+                height: 14px;
+                border-radius: 4px;
+                z-index: 2;
+                transition: width 0.5s ease-in-out;
+            }
 
             .step {
                 position: relative;
@@ -2457,8 +2447,6 @@ height: auto;
       }
     }
 
-
-
             .rocket {
                 position: absolute;
                 top: -2px;
@@ -2469,15 +2457,15 @@ height: auto;
             }
         }
 
-   .custom-btn {     
-  border-radius: 50px;         
-  box-shadow: 0px 0px 15px #1A2A6C; 
-  padding: 10px 25px;         
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
- margin-bottom: 0;
-}
+        .custom-btn {
+            border-radius: 50px;
+            box-shadow: 0px 0px 15px #1A2A6C;
+            padding: 10px 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+        }
 
 
         /* ✅ Mobile  */
@@ -2510,11 +2498,11 @@ height: auto;
         margin-bottom: 10px;
 .star{
     position: absolute;
-    left: 47%;
+    left: 46%;
 }
       .inactive {
         position: absolute;
-        left: 48%;
+        left: 47%;
       }
       &.active .dot {
         position: absolute;
@@ -2524,37 +2512,40 @@ height: auto;
         p {
           text-align: left;
           font-size: 14px;
-          margin-left: 20%;
+          margin-left: 16%;
           flex : 1;
         }   
       }
 
-     .rocket {
-      left: 51%;
-      top: 0;
-      transition: top 0.5s ease-in-out;
-       transform: translateX(-50%) rotate(90deg);
+                .rocket {
+                    left: 51%;
+                    top: 0;
+                    transition: top 0.5s ease-in-out;
+                    transform: translateX(-50%) rotate(90deg);
+                }
+
+                .star {
+                    position: absolute;
+                    left: 50%;
+                }
+
+                .inactive {
+                    position: absolute;
+                    left: 50%;
+                }
+
+                &.active .dot {
+                    position: absolute;
+                    left: 50%;
+                }
+            }
+
+            //    .custom-btn {     
+            //  margin-bottom: 30%;
+            // }
+        }
+
     }
-    .star{
-    position: absolute;
-    left: 50%;
-}
-      .inactive {
-        position: absolute;
-        left: 50%;
-      }
-      &.active .dot {
-        position: absolute;
-        left: 50%;
-      }
-}
-
-//    .custom-btn {     
-//  margin-bottom: 30%;
-// }
-  }
-
-}
 
     // =========================================
     // Referal timeline css End

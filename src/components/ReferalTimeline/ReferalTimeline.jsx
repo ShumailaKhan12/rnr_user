@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../App.scss";
-import InActiveIcon from "../../assets/Images/referel-timeline/InActive-dot.png";
-import ActiveDot from "../../assets/Images/referel-timeline/acitve-dot.png";
+import InActiveIcon from "../../assets/Images/referel-timeline/InActive-dot.svg";
+import ActiveDot from "../../assets/Images/referel-timeline/active-dot.svg";
 import rocket from "../../assets/Images/referel-timeline/rocket.png";
-import star from "../../assets/Images/referel-timeline/star.png";
+import star from "../../assets/Images/referel-timeline/star.svg";
 
 const ReferralTimeline = () => {
     const steps = [
@@ -15,7 +15,7 @@ const ReferralTimeline = () => {
         { id: 5, text: <>Congrats !! <br />Happy-go-lucky.</>, icon: star },
     ];
 
-    const [activeStep, setActiveStep] = useState(3);
+    const [activeStep, setActiveStep] = useState(2);
     const [rocketPos, setRocketPos] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -81,7 +81,7 @@ const ReferralTimeline = () => {
                                 )
                             )}
                         </div>
-                        <p className="mt-3 font-20">{step.text}</p>
+                        <p className="mt-3 font-20 montserrat-medium lh-sm">{step.text}</p>
                     </div>
                 ))}
 
