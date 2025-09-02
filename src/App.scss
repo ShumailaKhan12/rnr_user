@@ -1007,7 +1007,8 @@
             }
 
             .invite-btn {
-                margin-block: 2rem;
+                margin-top: 2rem;
+                margin-bottom: 8rem;
             }
         }
 
@@ -1040,12 +1041,19 @@
     //  =============== Score Cards Css Start Here ======================
     .score-card {
         background-color: rgba(26, 42, 108, 0.2);
-    }
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        transform: scale(1);
 
+        &:hover {
+            transform: scale(1.05);
+            // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+    }
 
     /*===================== HOW IT WORKS SECTION CSS====================================*/
     .section-howitworks {
-        height: 100vh;
+        height: auto;
         position: relative;
         //   background-image: url('../src//assets/images/home/HowItWorks/bg-HIW.png');
         background-position: top;
@@ -1056,6 +1064,7 @@
 
         .howitswork-title {
             color: rgba(101, 103, 101, 1);
+            margin-bottom: pxToRem(100);
         }
 
         &.start-animation {
@@ -1272,6 +1281,211 @@
             position: relative;
             color: $blue-secondry;
         }
+
+// mobile timeline styles
+.timeline-mobile {
+  position: relative;
+  margin: 0 auto;
+  padding: 2rem 0;
+  width: 100%;
+  height: 100vh !important;
+
+}
+
+.timeline-vertical {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-line-vertical {
+  position: absolute;
+  left: 50%;
+  top:0;
+  bottom: 0;
+  height: 100%;
+  max-height: 100%;
+  transform: translateX(-50%);
+  width: 3px;
+  background: repeating-linear-gradient(
+    to bottom,
+    $dark-blue,
+    $dark-blue 5px,
+    transparent 5px,
+    transparent 12px
+  );
+  z-index: 1;
+  animation: drawTimelineMobile 5.5s linear forwards;
+}
+
+@keyframes drawTimelineMobile {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.rocket-vertical {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%) rotate(90deg);
+  z-index: 3;
+  animation: moveRocketVertical 5s linear forwards;
+}
+
+@keyframes moveRocketVertical {
+  0% {
+    top: 40px;
+  }
+  33% {
+    top: 30%;
+  }
+  66% {
+    top: 60%;
+  }
+  100% {
+    top: 95%;
+  }
+}
+
+/* STEP BLOCK */
+.step-mobile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 60px 0;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  z-index: 2;
+
+
+  &.visible {
+    opacity: 1;
+  }
+
+  .step-box {
+    width: 45%;
+  }
+
+  .left {
+    text-align: right;
+  }
+
+  .right {
+    text-align: left;
+  }
+&::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--text-dark-blue);
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    top: 0;
+    
+  }
+
+  &.visible::before {
+    opacity: 1;
+  }
+}
+
+.step-content-mobile {
+  display: flex;    
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+animation: fadeIn 1s forwards;
+animation-delay: 1.5s;
+
+  &.left-content {
+    flex-direction: row; 
+    animation: fadeIn 1s forwards;
+animation-delay: 1.5s;
+  }
+
+  &.right-content {
+    flex-direction: row-reverse; 
+    animation: fadeOut 1s ease-in-out forwards;
+  }
+
+  .step-text {
+    max-width: 60%;
+  }
+
+  .planet-svg {
+    width: 64px !important;
+    height: 64px !important;
+
+  }
+  
+}
+
+
+/* STEP TEXTS */
+.step-title {
+  margin-bottom: 8px;
+}
+
+.step-description {
+  line-height: 1.4;
+}
+
+.rocket-svg {
+  width: 121px;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+  .step-mobile {
+    margin: 25px 0;
+  }
+
+  .step-content-mobile {
+    max-width: 40%;
+    gap: 10px;
+  }
+
+  .step-title {
+    font-size: 0.95rem;
+  }
+
+  .step-description {
+    font-size: 0.8rem;
+  }
+
+  .timeline-dot-mobile {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .step-content-mobile {
+    max-width: 35%;
+    gap: 8px;
+  }
+
+  .step-title {
+    font-size: 0.85rem;
+  }
+
+  .step-description {
+    font-size: 0.75rem;
+  }
+}
+
+
     }
 
     @keyframes zoomInUpCustom {
@@ -1426,204 +1640,219 @@
 
 
     // =================== How it works css
-.referral-program {
+    .referral-program {
 
-    .program-header {
-        .program-title {
-            color: #05103E;
-            margin: 0%;
-            text-align: left;
-            padding-inline-start:10%;
+        .program-header {
+            .program-title {
+                color: #05103E;
+                margin: 0%;
+                text-align: left;
+                padding-inline-start: 10%;
+            }
+
+            .program-subtitle {
+                color: #656765;
+                line-height: 100%;
+                text-align: left;
+                padding-inline-start: 10%;
+            }
+
+            @media (max-width: 768px) {
+                .program-title {
+                    font-size: 20px;
+                    line-height: 2;
+                }
+
+                .program-subtitle {
+                    font-size: 12px;
+                }
+            }
+
         }
 
-        .program-subtitle {
-            color: #656765;
-            line-height: 100%;
-            text-align: left;
-            padding-inline-start:10%;
+        .referral-journey {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            min-height: 450px;
+
+
+            .step-title {
+                font-weight: 700;
+                color: #05103E;
+                margin-bottom: 0.5rem;
+                letter-spacing: 0.5px;
+            }
+
+            .step-description {
+                color: #6b7280;
+                margin: 0;
+                line-height: 1.4;
+            }
+
+            .stepindicator {
+                width: 100%;
+                height: auto;
+                position: relative;
+                z-index: 1;
+            }
+
+            .desktop-line {
+                display: block;
+            }
+
+            .mobile-line {
+                display: none;
+            }
+
+            .step {
+                position: absolute;
+                z-index: 2;
+                max-width: 200px;
+            }
+
+            .step-1 {
+                left: 5%;
+                bottom: -30%;
+            }
+
+            .step-2 {
+                left: 17%;
+                top: 25%;
+            }
+
+            .step-3 {
+                right: 30%;
+                bottom: -3%;
+            }
+
+            .step-4 {
+                right: -5%;
+                top: 15%;
+            }
+
+            .one {
+                position: absolute;
+                left: 17%;
+                bottom: -35%;
+            }
+
+            .two {
+                position: absolute;
+                left: 30%;
+                top: 25%;
+            }
+
+            .three {
+                position: absolute;
+                right: 24%;
+                bottom: -5%;
+            }
+
+            .four {
+                position: absolute;
+                right: -10%;
+                top: 15%;
+            }
+
+            @media (min-width: 176px) and (max-width: 768px) {
+                min-height: auto;
+
+                .desktop-line {
+                    display: none;
+                }
+
+                .mobile-line {
+                    display: block;
+                    height: 70vh;
+                    max-width: 70%;
+                    margin: 0 auto;
+
+                }
+
+
+                .step-title {
+                    font-size: 20px;
+                }
+
+                .step-description {
+                    font-size: 12px;
+                }
+
+                .step-1 {
+                    left: 40%;
+                    top: 10%;
+                }
+
+                .step-2 {
+                    left: 10%;
+                    top: 35%;
+                }
+
+                .step-3 {
+                    right: 15%;
+                    bottom: 27%;
+                }
+
+                .step-4 {
+                    left: 30%;
+                    top: 85%;
+                }
+
+                .one {
+                    height: 80px;
+                    width: 30px;
+                    left: 32%;
+                    top: 10%;
+                }
+
+                .two {
+                    height: 86px;
+                    width: 60px;
+                    left: 20%;
+                    top: 35%;
+                }
+
+                .three {
+                    height: 80px;
+                    width: 60px;
+                    right: 33%;
+                    bottom: 30%;
+                }
+
+                .four {
+                    height: 90px;
+                    width: 60px;
+                    left: 47%;
+                    top: 85%;
+                }
+
+            }
+
+
         }
 
-         @media (max-width: 768px){
- .program-title {
-          font-size: 20px;
-          line-height: 2;
+        .get-started-btn {
+            background: #3b4a8c;
+            border: none;
+            width: 476px;
+            height: 52px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: white;
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+
+            @media (max-width : 768px) {
+                width: 158px;
+                height: 32px;
+                font-size: 12px;
+            }
         }
-
-        .program-subtitle {
-            font-size: 12px;
-        }
-        }
-
-}
-
-.referral-journey {
-    position: relative;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    min-height: 450px;
-
-
-    .step-title {
-        font-weight: 700;
-        color: #05103E;
-        margin-bottom: 0.5rem;
-        letter-spacing: 0.5px;
     }
-
-    .step-description {
-        color: #6b7280;
-        margin: 0;
-        line-height: 1.4;
-    }
-
-    .stepindicator {
-        width: 100%;
-        height: auto;
-        position: relative;
-        z-index: 1;
-    }
-
-    .desktop-line {
-        display: block;
-    }
-    .mobile-line {
-        display: none;
-    }
-
-    .step {
-      position: absolute;
-      z-index: 2;
-      max-width: 200px;
-    }
-
-    .step-1 {
-      left: 5%;
-      bottom: -30%;
-    }
-    .step-2 {
-      left: 17%;
-      top: 25%;
-    }
-    .step-3 {
-      right: 30%;
-      bottom: -3%;
-    }
-    .step-4 {
-      right: -5%;
-      top: 15%;
-    }
-
-    .one {
-      position: absolute;
-      left: 17%;
-      bottom: -35%;
-    }
-    .two {
-      position: absolute;
-      left: 30%;
-      top: 25%;
-    }
-    .three {
-      position: absolute;
-      right: 24%;
-      bottom: -5%;
-    }
-    .four {
-      position: absolute;
-      right: -10%;
-      top: 15%;
-    }
-
-    @media (min-width: 176px) and (max-width: 768px) {
-     min-height: auto;
-
-      .desktop-line {
-        display: none;
-      }
-      .mobile-line {
-        display: block;
-        height: 70vh;
-        max-width: 70%;  
-      margin: 0 auto;
-        
-      }
-
-      
-    .step-title {
-        font-size: 20px;
-    }
-
-    .step-description {
-        font-size: 12px;
-    }
-
-       .step-1 {
-      left: 40%;
-    top: 10%;
-    }
-    .step-2 {
-      left: 10%;
-      top: 35%;
-    }
-    .step-3 {
-      right: 15%;
-      bottom: 27%;
-    }
-    .step-4 {
-      left: 30%;
-      top: 85%;
-    }
-     .one {
-        height: 80px;
-        width: 30px;
-      left: 32%;
-      top: 10%;
-    }
-    .two {
-         height: 86px;
-        width: 60px;
-      left: 20%;
-      top: 35%;
-    }
-    .three {
-         height: 80px;
-        width: 60px;
-      right: 33%;
-      bottom:30%;
-    }
-    .four {
-         height: 90px;
-        width: 60px;
-    left: 47%;
-      top:85%;
-    }
-
-    }
-    
-    
-  }
-
-  .get-started-btn {
-    background: #3b4a8c;
-    border: none;
-    width: 476px;
-    height: 52px;
-    font-size: 16px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    color: white;
-    position: absolute;
-    right: 5%;
-    bottom: 10%;
-
-    @media (max-width : 768px) {
-        width: 158px;
-    height: 32px;
-    font-size: 12px;
-    }
-  }
-}
 
 
 
@@ -2112,7 +2341,7 @@
                 // background-color: #d9d9d9;
                 border-radius: 50%;
 
-               
+
             }
 
             .border-l-r-b-0 {
@@ -2430,22 +2659,25 @@
                     height: 40px;
                 }
 
-      p {
-        color: #656765;
-      }
-.star{
-    position: absolute;
-    top: 2px;
-}
-      .inactive {
-        position: absolute;
-        top: 5px;
-      }
-      &.active .dot {
-        position: absolute;
-        top: 5px;
-      }
-    }
+                p {
+                    color: #656765;
+                }
+
+                .star {
+                    position: absolute;
+                    top: 2px;
+                }
+
+                .inactive {
+                    position: absolute;
+                    top: 5px;
+                }
+
+                &.active .dot {
+                    position: absolute;
+                    top: 5px;
+                }
+            }
 
             .rocket {
                 position: absolute;
@@ -2492,30 +2724,33 @@
                 }
 
 
-      .step {
-        flex-direction: row;
-        align-items: center;
-        margin-bottom: 10px;
-.star{
-    position: absolute;
-    left: 46%;
-}
-      .inactive {
-        position: absolute;
-        left: 47%;
-      }
-      &.active .dot {
-        position: absolute;
-        left: 47%;
-      }
+                .step {
+                    flex-direction: row;
+                    align-items: center;
+                    margin-bottom: 10px;
 
-        p {
-          text-align: left;
-          font-size: 14px;
-          margin-left: 16%;
-          flex : 1;
-        }   
-      }
+                    .star {
+                        position: absolute;
+                        left: 46%;
+                    }
+
+                    .inactive {
+                        position: absolute;
+                        left: 47%;
+                    }
+
+                    &.active .dot {
+                        position: absolute;
+                        left: 47%;
+                    }
+
+                    p {
+                        text-align: left;
+                        font-size: 14px;
+                        margin-left: 16%;
+                        flex: 1;
+                    }
+                }
 
                 .rocket {
                     left: 51%;
@@ -2550,3 +2785,232 @@
     // =========================================
     // Referal timeline css End
     // =========================================
+
+    // =================== Second Screen ===================
+
+    .bg-secondscreen {
+        min-height: 100dvh;
+        background-image: url('../src/assets/images/progress-img/secondscreenbg.png');
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .till-ship {
+        background: $light-blue-opacity-30;
+
+        &-img {
+            left: -14.7%;
+            bottom: 0%;
+        }
+
+        &-border-color {
+            border-right: pxToRem(0.5) solid var(--border-light) !important;
+        }
+    }
+
+    .progress-sect-rocket {
+        top: -82%;
+        left: 2%;
+    }
+
+    .progress-sect-astronot {
+        bottom: 0%;
+        width: 20%;
+        left: 2%;
+    }
+
+    .tilte-shadow {
+        box-shadow: 0 pxToRem(4) pxToRem(16) 0 $light-purple;
+    }
+
+    .progress-sect-name {
+        line-height: 1.2;
+    }
+
+    .progress-test-mt {
+        margin-top: 0.25rem;
+    }
+
+    .progress-sect {
+        background: linear-gradient(180deg,
+                rgba(255, 228, 147, 0.2) 47.11%,
+                rgba(255, 200, 39, 0.4) 105.98%);
+        background-color: $yellow-gradient;
+
+        &-rocket {
+            top: -82%;
+            left: 2%;
+        }
+
+        &-astronot {
+            bottom: 0%;
+            width: 20%;
+            left: 2%;
+        }
+    }
+
+    .progress-side-sec {
+        width: 20%;
+    }
+
+    .progress-side-hr,
+    .progress-side-hr11,
+    .progress-side-hr-2 {
+        border: pxToRem(2) dashed $light-yellow;
+        margin: 0 auto;
+
+        &.progress-side-hr {
+            border-style: solid;
+            height: pxToRem(38);
+        }
+
+        &.progress-side-hr11 {
+            height: pxToRem(38);
+        }
+
+        &.progress-side-hr-2 {
+            height: pxToRem(20);
+        }
+    }
+
+    .progress-foot-alen {
+        left: -5%;
+        bottom: 0%;
+    }
+
+    .push-notification-close {
+        background-color: $light-purple-bg !important;
+    }
+
+    .second-screen-pathway {
+        // width: 79% !important;
+        // transform: translate(12.5%, 0%);
+        width: 56% !important;
+        transform: translate(17.5%, 0%);
+    }
+
+    .second-scrn-bottom {
+        margin-top: pxToRem(8) !important;
+    }
+
+    .second-scrn-padding {
+        padding: auto !important;
+    }
+
+    // =================== Tooltip ===================
+
+    .tooltiptext {
+        visibility: auto;
+        background-color: $semi-transparent-purple;
+        color: $light-yellow;
+        text-align: center;
+        border: pxToRem(1) solid $light-yellow;
+        bottom: -25%;
+        left: 20%;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: pxToRem(-6);
+            border-width: pxToRem(7);
+            border-style: solid;
+            border-color: transparent $light-yellow transparent transparent;
+        }
+    }
+
+    
+.left-box,
+.right-box {
+  position: relative;
+  transition: all 0.9s ease;
+
+  &.default-position {
+    left: 0%;
+    opacity: 1;
+  }
+
+  &.move-left {
+    left: -80%;
+    opacity: 0;
+  }
+
+  &.move-right {
+    left: 80%;
+    opacity: 0;
+  }
+}
+    // ---------
+    .scrol-path-0 {
+        width: 23%;
+        left: 65%;
+    }
+
+    .scrol-path-1 {
+        width: 27%;
+        left: 88%;
+    }
+
+    .scrol-path-2 {
+        width: 24%;
+        left: 114%;
+    }
+
+    .scrol-path-3 {
+        width: 27%;
+        left: 137%;
+    }
+
+    .scrol-path-4 {
+        width: 24%;
+        left: 164%;
+    }
+
+    .scrol-path-5 {
+        width: 27%;
+        left: 187%;
+    }
+
+    .scrol-path-6 {
+        width: 24%;
+        left: 214%;
+    }
+
+    // -------------------------------------------------
+    // Progress Css End 
+    // ------------------------------------------------
+
+
+    // --------------------------------------------
+    // Scroll Bar Css start
+    // ---------------------------------------------
+
+    /* Scrollbar width */
+::-webkit-scrollbar {
+  width: 8px;   /* vertical scrollbar */
+  height: 8px;  /* horizontal scrollbar */
+}
+
+/* Scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background: $dark-color;   /* dark blue background */
+  border-radius: 10px;
+}
+
+/* Scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: $deep-violet;   /* yellow thumb */
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+/* On hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffaa00;   /* darker yellow on hover */
+}
+.hidden-scrollbar::-webkit-scrollbar{
+    display: none !important;
+ }

@@ -5,6 +5,7 @@ import InActiveIcon from "../../assets/Images/referel-timeline/InActive-dot.svg"
 import ActiveDot from "../../assets/Images/referel-timeline/active-dot.svg";
 import rocket from "../../assets/Images/referel-timeline/rocket.png";
 import star from "../../assets/Images/referel-timeline/star.svg";
+import { NavLink } from "react-router-dom";
 
 const ReferralTimeline = () => {
     const steps = [
@@ -15,12 +16,11 @@ const ReferralTimeline = () => {
         { id: 5, text: <>Congrats !! <br />Happy-go-lucky.</>, icon: star },
     ];
 
-    const [activeStep, setActiveStep] = useState(2);
+    const [activeStep, setActiveStep] = useState(5);
     const [rocketPos, setRocketPos] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     const stepRefs = useRef([]);
-
 
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -28,8 +28,7 @@ const ReferralTimeline = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-
-    const safeStep = Math.min(activeStep, steps.length - 1);
+const safeStep = Math.min(Math.max(activeStep - 1, 0), steps.length - 1);
 
 
     useEffect(() => {
@@ -50,7 +49,7 @@ const ReferralTimeline = () => {
         }
     }, [safeStep, isMobile]);
 
-    let progress = safeStep === 0 ? 0 : (safeStep / (steps.length - 1)) * 100;
+let progress = (safeStep / (steps.length - 1)) * 100;
 
     return (
         <div className={`referral-timeline montserrat-medium pt-5 ${isMobile ? "mobile" : ""}`}>
@@ -94,10 +93,12 @@ const ReferralTimeline = () => {
             </div>
 
 
-            <div className=" d-flex justify-content-end mr-40 ">
-                <button className="btn custom-btn bg-white">
-                    View More
-                </button>
+            <div className="d-flex justify-content-end mr-40">
+                <NavLink to={"/progress"} className={"text-decoration-none"}>
+                    <button className="btn custom-btn bg-white">
+                        View More
+                    </button>
+                </NavLink>
             </div>
         </div>
     );

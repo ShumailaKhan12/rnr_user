@@ -55,7 +55,7 @@ const HowItWorks = () => {
                             <div className="step-content">
                                 <h3 className="step-title font-30">PURCHASE</h3>
                                 <p className="step-description font-20">
-                                    With all that <br /> hustle of invite n <br /> accept, its time <br /> to get rewarded
+                                    To get chance of <br /> earning You must <br /> purchase the <br /> product of your <br /> choice 
                                 </p>
                             </div>
                         </div>
