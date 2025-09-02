@@ -51,7 +51,7 @@ const Navbar = () => {
 
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link font-22 text-white pe-5 jura-semibold" href="#">Progress</Link>
+                                <NavLink to={"/progress"} className="nav-link font-22 text-decoration-none text-white pe-5 jura-semibold" href="#">Progress</NavLink>
                             </li>
                             <li className="nav-item">
                                 <div className="dropdown  position-relative">

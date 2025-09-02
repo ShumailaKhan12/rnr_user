@@ -5,6 +5,7 @@ import InActiveIcon from "../../assets/Images/referel-timeline/InActive-dot.svg"
 import ActiveDot from "../../assets/Images/referel-timeline/active-dot.svg";
 import rocket from "../../assets/Images/referel-timeline/rocket.png";
 import star from "../../assets/Images/referel-timeline/star.svg";
+import { NavLink } from "react-router-dom";
 
 const ReferralTimeline = () => {
     const steps = [
@@ -94,10 +95,12 @@ const ReferralTimeline = () => {
             </div>
 
 
-            <div className=" d-flex justify-content-end mr-40 ">
-                <button className="btn custom-btn bg-white">
-                    View More
-                </button>
+            <div className="d-flex justify-content-end mr-40">
+                <NavLink to={"/progress"} className={"text-decoration-none"}>
+                    <button className="btn custom-btn bg-white">
+                        View More
+                    </button>
+                </NavLink>
             </div>
         </div>
     );

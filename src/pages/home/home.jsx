@@ -15,6 +15,7 @@ import Clock from "../../assets/icons/scoreCard/clock.svg";
 import Cross from "../../assets/icons/scoreCard/cross.svg";
 import HomeHowitworks from './howItsWork';
 import ReferralTimeline from '../../components/ReferalTimeline/ReferalTimeline';
+import { NavLink } from 'react-router-dom';
 
 // Import Json
 const ScoreCardData = [
@@ -122,18 +123,21 @@ const Home = () => {
                 <div className='row pt-5 gap-lg-3 gap-5 justify-content-center'>
                     {ScoreCardData?.map((item, index) => (
                         <div className='col-10 col-md-4 col-lg' key={index}>
-                            <div className='score-card position-relative border-radius-12 d-flex flex-column align-items-center justify-content-center p-3'>
-                                <img src={item.image} className='position-absolute start-100 top-0 translate-middle' alt="Loading" />
-                                <p className='font-40 montserrat-bold text-blue mb-0'>{item?.score}</p>
-                                <p className='text-blue font-32 montserrat-medium'>{item?.title}</p>
-                            </div>
+                            <NavLink to={"/myreferral"} className={"text-decoration-none"}>
+                                <div className='score-card position-relative border-radius-12 d-flex flex-column align-items-center justify-content-center p-3'>
+                                    <img src={item.image} className='position-absolute start-100 top-0 translate-middle' alt="Loading" />
+                                    <p className='font-40 montserrat-bold text-blue mb-0'>{item?.score}</p>
+                                    <p className='text-blue font-32 montserrat-medium'>{item?.title}</p>
+                                </div>
+                            </NavLink>
+
                         </div>
                     ))}
                 </div>
             </div>
 
             {/* Referral Time Line */}
-             <ReferralTimeline />
+            <ReferralTimeline />
 
             {/* How Its Work Start Here */}
             <HomeHowitworks />
