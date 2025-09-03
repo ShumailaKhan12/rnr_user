@@ -110,12 +110,12 @@ const Progress = () => {
             }}
           // onAnimationEnd={SecScrAnimt ? handleAnimationEnd : undefined}
           >
-            <div className="col-lg-3">
+            <div className="col-lg-3 col-md-3 col-6">
               <NavLink to={"/home"} className={"text-decoration-none"}>
                 <p className='text-white font-14 montserrat-medium'> <IoIosArrowBack className='font-18' /> Back</p>
               </NavLink>
             </div>
-            <div className="col-lg-4 d-flex justify-content-end px-0 mt-4">
+            <div className="col-lg-4 col-md-4 d-flex justify-content-end px-0 mt-4">
               <div className="till-ship w-75 position-relative tilte-shadow rounded-3">
                 <img
                   className="position-absolute till-ship-img"
@@ -149,7 +149,7 @@ const Progress = () => {
             className={`row justify-content-between second-screen-xl pt-5 gap-5`}
           >
             <div
-              className={`col-lg-2 px-0 d-flex flex-column justify-content-between`}
+              className={`col-lg-2 col-md-4 col-12 px-0 d-flex flex-column justify-content-between`}
             >
               <div className={`left-sidebar-main-div mx-lg-0 mx-3`}>
                 <p className="text-dark-blue space-grotesk-medium font-16 mb-3">
@@ -180,52 +180,52 @@ const Progress = () => {
 
               </div>
             </div>
-            <div className="col-lg-9 planet-section overflow-auto hidden-scrollbar">
+            <div className="col-lg-9 col-md-7 col-12 planet-section overflow-auto hidden-scrollbar">
               <div className="d-flex">
-                <div className="col-lg-3 text-center">
+                <div className="col-lg-3 col-md-3 col-6 text-center">
                   <img
-                    className={`width-50 width-md-50 width-lg-25 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}`}
                     src={images[currentIndex]}
                     alt="purple"
                   />
                 </div>
-                <div className="col-lg-3"></div>
-                <div className="col-lg-3 text-center">
+                <div className="col-lg-3 col-md-3 col-6"></div>
+                <div className="col-lg-3 col-md-3 col-6 text-center">
                   <img
-                    className={`width-50 width-md-50 width-lg-25 width-xl-70 planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
                     src={images[imageNumbers]}
                     alt="yellow"
                   />
                 </div>
-                <div className="col-lg-3"></div>
+                <div className="col-lg-3 col-md-3 col-6"></div>
                 <div
-                  className={`col-lg-3 text-center
+                  className={`col-lg-3 col-md-3 col-6 text-center
                 ` }
                 >
                   <img
-                    className={`width-50 width-md-50 width-lg-25 width-xl-70 planet-shadow-${currentIndex[0] === 0 ? 'purple' : currentIndex[0] === 1 ? 'yellow' : currentIndex[0] === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${currentIndex[0] === 0 ? 'purple' : currentIndex[0] === 1 ? 'yellow' : currentIndex[0] === 2 ? 'green' : 'blue'}`}
                     src={images[currentIndex]}
                     alt="yellow"
                   />
                 </div>
-                <div className="col-lg-3"></div>
+                <div className="col-lg-3 col-md-3 col-6"></div>
                 <div
-                  className={`col-lg-3 text-center
+                  className={`col-lg-3 col-md-3 col-6 text-center
                 `}
                 >
                   <img
-                    className={`width-50 width-md-50 width-lg-25 width-xl-70 planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
                     src={images[imageNumbers]}
                     alt="yellow"
                   />
                 </div>
-                <div className="col-lg-3"></div>
+                <div className="col-lg-3 col-md-3 col-6"></div>
                 <div
-                  className={`col-lg-3 text-center
+                  className={`col-lg-3 col-md-3 col-6 text-center
                 `}
                 >
                   <img
-                    className={`width-50 width-md-50 width-lg-25 width-xl-70 planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
                     src={images[imageNumbers]}
                     alt="yellow"
                   />
@@ -238,8 +238,8 @@ const Progress = () => {
                   alt="pathway"
                 />
 
-                <div className="col-lg-3 text-center text-dark-blue mt-4 pt-4 px-0">
-                  <h4 className="mb-2 space-grotesk-medium font-24">
+                <div className="col-lg-3 col-md-3 col-6 text-center text-dark-blue mt-4 pt-4 px-0">
+                  <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
                     Planet A
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[
@@ -247,7 +247,7 @@ const Progress = () => {
                   ]?.milestone_name
                 } */}
                   </h4>
-                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
+                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
                   {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[
                 currentIndex
                   ]?.milestone_description
@@ -272,7 +272,7 @@ const Progress = () => {
                 </div>
 
                 <div
-                  className={`col-lg-3`}
+                  className={`col-lg-3 col-md-3 col-6`}
                 >
                   <img
                     className="position-absolute a scrol-path-0 px-0"
@@ -281,8 +281,8 @@ const Progress = () => {
                   />
                 </div>
 
-                <div className="col-lg-3 text-center text-dark-blue mt-4 pt-4 px-0">
-                  <h4 className="mb-2 space-grotesk-medium font-24">
+                <div className="col-lg-3 col-md-3 col-6 text-center text-dark-blue mt-4 pt-4 px-0">
+                  <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
                     Planet B
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[
@@ -291,7 +291,7 @@ const Progress = () => {
                 } */}
                   </h4>
 
-                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
+                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
 
                   {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[
                 imageNumbers
@@ -317,7 +317,7 @@ const Progress = () => {
                 </div>
 
                 <div
-                  className={`col-lg-3
+                  className={`col-lg-3 col-md-3 col-6
                 `}
                 >
                   <img
@@ -327,10 +327,10 @@ const Progress = () => {
                   />
                 </div>
                 <div
-                  className={`col-lg-3 text-center text-dark-blue mt-4 pt-4 px-
+                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue mt-4 pt-4 px-
                  `}
                 >
-                  <h4 className="mb-2 space-grotesk-medium font-24">
+                  <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
                     Planet C
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[4]
@@ -338,7 +338,7 @@ const Progress = () => {
                 } */}
                   </h4>
 
-                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
+                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
 
                   {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[4]?.milestone_description
                 ?.split(/(\d+\s*(?:Star|Meteors))/gi)
@@ -361,8 +361,7 @@ const Progress = () => {
                 )} */}
                 </div>
                 <div
-                  className={`col-lg-3
-                `}
+                  className={`col-lg-3 col-md-3 col-6`}
                 >
                   <img
                     className="position-absolute b scrol-path-2 px-0"
@@ -371,10 +370,10 @@ const Progress = () => {
                   />
                 </div>
                 <div
-                  className={`col-lg-3 text-center text-dark-blue mt-4 pt-4 px-0 
+                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue mt-4 pt-4 px-0 
                 `}
                 >
-                  <h4 className="mb-2 space-grotesk-medium font-24">
+                  <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
                     Planet D
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[6]
@@ -382,7 +381,7 @@ const Progress = () => {
                 } */}
                   </h4>
 
-                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
+                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
 
                   {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[6]?.milestone_description
                 ?.split(/(\d+\s*(?:Star|Meteors))/gi)
@@ -405,7 +404,7 @@ const Progress = () => {
                 )} */}
                 </div>
                 <div
-                  className={`col-lg-3`}
+                  className={`col-lg-3 col-md-3 col-6`}
                 >
                   <img
                     className="position-absolute c scrol-path-3 px-0"
@@ -414,10 +413,10 @@ const Progress = () => {
                   />
                 </div>
                 <div
-                  className={`col-lg-3 text-center text-dark-blue mt-4 pt-4 px-0 
+                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue mt-4 pt-4 px-0 
                 `}
                 >
-                  <h4 className="mb-2 space-grotesk-medium font-24">
+                  <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
                     Planet E
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[8]
@@ -425,7 +424,7 @@ const Progress = () => {
                 } */}
                   </h4>
 
-                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
+                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
 
                   {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[8]?.milestone_description
                 ?.split(/(\d+\s*(?:Star|Meteors))/gi)
@@ -448,7 +447,7 @@ const Progress = () => {
                 )} */}
                 </div>
                 <div
-                  className={`col-lg-3 d-none`}
+                  className={`col-lg-3 col-md-3 col-6`}
                 >
                   <img
                     className="position-absolute c scrol-path-4 px-0"
@@ -458,8 +457,7 @@ const Progress = () => {
                 </div>
 
                 <div
-                  className={`col-lg-3 
-                `}
+                  className={`col-lg-3 col-md-3 col-6`}
                 >
                   <img
                     className="position-absolute c scrol-path-5 px-0"
@@ -468,8 +466,7 @@ const Progress = () => {
                   />
                 </div>
                 <div
-                  className={`col-lg-3 
-                `}
+                  className={`col-lg-3 col-md-3 col-6`}
                 >
                   <img
                     className="position-absolute c scrol-path-6 px-0"
@@ -479,15 +476,15 @@ const Progress = () => {
                 </div>
               </div>
               <div className="d-flex">
-                <div className="col-lg-3"></div>
-                <div className="col-lg-3 text-center text-dark-blue second-scrn-padding">
+                <div className="col-lg-3 col-md-3 col-6"></div>
+                <div className="col-lg-3 col-md-3 col-6 text-center text-dark-blue second-scrn-padding">
                   <img
-                    className={`width-50 width-md-50 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
                     src={images[nextIndex]}
                     alt="greenplnt"
                   />
                   <div className=" text-center text-dark-blue">
-                    <h4 className="mb-2 space-grotesk-medium font-24">
+                    <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
                       Planet F
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[
@@ -495,7 +492,7 @@ const Progress = () => {
                     ]?.milestone_name
                   } */}
                     </h4>
-                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
 
                     {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[
                   nextIndex
@@ -520,17 +517,17 @@ const Progress = () => {
                   )} */}
                   </div>
                 </div>
-                <div className="col-lg-3"></div>
+                <div className="col-lg-3 col-md-3 col-6"></div>
                 <div
-                  className={`col-lg-3 text-center text-dark-blue`}
+                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue`}
                 >
                   <img
-                    className={`width-50 width-md-50 width-lg-25 width-xl-70 planet-shadow-${prevIndex === 0 ? 'purple' : prevIndex === 1 ? 'yellow' : prevIndex === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${prevIndex === 0 ? 'purple' : prevIndex === 1 ? 'yellow' : prevIndex === 2 ? 'green' : 'blue'}`}
                     src={images[prevIndex]}
                     alt="blueplnt"
                   />
                   <div className=" text-center text-dark-blue">
-                    <h4 className="mb-2 space-grotesk-medium font-24">
+                    <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
                       Planet G
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[
@@ -538,7 +535,7 @@ const Progress = () => {
                     ]?.milestone_name
                   } */}
                     </h4>
-                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
 
                     {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[
                   prevIndex
@@ -563,17 +560,17 @@ const Progress = () => {
                   )} */}
                   </div>
                 </div>
-                <div className="col-lg-3"></div>
+                <div className="col-lg-3 col-md-3 col-6"></div>
                 <div
-                  className={`col-lg-3 text-center text-dark-blue`}
+                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue`}
                 >
                   <img
-                    className={`width-50 width-md-50 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
                     src={images[nextIndex]}
                     alt="blueplnt"
                   />
                   <div className=" text-center text-dark-blue">
-                    <h4 className="mb-2 space-grotesk-medium font-24">
+                    <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
                       Planet H
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[5]
@@ -581,7 +578,7 @@ const Progress = () => {
                   } */}
                     </h4>
 
-                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
 
                     {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[5]?.milestone_description
                   ?.split(/(\d+\s*(?:Star|Meteors))/gi) // Non-capturing group for the words
@@ -604,24 +601,24 @@ const Progress = () => {
                   )} */}
                   </div>
                 </div>
-                <div className="col-lg-3"></div>
+                <div className="col-lg-3 col-md-3 col-6"></div>
                 <div
-                  className={`col-lg-3 text-center text-dark-blue`}
+                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue`}
                 >
                   <img
-                    className={`width-50 width-md-50 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
                     src={images[nextIndex]}
                     alt="blueplnt"
                   />
                   <div className=" text-center text-dark-blue">
-                    <h4 className="mb-2 space-grotesk-medium font-24">
+                    <h4 className="mb-2 space-grotesk-medium font-24 planet-heading">
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[7]
                       ?.milestone_name
                   } */}
                     </h4>
 
-                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
 
                     {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[7]?.milestone_description
                   ?.split(/(\d+\s*(?:Star|Meteors))/gi) // Non-capturing group for the words
@@ -644,23 +641,23 @@ const Progress = () => {
                   )} */}
                   </div>
                 </div>
-                <div className="col-lg-3"></div>
+                <div className="col-lg-3 col-md-3 col-6"></div>
                 <div
-                  className={`col-lg-3 text-center text-dark-blue`}
+                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue`}
                 >
                   <img
-                    className={`width-50 width-md-50 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
                     src={images[nextIndex]}
                     alt="blueplnt"
                   />
                   <div className=" text-center text-dark-blue">
-                    <h4 className="mb-2 space-grotesk-medium font-24">
+                    <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[9]
                       ?.milestone_name
                   } */}
                     </h4>
-                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
 
                     {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[9]?.milestone_description
                   ?.split(/(\d+\s*(?:Star|Meteors))/gi) // Non-capturing group for the words
@@ -686,7 +683,7 @@ const Progress = () => {
               </div>
             </div>
           </div>
-          <div className='col-lg-3'>
+          <div className='col-lg-3 col-md-4 col-6'>
             <NavLink
               to={'/home'}
               className={'text-decoration-none'}

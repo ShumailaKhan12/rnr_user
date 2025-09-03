@@ -32,6 +32,7 @@ import { toastError, toastSuccess } from '../../utils/toster';
 import Navbar from '../../components/navbar';
 import { UserContext } from '../../UseContext/useContext';
 import { IoIosArrowBack } from 'react-icons/io';
+import { FaEye, FaRegEye } from 'react-icons/fa';
 
 const Profile = () => {
   // Profile form
@@ -336,7 +337,7 @@ const Profile = () => {
       {/* <Navbar /> */}
       <div className="container py-4 profile-container">
         <NavLink to={"/home"} className={"text-decoration-none"}>
-          <p className='text-white font-14 montserrat-medium'> <IoIosArrowBack className='font-18' /> Back</p>
+          <p className='text-white font-14 montserrat-medium py-3'> <IoIosArrowBack className='font-18' /> Back</p>
         </NavLink>
         {/* Header */}
         <div className="bg-profile-detail rounded-4 mb-32 p-4">
@@ -388,12 +389,14 @@ const Profile = () => {
                 className="btn background-text-blue  btn-sm btn-edit-profile position-relative pe-3"
                 onClick={() => setIsEditModalOpen(true)}
               >
-                <img
+                <FaRegEye className='edit-icon montserrat-semibold text-white' />
+
+                {/* <img
                   className="edit-icon montserrat-semibold"
                   src={Edit}
                   alt=""
-                />
-                Edit Profile
+                /> */}
+                View Profile
               </button>
             </div>
           </div>
@@ -407,29 +410,35 @@ const Profile = () => {
               {
                 // value: UserDataAPI?.part9,
                 value: 122,
-                label: 'Total Meteors Earned',
+                label: 'Total Rewards',
                 RewardIcons: Reward,
               },
               {
                 // value: UserDataAPI?.part5,
                 value: 122,
-                label: 'Referral Earnings',
+                label: 'Current Rewards',
                 RewardIcons: Balance,
               },
               {
                 // value: UserDataAPI?.part6,
                 value: 122,
-                label: 'Redeemed Meteors',
+                label: 'Total Redeemed',
                 RewardIcons: Redeemed,
               },
               {
                 // value: UserDataAPI?.part4,
                 value: 122,
-                label: 'Available Meteors',
+                label: 'Pending Rewards',
+                RewardIcons: Pending,
+              },
+               {
+                // value: UserDataAPI?.part4,
+                value: 122,
+                label: 'Available Cash',
                 RewardIcons: Pending,
               },
             ].map((item, idx) => (
-              <div className="col-12 col-md-6 col-lg-3 mt-0 mb-3 mb-lg-0" key={idx}>
+              <div className="col-12 col-md-6 col-lg mt-0 mb-3 mb-lg-0" key={idx}>
                 <div className="d-flex flex-column justify-content-between bg-light-purple-transparent p-3 rounded">
                   <div className="d-flex justify-content-between">
                     <div className="reward-icons-div">
@@ -555,7 +564,9 @@ const Profile = () => {
                   </span>
                 </div>
 
-                <div className="d-flex flex-wrap gap-3 mb-24">
+
+                {/* Convert Button */}
+                {/* <div className="d-flex flex-wrap gap-3 mb-24">
                   <button
                     onClick={() => setIsmeteroModalOpen(true)}
                     className="btn background-text-blue rounded-pill font-14 text-white montserrat-semibold px-4"
@@ -568,7 +579,7 @@ const Profile = () => {
                   >
                     Convert stars into cash/points
                   </button>
-                </div>
+                </div> */}
                 <small className="text-primary-color">
                   <span className="font-14 montserrat-semibold">Note*</span>{' '}
                   <span className="font-14 montserrat-medium">
@@ -645,43 +656,6 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* Account Settings Section */}
-          <div className="accordion-item bg-transparent border-0">
-            <h2 className="accordion-header bg-transparent">
-              <button
-                className={`accordion-button profile-accordian-text text-light-color bg-transparent font-18 montserrat-semibold pt-4 pb-4 ${activeSection === 'account' ? '' : 'collapsed'}`}
-                type="button"
-                onClick={() => toggleSection('account')}
-              >
-                Account Settings
-              </button>
-            </h2>
-            <div
-              className={`accordion-collapse collapse ${activeSection === 'account' ? 'show' : ''}`}
-            >
-              <div className="accordion-body">
-                <ul className="list-unstyled">
-                  <li
-                    className="montserrat-medium font-14 text-primary-color mb-20"
-                    role="button"
-                  >
-                    <span className="text-blue" onClick={() => HandleLogout()}>
-                      Logout
-                    </span>
-                  </li>
-                  {/* <li
-                    className="montserrat-medium font-14 text-primary-color"
-                    role="button"
-                  >
-                    <a href="#" className="anchor-link">
-                      Delete / De-activate account
-                    </a>
-                  </li> */}
-                </ul>
-              </div>
-            </div>
-          </div>
-
           {/* Help Section */}
           <div className="accordion-item bg-transparent border-0">
             <h2 className="accordion-header bg-transparent">
@@ -752,7 +726,7 @@ const Profile = () => {
                 <img className="close-icon" src={Close} alt="Close icon" />
               </button>
               <h5 className="font-24 text-primary-color mb-42 montserrat-semibold">
-                Edit Profile
+                View Profile
               </h5>
               <form onSubmit={handleSubmitProfile(onFormSubmit)}>
                 {/* Profile Image Section */}
@@ -781,11 +755,11 @@ const Profile = () => {
                       onChange={handleImageChange}
                       hidden
                     />
-                    <img
+                    {/* <img
                       className="addprofile-plus-icon"
                       src={AddIcon}
                       alt="Add"
-                    />
+                    /> */}
                   </label>
                 </div>
 
@@ -808,7 +782,7 @@ const Profile = () => {
                 {/* Mobile No Input */}
                 <div className="mb-32">
                   <label className="form-label mb-8 font-14 text-light-color montserrat-regular">
-                    Your Mobile No
+                    Your Mobile No.
                   </label>
                   <input
                     type="text"
@@ -848,74 +822,25 @@ const Profile = () => {
                   )}
                 </div>
 
-                <hr />
 
-                <div className="">
-                  <label className="form-label mb-8 font-14 text-light-color montserrat-regular">
-                    Existing Password
-                  </label>
-                  <input
-                    type="password"
-                    placeholder="Current Password"
-                    className="form-control font-14 text-primary-color montserrat-medium mb-32"
-                    {...registerProfile('currentPassword')}
-                  />
-                  {errorsProfile?.currentPassword && (
-                    <p className="text-danger">
-                      {errorsProfile?.currentPassword?.message}
-                    </p>
-                  )}
-                </div>
-
-                {/* Change Password Section */}
+                {/* ARN Input */}
                 <div className="mb-32">
                   <label className="form-label mb-8 font-14 text-light-color montserrat-regular">
-                    Change Password
+                    Your ARN No.
                   </label>
                   <input
-                    type="password"
-                    placeholder="New Password"
-                    className="form-control font-14 text-primary-color montserrat-medium mb-32"
-                    {...registerProfile('newPassword', {
-                      minLength: { value: 6, message: 'Minimum 6 characters' },
-                    })}
-                    value={passwords.newPassword}
-                    onChange={handlePasswordChange}
-                  />
-                  {errorsProfile.newPassword && (
-                    <p className="text-danger">
-                      {errorsProfile.newPassword.message}
-                    </p>
-                  )}
-                  <label className="form-label mb-8 font-14 text-light-color montserrat-regular">
-                    Re-enter Password
-                  </label>
-                  <input
-                    type="password"
-                    placeholder="Re-enter Password"
+                    type="text"
                     className="form-control font-14 text-primary-color montserrat-medium"
-                    {...registerProfile('rePassword', {
-                      validate: (value) =>
-                        value === passwords.newPassword ||
-                        'Passwords do not match',
+                    {...registerProfile('arn_number', {
+                      required: 'ARN No. is required',
                     })}
-                    value={passwords.rePassword}
-                    onChange={handlePasswordChange}
+                    defaultValue={UserDataAPI?.part2}
                   />
-                  {errorsProfile.rePassword && (
-                    <p className="text-danger">
-                      {errorsProfile.rePassword.message}
-                    </p>
+                  {errorsProfile.arn_number && (
+                    <p className="text-danger">{errorsProfile.arn_number.message}</p>
                   )}
                 </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="btn background-text-blue rounded-pill montserrat-medium text-white font-14 w-100"
-                >
-                  Save Changes
-                </button>
+                <hr />
               </form>
             </div>
           </div>
