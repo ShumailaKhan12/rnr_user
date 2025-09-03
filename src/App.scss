@@ -1060,7 +1060,7 @@
         background-position: top;
         background-size: cover;
         background-repeat: repeat;
-        width: 100%;
+        width: 100vw;
         padding: pxToRem(80) 0;
 
         .howitswork-title {
@@ -1283,13 +1283,14 @@
             color: $blue-secondry;
         }
 
-        // mobile timeline styles
-        .timeline-mobile {
-            position: relative;
-            margin: 0 auto;
-            padding: 2rem 0;
-            width: 100%;
-            height: 100vh !important;
+// mobile timeline styles
+.timeline-mobile {
+  position: relative;
+  margin: 0 auto;
+//   padding: 2rem 0;
+  padding: 1rem 0 1rem; 
+  min-height: 100vh;
+  height: auto !important; 
 
         }
 
@@ -1355,16 +1356,17 @@
             }
         }
 
-        /* STEP BLOCK */
-        .step-mobile {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 60px 0;
-            opacity: 0;
-            transition: opacity 0.6s ease-in-out;
-            z-index: 2;
+/* STEP BLOCK */
+.step-mobile {
+  position: relative;
+  display: flex;
+//   align-items: center;
+align-items: flex-start;
+  justify-content: space-between;
+  margin: 40px 0;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  z-index: 2;
 
 
             &.visible {
@@ -1379,25 +1381,25 @@
                 text-align: right;
             }
 
-            .right {
-                text-align: left;
-            }
-
-            &::before {
-                content: '';
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 16px;
-                height: 16px;
-                border-radius: 50%;
-                background: var(--text-dark-blue);
-                z-index: 3;
-                opacity: 0;
-                transition: opacity 0.6s ease-in-out;
-                top: 0;
-
-            }
+  .right {
+    text-align: left;
+  }
+&::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--text-dark-blue);
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    top: 0;
+    //   top: 50%;     
+    
+  }
 
             &.visible::before {
                 opacity: 1;
@@ -1427,13 +1429,13 @@
                 max-width: 60%;
             }
 
-            .planet-svg {
-                width: 64px !important;
-                height: 64px !important;
-
-            }
-
-        }
+  .planet-svg {
+    width: 64px !important;
+    height: 64px !important;
+margin-top: -8px;
+  }
+  
+}
 
 
         /* STEP TEXTS */
@@ -1658,7 +1660,9 @@
 
     // =================== How it works css
     .referral-program {
-
+padding: 25px 0;
+  position: relative; 
+  overflow: hidden;
         .program-header {
             .program-title {
                 color: #05103E;
@@ -1740,12 +1744,12 @@
             }
 
             .step-3 {
-                right: 30%;
-                bottom: -3%;
+                right: 25%;
+                bottom: -6%;
             }
 
             .step-4 {
-                right: -5%;
+                right: 0%;
                 top: 15%;
             }
 
@@ -1763,13 +1767,13 @@
 
             .three {
                 position: absolute;
-                right: 24%;
-                bottom: -5%;
+                right: 23%;
+                bottom: -6%;
             }
 
             .four {
                 position: absolute;
-                right: -10%;
+                right: -3%;
                 top: 15%;
             }
 
@@ -1803,13 +1807,13 @@
                 }
 
                 .step-2 {
-                    left: 10%;
+                    left: 5%;
                     top: 35%;
                 }
 
                 .step-3 {
-                    right: 15%;
-                    bottom: 27%;
+                    right:10%;
+                    bottom: 28%;
                 }
 
                 .step-4 {
@@ -1827,15 +1831,15 @@
                 .two {
                     height: 86px;
                     width: 60px;
-                    left: 20%;
+                    left: 18%;
                     top: 35%;
                 }
 
                 .three {
                     height: 80px;
                     width: 60px;
-                    right: 33%;
-                    bottom: 30%;
+                    right: 30%;
+                    bottom: 31%;
                 }
 
                 .four {
@@ -1859,9 +1863,11 @@
             font-weight: 600;
             transition: all 0.3s ease;
             color: white;
-            position: absolute;
-            right: 5%;
-            bottom: 10%;
+            position: relative;
+            left: 25%;
+            bottom: 0;
+            margin-top: 15px;  
+            align-self: self-end;
 
             @media (max-width : 768px) {
                 width: 158px;
@@ -1930,18 +1936,26 @@
             align-items: center;
             flex-direction: row;
             margin-top: 1rem;
+        
 
             input[type="checkbox"] {
-                appearance: none;
-                -webkit-appearance: none;
+                appearance: none !important;
+                -webkit-appearance: none !important;
+                -moz-appearance: none   !important;
+                box-sizing: border-box;     
                 width: 20px;
                 height: 20px;
                 border-radius: 4px;
                 cursor: pointer;
                 position: relative;
-                background-color: #1A2A6C;
+                border: 2px solid #1A2A6C !important;
+                background-color: transparent   !important; 
                 margin-right: 6px;
 
+                &:checked {
+            background-color: #1A2A6C !important; 
+            border: 2px solid #1A2A6C !important;
+        }
                 &:checked::after {
                     content: "✔";
                     position: absolute;
@@ -1949,7 +1963,8 @@
                     left: 50%;
                     transform: translate(-50%, -55%);
                     font-size: 14px;
-                    color: white;
+                    color: white;  
+                    // background-color: #1A2A6C; // bg color when checked
                 }
             }
         }
@@ -1976,6 +1991,7 @@
         // padding: 1rem;
         border-radius: 12px;
         position: relative;
+    
 
         .close-btn {
             position: absolute;
@@ -2002,6 +2018,7 @@
             border-radius: 50px;
             cursor: pointer;
             margin-top: 1rem;
+            margin-inline: 2rem;
         }
     }
 
@@ -2038,17 +2055,24 @@
                 gap: 8px;
 
                 input[type="checkbox"] {
+                    appearance: none !important;
+                    -webkit-appearance: none !important;
+                    -moz-appearance: none   !important;
                     all: unset;
-                    appearance: none;
-                    -webkit-appearance: none;
                     width: 20px;
                     height: 20px;
                     border-radius: 4px;
                     cursor: pointer;
                     position: relative;
-                    background-color: #1A2A6C;
+                    border: 2px solid #1A2A6C !important;
+                    background-color: transparent   !important; 
+                    // background-color: #1A2A6C;
                     margin-top: 2px;
 
+                    &:checked {
+            background-color: #1A2A6C !important; 
+            border: 2px solid #1A2A6C !important;
+        }
                     &:checked::after {
                         content: "✔";
                         position: absolute;
@@ -2717,7 +2741,7 @@
         }
 
 
-        /* ✅ Mobile  */
+        /*  Mobile  */
         @media (max-width: 768px) {
             .progress-line {
                 flex-direction: column;
@@ -2729,6 +2753,7 @@
                     left: 50%;
                     width: 14px;
                     height: 100%;
+                    transform: translateX(-50%); 
 
                 }
 
@@ -2738,6 +2763,7 @@
                     width: 14px;
                     height: 0;
                     transition: height 0.5s ease-in-out;
+                    transform: translateX(-50%); 
                 }
 
 
@@ -2746,25 +2772,18 @@
                     align-items: center;
                     margin-bottom: 10px;
 
-                    .star {
-                        position: absolute;
-                        left: 46%;
-                    }
-
-                    .inactive {
-                        position: absolute;
-                        left: 47%;
-                    }
-
-                    &.active .dot {
-                        position: absolute;
-                        left: 47%;
-                    }
+                    .star,
+                    .inactive,
+                        &.active .dot {
+                            position: absolute;
+                            left: 50%;              
+                            transform: translateX(-50%);
+                        }
 
                     p {
                         text-align: left;
                         font-size: 14px;
-                        margin-left: 16%;
+                        margin-left: 5%;
                         flex: 1;
                     }
                 }
@@ -2776,20 +2795,20 @@
                     transform: translateX(-50%) rotate(90deg);
                 }
 
-                .star {
-                    position: absolute;
-                    left: 50%;
-                }
+                // .star {
+                //     position: absolute;
+                //     left: 50%;
+                // }
 
-                .inactive {
-                    position: absolute;
-                    left: 50%;
-                }
+                // .inactive {
+                //     position: absolute;
+                //     left: 50%;
+                // }
 
-                &.active .dot {
-                    position: absolute;
-                    left: 50%;
-                }
+                // &.active .dot {
+                //     position: absolute;
+                //     left: 50%;
+                // }
             }
 
             //    .custom-btn {     
