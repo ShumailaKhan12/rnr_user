@@ -39,7 +39,7 @@ const InviteModal = ({ isOpen, onClose }) => {
             {!successModalOpen && (
                 <div className="modal fade show overlay modal-overlay" style={{ display: "block" }}>
                     <div className="modal-dialog modal-dialog-centered" role="document">
-                        <div className="modal-content px-2">
+                        <div className="modal-content custom-modal-content bg-gradient-color px-2">
 
                             {/* Close btn */}
                             <button className="close-btn" onClick={onClose}>
@@ -47,13 +47,13 @@ const InviteModal = ({ isOpen, onClose }) => {
                             </button>
 
                             <div className="modal-header">
-                                <h2 className="modal-title">Invite a MFD</h2>
+                                <h2 className="modal-title font-30 montserrat-semibold text-primary-color">Invite a MFD</h2>
                             </div>
 
                             <form onSubmit={handleSubmit}>
                                 <div className="modal-body">
                                     <div className="form-group mb-3">
-                                        <label>Referee Name</label>
+                                        <label className="font-16 montserrat-medium text-primary-color">Referee Name</label>
                                         <input
                                             type="text"
                                             className="form-control"
@@ -65,7 +65,7 @@ const InviteModal = ({ isOpen, onClose }) => {
                                     </div>
 
                                     <div className="form-group mb-3">
-                                        <label>Referee Mobile</label>
+                                        <label className="font-16 montserrat-medium text-primary-color">Referee Mobile</label>
                                         <input
                                             type="text"
                                             className="form-control"
@@ -77,7 +77,7 @@ const InviteModal = ({ isOpen, onClose }) => {
                                     </div>
 
                                     <div className="form-group mb-3">
-                                        <label>Referrer Firm / ARN</label>
+                                        <label className="font-16 montserrat-medium text-primary-color">Referrer Firm / ARN</label>
                                         <input
                                             type="text"
                                             className="form-control"
@@ -89,21 +89,22 @@ const InviteModal = ({ isOpen, onClose }) => {
                                     </div>
 
                                     <div className="form-group mt-2 mb-1">
-                                        <label>
+                                        <label className="font-16 montserrat-medium text-primary-color">
                                             Product of Interest (Optional)
                                             <select
+                                                className="form-select"
                                                 name="product"
                                                 value={formData.product}
                                                 onChange={handleChange}
                                             >
-                                                <option value=""></option>
+                                                <option value="Select">Select</option>
                                                 <option value="product1">Product 1</option>
                                                 <option value="product2">Product 2</option>
                                             </select>
                                         </label>
                                     </div>
 
-                                    <label className="checkbox-label">
+                                    <label className="checkbox-label font-16 montserrat-medium text-primary-color">
                                         <input
                                             type="checkbox"
                                             name="permission"
@@ -119,7 +120,7 @@ const InviteModal = ({ isOpen, onClose }) => {
                                     <Button
                                         label="Send Invite"
                                         type="submit"
-                                        className="btn-custom"
+                                        className="btn-custom bg-blue text-white font-16 montserrat-semibold"
                                     />
                                 </div>
                             </form>
@@ -131,7 +132,7 @@ const InviteModal = ({ isOpen, onClose }) => {
             {/* Success Modal */}
             {successModalOpen && (
                 <InviteSuccessModal setSuccessModalOpen={setSuccessModalOpen} onClose={onClose} />
-                
+
             )}
         </>
     );

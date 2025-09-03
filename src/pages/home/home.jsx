@@ -14,6 +14,8 @@ import Plane from "../../assets/icons/scoreCard/plane.svg";
 import Clock from "../../assets/icons/scoreCard/clock.svg";
 import Cross from "../../assets/icons/scoreCard/cross.svg";
 import HomeHowitworks from './howItsWork';
+import ReferralTimeline from '../../components/ReferalTimeline/ReferalTimeline';
+import { NavLink } from 'react-router-dom';
 
 // Import Json
 const ScoreCardData = [
@@ -91,14 +93,14 @@ const Home = () => {
     return (
         <>
             <Navbar />
-            <div className='bg-gradient-color vh-100 position-relative d-flex flex-column align-items-center justify-content-center'>
+            <div className='bg-gradient-color  position-relative d-flex flex-column align-items-center justify-content-center hero-body'>
                 <div className='row align-items-center justify-content-center'>
-                    <div className='col-lg-12 text-center'>
-                        <p className='font-40 montserrat-bold text-blue mb-0 lh-sm'>Share the Love, Get <br /> Rewarded – The More You <br /> Invite, the More You Earn!</p>
-                        <p className='font-20 montserrat-medium text-gray'>Invite → Earn → Repeat. Let your knows be your gains.</p>
+                    <div className='col-lg-12 text-center text-body'>
+                        <p className='font-40 montserrat-bold text-blue mb-0 lh-sm heading'>Share the Love, Get <br /> Rewarded – The More You <br /> Invite, the More You Earn!</p>
+                        <p className='font-20 montserrat-medium text-gray px-4'>Invite → Earn → Repeat. Let your knows be your gains.</p>
                         <div>
                             <button
-                                className="bg-blue text-white border-0 rounded-pill px-5 py-2 jura-semibold"
+                                className="bg-blue text-white border-0 rounded-pill px-5 py-2 jura-semibold invite-btn"
                                 onClick={() => setIsModalOpen(true)}
                             >
                                 Invite a MFD
@@ -112,25 +114,30 @@ const Home = () => {
 
                 </div>
                 <div className='hero-bottom-text text-center'>
-                    <p className='font-40 montserrat-bold text-blue mb-0 lh-sm'>Score - That will excite You</p>
-                    <p className='font-20 montserrat-medium text-gray'>Your metrics are here to track your progress </p>
+                    <p className='font-40 montserrat-bold text-blue mb-0 lh-sm score-text'>Score - That will excite You</p>
+                    <p className='font-20 montserrat-medium text-gray '>Your metrics are here to track your progress </p>
                 </div>
             </div>
             {/* ScoreCards Start Here */}
             <div className='container my-5'>
-                <div className='row pt-5 gap-3 justify-content-center'>
+                <div className='row pt-5 gap-lg-3 gap-5 justify-content-center'>
                     {ScoreCardData?.map((item, index) => (
-                        <div className='col-12 col-md-4 col-lg custom-5' key={index}>
-                            <div className='score-card position-relative border-radius-12 d-flex flex-column align-items-center justify-content-center p-3'>
-                                <img src={item.image} className='position-absolute start-100 top-0 translate-middle' alt="Loading" />
-                                <p className='font-40 montserrat-bold text-blue mb-0'>{item?.score}</p>
-                                <p className='text-blue font-32 montserrat-medium'>{item?.title}</p>
-                            </div>
+                        <div className='col-10 col-md-4 col-lg' key={index}>
+                            <NavLink to={"/myreferral"} className={"text-decoration-none"}>
+                                <div className='score-card position-relative border-radius-12 d-flex flex-column align-items-center justify-content-center p-3'>
+                                    <img src={item.image} className='position-absolute start-100 top-0 translate-middle' alt="Loading" />
+                                    <p className='font-40 montserrat-bold text-blue mb-0'>{item?.score}</p>
+                                    <p className='text-blue font-32 montserrat-medium'>{item?.title}</p>
+                                </div>
+                            </NavLink>
+
                         </div>
                     ))}
                 </div>
             </div>
 
+            {/* Referral Time Line */}
+            <ReferralTimeline />
 
             {/* How Its Work Start Here */}
             <HomeHowitworks />

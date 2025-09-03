@@ -57,6 +57,48 @@ li {
 .jura-extrabold  { @include font-jura(800); }
 .jura-black      { @include font-jura(900); }
 
+.jura-thin {
+  font-family: "jura";
+  font-weight: 100;
+  font-style: normal;
+}
+
+.jura-extralight{
+  font-family: "jura";
+  font-weight: 200;
+  font-style: normal;
+}
+
+.jura-light {
+  font-family: "jura";
+  font-weight: 300;
+  font-style: normal;
+}
+
+.jura-regular {
+  font-family: "jura";
+  font-weight: 400;
+  font-style: normal;
+}
+
+.jura-medium {
+  font-family: "jura";
+  font-weight: 500;
+  font-style: normal;
+}
+
+.jura-semibold {
+  font-family: "jura";
+  font-weight: 600 !important;
+  font-style: normal;
+}
+
+.jura-bold {
+  font-family: "jura";
+  font-weight: 700;
+  font-style: normal;
+}
+
 
 // Space Grotesk font utilities
 .space-grotesk-light    { @include font-space-grotesk(300); }
