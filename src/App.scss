@@ -3024,6 +3024,61 @@
         left: 214%;
     }
 
+
+    /* Tablet (max-width: 1024px) */
+    // @media (max-width: 1024px) {
+    //   .scrol-path-0, .scrol-path-1, .scrol-path-2,
+    //   .scrol-path-3, .scrol-path-4, .scrol-path-5, .scrol-path-6 {
+    //     width: 40%;
+    //     left: auto;
+    //     position: relative;
+    //     display: block;
+    //   }
+    // }
+
+    /* Mobile (max-width: 768px) */
+    @media (max-width: 922px) {
+        .second-screen-pathway {
+            width: 89% !important;
+        }
+
+        .scrol-path-0 {
+            width: 43%;
+            left: 103%;
+        }
+
+        .scrol-path-1 {
+            width: 48%;
+            left: 144%;
+        }
+
+        .scrol-path-2 {
+            width: 40%;
+            left: 190%;
+        }
+
+        .scrol-path-3 {
+            width: 46%;
+            left: 230%;
+        }
+
+        .scrol-path-4 {
+            width: 42%;
+            left: 275%;
+        }
+
+        .scrol-path-5 {
+            width: 45%;
+            left: 315%;
+        }
+
+        .scrol-path-6 {
+            width: 42%;
+            left: 360%;
+        }
+
+    }
+
     // -------------------------------------------------
     // Progress Css End 
     // ------------------------------------------------

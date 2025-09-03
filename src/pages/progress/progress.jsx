@@ -117,12 +117,12 @@ const Progress = () => {
             }}
           // onAnimationEnd={SecScrAnimt ? handleAnimationEnd : undefined}
           >
-            <div className="col-lg-3 col-md-3 col-6">
+            <div className="col-lg-3 col-6">
               <NavLink to={"/home"} className={"text-decoration-none"}>
                 <p className='text-white font-14 montserrat-medium'> <IoIosArrowBack className='font-18' /> Back</p>
               </NavLink>
             </div>
-            <div className="col-lg-4 col-md-4 d-flex justify-content-end px-0 mt-4">
+            <div className="col-lg-4 d-flex justify-content-end px-0 mt-4">
               <div className="till-ship w-75 position-relative tilte-shadow rounded-3">
                 <img
                   className="position-absolute till-ship-img"
@@ -155,9 +155,7 @@ const Progress = () => {
           <div
             className={`row justify-content-between second-screen-xl pt-5 gap-5`}
           >
-            <div
-              className={`col-lg-2 col-md-4 col-12 px-0 d-flex flex-column justify-content-between`}
-            >
+            <div className={`col-lg-2 col-md-4 col-12 px-0 d-flex flex-column justify-content-between`}>
               <div className={`left-sidebar-main-div mx-lg-0 mx-3`}>
                 <p className="text-dark-blue space-grotesk-medium font-16 mb-3">
                   Your Progress So far
@@ -189,24 +187,24 @@ const Progress = () => {
             </div>
             <div className="col-lg-9 col-md-7 col-12 planet-section overflow-auto hidden-scrollbar">
               <div className="d-flex">
-                <div className="col-lg-3 col-md-3 col-6 text-center">
+                <div className="col-lg-3 col-5 text-center">
                   <img
                     className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}`}
                     src={images[currentIndex]}
                     alt="purple"
                   />
                 </div>
-                <div className="col-lg-3 col-md-3 col-6"></div>
-                <div className="col-lg-3 col-md-3 col-6 text-center">
+                <div className="col-lg-3 col-5"></div>
+                <div className="col-lg-3 col-5 text-center">
                   <img
                     className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
                     src={images[imageNumbers]}
                     alt="yellow"
                   />
                 </div>
-                <div className="col-lg-3 col-md-3 col-6"></div>
+                <div className="col-lg-3 col-5"></div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6 text-center
+                  className={`col-lg-3 col-5 text-center
                 ` }
                 >
                   <img
@@ -215,9 +213,9 @@ const Progress = () => {
                     alt="yellow"
                   />
                 </div>
-                <div className="col-lg-3 col-md-3 col-6"></div>
+                <div className="col-lg-3 col-5"></div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6 text-center
+                  className={`col-lg-3 col-5 text-center
                 `}
                 >
                   <img
@@ -226,9 +224,9 @@ const Progress = () => {
                     alt="yellow"
                   />
                 </div>
-                <div className="col-lg-3 col-md-3 col-6"></div>
+                <div className="col-lg-3 col-5"></div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6 text-center
+                  className={`col-lg-3 col-5 text-center
                 `}
                 >
                   <img
@@ -245,7 +243,7 @@ const Progress = () => {
                   alt="pathway"
                 />
 
-                <div className="col-lg-3 col-md-3 col-6 text-center text-dark-blue mt-4 pt-4 px-0">
+                <div className="col-lg-3 col-4 text-center text-dark-blue mt-4 pt-4 px-0">
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
                     Planet A
                     {/* {
@@ -279,7 +277,7 @@ const Progress = () => {
                 </div>
 
                 <div
-                  className={`col-lg-3 col-md-3 col-6`}
+                  className={`col-lg-3 col-6`}
                 >
                   <img
                     className="position-absolute a scrol-path-0 px-0"
@@ -288,7 +286,7 @@ const Progress = () => {
                   />
                 </div>
 
-                <div className="col-lg-3 col-md-3 col-6 text-center text-dark-blue mt-4 pt-4 px-0">
+                <div className="col-lg-3 col-4 text-center text-dark-blue mt-4 pt-4 px-0">
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
                     Planet B
                     {/* {
@@ -324,8 +322,7 @@ const Progress = () => {
                 </div>
 
                 <div
-                  className={`col-lg-3 col-md-3 col-6
-                `}
+                  className={`col-lg-3 col-6`}
                 >
                   <img
                     className="position-absolute a scrol-path-1 px-0"
@@ -334,8 +331,7 @@ const Progress = () => {
                   />
                 </div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue mt-4 pt-4 px-
-                 `}
+                  className={`col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0`}
                 >
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
                     Planet C
@@ -368,7 +364,7 @@ const Progress = () => {
                 )} */}
                 </div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6`}
+                  className={`col-lg-3 col-6`}
                 >
                   <img
                     className="position-absolute b scrol-path-2 px-0"
@@ -377,7 +373,7 @@ const Progress = () => {
                   />
                 </div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue mt-4 pt-4 px-0 
+                  className={`col-lg-3 col-4 text-center text-dark-blue mt-4 pt-4 px-0 
                 `}
                 >
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
@@ -411,7 +407,7 @@ const Progress = () => {
                 )} */}
                 </div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6`}
+                  className={`col-lg-3 col-6`}
                 >
                   <img
                     className="position-absolute c scrol-path-3 px-0"
@@ -420,7 +416,7 @@ const Progress = () => {
                   />
                 </div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue mt-4 pt-4 px-0 
+                  className={`col-lg-3 col-4 text-center text-dark-blue mt-4 pt-4 px-0 
                 `}
                 >
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
@@ -454,7 +450,7 @@ const Progress = () => {
                 )} */}
                 </div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6`}
+                  className={`col-lg-3 col-6`}
                 >
                   <img
                     className="position-absolute c scrol-path-4 px-0"
@@ -464,7 +460,7 @@ const Progress = () => {
                 </div>
 
                 <div
-                  className={`col-lg-3 col-md-3 col-6`}
+                  className={`col-lg-3 col-6`}
                 >
                   <img
                     className="position-absolute c scrol-path-5 px-0"
@@ -473,7 +469,7 @@ const Progress = () => {
                   />
                 </div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6`}
+                  className={`col-lg-3 col-6`}
                 >
                   <img
                     className="position-absolute c scrol-path-6 px-0"
@@ -483,8 +479,8 @@ const Progress = () => {
                 </div>
               </div>
               <div className="d-flex">
-                <div className="col-lg-3 col-md-3 col-6"></div>
-                <div className="col-lg-3 col-md-3 col-6 text-center text-dark-blue second-scrn-padding">
+                <div className="col-lg-3 col-5"></div>
+                <div className="col-lg-3 col-5 text-center text-dark-blue second-scrn-padding">
                   <img
                     className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
                     src={images[nextIndex]}
@@ -524,9 +520,9 @@ const Progress = () => {
                   )} */}
                   </div>
                 </div>
-                <div className="col-lg-3 col-md-3 col-6"></div>
+                <div className="col-lg-3 col-5"></div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue`}
+                  className={`col-lg-3 col-5 text-center text-dark-blue`}
                 >
                   <img
                     className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${prevIndex === 0 ? 'purple' : prevIndex === 1 ? 'yellow' : prevIndex === 2 ? 'green' : 'blue'}`}
@@ -567,9 +563,9 @@ const Progress = () => {
                   )} */}
                   </div>
                 </div>
-                <div className="col-lg-3 col-md-3 col-6"></div>
+                <div className="col-lg-3 col-5"></div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue`}
+                  className={`col-lg-3 col-5 text-center text-dark-blue`}
                 >
                   <img
                     className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
@@ -608,9 +604,9 @@ const Progress = () => {
                   )} */}
                   </div>
                 </div>
-                <div className="col-lg-3 col-md-3 col-6"></div>
+                <div className="col-lg-3 col-5"></div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue`}
+                  className={`col-lg-3 col-5 text-center text-dark-blue`}
                 >
                   <img
                     className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
@@ -648,9 +644,9 @@ const Progress = () => {
                   )} */}
                   </div>
                 </div>
-                <div className="col-lg-3 col-md-3 col-6"></div>
+                <div className="col-lg-3 col-5"></div>
                 <div
-                  className={`col-lg-3 col-md-3 col-6 text-center text-dark-blue`}
+                  className={`col-lg-3 col-5 text-center text-dark-blue`}
                 >
                   <img
                     className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
@@ -690,13 +686,13 @@ const Progress = () => {
               </div>
             </div>
           </div>
-          <div className='col-lg-3'>
+          <div className='col-lg-3 col-md-6 mb-lg-0 mb-4'>
             {/* <NavLink
               to={'/home'}
               className={'text-decoration-none'}
             > */}
               <div
-                className={`d-flex justify-content-evenly background-dark-pink mt-5 rounded-2 position-relative py-2 px-5 left-box`}
+                className={`w-75 d-flex justify-content-evenly background-dark-pink mt-5 rounded-2 position-relative py-2 px-5 left-box`}
                 // ref={leftBoxRef}
                 id="leftBox"
                 onClick={openInviteModal}
