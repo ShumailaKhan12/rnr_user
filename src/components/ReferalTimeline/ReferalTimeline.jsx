@@ -16,7 +16,7 @@ const ReferralTimeline = () => {
         { id: 5, text: <>Congrats !! <br />Happy-go-lucky.</>, icon: star },
     ];
 
-    const [activeStep, setActiveStep] = useState(5);
+    const [activeStep, setActiveStep] = useState(1);
     const [rocketPos, setRocketPos] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -28,9 +28,16 @@ const ReferralTimeline = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-const safeStep = Math.min(Math.max(activeStep - 1, 0), steps.length - 1);
+// const safeStep = Math.min(Math.max(activeStep - 1, 0), steps.length - 1);
 
+// Clamp activeStep between 1 and steps.length
+const safeActiveStep = Math.min(Math.max(activeStep, 1), steps.length);
 
+// Rocket ka position ke liye
+const safeStep = safeActiveStep - 1;
+
+// Progress calculate karo
+let progress = (safeStep / (steps.length - 1)) * 100;
     useEffect(() => {
         if (stepRefs.current[safeStep]) {
             const el = stepRefs.current[safeStep];
@@ -49,8 +56,10 @@ const safeStep = Math.min(Math.max(activeStep - 1, 0), steps.length - 1);
         }
     }, [safeStep, isMobile]);
 
-let progress = (safeStep / (steps.length - 1)) * 100;
 
+// let progress = (safeStep / (steps.length - 1)) * 100;
+// let progress = ((activeStep - 1) / (steps.length - 1)) * 100;
+if (activeStep === 1) progress = 7;
     return (
         <div className={`referral-timeline montserrat-medium pt-5 ${isMobile ? "mobile" : ""}`}>
             <div className={`progress-line position-relative ${!isMobile ? "d-flex" : ""}`}>

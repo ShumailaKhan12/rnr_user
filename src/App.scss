@@ -1641,7 +1641,9 @@ animation-delay: 1.5s;
 
     // =================== How it works css
     .referral-program {
-
+padding: 25px 0;
+  position: relative; 
+  overflow: hidden;
         .program-header {
             .program-title {
                 color: #05103E;
@@ -1723,8 +1725,8 @@ animation-delay: 1.5s;
             }
 
             .step-3 {
-                right: 30%;
-                bottom: -3%;
+                right: 25%;
+                bottom: -6%;
             }
 
             .step-4 {
@@ -1746,8 +1748,8 @@ animation-delay: 1.5s;
 
             .three {
                 position: absolute;
-                right: 24%;
-                bottom: -5%;
+                right: 23%;
+                bottom: -6%;
             }
 
             .four {
@@ -1791,8 +1793,8 @@ animation-delay: 1.5s;
                 }
 
                 .step-3 {
-                    right: 15%;
-                    bottom: 27%;
+                    right:20%;
+                    bottom: 28%;
                 }
 
                 .step-4 {
@@ -1817,8 +1819,8 @@ animation-delay: 1.5s;
                 .three {
                     height: 80px;
                     width: 60px;
-                    right: 33%;
-                    bottom: 30%;
+                    right: 34%;
+                    bottom: 31%;
                 }
 
                 .four {
@@ -1842,9 +1844,11 @@ animation-delay: 1.5s;
             font-weight: 600;
             transition: all 0.3s ease;
             color: white;
-            position: absolute;
-            right: 5%;
-            bottom: 10%;
+            position: relative;
+            left: 25%;
+            bottom: 0;
+            margin-top: 15px;  
+            align-self: self-end;
 
             @media (max-width : 768px) {
                 width: 158px;
@@ -1913,18 +1917,26 @@ animation-delay: 1.5s;
             align-items: center;
             flex-direction: row;
             margin-top: 1rem;
+        
 
             input[type="checkbox"] {
-                appearance: none;
-                -webkit-appearance: none;
+                appearance: none !important;
+                -webkit-appearance: none !important;
+                -moz-appearance: none   !important;
+                box-sizing: border-box;     
                 width: 20px;
                 height: 20px;
                 border-radius: 4px;
                 cursor: pointer;
                 position: relative;
-                background-color: #1A2A6C;
+                border: 2px solid #1A2A6C !important;
+                background-color: transparent   !important; 
                 margin-right: 6px;
 
+                &:checked {
+            background-color: #1A2A6C !important; 
+            border: 2px solid #1A2A6C !important;
+        }
                 &:checked::after {
                     content: "✔";
                     position: absolute;
@@ -1932,7 +1944,8 @@ animation-delay: 1.5s;
                     left: 50%;
                     transform: translate(-50%, -55%);
                     font-size: 14px;
-                    color: white;
+                    color: white;  
+                    // background-color: #1A2A6C; // bg color when checked
                 }
             }
         }
@@ -1959,6 +1972,7 @@ animation-delay: 1.5s;
         // padding: 1rem;
         border-radius: 12px;
         position: relative;
+    
 
         .close-btn {
             position: absolute;
@@ -1985,6 +1999,7 @@ animation-delay: 1.5s;
             border-radius: 50px;
             cursor: pointer;
             margin-top: 1rem;
+            margin-inline: 2rem;
         }
     }
 
@@ -2021,17 +2036,24 @@ animation-delay: 1.5s;
                 gap: 8px;
 
                 input[type="checkbox"] {
+                    appearance: none !important;
+                    -webkit-appearance: none !important;
+                    -moz-appearance: none   !important;
                     all: unset;
-                    appearance: none;
-                    -webkit-appearance: none;
                     width: 20px;
                     height: 20px;
                     border-radius: 4px;
                     cursor: pointer;
                     position: relative;
-                    background-color: #1A2A6C;
+                    border: 2px solid #1A2A6C !important;
+                    background-color: transparent   !important; 
+                    // background-color: #1A2A6C;
                     margin-top: 2px;
 
+                    &:checked {
+            background-color: #1A2A6C !important; 
+            border: 2px solid #1A2A6C !important;
+        }
                     &:checked::after {
                         content: "✔";
                         position: absolute;

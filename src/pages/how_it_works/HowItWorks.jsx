@@ -12,10 +12,10 @@ const HowItWorks = () => {
     return (
         <div className="referral-program bg-white montserrat-medium ">
 
-            <div className="row justify-content-center">
-                <div className="  ">
+            <div className="row justify-content-center align-items-center">
+                <div className="referal-row">
                     <div className="program-header text-center ">
-                        <h1 className="program-title montserrat-bold font-40 ">Referral & Earn program</h1>
+                        <h1 className="program-title montserrat-bold font-40">Referral & Earn program</h1>
                         <p className="program-subtitle montserrat-medium font-20 lh-sm">
                             Share the Love, Get Rewarded - The More You Invite,<br />
                             the More You Earn!
@@ -55,7 +55,8 @@ const HowItWorks = () => {
                             <div className="step-content">
                                 <h3 className="step-title font-30">PURCHASE</h3>
                                 <p className="step-description font-20">
-                                    To get chance of <br /> earning You must <br /> purchase the <br /> product of your <br /> choice 
+                                    With all that <br /> hustle of invite n <br /> accept, its time <br /> to get rewarded
+                                    {/* To get chance of earning You must  purchase the product of your  choice  */}
                                 </p>
                             </div>
                         </div>

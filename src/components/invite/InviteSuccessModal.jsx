@@ -17,8 +17,8 @@ const InviteSuccessModal = ({ setSuccessModalOpen, onClose }) => {
                 >
                     <img src={X} alt="close" />
                 </button>
-                <h2 className='text-primary-color font-24 montserrat-semibold'>Invite Sent Successfully!</h2>
-                <p className='space-grotesk-medium font-18 text-primary-color'>
+                <h2 className='text-primary-color font-24 montserrat-semibold text-center'>Invite Sent Successfully!</h2>
+                <p className='space-grotesk-medium font-18 text-primary-color text-center'>
                     Your invitation has been sent. <br />
                     Your friend will receive an Acknowledgement <br /> shortly.
                 </p>

@@ -19,6 +19,7 @@ import astronot from "../../assets/Images/progress-img/astronot.svg"
 import longarrow from "../../assets/Images/progress-img/lngarw.svg"
 import { IoIosArrowBack } from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
+import InviteModal from '../../components/invite/InviteModal';
 
 
 
@@ -26,6 +27,12 @@ import { NavLink } from 'react-router-dom';
 const images = [centerPlanet1, centerPlanet2, centerPlanet3, centerPlanet4];
 
 const Progress = () => {
+
+  const [isInviteOpen, setIsInviteOpen] = useState(false);
+
+  const openInviteModal = () => setIsInviteOpen(true);
+  const closeInviteModal = () => setIsInviteOpen(false);
+
   // Context data from UserContext
   // const {
   //   AuthLocal,
@@ -687,14 +694,15 @@ const Progress = () => {
             </div>
           </div>
           <div className='col-lg-3'>
-            <NavLink
+            {/* <NavLink
               to={'/home'}
               className={'text-decoration-none'}
-            >
+            > */}
               <div
                 className={`d-flex justify-content-evenly background-dark-pink mt-5 rounded-2 position-relative py-2 px-5 left-box`}
                 // ref={leftBoxRef}
                 id="leftBox"
+                onClick={openInviteModal}
               >
                 <img
                   className="progress-sect-astronot position-absolute me-1"
@@ -706,11 +714,12 @@ const Progress = () => {
                 </span>
                 <img src={longarrow} alt="longarrow" />
               </div>
-            </NavLink>
+            {/* </NavLink> */}
           </div>
 
         </div>
       </section>
+      <InviteModal isOpen={isInviteOpen} onClose={closeInviteModal} />
     </>
   );
 };
