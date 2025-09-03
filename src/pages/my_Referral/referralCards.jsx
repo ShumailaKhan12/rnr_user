@@ -12,7 +12,7 @@ import LeftArrowIcon from '../../assets/Images/MyReferral/right-arrow.svg';
 const ReferralCards = ({ RefralDataAPI }) => {
   const [isHovered, setIsHovered] = useState(null);
   // const [isTablet, setIsTablet] = useState(window.innerWidth < 992);
-  const [slidesToShow, setSlidesToShow] = useState(window.innerWidth < 992 ? 1 : 3);
+  const [slidesToShow, setSlidesToShow] = useState(window.innerWidth < 992 ? 2 : 3);
 
   useEffect(() => {
     const handleResize = () => {
