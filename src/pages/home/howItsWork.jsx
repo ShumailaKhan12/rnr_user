@@ -10,7 +10,8 @@ import Rocketgif from '../../assets/Images/HowItsWork/racketgif.gif';
 import { postData } from '../../services/api';
 import { DecryptFunction } from '../../utils/decryptFunction';
 import { UserContext } from '../../UseContext/useContext';
-
+import Button from '../../components/button';
+import chevronRight from '../../assets/Images/HowItsWork/chevron-right.svg';
 const HomeHowitworks = ({ isActive, isExiting }) => {
   const sectionRef = useRef(null);
   const [step, setStep] = useState(0);
@@ -26,6 +27,45 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
   // =================================
   //       API FUNCTIONALITY
   // =================================
+// const [collapsed, setCollapsed] = useState(false);
+
+// useEffect(() => {
+//   if (step >= 6) {
+//     setTimeout(() => setCollapsed(true), 1200)
+//   }
+// }, [step]);
+
+// const handleButtonClick = () => {
+//   setCollapsed((prev) => !prev);
+// };
+
+
+//============= Expand/Collapse 
+
+const [collapsed, setCollapsed] = useState(false);
+// const [animating, setAnimating] = useState(false);
+
+// useEffect(() => {
+//   if (step >= 6) {
+//     // Jab timeline complete ho jaaye, rocket ko move karao
+//     setAnimating(true);
+//     setTimeout(() => {
+//       setCollapsed(true);   // section hide
+//       setAnimating(false);
+//     }, 1200); // rocket animation duration ke equal rakho
+//   }
+// }, [step]);
+
+// const handleButtonClick = () => {
+//   setAnimating(true);
+//   setCollapsed((prev) => !prev);
+
+//   // jab expand kare, rocket vapas aaye
+//   setTimeout(() => {
+//     setAnimating(false);
+//   }, 1200);
+// };
+//============= Expand/Collapse end
 
   const HandleAPI = async () => {
     try {
@@ -125,6 +165,7 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  
   return (
     <section
       id="HowItWorks_Section"
@@ -152,7 +193,8 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
         )} */}
 
         {/*  Desktop View (Horizontal Timeline) */}
-        {showSteps && !isMobile && (
+      <div className={`timeline-wrapper ${collapsed ? 'collapsed' : 'expanded'}`}>
+          {showSteps && !isMobile && (
           <div
             className="howitwork-second h-100 d-flex align-items-center justify-content-center"
             data-aos="zoom-in-up"
@@ -191,8 +233,8 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
                 <div className={`timeline-dot ${step >= 1 ? 'visible' : ''}`} />
                 <div className={`timeline-dot ${step >= 3 ? 'visible' : ''}`} />
                 <div className={`timeline-dot ${step >= 4 ? 'visible' : ''}`} />
-                <div className="timeline-border" />
-                <img src={Rocketgif} alt="Rocket" className="rocket-gif" />
+                <div className="timeline-border" />   
+  <img src={Rocketgif} alt="Rocket"   className={`rocket-gif ${collapsed ? 'collapse-to-button' : ''}`}  />
               </div>
 
               {/* Planet 1 */}
@@ -225,8 +267,8 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
             <div className="timeline-vertical">
               <div className="timeline-line-vertical"></div>
 
-              <div className="rocket-vertical">
-                <img src={Rocketgif} alt="Rocket" className="rocket-svg" />
+              <div className="rocket-vertical">                
+  <img src={Rocketgif} alt="Rocket"   className={`rocket-gif ${collapsed ? 'collapse-to-button' : ''}`}  />
               </div>
 
               {/* Timeline dots */}
@@ -285,15 +327,30 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
                   </div>
                 </div>
               </div>
-
-
             </div>
           </div>
         )}
+      </div>
 
       </div>
+
+{/* Right side expand button */}
+  {/* <div className="get-started-btn-container">
+<Button
+  label={
+    <span className="flex items-center gap-2">
+      How it works
+      <img src={chevronRight} alt="chevron" className="w-5 h-5 right-btn" />
+    </span>
+  }
+  onClick={handleButtonClick}
+  className="bg-blue text-white font-20 padding-15 space-grotesk-regular ps-4 pe-4 d-flex align-items-center"
+/>
+
+</div> */}
+
     </section>
   );
 };
 
-export default HomeHowitworks;
+export default HomeHowitworks;  
