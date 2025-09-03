@@ -54,7 +54,9 @@ const Navbar = () => {
                                 <NavLink to={"/progress"} className="nav-link font-22 text-decoration-none text-white pe-5 jura-semibold" href="#">Progress</NavLink>
                             </li>
                             <li className="nav-item">
-                                <div className="dropdown  position-relative">
+                                <NavLink to={"/profile"} className="nav-link font-22 text-decoration-none text-white pe-5 jura-semibold" href="#">Profile</NavLink>
+
+                                {/* <div className="dropdown  position-relative">
                                     <button className="nav-link font-22 text-blue bg-white rounded-pill px-5 py-1 jura-semibold"
                                         type="button"
                                         data-bs-toggle="dropdown"
@@ -78,7 +80,7 @@ const Navbar = () => {
                                                 type="button" className="border-0 bg-blue text-white rounded-pill font-16 jura-semibold px-5 py-2">Logout</button>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> */}
                             </li>
 
                         </ul>
