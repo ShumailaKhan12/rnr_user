@@ -1286,9 +1286,10 @@
 .timeline-mobile {
   position: relative;
   margin: 0 auto;
-  padding: 2rem 0;
-  width: 100%;
-  height: 100vh !important;
+//   padding: 2rem 0;
+  padding: 1rem 0 4rem; 
+  min-height: 100vh;
+  height: auto !important; 
 
 }
 
@@ -1356,9 +1357,10 @@
 .step-mobile {
   position: relative;
   display: flex;
-  align-items: center;
+//   align-items: center;
+align-items: flex-start;
   justify-content: space-between;
-  margin: 60px 0;
+  margin: 40px 0;
   opacity: 0;
   transition: opacity 0.6s ease-in-out;
   z-index: 2;
@@ -1392,6 +1394,7 @@
     opacity: 0;
     transition: opacity 0.6s ease-in-out;
     top: 0;
+    //   top: 50%;     
     
   }
 
@@ -1426,7 +1429,7 @@ animation-delay: 1.5s;
   .planet-svg {
     width: 64px !important;
     height: 64px !important;
-
+margin-top: -8px;
   }
   
 }
@@ -1730,7 +1733,7 @@ padding: 25px 0;
             }
 
             .step-4 {
-                right: -5%;
+                right: 0%;
                 top: 15%;
             }
 
@@ -1754,7 +1757,7 @@ padding: 25px 0;
 
             .four {
                 position: absolute;
-                right: -10%;
+                right: -3%;
                 top: 15%;
             }
 
@@ -1788,12 +1791,12 @@ padding: 25px 0;
                 }
 
                 .step-2 {
-                    left: 10%;
+                    left: 5%;
                     top: 35%;
                 }
 
                 .step-3 {
-                    right:20%;
+                    right:10%;
                     bottom: 28%;
                 }
 
@@ -1812,14 +1815,14 @@ padding: 25px 0;
                 .two {
                     height: 86px;
                     width: 60px;
-                    left: 20%;
+                    left: 18%;
                     top: 35%;
                 }
 
                 .three {
                     height: 80px;
                     width: 60px;
-                    right: 34%;
+                    right: 30%;
                     bottom: 31%;
                 }
 
