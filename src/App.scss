@@ -1059,7 +1059,7 @@
         background-position: top;
         background-size: cover;
         background-repeat: repeat;
-        width: 100%;
+        width: 100vw;
         padding: pxToRem(80) 0;
 
         .howitswork-title {
@@ -1287,7 +1287,7 @@
   position: relative;
   margin: 0 auto;
 //   padding: 2rem 0;
-  padding: 1rem 0 4rem; 
+  padding: 1rem 0 1rem; 
   min-height: 100vh;
   height: auto !important; 
 
@@ -2725,7 +2725,7 @@ padding: 25px 0;
         }
 
 
-        /* ✅ Mobile  */
+        /*  Mobile  */
         @media (max-width: 768px) {
             .progress-line {
                 flex-direction: column;
@@ -2737,6 +2737,7 @@ padding: 25px 0;
                     left: 50%;
                     width: 14px;
                     height: 100%;
+                    transform: translateX(-50%); 
 
                 }
 
@@ -2746,6 +2747,7 @@ padding: 25px 0;
                     width: 14px;
                     height: 0;
                     transition: height 0.5s ease-in-out;
+                    transform: translateX(-50%); 
                 }
 
 
@@ -2754,25 +2756,18 @@ padding: 25px 0;
                     align-items: center;
                     margin-bottom: 10px;
 
-                    .star {
-                        position: absolute;
-                        left: 46%;
-                    }
-
-                    .inactive {
-                        position: absolute;
-                        left: 47%;
-                    }
-
-                    &.active .dot {
-                        position: absolute;
-                        left: 47%;
-                    }
+                    .star,
+                    .inactive,
+                        &.active .dot {
+                            position: absolute;
+                            left: 50%;              
+                            transform: translateX(-50%);
+                        }
 
                     p {
                         text-align: left;
                         font-size: 14px;
-                        margin-left: 16%;
+                        margin-left: 5%;
                         flex: 1;
                     }
                 }
@@ -2784,20 +2779,20 @@ padding: 25px 0;
                     transform: translateX(-50%) rotate(90deg);
                 }
 
-                .star {
-                    position: absolute;
-                    left: 50%;
-                }
+                // .star {
+                //     position: absolute;
+                //     left: 50%;
+                // }
 
-                .inactive {
-                    position: absolute;
-                    left: 50%;
-                }
+                // .inactive {
+                //     position: absolute;
+                //     left: 50%;
+                // }
 
-                &.active .dot {
-                    position: absolute;
-                    left: 50%;
-                }
+                // &.active .dot {
+                //     position: absolute;
+                //     left: 50%;
+                // }
             }
 
             //    .custom-btn {     

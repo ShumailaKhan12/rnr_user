@@ -28,15 +28,10 @@ const ReferralTimeline = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-// const safeStep = Math.min(Math.max(activeStep - 1, 0), steps.length - 1);
-
-// Clamp activeStep between 1 and steps.length
 const safeActiveStep = Math.min(Math.max(activeStep, 1), steps.length);
 
-// Rocket ka position ke liye
 const safeStep = safeActiveStep - 1;
 
-// Progress calculate karo
 let progress = (safeStep / (steps.length - 1)) * 100;
     useEffect(() => {
         if (stepRefs.current[safeStep]) {
@@ -56,10 +51,9 @@ let progress = (safeStep / (steps.length - 1)) * 100;
         }
     }, [safeStep, isMobile]);
 
-
-// let progress = (safeStep / (steps.length - 1)) * 100;
-// let progress = ((activeStep - 1) / (steps.length - 1)) * 100;
-if (activeStep === 1) progress = 7;
+if (activeStep === 1) progress = 10;
+if (activeStep === 2) progress = 37.5;
+// if (activeStep === 3) progress = 55.5;
     return (
         <div className={`referral-timeline montserrat-medium pt-5 ${isMobile ? "mobile" : ""}`}>
             <div className={`progress-line position-relative ${!isMobile ? "d-flex" : ""}`}>
