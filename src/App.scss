@@ -1812,7 +1812,7 @@
                 position: relative;
                 z-index: 1;
                 margin-bottom: 1rem;
-                transform: translateY(-70px);;
+                transform: translateY(-70px);
             }
 
             .desktop-line {
@@ -1888,6 +1888,10 @@
 
                 }
 
+ .stepindicator {
+               
+                transform: translateY(0px);
+            }
 
                 .step-title {
                     font-size: 20px;
