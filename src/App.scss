@@ -1333,9 +1333,13 @@
             position: absolute;
             left: 50%;
             top: 0;
-            transform: translateX(-50%) rotate(90deg);
+            transform:  translateX(-50%) rotate(90deg);
             z-index: 3;
             animation: moveRocketVertical 5s linear forwards;
+             img {
+    width: 64px;   // mobile ke liye size chhota
+    height: auto;
+  }
         }
 
         @keyframes moveRocketVertical {
@@ -1385,26 +1389,26 @@
                 text-align: left;
             }
 
-            &::before {
-                content: '';
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 16px;
-                height: 16px;
-                border-radius: 50%;
-                background: var(--text-dark-blue);
-                z-index: 3;
-                opacity: 0;
-                transition: opacity 0.6s ease-in-out;
-                top: 0;
-                //   top: 50%;     
+            // &::before {
+            //     content: '';
+            //     position: absolute;
+            //     left: 50%;
+            //     transform: translateX(-50%);
+            //     width: 16px;
+            //     height: 16px;
+            //     border-radius: 50%;
+            //     background: var(--text-dark-blue);
+            //     z-index: 3;
+            //     opacity: 0;
+            //     transition: opacity 0.6s ease-in-out;
+            //     top: 0;
+            //     //   top: 50%;     
 
-            }
+            // }
 
-            &.visible::before {
-                opacity: 1;
-            }
+            // &.visible::before {
+            //     opacity: 1;
+            // }
         }
 
         .step-content-mobile {
@@ -1472,8 +1476,22 @@
             }
 
             .timeline-dot-mobile {
+                position: absolute;
+                left: 50%;
+                top: 0;
+                // transform: translateX(-50%);
                 width: 16px;
                 height: 16px;
+                border-radius: 50%;
+                background: var(--text-dark-blue);
+                z-index: 3;
+                opacity: 0;
+                transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+
+            &.visible {
+                opacity: 1;
+                transform: translateX(-50%) scale(1.2);
+            }
             }
         }
 
@@ -1733,9 +1751,10 @@
 
     // =================== How it works css
     .referral-program {
-        padding: 25px 0;
+        // padding: 5px 0;
         position: relative;
         overflow: hidden;
+        // padding-bottom: 30px;
 
         .program-header {
             .program-title {
@@ -1750,6 +1769,7 @@
                 line-height: 100%;
                 text-align: left;
                 padding-inline-start: 10%;
+                
             }
 
             @media (max-width: 768px) {
@@ -1783,7 +1803,7 @@
             .step-description {
                 color: #6b7280;
                 margin: 0;
-                line-height: 1.4;
+                line-height: 1.2;
             }
 
             .stepindicator {
@@ -1791,6 +1811,8 @@
                 height: auto;
                 position: relative;
                 z-index: 1;
+                margin-bottom: 1rem;
+                transform: translateY(-70px);;
             }
 
             .desktop-line {
@@ -1809,46 +1831,46 @@
 
             .step-1 {
                 left: 5%;
-                bottom: -30%;
+                bottom: -13%;
             }
 
             .step-2 {
                 left: 17%;
-                top: 25%;
+                top: 10%;
             }
 
             .step-3 {
                 right: 25%;
-                bottom: -6%;
+                bottom: 15%;
             }
 
             .step-4 {
-                right: 0%;
-                top: 15%;
+                right: -5%;
+                top: 0%;
             }
 
             .one {
                 position: absolute;
                 left: 17%;
-                bottom: -35%;
+                bottom: -27%;
             }
 
             .two {
                 position: absolute;
                 left: 30%;
-                top: 25%;
+                top: 10%;
             }
 
             .three {
                 position: absolute;
-                right: 23%;
-                bottom: -6%;
+                right: 18%;
+                bottom: 12%;
             }
 
             .four {
                 position: absolute;
-                right: -3%;
-                top: 15%;
+                right: -10%;
+                top: -2%;
             }
 
             @media (min-width: 176px) and (max-width: 768px) {
@@ -2063,7 +2085,7 @@
     .success-modal-content {
         // width: 540px;
         // height: 388px;
-        // padding: 1rem;
+        padding: 1rem;
         border-radius: 12px;
         position: relative;
 
@@ -2239,16 +2261,27 @@
     // ========================================================================
     .section-referral {
         position: relative;
+        overflow: visible; 
 
         .referral-slider {
+             .slick-list {
+    overflow: visible !important;
+  }
+
+  .slick-slide {
+    overflow: visible !important; 
+  }
             .referral-card {
                 height: 350px;
                 padding: 2rem !important;
+                overflow: visible !important;
+                  z-index: 2
             }
 
             .slick-track {
                 display: flex !important;
-                gap: 20px; // Adjust the gap as needed
+                gap: 20px;
+                overflow: visible !important;
             }
 
             .me-3 {
@@ -2277,8 +2310,9 @@
         transform-origin: bottom;
         cursor: pointer;
         z-index: 1;
-        height: 290px;
-        padding: 2.5rem 0;
+        height: 260px;
+       padding: 2.5rem 0 2rem;
+       overflow: visible;
     }
 
     .referral-card:hover {
@@ -2286,12 +2320,13 @@
             url(./assets/images/MyReferral/ufo-light.svg),
             // linear-gradient(180deg, rgba(77, 60, 155, 0) 0%, #4d3c9b 94.59%);
             linear-gradient(180deg, #4D3C9B 0%, #1A2A6C 94.59%);
-        height: 100%;
+        // height: 100%;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         box-shadow: 0px 4px 16px 0px rgba(255, 255, 255, 0.25);
         animation: moveUp 0.5s ease both;
+        padding-top: 4rem;
     }
 
     .referred-card-subtitle {
@@ -2309,7 +2344,7 @@
         }
 
         100% {
-            transform: translateY(-60px);
+            transform: translateY(-30px);
         }
     }
 
@@ -2323,12 +2358,48 @@
 
     .card-ufo-img {
         position: absolute;
-        top: -60px;
+        top: -40px;
         left: 50%;
         transform: translateX(-50%);
         height: auto;
         z-index: 1;
     }
+
+    .referral-card:hover .card-ufo-img {
+        top: -60px;
+        height: auto;
+    }
+
+    .section-referral {
+  position: relative;
+  overflow: visible !important;
+
+  .referral-slider {
+    overflow: visible !important;
+  }
+}
+
+.slick-slider,
+.slick-list,
+.slick-track,
+.slick-slide {
+  overflow: visible !important;
+}
+
+
+.card-ufo-img {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: auto;
+  z-index: 10; 
+  transition: top 0.3s ease;
+}
+
+.referral-card:hover .card-ufo-img {
+  top: -70px;
+}
 
     // Referral table css
     .table {
@@ -2772,25 +2843,26 @@
                     align-items: center;
                     justify-content: center;
                     height: 40px;
+                    
+                img,
+                    .dot {
+                        position: absolute;
+                        top: 5px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+
+                .inactive {
+                    filter: grayscale(100%);
+                    top: 2px;
+                    }
+                .dot img {
+                    top: 2px;   
+                }
                 }
 
                 p {
                     color: #656765;
-                }
-
-                .star {
-                    position: absolute;
-                    top: 2px;
-                }
-
-                .inactive {
-                    position: absolute;
-                    top: 5px;
-                }
-
-                &.active .dot {
-                    position: absolute;
-                    top: 5px;
                 }
             }
 
@@ -3053,6 +3125,22 @@
             opacity: 0;
         }
     }
+.blurred {
+  filter: blur(6px);
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); // dark shadow
+}
+
+.blurred-glow {
+  filter: blur(6px);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  box-shadow: -25.51px 16.05px 110.21px 0px rgba(85, 2, 76, 0.8);
+
+    
+}
 
     // ---------
     .scrol-path-0 {

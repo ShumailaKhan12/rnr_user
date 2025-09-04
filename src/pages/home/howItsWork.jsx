@@ -20,8 +20,11 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
   const [showExit, setShowExit] = useState(false);
   const [scrollDir, setScrollDir] = useState('down'); // Local scroll direction
   const Auth = JSON?.parse(localStorage.getItem('Auth') ?? '{}');
-  const [isMobile, setIsMobile] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
+
+
+const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
+const [isDesktop, setIsDesktop] = useState(() => window.innerWidth > 768);
+
   // const { ContextFaqsDataAPI } = useContext(UserContext);
 
   // =================================
@@ -157,13 +160,15 @@ const [collapsed, setCollapsed] = useState(false);
     }
   }, [isExiting]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+useEffect(() => {
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 768);
+    setIsDesktop(window.innerWidth > 768);
+  };
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
+
 
   
   return (
@@ -268,13 +273,13 @@ const [collapsed, setCollapsed] = useState(false);
               <div className="timeline-line-vertical"></div>
 
               <div className="rocket-vertical">                
-  <img src={Rocketgif} alt="Rocket"   className={`rocket-gif ${collapsed ? 'collapse-to-button' : ''}`}  />
+  <img src={Rocketgif} alt="Rocket"   className={` ${collapsed ? 'collapse-to-button' : ''}`}  />
               </div>
 
               {/* Timeline dots */}
-              <div className={`timeline-dot-mobile ${step >= 1 ? 'visible' : ''}`} style={{ top: '15%' }}></div>
-              <div className={`timeline-dot-mobile ${step >= 3 ? 'visible' : ''}`} style={{ top: '45%' }}></div>
-              <div className={`timeline-dot-mobile ${step >= 5 ? 'visible' : ''}`} style={{ top: '75%' }}></div>
+              <div className={`timeline-dot-mobile ${step >= 1 ? 'visible' : ''}`} style={{ top: '15%', transition: "opacity 0.5s ease-in" }}></div>
+              <div className={`timeline-dot-mobile ${step >= 3 ? 'visible' : ''}`} style={{ top: '45%', transition: "opacity 0.5s ease-in" }}></div>
+              <div className={`timeline-dot-mobile ${step >= 5 ? 'visible' : ''}`} style={{ top: '75%', transition: "opacity 0.5s ease-in" }}></div>
 
               <div className="timeline-mobile">
                 <div className="timeline-line-vertical"></div>
