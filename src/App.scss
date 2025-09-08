@@ -855,7 +855,9 @@
 
     // =======================================================================
 
-
+html, body {
+  overflow-x: hidden;   /* remove unwanted horizontal scroll / space */
+}
     // ========================= Navbar Section Start =============================
     .navbar {
         padding-top: 0 !important;
@@ -898,39 +900,39 @@
     //     }
     // }
 
-    @media (max-width: 767px) {
+    // @media (max-width: 767px) {
 
-        .navbar-collapse {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            /* by default hidden */
-            width: 80%;
-            /* kitna area lena hai (80% screen width) */
-            height: 100vh;
-            background: rgba(237, 228, 228, 0.95);
-            padding-top: 80px;
-            transition: left 0.3s ease-in-out;
-            z-index: 1000;
-        }
+    //     .navbar-collapse {
+    //         position: fixed;
+    //         top: 0;
+    //         left: -100%;
+    //         /* by default hidden */
+    //         width: 80%;
+    //         /* kitna area lena hai (80% screen width) */
+    //         height: 100vh;
+    //         background: rgba(237, 228, 228, 0.95);
+    //         padding-top: 80px;
+    //         transition: left 0.3s ease-in-out;
+    //         z-index: 1000;
+    //     }
 
 
-        .navbar-collapse.show {
-            left: 0;
-        }
+    //     .navbar-collapse.show {
+    //         left: 0;
+    //     }
 
-        .navbar-collapse .nav-item {
-            text-align: left;
-            margin: 20px;
-        }
+    //     .navbar-collapse .nav-item {
+    //         text-align: left;
+    //         margin: 20px;
+    //     }
 
-        .navbar-toggler {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1100;
-        }
-    }
+    //     .navbar-toggler {
+    //         position: absolute;
+    //         top: 20px;
+    //         right: 20px;
+    //         z-index: 1100;
+    //     }
+    // }
 
     @media (max-width: 767px) {
         .navbar-collapse {
