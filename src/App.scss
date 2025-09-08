@@ -1337,7 +1337,7 @@
             z-index: 3;
             animation: moveRocketVertical 5s linear forwards;
              img {
-    width: 64px;   // mobile ke liye size chhota
+    width: 121px;   
     height: auto;
   }
         }
@@ -1445,7 +1445,7 @@
 
         /* STEP TEXTS */
         .step-title {
-            margin-bottom: 8px;
+            margin-top: 2rem;
         }
 
         .step-description {
@@ -1474,7 +1474,18 @@
             .step-description {
                 font-size: 0.8rem;
             }
+  .planet-svg {
+                width: 64px !important;
+                height: 64px !important;
+                margin-top: 2rem;
 
+                &.planet-one{
+                    margin-top: 1rem;
+                }
+                 &.planet-two{
+                    margin-top: 1rem;
+                }
+            }
             .timeline-dot-mobile {
                 position: absolute;
                 left: 50%;
@@ -1507,6 +1518,17 @@
 
             .step-description {
                 font-size: 0.75rem;
+            }
+
+             .planet-svg {
+                margin-top: 2.5rem;
+
+                &.planet-one{
+                    margin-top:2rem;
+                }
+                 &.planet-two{
+                    margin-top: 2rem;
+                }
             }
         }
 
@@ -1751,12 +1773,15 @@
 
     // =================== How it works css
     .referral-program {
-        // padding: 5px 0;
+        padding: 10px 0;
         position: relative;
         overflow: hidden;
-        // padding-bottom: 30px;
+        box-sizing: border-box;
+        height: auto;
+        max-width: 100vw;
 
         .program-header {
+            margin-bottom: 30px; 
             .program-title {
                 color: #05103E;
                 margin: 0%;
@@ -1783,6 +1808,24 @@
                 }
             }
 
+         @media (min-width: 1900px) and (max-width: 2700px) {
+            margin-bottom: 50px;
+            
+            .program-title {
+                font-size: 60px;
+                line-height: 1.2;
+                padding-inline-start: 8%;
+                margin-top: 10px;
+            }
+
+            .program-subtitle {
+                font-size: 28px;
+                line-height: 1.4;
+                padding-inline-start: 8%;
+                margin-top: 10px;
+            }
+        }
+
         }
 
         .referral-journey {
@@ -1790,8 +1833,7 @@
             width: 100%;
             max-width: 1100px;
             margin: 0 auto;
-            min-height: 450px;
-
+            overflow: visible; 
 
             .step-title {
                 font-weight: 700;
@@ -1807,12 +1849,13 @@
             }
 
             .stepindicator {
-                width: 100%;
+                width: 90%;
                 height: auto;
                 position: relative;
                 z-index: 1;
                 margin-bottom: 1rem;
-                transform: translateY(-70px);
+                // max-height: 480px; 
+                transform: translateY(-70px) translateX(10px) rotate(4deg);
             }
 
             .desktop-line {
@@ -1831,22 +1874,22 @@
 
             .step-1 {
                 left: 5%;
-                bottom: -13%;
+                bottom: -8%;
             }
 
             .step-2 {
-                left: 17%;
-                top: 10%;
+                left: 15%;
+                top: 3%;
             }
 
             .step-3 {
-                right: 25%;
-                bottom: 15%;
+                right: 30%;
+                bottom: 10%;
             }
 
             .step-4 {
-                right: -5%;
-                top: 0%;
+                right: 2%;
+                top: 2%;
             }
 
             .one {
@@ -1857,25 +1900,24 @@
 
             .two {
                 position: absolute;
-                left: 30%;
-                top: 10%;
+                left: 28%;
+                top: 0%;
             }
 
             .three {
                 position: absolute;
-                right: 18%;
-                bottom: 12%;
+                right: 23%;
+                bottom: 6%;
             }
 
             .four {
                 position: absolute;
-                right: -10%;
-                top: -2%;
+                right: -3%;
+                top: -3%;
             }
 
             @media (min-width: 176px) and (max-width: 768px) {
                 min-height: auto;
-
                 .desktop-line {
                     display: none;
                 }
@@ -1885,11 +1927,9 @@
                     height: 70vh;
                     max-width: 70%;
                     margin: 0 auto;
-
                 }
 
- .stepindicator {
-               
+            .stepindicator {
                 transform: translateY(0px);
             }
 
@@ -1952,7 +1992,75 @@
             }
 
 
+
+            @media (min-width: 1700px) and (max-width: 2800px) {
+            max-width: 1800px;
+            height: auto;
+            min-height: 600px;
+            
+            .stepindicator {
+                width: 85%;
+                transform: translateY(-70px) translateX(100px) rotate(5deg);
+            }
+
+            .step {
+                max-width: 320px; // Increased for larger screens
+            }
+
+            .step-title {
+                font-size: 35px; // Scaled up
+                // margin-bottom: 1rem;
+                letter-spacing: 1px;
+            }
+
+            .step-description {
+                font-size: 24px; // Scaled up
+                line-height: 1.2;
+            }
+
+            // Adjusted positioning for larger screens
+            .step-1 {
+                left: 9%;
+                bottom: -10%;
+            }
+
+            .step-2 {
+                left: 22%;
+                top: 17%;
+            }
+
+            .step-3 {
+                right: 32%;
+                bottom: 10%;
+            }
+
+            .step-4 {
+                right: 5%;
+                top: 10%;
+            }
+
+            // Scaled up images
+            .one {
+                left: 19%;
+                bottom: -18%;
+            }
+
+            .two {
+                left: 32%;
+                top: 18%;
+            }
+
+            .three {
+                right: 28%;
+                bottom: 12%;
+            }
+
+            .four {
+                right: 2%;
+                top: 11%;
+            }
         }
+    }
 
         .get-started-btn {
             background: #3b4a8c;
@@ -1974,7 +2082,40 @@
                 height: 32px;
                 font-size: 12px;
             }
+
+               // Large screen button styling
+        @media (min-width: 1900px) and (max-width: 2700px) {
+            width: 620px;
+            height: 68px;
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 40px;
+            left: 50%;
+            transform: translateX(-50%); 
         }
+        }
+
+        
+
+    .referal-row {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0 10px;
+        overflow: hidden;
+          @media (min-width: 1900px) and (max-width: 2700px) {
+            padding: 0 5%;
+            max-width: 2400px;
+            margin: 0 auto;
+        }
+    }
+
+    .row {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        overflow: hidden;
+    }
     }
 
 
@@ -2265,17 +2406,11 @@
     // ========================================================================
     .section-referral {
         position: relative;
-        overflow: visible; 
+        //  overflow: visible; 
 
         .referral-slider {
-             .slick-list {
-    overflow: visible !important;
-  }
 
-  .slick-slide {
-    overflow: visible !important; 
-  }
-            .referral-card {
+    .referral-card {
                 height: 350px;
                 padding: 2rem !important;
                 overflow: visible !important;
@@ -2284,20 +2419,33 @@
 
             .slick-track {
                 display: flex !important;
+                gap: 20px; // Adjust the gap as needed
                 gap: 20px;
                 overflow: visible !important;
             }
 
             .me-3 {
                 margin-top: 20%;
-
                 margin-right: 0 !important;
             }
 
-            .slick-next {
-                display: block !important;
-            }
+        .slick-prev,
+    .slick-next {
+      z-index: 20;
+      width: 35px;
+      height: 35px;
+    }
+
+    .slick-prev {
+      left: 0px;
+    }
+
+    .slick-next {
+      right: 5px;
+    }
+            
         }
+
     }
 
     .referral-wrapper {
@@ -2315,8 +2463,14 @@
         cursor: pointer;
         z-index: 1;
         height: 260px;
-       padding: 2.5rem 0 2rem;
-       overflow: visible;
+        padding: 2.5rem 0 2rem;
+        overflow: visible !important;
+ 
+
+       @media (max-width: 768px) {
+        height: 300px;
+  margin-top: 100px;  
+       }
     }
 
     .referral-card:hover {
@@ -2360,20 +2514,6 @@
         color: #ffe14d;
     }
 
-    .card-ufo-img {
-        position: absolute;
-        top: -40px;
-        left: 50%;
-        transform: translateX(-50%);
-        height: auto;
-        z-index: 1;
-    }
-
-    .referral-card:hover .card-ufo-img {
-        top: -60px;
-        height: auto;
-    }
-
     .section-referral {
   position: relative;
   overflow: visible !important;
@@ -2391,6 +2531,24 @@
 }
 
 
+ @media (max-width :1300px) {
+      .slick-list,
+      .slick-track,
+      .slick-slide,
+      .slick-slide > div {
+        overflow: hidden !important;
+      }
+
+      .slick-prev {
+        left: -5px !important;
+      }
+
+      .slick-next {
+        right: 10px !important;
+      }
+    }
+
+
 .card-ufo-img {
   position: absolute;
   top: -40px;
@@ -2403,6 +2561,10 @@
 
 .referral-card:hover .card-ufo-img {
   top: -70px;
+
+  @media (max-width: 768px) {
+    top: -50px; 
+  }
 }
 
     // Referral table css
@@ -2876,6 +3038,8 @@
                 transform: translateX(-50%);
                 transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
                 z-index: 5;
+                height: auto;
+                width: auto;
 
             }
         }
@@ -2903,6 +3067,7 @@
                     left: 50%;
                     width: 14px;
                     height: 100%;
+                    min-height: 700px;
                     transform: translateX(-50%);
 
                 }
@@ -2912,6 +3077,7 @@
                     left: 50%;
                     width: 14px;
                     height: 0;
+                    // min-height: 500px;
                     transition: height 0.5s ease-in-out;
                     transform: translateX(-50%);
                 }
@@ -2920,7 +3086,7 @@
                 .step {
                     flex-direction: row;
                     align-items: center;
-                    margin-bottom: 10px;
+                    margin-bottom: 70px;
 
                     .star,
                     .inactive,
@@ -2931,16 +3097,23 @@
                     }
 
                     p {
-                        text-align: left;
-                        font-size: 14px;
-                        margin-left: 5%;
-                        flex: 1;
+                         text-align: left !important;   // ✅ force left align
+        white-space: normal !important; // ✅ allow wrapping
+        font-size: 14px;
+        max-width: 250px;              // ✅ optional, width fix karega
+        margin-left: 10px;  
+        
+        @media (max-width : 478px) {
+             max-width: 100px;   
+        }
                     }
                 }
 
                 .rocket {
-                    left: 51%;
+                    left: 50%;
                     top: 0;
+                    width: 98px;
+                    height: 32px;
                     transition: top 0.5s ease-in-out;
                     transform: translateX(-50%) rotate(90deg);
                 }
