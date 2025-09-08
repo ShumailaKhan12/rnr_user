@@ -9,7 +9,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            const firstSectionHeight = window.innerHeight * 0.8; // 80% of viewport height
+            const firstSectionHeight = window.innerHeight * 0.2; // 80% of viewport height
             if (window.scrollY > firstSectionHeight) {
                 setScrolled(true);
             } else {

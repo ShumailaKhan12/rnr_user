@@ -301,7 +301,7 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
                   </div>
 
                   {/* Step 2 → Left Text | Right Planet */}
-                  <div className={`step-mobile ${step >= 2 ? 'visible' : ''}`}>
+                  <div className={`step-mobile d-flex align-items-center ${step >= 2 ? 'visible' : ''}`}>
                     <div className="step-box left">
                       <div className="step-text">
                         <h6 className="step-title text-start  montserrat-bold font-12 text-blue ">Invite a Friend & Travel Together</h6>
@@ -317,11 +317,11 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
                   </div>
 
                   {/* Step 3 → Left Planet | Right Text */}
-                  <div className={`step-mobile ${step >= 3 ? 'visible' : ''}`}>
+                  <div className={`step-mobile d-flex align-items-end ${step >= 3 ? 'visible' : ''}`}>
                     <div className="step-box left">
                       <img src={Planet3} className="planet-svg" alt="Planet 3" />
                     </div>
-                    <div className="step-box right p-0">
+                    <div className="step-box d-flex align-items-end right p-0">
                       <div className="step-text">
                         <h6 className="step-title  montserrat-bold font-12 text-blue">Discover New Worlds & Unlock Rewards</h6>
                         <p className="step-description  montserrat-regular font-12 text-blue">
