@@ -3101,14 +3101,15 @@ html, body {
                     }
 
                     p {
-                         text-align: left !important;   // ✅ force left align
-        white-space: normal !important; // ✅ allow wrapping
+                         text-align: left !important;
+        white-space: normal !important; 
         font-size: 14px;
-        max-width: 250px;              // ✅ optional, width fix karega
-        margin-left: 10px;  
+        max-width: 250px;              
+        margin-left: 20%;  
         
         @media (max-width : 478px) {
              max-width: 100px;   
+             margin-left: 10px;
         }
                     }
                 }
