@@ -609,7 +609,7 @@ const Profile = () => {
               className={`accordion-collapse collapse ${activeSection === 'notifications' ? 'show' : ''}`}
             >
               <div className="accordion-body">
-                <div className="form-check form-switch pl-0 mb-20 width-30 d-flex justify-content-between align-items-center">
+                <div className="form-check form-switch pl-0 mb-20 widht-40 width-lg-30 d-flex justify-content-between align-items-center">
                   <label
                     className="form-check-label montserrat-medium font-14 text-primary-color"
                     htmlFor="rewardNotifications"
@@ -624,7 +624,7 @@ const Profile = () => {
                   />
                 </div>
 
-                <div className="form-check form-switch pl-0 mb-20 width-30 d-flex justify-content-between align-items-center">
+                <div className="form-check form-switch pl-0 mb-20 widht-40 width-lg-30 d-flex justify-content-between align-items-center">
                   <label
                     className="form-check-label montserrat-medium font-14 text-primary-color"
                     htmlFor="milestoneUpdates"
@@ -638,7 +638,7 @@ const Profile = () => {
                   />
                 </div>
 
-                <div className="form-check form-switch pl-0 mb-20 width-30 d-flex justify-content-between align-items-center">
+                <div className="form-check form-switch pl-0 mb-20 widht-40 width-lg-30 d-flex justify-content-between align-items-center">
                   <label
                     className="form-check-label montserrat-medium font-14 text-primary-color"
                     htmlFor="referralAlerts"

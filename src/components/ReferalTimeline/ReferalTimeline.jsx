@@ -8,17 +8,17 @@ import star from "../../assets/Images/referel-timeline/star.svg";
 import { NavLink } from "react-router-dom";
 
 const ReferralTimeline = () => {
-    const steps = [
-        { id: 1, text: <>Great! You<br />have started<br />your journey<br />with your 1st<br />referral.</>, icon: star },
-        { id: 2, text: <>Set the board by <br /> referring your <br /> 2nd friend.</>, icon: star },
-        { id: 3, text: <>Close to your <br /> Star. Buckle <br /> up and shoot.</>, icon: star },
-        { id: 4, text: <>Last step left. <br />Just one <br /> referral and <br /> you got a star</>, icon: star },
-        { id: 5, text: <>Congrats !! <br />Happy-go-lucky.</>, icon: star },
-    ];
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+   const steps = [
+  { id: 1, text: <>Great! You <br className="d-none d-md-block" /> have started <br /> your journey <br className="d-none d-md-block" /> with your 1st <br  /> referral.</>, icon: star },
+  { id: 2, text: <>Set the board by <br className="d-none d-md-block" /> referring <br /> your 2nd friend.</>, icon: star },
+  { id: 3, text: <>Close to your <br className="d-none d-md-block" /> Star. Buckle <br  /> up and shoot.</>, icon: star },
+  { id: 4, text: <>Last step left. <br className="d-none d-md-block" /> Just one <br  /> referral and <br className="d-none d-md-block" /> you got a star</>, icon: star },
+  { id: 5, text: <>Congrats !! <br className="d-none d-md-block" /> Happy-go-lucky.</>, icon: star },
+];
 
     const [activeStep, setActiveStep] = useState(1);
     const [rocketPos, setRocketPos] = useState(0);
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     const stepRefs = useRef([]);
 

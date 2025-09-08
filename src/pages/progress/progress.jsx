@@ -189,7 +189,7 @@ const Progress = () => {
               <div className="d-flex">
                 <div className="col-lg-3 col-5 text-center">
                   <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}     ${0 !== currentIndex ? "blurred" : ""}       ` }
                     src={images[currentIndex]}
                     alt="purple"
                   />
@@ -197,7 +197,7 @@ const Progress = () => {
                 <div className="col-lg-3 col-5"></div>
                 <div className="col-lg-3 col-5 text-center">
                   <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
                     src={images[imageNumbers]}
                     alt="yellow"
                   />
@@ -208,7 +208,7 @@ const Progress = () => {
                 ` }
                 >
                   <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${currentIndex[0] === 0 ? 'purple' : currentIndex[0] === 1 ? 'yellow' : currentIndex[0] === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 blurred planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex[0] === 1 ? 'yellow' : currentIndex[0] === 2 ? 'green' : 'blue'} ${0 !== currentIndex ? "blurred" : ""}`}
                     src={images[currentIndex]}
                     alt="yellow"
                   />
@@ -219,7 +219,7 @@ const Progress = () => {
                 `}
                 >
                   <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
                     src={images[imageNumbers]}
                     alt="yellow"
                   />
@@ -230,7 +230,7 @@ const Progress = () => {
                 `}
                 >
                   <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
                     src={images[imageNumbers]}
                     alt="yellow"
                   />
@@ -288,7 +288,7 @@ const Progress = () => {
 
                 <div className="col-lg-3 col-4 text-center text-dark-blue mt-4 pt-4 px-0">
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
-                    Planet B
+                    Planet C
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[
                     imageNumbers
@@ -334,7 +334,7 @@ const Progress = () => {
                   className={`col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0`}
                 >
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
-                    Planet C
+                    Planet E
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[4]
                     ?.milestone_name
@@ -377,7 +377,7 @@ const Progress = () => {
                 `}
                 >
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
-                    Planet D
+                    Planet G
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[6]
                     ?.milestone_name
@@ -420,7 +420,7 @@ const Progress = () => {
                 `}
                 >
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
-                    Planet E
+                    Planet H
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[8]
                     ?.milestone_name
@@ -482,13 +482,13 @@ const Progress = () => {
                 <div className="col-lg-3 col-5"></div>
                 <div className="col-lg-3 col-5 text-center text-dark-blue second-scrn-padding">
                   <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'} ${nextIndex !== currentIndex ? "blurred" : ""}`}
                     src={images[nextIndex]}
                     alt="greenplnt"
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
-                      Planet F
+                      Planet B
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[
                       nextIndex
@@ -525,13 +525,13 @@ const Progress = () => {
                   className={`col-lg-3 col-5 text-center text-dark-blue`}
                 >
                   <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${prevIndex === 0 ? 'purple' : prevIndex === 1 ? 'yellow' : prevIndex === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${prevIndex === 0 ? 'purple' : prevIndex === 1 ? 'yellow' : prevIndex === 2 ? 'green' : 'blue'} ${prevIndex !== currentIndex ? "blurred" : ""} `}
                     src={images[prevIndex]}
                     alt="blueplnt"
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
-                      Planet G
+                      Planet D
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[
                       prevIndex
@@ -568,13 +568,13 @@ const Progress = () => {
                   className={`col-lg-3 col-5 text-center text-dark-blue`}
                 >
                   <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'} ${nextIndex !== currentIndex ? "blurred" : ""}`}
                     src={images[nextIndex]}
                     alt="blueplnt"
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading">
-                      Planet H
+                      Planet F
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[5]
                       ?.milestone_name
@@ -609,7 +609,7 @@ const Progress = () => {
                   className={`col-lg-3 col-5 text-center text-dark-blue`}
                 >
                   <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'} ${nextIndex !== currentIndex ? "blurred" : ""}`}
                     src={images[nextIndex]}
                     alt="blueplnt"
                   />
@@ -649,7 +649,7 @@ const Progress = () => {
                   className={`col-lg-3 col-5 text-center text-dark-blue`}
                 >
                   <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'}`}
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'} ${nextIndex !== currentIndex ? "blurred" : ""}`}
                     src={images[nextIndex]}
                     alt="blueplnt"
                   />
