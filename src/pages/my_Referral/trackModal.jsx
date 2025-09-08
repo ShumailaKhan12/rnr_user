@@ -102,7 +102,7 @@ const TrackModal = () => {
                     <div className="progress-section my-3">
                         {steps.map(step => (
                             <div key={step?.key} className="row step justify-content-center">
-                                <div className="col-lg-8 step-content d-flex">
+                                <div className="col-lg-8 col-8 step-content d-flex">
                                     <div>
                                         <img src={progressSteps[step?.key] ? step?.img : step?.grayImg} className='me-2' alt="Step Icon" />
                                     </div>
@@ -115,7 +115,7 @@ const TrackModal = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="col-lg-3 d-flex align-items-center flex-column position-relative">
+                                <div className="col-lg-3 col-3 d-flex align-items-center flex-column position-relative">
                                     <div className="circle-wrapper position-relative">
                                         <div className={`circle ${progressSteps[step?.key] ? 'filled-circle' : 'empty-circle'}`}>
                                             {progressSteps[step?.key] &&
