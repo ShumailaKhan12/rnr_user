@@ -1317,8 +1317,10 @@
             margin: 0 auto;
             //   padding: 2rem 0;
             padding: 1rem 0 1rem;
-            min-height: 100vh;
+            // min-height: 100vh;
+            
             height: auto !important;
+            gap: 40px;
 
         }
 
@@ -1393,10 +1395,12 @@
         .step-mobile {
             position: relative;
             display: flex;
-            //   align-items: center;
-            align-items: flex-start;
+              align-items: center;
+            // align-items: flex-start;
             justify-content: space-between;
-            margin: 40px 0;
+            margin: 15px 0;
+              width: 100%;  
+              min-height: 60px; 
             opacity: 0;
             transition: opacity 0.6s ease-in-out;
             z-index: 2;
@@ -1408,46 +1412,32 @@
 
             .step-box {
                 width: 45%;
+                 flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
             }
+.step-box.left {
+  justify-content: flex-end;
+  padding-right: 25px; 
+}
 
-            .left {
-                text-align: right;
-            }
+.step-box.right {
+  justify-content: flex-start;
+  padding-left: 25px; 
+}
 
-            .right {
-                text-align: left;
-            }
-
-            // &::before {
-            //     content: '';
-            //     position: absolute;
-            //     left: 50%;
-            //     transform: translateX(-50%);
-            //     width: 16px;
-            //     height: 16px;
-            //     border-radius: 50%;
-            //     background: var(--text-dark-blue);
-            //     z-index: 3;
-            //     opacity: 0;
-            //     transition: opacity 0.6s ease-in-out;
-            //     top: 0;
-            //     //   top: 50%;     
-
-            // }
-
-            // &.visible::before {
-            //     opacity: 1;
-            // }
         }
 
         .step-content-mobile {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 1rem;
             animation: fadeIn 1s forwards;
             animation-delay: 1.5s;
-
+ max-width: 40%;
+                gap: 10px;
             &.left-content {
                 flex-direction: row;
                 animation: fadeIn 1s forwards;
@@ -1464,70 +1454,65 @@
             }
 
             .planet-svg {
-                width: 64px !important;
-                height: 64px !important;
-                margin-top: -8px;
-            }
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+
+}
+
+
+.planet-one,
+.planet-two,
+.planet-three {
+  width: 64px;
+  height:64px;
+}
+
+&.planet-one{
+
+    background-size: contain;
+}
 
         }
 
 
-        /* STEP TEXTS */
-        .step-title {
-            margin-top: 2rem;
-        }
+       
+.step-mobile:first-child .step-text,
+.step-mobile:last-child .step-text {
+  text-align: left;
+}
 
-        .step-description {
-            line-height: 1.4;
-        }
+.step-mobile:nth-child(2) .step-text {
+  text-align: left;
+}
+
+/* Step Titles and Descriptions */
+.step-title {
+  margin-bottom: 8px;
+  line-height: 1.3;
+  font-size: 12px !important;
+}
+
+.step-description {
+  line-height: 1.4;
+  font-size: 10px !important;
+  margin-bottom: 0;
+}
 
         .rocket-svg {
             width: 121px;
         }
 
-        /* Mobile specific adjustments */
-        @media (max-width: 768px) {
-            .step-mobile {
-                margin: 25px 0;
-            }
-
-            .step-content-mobile {
-                max-width: 40%;
-                gap: 10px;
-            }
-
-            .step-title {
-                font-size: 0.95rem;
-            }
-
-            .step-description {
-                font-size: 0.8rem;
-            }
-
-            .planet-svg {
-                width: 64px !important;
-                height: 64px !important;
-                margin-top: 2rem;
-
-                &.planet-one {
-                    margin-top: 1rem;
-                }
-
-                &.planet-two {
-                    margin-top: 1rem;
-                }
-            }
-
-            .timeline-dot-mobile {
+         .timeline-dot-mobile {
                 position: absolute;
                 left: 50%;
-                top: 0;
-                // transform: translateX(-50%);
+                // top:45%;
+                transform: translateX(-50%);
                 width: 16px;
                 height: 16px;
                 border-radius: 50%;
                 background: var(--text-dark-blue);
-                z-index: 3;
+                z-index: 0;
                 opacity: 0;
                 transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 
@@ -1535,35 +1520,12 @@
                     opacity: 1;
                     transform: translateX(-50%) scale(1.2);
                 }
+&.dot-1 { top: 80px; }
+&.dot-2 { top: 280px; }
+&.dot-3 { top: 480px; }
+
             }
-        }
-
-        @media (max-width: 480px) {
-            .step-content-mobile {
-                max-width: 35%;
-                gap: 8px;
-            }
-
-            .step-title {
-                font-size: 0.85rem;
-            }
-
-            .step-description {
-                font-size: 0.75rem;
-            }
-
-            .planet-svg {
-                margin-top: 2.5rem;
-
-                &.planet-one {
-                    margin-top: 2rem;
-                }
-
-                &.planet-two {
-                    margin-top: 2rem;
-                }
-            }
-        }
+    
 
 
     }
