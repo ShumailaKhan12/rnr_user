@@ -162,8 +162,8 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-      setIsDesktop(window.innerWidth > 768);
+      setIsMobile(window.innerWidth <= 480);
+      setIsDesktop(window.innerWidth > 480);
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -277,9 +277,9 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
                 </div>
 
                 {/* Timeline dots */}
-                <div className={`timeline-dot-mobile ${step >= 1 ? 'visible' : ''}`} style={{ top: '10%', transition: "opacity 0.5s ease-in" }}></div>
-                <div className={`timeline-dot-mobile ${step >= 3 ? 'visible' : ''}`} style={{ top: '45%', transition: "opacity 0.5s ease-in" }}></div>
-                <div className={`timeline-dot-mobile ${step >= 5 ? 'visible' : ''}`} style={{ top: '75%', transition: "opacity 0.5s ease-in" }}></div>
+                <div className={`timeline-dot-mobile  dot-1 ${step >= 1 ? 'visible' : ''}`} ></div>
+                <div className={`timeline-dot-mobile dot-2 ${step >= 3 ? 'visible' : ''}`}></div>
+                <div className={`timeline-dot-mobile dot-3 ${step >= 5 ? 'visible' : ''}`}></div>
 
                 <div className="timeline-mobile">
                   <div className="timeline-line-vertical"></div>
@@ -287,7 +287,7 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
                   {/* Step 1 → Left Planet | Right Text */}
                   <div className={`step-mobile ${step >= 1 ? 'visible' : ''}`}>
                     <div className="step-box left">
-                      <img src={Planet1} className="planet-svg planet-one" alt="Planet 1" />
+                      <img src={Planet1} className="planet-svg planet-one" alt="Planet 1"  style={{transform: 'translateY(-40px)', }}/>
                     </div>
                     <div className="step-box right">
                       <div className="step-text">
@@ -312,14 +312,14 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
                       </div>
                     </div>
                     <div className="step-box right">
-                      <img src={Planet2} className="planet-svg planet-two" alt="Planet 2" />
+                      <img src={Planet2} className="planet-svg planet-two" alt="Planet 2" style={{transform: 'translateY(-10px)', }} />
                     </div>
                   </div>
 
                   {/* Step 3 → Left Planet | Right Text */}
                   <div className={`step-mobile d-flex align-items-end ${step >= 3 ? 'visible' : ''}`}>
                     <div className="step-box left">
-                      <img src={Planet3} className="planet-svg" alt="Planet 3" />
+                      <img src={Planet3} className="planet-svg planet-three " alt="Planet 3" />
                     </div>
                     <div className="step-box d-flex align-items-end right p-0">
                       <div className="step-text">
