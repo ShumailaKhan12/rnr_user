@@ -12,7 +12,7 @@ import LeftArrowIcon from '../../assets/Images/MyReferral/right-arrow.svg';
 const ReferralCards = ({ RefralDataAPI }) => {
   const [isHovered, setIsHovered] = useState(null);
   // const [isTablet, setIsTablet] = useState(window.innerWidth < 992);
-  const [slidesToShow, setSlidesToShow] = useState(window.innerWidth < 992 ? 2 : 3);
+  const [slidesToShow, setSlidesToShow] = useState(window.innerWidth < 992 ? 1 : 3);
 
   useEffect(() => {
     const handleResize = () => {
@@ -122,17 +122,18 @@ const ReferralCards = ({ RefralDataAPI }) => {
         alt="UFO"
         className="card-ufo-img"
       />
-      <p className="font-size-28 referral-txt montserrat-bold text-white pt-4">{card.count}</p>
+      <p className="font-size-28 referral-txt montserrat-bold text-white pt-5">{card.count}</p>
       <p className="font-26 referral-txt montserrat-semibold text-blue mb-0">{card.title}</p>
       <p className="font-size-14 montserrat-semibold referred-card-subtitle">{card.subtitle}</p>
       {/* <button className="border-0 text-white rounded background-text-blue px-4 py-2 mt-3">
         View
       </button> */}
     </div>
+    
   );
 
   return (
-    <div className="mt-5">
+    <div className="">
         <Slider {...sliderSettings} className="referral-slider">
           {cardsData.map((card) => (
             <div key={card.id}>

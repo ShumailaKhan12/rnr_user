@@ -6,11 +6,11 @@ import { Modal, Button } from 'react-bootstrap';
 // Import Images
 import astronaut from "../../assets/Images/MyReferral/track-astronut.svg";
 import tick from "../../assets/Images/MyReferral/tick.svg";
-import PinkInvite from "../../assets/Images/MyReferral/pink-invite.png";
+import PinkInvite from "../../assets/Images/MyReferral/pink-invite.svg";
 import GrayBox from "../../assets/Images/MyReferral/gray-box.png";
 import GrayCart from "../../assets/images/MyReferral/gray-cart.png";
-import PurpleBox from "../../assets/images/MyReferral/purple-box.png";
-import OrangeCart from "../../assets/images/MyReferral/orange-cart.png";
+import PurpleBox from "../../assets/images/MyReferral/purple-box.svg";
+import OrangeCart from "../../assets/images/MyReferral/orange-cart.svg";
 
 const TrackModal = () => {
     // useStates
@@ -96,26 +96,26 @@ const TrackModal = () => {
 
                     <div className="text-center">
                         <img src={astronaut} className="astronaut-img" alt="astronaut" />
-                        <p className="font-size-32 space-grotesk-bold text-blue mt-2">Track The Progress</p>
+                        <p className="font-32 space-grotesk-bold text-blue mt-2">Track The Progress</p>
                     </div>
 
                     <div className="progress-section my-3">
                         {steps.map(step => (
                             <div key={step?.key} className="row step justify-content-center">
-                                <div className="col-lg-8 step-content d-flex">
+                                <div className="col-lg-8 col-8 step-content d-flex">
                                     <div>
                                         <img src={progressSteps[step?.key] ? step?.img : step?.grayImg} className='me-2' alt="Step Icon" />
                                     </div>
                                     <div>
-                                        <p className={`space-grotesk-medium font-size-18 mb-0 ${progressSteps[step?.key] ? 'text-blue' : 'text-gray'}`}>
+                                        <p className={`space-grotesk-medium font-18 mb-0 ${progressSteps[step?.key] ? 'text-blue' : 'text-gray'}`}>
                                             {step?.title}
                                         </p>
-                                        <p className={`mb-0 font-size-12 space-grotesk-regular lh-1 ${progressSteps[step?.key] ? 'text-blue' : 'text-gray'}`}>
+                                        <p className={`mb-0 font-12 space-grotesk-regular lh-1 ${progressSteps[step?.key] ? 'text-blue' : 'text-gray'}`}>
                                             {step?.desc}
                                         </p>
                                     </div>
                                 </div>
-                                <div className="col-lg-3 d-flex align-items-center flex-column position-relative">
+                                <div className="col-lg-3 col-3 d-flex align-items-center flex-column position-relative">
                                     <div className="circle-wrapper position-relative">
                                         <div className={`circle ${progressSteps[step?.key] ? 'filled-circle' : 'empty-circle'}`}>
                                             {progressSteps[step?.key] &&

@@ -15,7 +15,7 @@ const HowItWorks = () => {
             <div className="row justify-content-center align-items-center">
                 <div className="referal-row">
                     <div className="program-header text-center ">
-                        <h1 className="program-title montserrat-bold font-40">Referral & Earn program</h1>
+                        <h1 className="program-title montserrat-bold font-40 ">Referral & Earn program</h1>
                         <p className="program-subtitle montserrat-medium font-20 lh-sm">
                             Share the Love, Get Rewarded - The More You Invite,<br />
                             the More You Earn!
