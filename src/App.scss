@@ -868,9 +868,10 @@
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 1000;/* upar rakhne ke liye */
+        z-index: 1000;
+        /* upar rakhne ke liye */
         transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-    
+
 
     }
 
@@ -882,16 +883,17 @@
         animation: fadeInUp 1s ease-in-out;
     }
 
-@keyframes fadeInUp {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+    @keyframes fadeInUp {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
 
     .nav-logo-bg {
         background: url("./assets/Images/Logo/Ellipse\ 727.png") center center no-repeat;
@@ -2504,15 +2506,20 @@
         @media (max-width: 768px) {
             height: 300px;
             margin-top: 100px;
+
+            // *  mobile pe hover reset */
+            &:hover {
+                box-shadow: none !important;
+                animation: none !important;
+                padding-top: 2.5rem !important;
+            }
         }
     }
 
     .referral-card:hover {
         background:
             url(./assets/images/MyReferral/ufo-light.svg),
-            // linear-gradient(180deg, rgba(77, 60, 155, 0) 0%, #4d3c9b 94.59%);
             linear-gradient(180deg, #4D3C9B 0%, #1A2A6C 94.59%);
-        // height: 100%;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -3133,16 +3140,16 @@
                     }
 
                     p {
-                         text-align: left !important;
-        white-space: normal !important; 
-        font-size: 14px;
-        max-width: 250px;              
-        margin-left: 20%;  
-        
-        @media (max-width : 478px) {
-             max-width: 100px;   
-             margin-left: 10px;
-        }
+                        text-align: left !important;
+                        white-space: normal !important;
+                        font-size: 14px;
+                        max-width: 250px;
+                        margin-left: 20%;
+
+                        @media (max-width : 478px) {
+                            max-width: 100px;
+                            margin-left: 10px;
+                        }
                     }
                 }
 

@@ -526,7 +526,7 @@ const Profile = () => {
                 <p className="font-16 montserrat-semibold text-primary-color mb-24">
                   Your Current Wallet Balance
                 </p>
-                <div className="d-flex flex-wrap align-items-center gap-3 fw-bold mb-32">
+                <div className="d-flex align-items-center gap-3 fw-bold mb-32">
                   <span
                     className="font-24 montserrat-bold text-primary-color"
                     role="button"
@@ -537,7 +537,7 @@ const Profile = () => {
                     }{' '} */}
                     <span className="font-16 montserrat-semibold">Meteors</span>
                   </span>
-                  <span className="ml-60 mr-60 text-light-color">|</span>
+                  <span className=" text-light-color">|</span>
                   <span
                     className="font-24 montserrat-bold text-blue"
                     role="button"
@@ -548,7 +548,7 @@ const Profile = () => {
                     }{' '} */}
                     <span className="font-16 montserrat-semibold">Stars</span>
                   </span>
-                  <span className="ml-60 mr-60 text-light-color">|</span>
+                  <span className=" text-light-color">|</span>
                   <span
                     className="font-24 montserrat-bold text-primary-color"
                     role="button"
