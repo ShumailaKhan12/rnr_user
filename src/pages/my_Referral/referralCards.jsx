@@ -108,7 +108,6 @@ const ReferralCards = ({ RefralDataAPI }) => {
   ],
   };
 
-  
 
 
   const Card = ({ card }) => (
