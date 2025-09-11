@@ -918,11 +918,12 @@
         margin-left: 15px;
     }
 
-    // @media (min-width: 768px) {
-    //     .nav-logo-bg {
-    //         height: 115px;
-    //     }
-    // }
+    @media (max-width: 567px) {
+        .nav-logo-bg {
+            width: 210px;
+            // height: 80px !important;
+        }
+    }
 
     // @media (max-width: 767px) {
 
@@ -1079,6 +1080,11 @@
             box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
         }
     }
+
+    // .score-img {
+    //     height: 65px;
+    //     width: 65px;
+    // }
 
     /*===================== HOW IT WORKS SECTION CSS====================================*/
     .section-howitworks {
@@ -1318,7 +1324,7 @@
             //   padding: 2rem 0;
             padding: 1rem 0 1rem;
             // min-height: 100vh;
-            
+
             height: auto !important;
             gap: 40px;
 
@@ -1360,6 +1366,7 @@
         }
 
         .rocket-vertical {
+            display: none; 
             position: absolute;
             left: 50%;
             top: 0;
@@ -1395,12 +1402,12 @@
         .step-mobile {
             position: relative;
             display: flex;
-              align-items: center;
+            align-items: center;
             // align-items: flex-start;
             justify-content: space-between;
             margin: 15px 0;
-              width: 100%;  
-              min-height: 60px; 
+            width: 100%;
+            min-height: 60px;
             opacity: 0;
             transition: opacity 0.6s ease-in-out;
             z-index: 2;
@@ -1412,21 +1419,22 @@
 
             .step-box {
                 width: 45%;
-                 flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
             }
-.step-box.left {
-  justify-content: flex-end;
-  padding-right: 25px; 
-}
 
-.step-box.right {
-  justify-content: flex-start;
-  padding-left: 25px; 
-}
+            .step-box.left {
+                justify-content: flex-end;
+                padding-right: 25px;
+            }
+
+            .step-box.right {
+                justify-content: flex-start;
+                padding-left: 25px;
+            }
 
         }
 
@@ -1436,8 +1444,9 @@
             justify-content: space-between;
             animation: fadeIn 1s forwards;
             animation-delay: 1.5s;
- max-width: 40%;
-                gap: 10px;
+            max-width: 40%;
+            gap: 10px;
+
             &.left-content {
                 flex-direction: row;
                 animation: fadeIn 1s forwards;
@@ -1454,78 +1463,87 @@
             }
 
             .planet-svg {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
+                width: 50px;
+                height: 50px;
+                object-fit: contain;
 
-}
+            }
 
 
-.planet-one,
-.planet-two,
-.planet-three {
-  width: 64px;
-  height:64px;
-}
+            .planet-one,
+            .planet-two,
+            .planet-three {
+                width: 64px;
+                height: 64px;
+            }
 
-&.planet-one{
+            &.planet-one {
 
-    background-size: contain;
-}
+                background-size: contain;
+            }
 
         }
 
 
-       
-.step-mobile:first-child .step-text,
-.step-mobile:last-child .step-text {
-  text-align: left;
-}
 
-.step-mobile:nth-child(2) .step-text {
-  text-align: left;
-}
+        .step-mobile:first-child .step-text,
+        .step-mobile:last-child .step-text {
+            text-align: left;
+        }
 
-/* Step Titles and Descriptions */
-.step-title {
-  margin-bottom: 8px;
-  line-height: 1.3;
-  font-size: 12px !important;
-}
+        .step-mobile:nth-child(2) .step-text {
+            text-align: left;
+        }
 
-.step-description {
-  line-height: 1.4;
-  font-size: 10px !important;
-  margin-bottom: 0;
-}
+        /* Step Titles and Descriptions */
+        .step-title {
+            margin-bottom: 8px;
+            line-height: 1.3;
+            font-size: 12px !important;
+        }
+
+        .step-description {
+            line-height: 1.4;
+            font-size: 10px !important;
+            margin-bottom: 0;
+        }
 
         .rocket-svg {
             width: 121px;
         }
 
-         .timeline-dot-mobile {
-                position: absolute;
-                left: 50%;
-                // top:45%;
-                transform: translateX(-50%);
-                width: 16px;
-                height: 16px;
-                border-radius: 50%;
-                background: var(--text-dark-blue);
-                z-index: 0;
-                opacity: 0;
-                transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+        .timeline-dot-mobile {
+            position: absolute;
+            left: 50%;
+            // top:45%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--text-dark-blue);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 
-                &.visible {
-                    opacity: 1;
-                    transform: translateX(-50%) scale(1.2);
-                }
-&.dot-1 { top: 80px; }
-&.dot-2 { top: 280px; }
-&.dot-3 { top: 480px; }
-
+            &.visible {
+                opacity: 1;
+                transform: translateX(-50%) scale(1.2);
             }
-    
+
+            &.dot-1 {
+                top: 80px;
+            }
+
+            &.dot-2 {
+                top: 280px;
+            }
+
+            &.dot-3 {
+                top: 480px;
+            }
+
+        }
+
 
 
     }
@@ -1716,10 +1734,48 @@
     }
 
     //===================== FOOTER CSS AND ANIMATION CSS END -=============================
-
+    @media(min-width: 680px) and (max-width:800px) {
+        .offer-footer-section {
+            height: 42vh !important;
+            overflow: hidden;
+        }
+    }
 
     // Tablet responsive design
     @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+        .score-number {
+            font-size: 30px !important;
+        }
+
+        .score-text {
+            font-size: 16px !important;
+        }
+
+        .score-img {
+            height: 50px;
+            width: 50px;
+        }
+
+        // Profile tab Screen
+        .reward-icons-div img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .user-name{
+            font-size: 18px !important;
+        }
+        .user-contact{
+            font-size: 14px !important;
+        }
+        .profile-card-no {
+            font-size: 18px !important;
+        }
+
+        .profile-card-text {
+            font-size: 12px !important;
+        }
+
         .planet-heading {
             font-size: 16px !important;
         }
@@ -1729,7 +1785,7 @@
         }
 
         .offer-footer-section {
-            height: 40vh;
+            height: 47vh;
             overflow: hidden;
         }
 
@@ -1744,6 +1800,40 @@
 
     // Mobile Responsive Design
     @media (max-width: 676px) {
+        .score-number {
+            font-size: 20px !important;
+        }
+
+        .score-text {
+            font-size: 14px !important;
+        }
+
+        .score-img {
+            height: 37px;
+            width: 37px;
+        }
+
+        // profile Responsive
+          .user-name{
+            font-size: 16px !important;
+        }
+        .user-contact{
+            font-size: 10px !important;
+        }
+        .reward-icons-div img {
+            width: 32px;
+            height: 32px;
+        }
+         .profile-card-no {
+            font-size: 16px !important;
+        }
+
+        .profile-card-text {
+            font-size: 10px !important;
+        }
+
+
+        // Footer Responsive
         .planet-heading {
             font-size: 16px !important;
         }
@@ -1793,7 +1883,7 @@
 
             }
 
-            @media (max-width: 768px) {
+            @media (max-width: 519px) {
                 .program-title {
                     font-size: 20px;
                     line-height: 2;
@@ -1912,7 +2002,7 @@
                 top: -3%;
             }
 
-            @media (min-width: 176px) and (max-width: 768px) {
+            @media (min-width: 176px) and (max-width: 719px) {
                 min-height: auto;
 
                 .desktop-line {
@@ -1989,8 +2079,76 @@
             }
 
 
+/* Small tablets (portrait, narrow width) */
+@media  (min-width: 719px) and (max-width: 849px)  {
+    min-height: 70vh;
+  .stepindicator {
+    transform: translateY(220px) translateX(10px) rotate(-6deg);
+  }
 
-            @media (min-width: 1700px) and (max-width: 3000px) {
+  .program-title {
+                    font-size: 30px;
+                    line-height: 2;
+                }
+
+                .program-subtitle {
+                    font-size: 18px;
+                }
+                .step-title {
+                    font-size: 24px;
+                }
+
+                .step-description {
+                    font-size: 20px;
+                }
+  .step-1 { left: 5%; bottom: 22%; }
+  .step-2 { left: 15%; top: 30%; }
+  .step-3 { right: 20%; bottom: 35%; }
+  .step-4 { right: 20%; top: 8%; }
+
+  .one { left: 22%; bottom: 15%; }
+  .two { left: 32%; top: 27%; }
+  .three { right: 11%; bottom: 34%; }
+  .four { right: 13%; top: 5%; }
+}
+
+/* Larger tablets (landscape, iPad size) */
+@media (min-width: 850px) and (max-width: 900px) {
+    min-height: 70vh;
+  .stepindicator {
+    // transform: translateY(-8vh) translateX(1vw) rotate(4deg);
+    transform: translateY(250px) translateX(20px) rotate(-8deg);
+  }
+    .program-title {
+        font-size: 30px;
+        line-height: 2;
+    }
+
+    .program-subtitle {
+        font-size: 18px;
+    }
+
+
+.step-title {
+    font-size: 24px;
+}
+
+ .step-description {
+     font-size: 20px
+}
+
+  .step-1 { left: 10%; bottom: 13%; }
+  .step-2 { left: 21%; top: 39%; }
+  .step-3 { right: 23%; bottom: 31%; }
+  .step-4 { right: 23%; top: 10%; }
+
+  .one { left: 24%; bottom: 8%; }
+  .two { left: 34%; top: 34%; }
+  .three { right: 15%; bottom: 30%; }
+  .four { right: 18%; top: 7%; }
+}
+
+            @media (min-width: 1700px) and (max-width: 5000px) {
                 max-width: 1800px;
                 height: auto;
                 min-height: 600px;
@@ -2036,7 +2194,7 @@
                     top: 10%;
                 }
 
-                // Scaled up images
+
                 .one {
                     left: 19%;
                     bottom: -18%;
@@ -2074,12 +2232,18 @@
             margin-top: 15px;
             align-self: self-end;
 
-            @media (max-width : 768px) {
+            @media (max-width : 719px) {
                 width: 158px;
                 height: 32px;
                 font-size: 12px;
             }
-
+            
+ @media (min-width : 720px) and (max-width : 991px  ) {
+                width: 341px;
+                height: 52px;
+                font-size: 16px;
+                left: 25%;  
+            }
             // Large screen button styling
             @media (min-width: 1900px) and (max-width: 2700px) {
                 width: 620px;

@@ -228,13 +228,13 @@ const Profile = () => {
 
   //   --------------
 
-  const [passwords, setPasswords] = useState({
-    newPassword: '',
-    rePassword: '',
-  });
-  const handlePasswordChange = (e) => {
-    setPasswords({ ...passwords, [e.target.name]: e.target.value });
-  };
+  // const [passwords, setPasswords] = useState({
+  //   newPassword: '',
+  //   rePassword: '',
+  // });
+  // const handlePasswordChange = (e) => {
+  //   setPasswords({ ...passwords, [e.target.name]: e.target.value });
+  // };
 
   const onFormSubmit = async (data) => {
     try {
@@ -328,7 +328,7 @@ const Profile = () => {
   // ------Logout Functionailty
   const HandleLogout = () => {
     localStorage.removeItem('Auth');
-    setAuthLocal('');
+    // setAuthLocal('');
     navigate('/login');
   };
 
@@ -341,7 +341,7 @@ const Profile = () => {
         </NavLink>
         {/* Header */}
         <div className="bg-profile-detail rounded-4 mb-32 p-4">
-          <div className="d-flex justify-content-between  mb-36">
+          <div className="d-flex flex-wrap justify-content-between  mb-36">
             <div className="d-flex align-items-center">
               <div className="position-relative me-3">
                 <div className="rounded-circle bg-light profile-pic d-flex align-items-center justify-content-center overflow-hidden">
@@ -363,11 +363,14 @@ const Profile = () => {
                 </div>
               </div>
               <div className="user-details">
-                <h4 className="mb-3 user-name montserrat-semibold font-24 text-uppercase text-primary-color">
-                  {UserDataAPI?.part1}
+                <h4 className="mb-3 user-name montserrat-semibold font-24 text-uppercase text-primary-color mb-0 lh-1">
+                  {/* {UserDataAPI?.part1} */}
+                  Areeba Mujeeb
                 </h4>
-                <small className="user-contact montserrat-medium font-16">
-                  {UserDataAPI?.part3} <span>|</span> {UserDataAPI?.part2}
+                <small className="user-contact montserrat-medium font-16 lh-1">
+                  {/* {UserDataAPI?.part3}  */}
+                   91234546778 <span> | </span> areeba1234@gmail.com
+                   {/* {UserDataAPI?.part2} */}
                 </small>
               </div>
             </div>
@@ -413,12 +416,12 @@ const Profile = () => {
                 label: 'Total Rewards',
                 RewardIcons: Reward,
               },
-              {
-                // value: UserDataAPI?.part5,
-                value: 122,
-                label: 'Current Rewards',
-                RewardIcons: Balance,
-              },
+              // {
+              //   // value: UserDataAPI?.part5,
+              //   value: 122,
+              //   label: 'Current Rewards',
+              //   RewardIcons: Balance,
+              // },
               {
                 // value: UserDataAPI?.part6,
                 value: 122,
@@ -438,17 +441,17 @@ const Profile = () => {
                 RewardIcons: Pending,
               },
             ].map((item, idx) => (
-              <div className="col-12 col-md-6 col-lg mt-0 mb-3 mb-lg-0" key={idx}>
+              <div className="col-6 col-md-4 col-lg mt-0 mb-3 mb-lg-0" key={idx}>
                 <div className="d-flex flex-column justify-content-between bg-light-purple-transparent p-3 rounded">
                   <div className="d-flex justify-content-between">
                     <div className="reward-icons-div">
                       <img src={item?.RewardIcons} alt="Icons" />
                     </div>
                     <div>
-                      <h3 className="text-primary-color text-end montserrat-semibold mb-8 font-24 mb-0">
+                      <h3 className="profile-card-no text-primary-color text-end montserrat-semibold mb-8 font-24 mb-0 lh-1">
                         {item?.value}
                       </h3>
-                      <small className="montserrat-bold font-16 text-end text-primary-color lh-sm">
+                      <small className="profile-card-text montserrat-bold font-16 text-end text-primary-color lh-sm">
                         {item?.label}
                       </small>
                     </div>
