@@ -1990,7 +1990,6 @@
             }
 
 
-/* Small tablets (portrait, narrow width) */
 @media  (min-width: 719px) and (max-width: 849px)  {
     min-height: 70vh;
   .stepindicator {
@@ -2023,11 +2022,9 @@
   .four { right: 13%; top: 5%; }
 }
 
-/* Larger tablets (landscape, iPad size) */
 @media (min-width: 850px) and (max-width: 900px) {
     min-height: 70vh;
   .stepindicator {
-    // transform: translateY(-8vh) translateX(1vw) rotate(4deg);
     transform: translateY(250px) translateX(20px) rotate(-8deg);
   }
     .program-title {
