@@ -78,7 +78,7 @@ const ReferralCards = ({ RefralDataAPI }) => {
 
   const sliderSettings = {
   dots: false,
-  infinite: false,
+  infinite: true,
   speed: 500,
   slidesToShow: slidesToShow,
   slidesToScroll: 1,
@@ -112,7 +112,7 @@ const ReferralCards = ({ RefralDataAPI }) => {
 
   const Card = ({ card }) => (
     <div
-      className="referral-card me-3 mt-5 position-relative text-center ufo-light-img"
+      className="referral-card mx-md-3 mt-5 position-relative text-center ufo-light-img"
       onMouseEnter={() => setIsHovered(card.id)}
       onMouseLeave={() => setIsHovered(null)}
     >
