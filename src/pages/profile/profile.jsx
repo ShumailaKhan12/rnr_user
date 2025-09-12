@@ -363,33 +363,34 @@ const Profile = () => {
                 </div>
               </div>
               <div className="user-details">
-                <h4 className="mb-3 user-name montserrat-semibold font-24 text-uppercase text-primary-color mb-0 lh-1">
+                <h4 className="mb-lg-3 user-name montserrat-semibold font-24 text-uppercase text-primary-color mb-0 lh-1">
                   {/* {UserDataAPI?.part1} */}
                   Areeba Mujeeb
                 </h4>
                 <small className="user-contact montserrat-medium font-16 lh-1">
                   {/* {UserDataAPI?.part3}  */}
-                   91234546778 <span> | </span> areeba1234@gmail.com
-                   {/* {UserDataAPI?.part2} */}
+                  91234546778 <span> | </span> areeba1234@gmail.com
+                  {/* {UserDataAPI?.part2} */}
                 </small>
               </div>
             </div>
-            <div className="d-flex h-max-content">
-              {UserDataAPI?.part10 ? (
-                <span className="ref-code-div font-14 montserrat-medium me-4 px-3 rounded-2 d-flex align-items-center justify-content-center">
-                  <span className="text-ref-code montserrat-medium">
-                    Ref by
-                  </span>
-                  <span className="digit-ref-code montserrat-semibold px-2">
-                    {UserDataAPI?.part10}
-                  </span>
+            <div className="d-flex h-max-content mt-lg-0 mt-3">
+              {/* {UserDataAPI?.part10 ? ( */}
+              <span className="ref-code-div font-14 montserrat-medium me-4 px-3 rounded-2 d-flex align-items-center justify-content-center">
+                <span className="text-ref-code montserrat-medium">
+                  Ref code
                 </span>
-              ) : (
+                <span className="digit-ref-code montserrat-semibold px-2">
+                  {/* {UserDataAPI?.part10} */}
+                  123
+                </span>
+              </span>
+              {/* ) : (
                 ' '
-              )}
+              )} */}
 
               <button
-                className="btn background-text-blue  btn-sm btn-edit-profile position-relative pe-3"
+                className="btn background-text-blue font-14 montserrat-semibold btn-sm btn-edit-profile position-relative pe-3"
                 onClick={() => setIsEditModalOpen(true)}
               >
                 <FaRegEye className='edit-icon montserrat-semibold text-white' />
@@ -434,7 +435,7 @@ const Profile = () => {
                 label: 'Pending Rewards',
                 RewardIcons: Pending,
               },
-               {
+              {
                 // value: UserDataAPI?.part4,
                 value: 122,
                 label: 'Available Cash',
@@ -443,19 +444,17 @@ const Profile = () => {
             ].map((item, idx) => (
               <div className="col-6 col-md-4 col-lg mt-0 mb-3 mb-lg-0" key={idx}>
                 <div className="d-flex flex-column justify-content-between bg-light-purple-transparent p-3 rounded">
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between align-items-center">
                     <div className="reward-icons-div">
                       <img src={item?.RewardIcons} alt="Icons" />
                     </div>
-                    <div>
-                      <h3 className="profile-card-no text-primary-color text-end montserrat-semibold mb-8 font-24 mb-0 lh-1">
-                        {item?.value}
-                      </h3>
-                      <small className="profile-card-text montserrat-bold font-16 text-end text-primary-color lh-sm">
-                        {item?.label}
-                      </small>
-                    </div>
+                    <h3 className="profile-card-no text-primary-color text-end montserrat-semibold mb-8 font-24 mb-0 lh-1">
+                      {item?.value}
+                    </h3>
                   </div>
+                  <small className="profile-card-text montserrat-bold text-end font-16 text-end text-primary-color lh-sm">
+                    {item?.label}
+                  </small>
                 </div>
               </div>
             ))}

@@ -1366,7 +1366,7 @@
         }
 
         .rocket-vertical {
-            display: none; 
+            display: none;
             position: absolute;
             left: 50%;
             top: 0;
@@ -1762,12 +1762,14 @@
             height: 32px;
         }
 
-        .user-name{
+        .user-name {
             font-size: 18px !important;
         }
-        .user-contact{
+
+        .user-contact {
             font-size: 14px !important;
         }
+
         .profile-card-no {
             font-size: 18px !important;
         }
@@ -1800,6 +1802,19 @@
 
     // Mobile Responsive Design
     @media (max-width: 676px) {
+        .profile-pic{
+            width: 36px !important;
+            height: 36px !important;
+        }
+        .btn-edit-profile {
+            font-size: 12px !important;
+            padding: pxToRem(8) pxToRem(8) pxToRem(8) pxToRem(28) !important;
+        }
+
+        .ref-code-div {
+            font-size: 12px !important;
+        }
+
         .score-number {
             font-size: 20px !important;
         }
@@ -1814,17 +1829,20 @@
         }
 
         // profile Responsive
-          .user-name{
+        .user-name {
             font-size: 16px !important;
         }
-        .user-contact{
+
+        .user-contact {
             font-size: 10px !important;
         }
+
         .reward-icons-div img {
             width: 32px;
             height: 32px;
         }
-         .profile-card-no {
+
+        .profile-card-no {
             font-size: 16px !important;
         }
 
@@ -1913,6 +1931,7 @@
             }
 
         }
+
         .referral-journey {
             position: relative;
             width: 100%;
@@ -2077,7 +2096,7 @@
 
             }
 
-  @media (min-width: 651px) and (max-width: 1024px) {
+            @media (min-width: 651px) and (max-width: 1024px) {
                 min-height: auto;
 
                 .desktop-line {
@@ -2242,13 +2261,14 @@
                 height: 32px;
                 font-size: 12px;
             }
-            
- @media (min-width : 720px) and (max-width : 991px  ) {
+
+            @media (min-width : 720px) and (max-width : 991px) {
                 width: 341px;
                 height: 52px;
                 font-size: 16px;
-                left: 25%;  
+                left: 25%;
             }
+
             // Large screen button styling
             @media (min-width: 1900px) and (max-width: 2700px) {
                 width: 620px;
@@ -3276,6 +3296,7 @@
                         font-size: 14px;
                         max-width: 250px;
                         margin-left: 20%;
+                        margin-top: 0;
 
                         @media (max-width : 478px) {
                             max-width: 100px;
