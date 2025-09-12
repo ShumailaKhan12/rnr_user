@@ -1894,6 +1894,17 @@
                 }
             }
 
+            
+                @media (min-width: 651px) and (max-width: 1024px) {
+            margin-top: 0px;
+            
+            .program-title {
+                padding-top: 20px;
+                margin-top: 0 !important;
+                transform: translateY(0) !important;
+            }
+        }
+
             @media (min-width: 1900px) and (max-width: 2700px) {
                 margin-bottom: 50px;
 
@@ -2119,7 +2130,7 @@
                 }
 
                 .step-4 {
-                    left: 35%;
+                    left: 40%;
                     top: 86%;
                 }
 
@@ -2147,7 +2158,7 @@
                 .four {
                     height: 120px;
                     // width: 60px;
-                    left: 50%;
+                    left: 54%;
                     top: 85%;
                 }
 
