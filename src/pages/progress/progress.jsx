@@ -102,7 +102,7 @@ const Progress = () => {
 
   // Get the indices (numbers) of the filtered images
   const imageNumbers = filteredImages.map((image) => images.indexOf(image));
-  
+
   // Updated MobileVerticalLayout component
   const MobileVerticalLayout = () => (
     <div className="mobile-vertical-layout d-flex  justify-content-center align-items-center mt-5 d-block d-md-none">
@@ -144,7 +144,7 @@ const Progress = () => {
           <div className="mobile-planet-info">
             <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet C</h4>
             <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Little more consistency and <br /> you will earn  <span className='space-grotesk-medium'> 2080 Meteors</span></p>
- 
+
           </div>
         </div>
 
@@ -171,41 +171,42 @@ const Progress = () => {
         <div className='container'>
           {/* Header section Start */}
           <div
-            className="row justify-content-between mt-4"
+            className="row justify-content-between align-items-center mt-4 mx-1"
             style={{
               animation: 'moveDownFade 0.7s forwards'
             }}
           // onAnimationEnd={SecScrAnimt ? handleAnimationEnd : undefined}
           >
-            <div className="col-lg-3 col-6">
+            <div className="col-lg-3 col-3">
               <NavLink to={"/home"} className={"text-decoration-none"}>
-                <p className='text-white font-14 montserrat-medium'> <IoIosArrowBack className='font-18' /> Back</p>
+                <p className='text-white font-14 montserrat-medium mb-0'> <IoIosArrowBack className='font-18 back-text' /> Back</p>
               </NavLink>
             </div>
-            <div className="col-lg-4 d-flex justify-content-end px-0 mt-4">
+            <div className="col-lg-5 col-9 d-flex justify-content-end px-0 mt-md-4">
               <div className="till-ship w-75 position-relative tilte-shadow rounded-3">
                 <img
                   className="position-absolute till-ship-img"
                   src={tiltship}
                   alt="tiltship"
                 />
-                <div className="py-2 offset-2 text-white d-flex justify-content-evenly align-items-center">
-                  <span className="montserrat-bold font-14 montserrat-bold till-ship-border-color pe-3 z-1 position-relative">
+                <div className="py-lg-2 py-1 offset-2 text-white d-flex justify-content-evenly align-items-center">
+                  <span className="montserrat-bold  header-text font-14 till-ship-border-color pe-3 z-1 position-relative">
                     {/* {ContextHomeDataAPI?.part2} */}
-
+                    300
                     <img
-                      className="my-1 mx-2"
+                      className="my-1 mx-2 header-meteors"
                       src={meteor}
                       alt="metero"
                     />
-                    <span className="font-14 montserrat-medium">
+                    <span className="header-text font-14 montserrat-medium">
                       Meteors
                     </span>
                   </span>
-                  <span className="font-14 montserrat-semibold">
+                  <span className="header-text font-14 montserrat-semibold">
                     {/* {ContextHomeDataAPI?.part1} */}
-                    <img className="mx-1" src={star} alt="star" />
-                    <span className="space-grotesk-medium">star</span>
+                    1
+                    <img className="mx-1 header-star" src={star} alt="star" />
+                    <span className="space-grotesk-medium header-text">star</span>
                   </span>
                 </div>
               </div>
@@ -247,13 +248,13 @@ const Progress = () => {
             </div>
 
 
-            <div className='col-lg-3 col-md-6 mb-lg-0 mb-4 d-block d-md-none'>
+            <div className='col-lg-3 col-md-6 mb-lg-0 mb-4 d-block d-md-none d-flex justify-content-center'>
               {/* <NavLink
               to={'/home'}
               className={'text-decoration-none'}
             > */}
               <div
-                className={`w-75 d-flex justify-content-evenly background-dark-pink mt-5 rounded-2 position-relative py-2 px-5 left-box`}
+                className={`w-75 d-flex justify-content-evenly background-dark-pink  rounded-2 position-relative py-2 px-5 left-box`}
                 // ref={leftBoxRef}
                 id="leftBox"
                 onClick={openInviteModal}
@@ -777,7 +778,7 @@ const Progress = () => {
           </div>
           <MobileVerticalLayout />
 
-          <div className='col-lg-3 col-md-6 mb-lg-0 mb-4 d-none d-md-block d-flex justify-content-center'>
+          <div className='col-lg-3 col-md-5 mb-lg-0 mb-4 d-none d-md-block d-flex justify-content-center'>
             {/* <NavLink
               to={'/home'}
               className={'text-decoration-none'}
