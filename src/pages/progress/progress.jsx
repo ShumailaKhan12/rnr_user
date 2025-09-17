@@ -185,11 +185,11 @@ const Progress = () => {
 
               </div>
             </div>
-            <div className="col-lg-9 col-md-7 col-12 planet-section overflow-auto hidden-scrollbar">
+            <div className="col-lg-9 col-md-7 pt-4 col-12 planet-section overflow-auto hidden-scrollbar">
               <div className="d-flex">
                 <div className="col-lg-3 col-5 text-center">
                   <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}     ${0 !== currentIndex ? "blurred" : ""}       ` }
+                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}     ${0 !== currentIndex ? "blurred" : ""}       `}
                     src={images[currentIndex]}
                     alt="purple"
                   />
@@ -691,22 +691,22 @@ const Progress = () => {
               to={'/home'}
               className={'text-decoration-none'}
             > */}
-              <div
-                className={`w-75 d-flex justify-content-evenly background-dark-pink mt-5 rounded-2 position-relative py-2 px-5 left-box`}
-                // ref={leftBoxRef}
-                id="leftBox"
-                onClick={openInviteModal}
-              >
-                <img
-                  className="progress-sect-astronot position-absolute me-1"
-                  src={astronot}
-                  alt="astronot"
-                />
-                <span className="text-white font-14 montserrat-semibold py-2 pe-1">
-                  Invite & Earn
-                </span>
-                <img src={longarrow} alt="longarrow" />
-              </div>
+            <div
+              className={`w-75 d-flex justify-content-evenly background-dark-pink mt-5 rounded-2 position-relative py-2 px-5 left-box`}
+              // ref={leftBoxRef}
+              id="leftBox"
+              onClick={openInviteModal}
+            >
+              <img
+                className="progress-sect-astronot position-absolute me-1"
+                src={astronot}
+                alt="astronot"
+              />
+              <span className="text-white font-14 montserrat-semibold py-2 pe-1">
+                Invite & Earn
+              </span>
+              <img src={longarrow} alt="longarrow" />
+            </div>
             {/* </NavLink> */}
           </div>
 

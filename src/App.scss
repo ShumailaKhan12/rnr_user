@@ -3494,6 +3494,7 @@
     .right-box {
         position: relative;
         transition: all 0.9s ease;
+        cursor: pointer;
 
         &.default-position {
             left: 0%;
