@@ -20,9 +20,9 @@ import longarrow from "../../assets/Images/progress-img/lngarw.svg"
 import { IoIosArrowBack } from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
 import InviteModal from '../../components/invite/InviteModal';
-
-
-
+import mobileLine from '../../assets/Images/progress-img/mobile-line.png'
+// import dot from '../../assets/Images/progress-img/dot.png'
+import Frame from '../../assets/Images/progress-img/Frame.png'
 // Array of planet images for rotation display
 const images = [centerPlanet1, centerPlanet2, centerPlanet3, centerPlanet4];
 
@@ -102,6 +102,66 @@ const Progress = () => {
 
   // Get the indices (numbers) of the filtered images
   const imageNumbers = filteredImages.map((image) => images.indexOf(image));
+  
+  // Updated MobileVerticalLayout component
+  const MobileVerticalLayout = () => (
+    <div className="mobile-vertical-layout d-flex  justify-content-center align-items-center mt-5 d-block d-md-none">
+      {/* Left side: Dashed line + dots */}
+      <div className="mobile-path-container">
+        <div className="mobile-vertical-line"></div>
+
+        <div className="mobile-dot dot-0"><img src={Frame} alt="dot" /></div>
+        <div className="mobile-dot dot-25"><img src={Frame} alt="dot" /></div>
+        <div className="mobile-dot dot-50"><img src={Frame} alt="dot" /></div>
+        <div className="mobile-dot dot-75"><img src={Frame} alt="dot" /></div>
+        {/* <div className="mobile-dot dot-100"><img src={Frame} alt="dot" /></div> */}
+      </div>
+
+      {/* Right side: Planets */}
+      <div className="mobile-planet-main">
+        {/* Planet A */}
+        <div className="mobile-planet-section planet-0">
+          <img className="mobile-planet-img planet-purple" src={images[0]} alt="Planet A" />
+          <div className="mobile-planet-info">
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet A</h4>
+            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br />  <span className='space-grotesk-medium'>1000 Meteors</span></p>
+
+          </div>
+        </div>
+
+        {/* Planet B */}
+        <div className="mobile-planet-section planet-25">
+          <img className="mobile-planet-img planet-yellow blurred" src={images[1]} alt="Planet B" />
+          <div className="mobile-planet-info">
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet B</h4>
+            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>You are just  <span className='space-grotesk-medium'>1850 Meteors</span> <br />  away to reach to this planet</p>
+          </div>
+        </div>
+
+        {/* Planet C */}
+        <div className="mobile-planet-section planet-50">
+          <img className="mobile-planet-img planet-green blurred" src={images[2]} alt="Planet C" />
+          <div className="mobile-planet-info">
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet C</h4>
+            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Little more consistency and <br /> you will earn  <span className='space-grotesk-medium'> 2080 Meteors</span></p>
+ 
+          </div>
+        </div>
+
+        {/* Planet D */}
+        <div className="mobile-planet-section planet-75">
+          <img className="mobile-planet-img planet-blue blurred" src={images[3]} alt="Planet D" />
+          <div className="mobile-planet-info">
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet D</h4>
+            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'> <span className='space-grotesk-medium'>3080 Meteors</span> to go and <br /> your exclusive reward awaits!!!</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+
   return (
     <>
       <section
@@ -155,7 +215,7 @@ const Progress = () => {
           <div
             className={`row justify-content-between second-screen-xl pt-5 gap-5`}
           >
-            <div className={`col-lg-2 col-md-4 col-12 px-0 d-flex flex-column justify-content-between`}>
+            <div className={`col-lg-2 col-md-4 col-12 px-0 d-flex flex-column justify-content-between `}>
               <div className={`left-sidebar-main-div mx-lg-0 mx-3`}>
                 <p className="text-dark-blue space-grotesk-medium font-16 mb-3">
                   Your Progress So far
@@ -185,55 +245,83 @@ const Progress = () => {
 
               </div>
             </div>
-            <div className="col-lg-9 col-md-7 col-12 planet-section overflow-auto hidden-scrollbar">
-              <div className="d-flex">
-                <div className="col-lg-3 col-5 text-center">
-                  <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}     ${0 !== currentIndex ? "blurred" : ""}       ` }
-                    src={images[currentIndex]}
-                    alt="purple"
-                  />
-                </div>
-                <div className="col-lg-3 col-5"></div>
-                <div className="col-lg-3 col-5 text-center">
-                  <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
-                    src={images[imageNumbers]}
-                    alt="yellow"
-                  />
-                </div>
-                <div className="col-lg-3 col-5"></div>
-                <div
-                  className={`col-lg-3 col-5 text-center
+
+
+            <div className='col-lg-3 col-md-6 mb-lg-0 mb-4 d-block d-md-none'>
+              {/* <NavLink
+              to={'/home'}
+              className={'text-decoration-none'}
+            > */}
+              <div
+                className={`w-75 d-flex justify-content-evenly background-dark-pink mt-5 rounded-2 position-relative py-2 px-5 left-box`}
+                // ref={leftBoxRef}
+                id="leftBox"
+                onClick={openInviteModal}
+              >
+                <img
+                  className="progress-sect-astronot position-absolute me-1"
+                  src={astronot}
+                  alt="astronot"
+                />
+                <span className="text-white font-14 montserrat-semibold py-2 pe-1">
+                  Invite & Earn
+                </span>
+                <img src={longarrow} alt="longarrow" />
+              </div>
+              {/* </NavLink> */}
+            </div>
+
+            <div className="col-lg-9 col-md-7 col-12 pt-4 planet-section overflow-auto hidden-scrollbar desktop-horizontal-layout">
+              <div className="desktop-horizontal-layout d-none d-md-block">
+                <div className="d-flex">
+                  <div className="col-lg-3 col-5 text-center">
+                    <img
+                      className={`width-40 width-md-40 width-lg-25 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}     ${0 !== currentIndex ? "blurred" : ""}       `}
+                      src={images[currentIndex]}
+                      alt="purple"
+                    />
+                  </div>
+                  <div className="col-lg-3 col-5"></div>
+                  <div className="col-lg-3 col-5 text-center">
+                    <img
+                      className={`width-40 width-md-40 width-lg-25 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
+                      src={images[imageNumbers]}
+                      alt="yellow"
+                    />
+                  </div>
+                  <div className="col-lg-3 col-5"></div>
+                  <div
+                    className={`col-lg-3 col-5 text-center
                 ` }
-                >
-                  <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 blurred planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex[0] === 1 ? 'yellow' : currentIndex[0] === 2 ? 'green' : 'blue'} ${0 !== currentIndex ? "blurred" : ""}`}
-                    src={images[currentIndex]}
-                    alt="yellow"
-                  />
-                </div>
-                <div className="col-lg-3 col-5"></div>
-                <div
-                  className={`col-lg-3 col-5 text-center
+                  >
+                    <img
+                      className={`width-40 width-md-40 width-lg-25 width-xl-70 blurred planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex[0] === 1 ? 'yellow' : currentIndex[0] === 2 ? 'green' : 'blue'} ${0 !== currentIndex ? "blurred" : ""}`}
+                      src={images[currentIndex]}
+                      alt="yellow"
+                    />
+                  </div>
+                  <div className="col-lg-3 col-5"></div>
+                  <div
+                    className={`col-lg-3 col-5 text-center
                 `}
-                >
-                  <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
-                    src={images[imageNumbers]}
-                    alt="yellow"
-                  />
-                </div>
-                <div className="col-lg-3 col-5"></div>
-                <div
-                  className={`col-lg-3 col-5 text-center
+                  >
+                    <img
+                      className={`width-40 width-md-40 width-lg-25 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
+                      src={images[imageNumbers]}
+                      alt="yellow"
+                    />
+                  </div>
+                  <div className="col-lg-3 col-5"></div>
+                  <div
+                    className={`col-lg-3 col-5 text-center
                 `}
-                >
-                  <img
-                    className={`width-40 width-md-40 width-lg-25 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
-                    src={images[imageNumbers]}
-                    alt="yellow"
-                  />
+                  >
+                    <img
+                      className={`width-40 width-md-40 width-lg-25 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
+                      src={images[imageNumbers]}
+                      alt="yellow"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="d-flex position-relative">
@@ -478,7 +566,7 @@ const Progress = () => {
                   />
                 </div>
               </div>
-              <div className="d-flex">
+              <div className="d-flex ">
                 <div className="col-lg-3 col-5"></div>
                 <div className="col-lg-3 col-5 text-center text-dark-blue second-scrn-padding">
                   <img
@@ -684,29 +772,32 @@ const Progress = () => {
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
-          <div className='col-lg-3 col-md-6 mb-lg-0 mb-4'>
+          <MobileVerticalLayout />
+
+          <div className='col-lg-3 col-md-6 mb-lg-0 mb-4 d-none d-md-block d-flex justify-content-center'>
             {/* <NavLink
               to={'/home'}
               className={'text-decoration-none'}
             > */}
-              <div
-                className={`w-75 d-flex justify-content-evenly background-dark-pink mt-5 rounded-2 position-relative py-2 px-5 left-box`}
-                // ref={leftBoxRef}
-                id="leftBox"
-                onClick={openInviteModal}
-              >
-                <img
-                  className="progress-sect-astronot position-absolute me-1"
-                  src={astronot}
-                  alt="astronot"
-                />
-                <span className="text-white font-14 montserrat-semibold py-2 pe-1">
-                  Invite & Earn
-                </span>
-                <img src={longarrow} alt="longarrow" />
-              </div>
+            <div
+              className={`w-75 d-flex justify-content-evenly background-dark-pink mt-5 rounded-2 position-relative py-2 px-5 left-box `}
+              // ref={leftBoxRef}
+              id="leftBox"
+              onClick={openInviteModal}
+            >
+              <img
+                className="progress-sect-astronot position-absolute me-1"
+                src={astronot}
+                alt="astronot"
+              />
+              <span className="text-white font-14 montserrat-semibold py-2 pe-1">
+                Invite & Earn
+              </span>
+              <img src={longarrow} alt="longarrow" />
+            </div>
             {/* </NavLink> */}
           </div>
 
