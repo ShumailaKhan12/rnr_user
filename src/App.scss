@@ -1831,7 +1831,7 @@
 
         // Ufo Header start Responsive
         .till-ship-img {
-            left: -9.7% !important;
+            left: -12.7% !important;
             bottom: -21% !important;
             width: 56px;
             height: 50px;
@@ -3617,30 +3617,41 @@
             height: 100%;
             min-height: 130vh;
 
-    .mobile-vertical-line {
-      position: absolute;
-      left: 40px;
-      top: 0;
-      height: 130vh;
-      width: 2px;
-      border-left: 3px dashed rgba(85, 68, 158, 1);
-      animation: moveDash 2s linear infinite;
-      z-index: 1;
-    }
+            .mobile-vertical-line {
+                position: absolute;
+                left: 40px;
+                top: 0;
+                height: 130vh;
+                width: 2px;
+                border-left: 3px dashed rgba(85, 68, 158, 1);
+                animation: moveDash 2s linear infinite;
+                z-index: 1;
+            }
 
-    /* Dots - Starting from top */
-    .mobile-dot {
-      position: absolute;
-      left: 40px;
-      transform: translateX(-50%);
-      z-index: 2;
+            /* Dots - Starting from top */
+            .mobile-dot {
+                position: absolute;
+                left: 40px;
+                transform: translateX(-50%);
+                z-index: 2;
 
-      &.dot-0 { top: 0px; }
-      &.dot-25 { top: 35vh; }
-      &.dot-50 { top: 65vh; }
-      &.dot-75 { top: 95vh; }
-    }
-  }
+                &.dot-0 {
+                    top: 0px;
+                }
+
+                &.dot-25 {
+                    top: 35vh;
+                }
+
+                &.dot-50 {
+                    top: 65vh;
+                }
+
+                &.dot-75 {
+                    top: 95vh;
+                }
+            }
+        }
 
         /* Right planets - Fixed positioning to align with dots */
         .mobile-planet-main {
@@ -3656,20 +3667,23 @@
                 left: 0;
                 transform: translateY(-50%);
 
-      /* Align planets with corresponding dots */
-      &.planet-0 { 
-        top: 0px; 
-        transform: translateY(0);
-      }
-      &.planet-25 { 
-        top: 35vh; 
-      }
-      &.planet-50 { 
-        top: 65vh; 
-      }
-      &.planet-75 { 
-        top: 95vh; 
-      }
+                /* Align planets with corresponding dots */
+                &.planet-0 {
+                    top: 0px;
+                    transform: translateY(0);
+                }
+
+                &.planet-25 {
+                    top: 35vh;
+                }
+
+                &.planet-50 {
+                    top: 65vh;
+                }
+
+                &.planet-75 {
+                    top: 95vh;
+                }
 
                 .mobile-planet-img {
                     width: 100px;
@@ -3684,11 +3698,11 @@
     }
 
 
-@keyframes moveDash {
-  to {
-    background-position: 0 40px;
-  }
-}
+    @keyframes moveDash {
+        to {
+            background-position: 0 40px;
+        }
+    }
 
 
     /* Hide desktop layout on mobile */
@@ -3866,78 +3880,119 @@
                 height: 100%;
                 min-height: 150vh;
 
-            .mobile-vertical-line {
-                position: absolute;
-                left: 40px;
-                top: 0;
-                height: 135vh;
-                width: 2px;
-                border-left: 3px dashed rgba(85, 68, 158, 1);
-                animation: moveDash 2s linear infinite;
-                z-index: 1;
-            }
-
-            .mobile-dot {
-                position: absolute;
-                left: 40px;
-                transform: translateX(-50%);
-                z-index: 2;
-
-                &.dot-0 { top: -6px; }
-                &.dot-25 { top: 35vh; }
-                &.dot-50 { top: 70vh; }
-                &.dot-75 { top: 105vh; }
-            }
-        }
-        
-        .mobile-planet-main {
-            min-height: 150vh;
-            height: auto;
-            
-            .mobile-planet-section {
-                left: 0;
-                
-                &.planet-0 { 
-                    top: 0px; 
-                    transform: translateY(0);
+                .mobile-vertical-line {
+                    position: absolute;
+                    left: 40px;
+                    top: 0;
+                    height: 135vh;
+                    width: 2px;
+                    border-left: 3px dashed rgba(85, 68, 158, 1);
+                    animation: moveDash 2s linear infinite;
+                    z-index: 1;
                 }
-                &.planet-25 { top: 35vh; }
-                &.planet-50 { top: 70vh; }
-                &.planet-75 { top: 105vh; }
-            
-            
+
+                .mobile-dot {
+                    position: absolute;
+                    left: 40px;
+                    transform: translateX(-50%);
+                    z-index: 2;
+
+                    &.dot-0 {
+                        top: -6px;
+                    }
+
+                    &.dot-25 {
+                        top: 35vh;
+                    }
+
+                    &.dot-50 {
+                        top: 70vh;
+                    }
+
+                    &.dot-75 {
+                        top: 105vh;
+                    }
+                }
+            }
+
+            .mobile-planet-main {
+                min-height: 150vh;
+                height: auto;
+
+                .mobile-planet-section {
+                    left: 0;
+
+                    &.planet-0 {
+                        top: 0px;
+                        transform: translateY(0);
+                    }
+
+                    &.planet-25 {
+                        top: 35vh;
+                    }
+
+                    &.planet-50 {
+                        top: 70vh;
+                    }
+
+                    &.planet-75 {
+                        top: 105vh;
+                    }
+
+
+                }
             }
         }
     }
-}
 
-/* Medium mobile screens (413px to 767px) */
-@media (min-width: 413px) and (max-width: 767px) {
-    .mobile-vertical-layout {
-        .mobile-path-container {
-height: 100vh;
-            .mobile-dot {
-                &.dot-0 { top:-8px; }
-                &.dot-25 { top: 30vh; }
-                &.dot-50 { top: 60vh; }
-                &.dot-75 { top: 90vh; }
-            }
-        }
-        
-        .mobile-planet-main {
-            .mobile-planet-section {
-                &.planet-0 { 
-                    top: 0px; 
-                    transform: translateY(0);
+    /* Medium mobile screens (413px to 767px) */
+    @media (min-width: 413px) and (max-width: 767px) {
+        .mobile-vertical-layout {
+            .mobile-path-container {
+                height: 100vh;
+
+                .mobile-dot {
+                    &.dot-0 {
+                        top: -8px;
+                    }
+
+                    &.dot-25 {
+                        top: 30vh;
+                    }
+
+                    &.dot-50 {
+                        top: 60vh;
+                    }
+
+                    &.dot-75 {
+                        top: 90vh;
+                    }
                 }
-                &.planet-25 { top: 30vh; }
-                &.planet-50 { top: 60vh; }
-                &.planet-75 { top: 90vh; }
-            
+            }
+
+            .mobile-planet-main {
+                .mobile-planet-section {
+                    &.planet-0 {
+                        top: 0px;
+                        transform: translateY(0);
+                    }
+
+                    &.planet-25 {
+                        top: 30vh;
+                    }
+
+                    &.planet-50 {
+                        top: 60vh;
+                    }
+
+                    &.planet-75 {
+                        top: 90vh;
+                    }
+
+                }
             }
         }
     }
-}
 
     // -------------------------------------------------
     // Progress Css End 
