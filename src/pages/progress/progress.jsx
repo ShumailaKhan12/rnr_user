@@ -271,7 +271,7 @@ const Progress = () => {
               {/* </NavLink> */}
             </div>
 
-            <div className="col-lg-9 col-md-7 col-12 planet-section overflow-auto hidden-scrollbar desktop-horizontal-layout">
+            <div className="col-lg-9 col-md-7 col-12 pt-4 planet-section overflow-auto hidden-scrollbar desktop-horizontal-layout">
               <div className="desktop-horizontal-layout d-none d-md-block">
                 <div className="d-flex">
                   <div className="col-lg-3 col-5 text-center">
