@@ -2693,6 +2693,14 @@
         padding: 2.5rem 0 2rem;
         overflow: visible !important;
 
+        @media (max-width: 1024px) {
+
+            &:hover {
+                box-shadow: none !important;
+                animation: none !important;
+                padding-top: 2.5rem !important;
+            }
+        }
 
         @media (max-width: 768px) {
             // height: 300px;
@@ -2725,7 +2733,6 @@
 
     .referral-card:hover .referred-card-subtitle {
         color: #ffe14d;
-        ;
     }
 
     @keyframes moveUp {
