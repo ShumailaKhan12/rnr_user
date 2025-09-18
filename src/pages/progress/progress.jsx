@@ -214,7 +214,7 @@ const Progress = () => {
           </div>
 
           <div
-            className={`row justify-content-between second-screen-xl pt-5 gap-5`}
+            className={`row justify-content-between second-screen-xl pt-2 gap-5`}
           >
             <div className={`col-lg-2 col-md-4 col-12 px-0 d-flex flex-column justify-content-between `}>
               <div className={`left-sidebar-main-div mx-lg-0 mx-3`}>
