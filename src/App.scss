@@ -3714,10 +3714,6 @@
 
     /* Hide desktop layout on mobile */
     @media (max-width: 767px) {
-        .desktop-horizontal-layout {
-            display: none !important;
-        }
-
         // Adjust left sidebar for mobile
         .left-sidebar-main-div {
             margin-bottom: 2rem;
@@ -3787,14 +3783,7 @@
     }
 
     /* Tablet adjustments */
-    @media (min-width: 768px) and (max-width: 991px) {
-        .mobile-vertical-layout {
-            display: none !important;
-        }
-
-        .desktop-horizontal-layout {
-            display: block !important;
-        }
+    @media (min-width: 300px) and (max-width: 991px) {
 
         .second-screen-pathway {
             width: 92% !important;
@@ -3802,11 +3791,11 @@
 
         .scrol-path-0 {
             width: 41%;
-            left: 105%;
+            left: 106%;
         }
 
         .scrol-path-1 {
-            width: 47%;
+            width: 48%;
             left: 144%;
         }
 
@@ -3838,16 +3827,7 @@
 
     }
 
-    /* Desktop */
-    @media (min-width: 768px) {
-        .mobile-vertical-layout {
-            display: none !important;
-        }
-
-        .desktop-horizontal-layout {
-            display: block !important;
-        }
-    }
+  
 
     /* Animation keyframes */
     @keyframes fadeInUp {
