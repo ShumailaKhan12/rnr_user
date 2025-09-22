@@ -20,9 +20,11 @@ import longarrow from "../../assets/Images/progress-img/lngarw.svg"
 import { IoIosArrowBack } from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
 import InviteModal from '../../components/invite/InviteModal';
-import mobileLine from '../../assets/Images/progress-img/mobile-line.png'
 // import dot from '../../assets/Images/progress-img/dot.png'
 import Frame from '../../assets/Images/progress-img/Frame.png'
+import mobileLine from '../../assets/Images/progress-img/mobile-line.png'
+// import dot from '../../assets/Images/progress-img/dot.png'
+// import Frame from '../../assets/Images/progress-img/Frame.png'
 // Array of planet images for rotation display
 const images = [centerPlanet1, centerPlanet2, centerPlanet3, centerPlanet4];
 
@@ -103,7 +105,64 @@ const Progress = () => {
   // Get the indices (numbers) of the filtered images
   const imageNumbers = filteredImages.map((image) => images.indexOf(image));
 
- 
+
+  const MobileVerticalLayout = () => (
+    <div className="mobile-vertical-layout d-flex  justify-content-center align-items-center  d-block d-md-none">
+      {/* Left side: Dashed line + dots */}
+      <div className="mobile-path-container">
+        <div className="mobile-vertical-line"></div>
+
+        <div className="mobile-dot dot-0"><img src={Frame} alt="dot" /></div>
+        <div className="mobile-dot dot-25"><img src={Frame} alt="dot" /></div>
+        <div className="mobile-dot dot-50"><img src={Frame} alt="dot" /></div>
+        <div className="mobile-dot dot-75"><img src={Frame} alt="dot" /></div>
+        {/* <div className="mobile-dot dot-100"><img src={Frame} alt="dot" /></div> */}
+      </div>
+
+      {/* Right side: Planets */}
+      <div className="mobile-planet-main">
+        {/* Planet A */}
+        <div className="mobile-planet-section planet-0">
+          <img className="mobile-planet-img planet-purple" src={images[0]} alt="Planet A" />
+          <div className="mobile-planet-info">
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet A</h4>
+            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br />  <span className='space-grotesk-medium'>1000 Meteors</span></p>
+
+          </div>
+        </div>
+
+        {/* Planet B */}
+        <div className="mobile-planet-section planet-25">
+          <img className="mobile-planet-img planet-yellow blurred" src={images[1]} alt="Planet B" />
+          <div className="mobile-planet-info">
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet B</h4>
+            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>You are just  <span className='space-grotesk-medium'>1850 Meteors</span> <br />  away to reach to this planet</p>
+          </div>
+        </div>
+
+        {/* Planet C */}
+        <div className="mobile-planet-section planet-50">
+          <img className="mobile-planet-img planet-green blurred" src={images[2]} alt="Planet C" />
+          <div className="mobile-planet-info">
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet C</h4>
+            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Little more consistency and <br /> you will earn  <span className='space-grotesk-medium'> 2080 Meteors</span></p>
+
+          </div>
+        </div>
+
+        {/* Planet D */}
+        <div className="mobile-planet-section planet-75">
+          <img className="mobile-planet-img planet-blue blurred" src={images[3]} alt="Planet D" />
+          <div className="mobile-planet-info">
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet D</h4>
+            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'> <span className='space-grotesk-medium'>3080 Meteors</span> to go and <br /> your exclusive reward awaits!!!</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
 
   return (
     <>
@@ -190,36 +249,46 @@ const Progress = () => {
 
               </div>
             </div>
+            <div className='d-flex align-items-center justify-content-center d-block d-md-none'>
+              {/* <NavLink
+              to={'/home'}
+              className={'text-decoration-none'}
+            > */}
+             
+            
+            </div>
 
-            <div className="col-lg-9 col-md-12 col-12 pt-4 planet-section overflow-auto hidden-scrollbar">
-                <div className="d-flex mb-2">
-                  <div className="col-lg-3 col-5 text-center">
-                    <img
-                      className={`width-30 width-md-35 width-lg-50 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}     ${0 !== currentIndex ? "blurred" : ""}       `}
-                      src={images[currentIndex]}
-                      alt="purple"
-                    />
-                  </div>
-                  <div className="col-lg-3 col-5"></div>
-                  <div className="col-lg-3 col-5 text-center">
-                    <img
-                      className={`width-30 width-md-35 width-lg-50 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
-                      src={images[imageNumbers]}
-                      alt="yellow"
-                    />
-                  </div>
-                  <div className="col-lg-3 col-5"></div>
-                  <div
-                    className={`col-lg-3 col-5 text-center
-                ` }
-                  >
-                    <img
-                      className={`width-30 width-md-35 width-lg-50 width-xl-70 blurred planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex[0] === 1 ? 'yellow' : currentIndex[0] === 2 ? 'green' : 'blue'} ${0 !== currentIndex ? "blurred" : ""}`}
-                      src={images[currentIndex]}
-                      alt="yellow"
-                    />
-                  </div>
+            <div className="col-lg-9 desktop-horizontal-layout col-md-12 col-12 pt-4 planet-section overflow-auto hidden-scrollbar">
+
+
+              <div className="d-flex mb-2 ">
+                <div className="col-lg-3 col-5 text-center">
+                  <img
+                    className={`width-30 width-md-35 width-lg-50 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}     ${0 !== currentIndex ? "blurred" : ""}       `}
+                    src={images[currentIndex]}
+                    alt="purple"
+                  />
                 </div>
+                <div className="col-lg-3 col-5"></div>
+                <div className="col-lg-3 col-5 text-center">
+                  <img
+                    className={`width-30 width-md-35 width-lg-50 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
+                    src={images[imageNumbers]}
+                    alt="yellow"
+                  />
+                </div>
+                <div className="col-lg-3 col-5"></div>
+                <div
+                  className={`col-lg-3 col-5 text-center
+                ` }
+                >
+                  <img
+                    className={`width-30 width-md-35 width-lg-50 width-xl-70 blurred planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex[0] === 1 ? 'yellow' : currentIndex[0] === 2 ? 'green' : 'blue'} ${0 !== currentIndex ? "blurred" : ""}`}
+                    src={images[currentIndex]}
+                    alt="yellow"
+                  />
+                </div>
+              </div>
               <div className="d-flex position-relative">
                 <img
                   className="position-absolute second-screen-pathway px-0"
@@ -490,9 +559,9 @@ const Progress = () => {
 
             </div>
           </div>
-          {/* <MobileVerticalLayout /> */}
+          <MobileVerticalLayout />
 
-          <div className='col-lg-3 col-md-5 mb-lg-0 mb-4'>
+          <div className='col-lg-4 col-md-5 mb-lg-0  mb-4 d-flex justify-content-md-start justify-content-center '>
             {/* <NavLink
               to={'/home'}
               className={'text-decoration-none'}
