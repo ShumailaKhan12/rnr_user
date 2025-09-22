@@ -191,31 +191,6 @@ const Progress = () => {
               </div>
             </div>
 
-            {/* Invite Button */}
-            <div className='col-lg-3 col-md-12 mb-lg-0 mb-4 d-block d-md-none d-flex justify-content-center'>
-              {/* <NavLink
-              to={'/home'}
-              className={'text-decoration-none'}
-            > */}
-              <div
-                className={`w-75 d-flex justify-content-evenly background-dark-pink  rounded-2 position-relative py-2 px-5 left-box`}
-                // ref={leftBoxRef}
-                id="leftBox"
-                onClick={openInviteModal}
-              >
-                <img
-                  className="progress-sect-astronot position-absolute me-1"
-                  src={astronot}
-                  alt="astronot"
-                />
-                <span className="text-white font-14 montserrat-semibold py-2 pe-1">
-                  Invite & Earn
-                </span>
-                <img src={longarrow} alt="longarrow" />
-              </div>
-              {/* </NavLink> */}
-            </div>
-
             <div className="col-lg-9 col-md-12 col-12 pt-4 planet-section overflow-auto hidden-scrollbar">
                 <div className="d-flex mb-2">
                   <div className="col-lg-3 col-5 text-center">
