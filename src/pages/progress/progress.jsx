@@ -173,7 +173,7 @@ const Progress = () => {
         <div className='container'>
           {/* Header section Start */}
           <div
-            className="row justify-content-between align-items-center mt-4 "
+            className="row justify-content-between align-items-center mt-5 mb-md-5 mb-lg-0"
             style={{
               animation: 'moveDownFade 0.7s forwards'
             }}
