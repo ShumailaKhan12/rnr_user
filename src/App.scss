@@ -918,11 +918,12 @@
         margin-left: 15px;
     }
 
-    // @media (min-width: 768px) {
-    //     .nav-logo-bg {
-    //         height: 115px;
-    //     }
-    // }
+    @media (max-width: 567px) {
+        .nav-logo-bg {
+            width: 210px;
+            // height: 80px !important;
+        }
+    }
 
     // @media (max-width: 767px) {
 
@@ -1079,6 +1080,11 @@
             box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
         }
     }
+
+    // .score-img {
+    //     height: 65px;
+    //     width: 65px;
+    // }
 
     /*===================== HOW IT WORKS SECTION CSS====================================*/
     .section-howitworks {
@@ -1318,7 +1324,7 @@
             //   padding: 2rem 0;
             padding: 1rem 0 1rem;
             // min-height: 100vh;
-            
+
             height: auto !important;
             gap: 40px;
 
@@ -1360,6 +1366,7 @@
         }
 
         .rocket-vertical {
+            display: none;
             position: absolute;
             left: 50%;
             top: 0;
@@ -1395,12 +1402,12 @@
         .step-mobile {
             position: relative;
             display: flex;
-              align-items: center;
+            align-items: center;
             // align-items: flex-start;
             justify-content: space-between;
             margin: 15px 0;
-              width: 100%;  
-              min-height: 60px; 
+            width: 100%;
+            min-height: 60px;
             opacity: 0;
             transition: opacity 0.6s ease-in-out;
             z-index: 2;
@@ -1412,21 +1419,22 @@
 
             .step-box {
                 width: 45%;
-                 flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
             }
-.step-box.left {
-  justify-content: flex-end;
-  padding-right: 25px; 
-}
 
-.step-box.right {
-  justify-content: flex-start;
-  padding-left: 25px; 
-}
+            .step-box.left {
+                justify-content: flex-end;
+                padding-right: 25px;
+            }
+
+            .step-box.right {
+                justify-content: flex-start;
+                padding-left: 25px;
+            }
 
         }
 
@@ -1436,8 +1444,9 @@
             justify-content: space-between;
             animation: fadeIn 1s forwards;
             animation-delay: 1.5s;
- max-width: 40%;
-                gap: 10px;
+            max-width: 40%;
+            gap: 10px;
+
             &.left-content {
                 flex-direction: row;
                 animation: fadeIn 1s forwards;
@@ -1454,78 +1463,87 @@
             }
 
             .planet-svg {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
+                width: 50px;
+                height: 50px;
+                object-fit: contain;
 
-}
+            }
 
 
-.planet-one,
-.planet-two,
-.planet-three {
-  width: 64px;
-  height:64px;
-}
+            .planet-one,
+            .planet-two,
+            .planet-three {
+                width: 64px;
+                height: 64px;
+            }
 
-&.planet-one{
+            &.planet-one {
 
-    background-size: contain;
-}
+                background-size: contain;
+            }
 
         }
 
 
-       
-.step-mobile:first-child .step-text,
-.step-mobile:last-child .step-text {
-  text-align: left;
-}
 
-.step-mobile:nth-child(2) .step-text {
-  text-align: left;
-}
+        .step-mobile:first-child .step-text,
+        .step-mobile:last-child .step-text {
+            text-align: left;
+        }
 
-/* Step Titles and Descriptions */
-.step-title {
-  margin-bottom: 8px;
-  line-height: 1.3;
-  font-size: 12px !important;
-}
+        .step-mobile:nth-child(2) .step-text {
+            text-align: left;
+        }
 
-.step-description {
-  line-height: 1.4;
-  font-size: 10px !important;
-  margin-bottom: 0;
-}
+        /* Step Titles and Descriptions */
+        .step-title {
+            margin-bottom: 8px;
+            line-height: 1.3;
+            font-size: 12px !important;
+        }
+
+        .step-description {
+            line-height: 1.4;
+            font-size: 10px !important;
+            margin-bottom: 0;
+        }
 
         .rocket-svg {
             width: 121px;
         }
 
-         .timeline-dot-mobile {
-                position: absolute;
-                left: 50%;
-                // top:45%;
-                transform: translateX(-50%);
-                width: 16px;
-                height: 16px;
-                border-radius: 50%;
-                background: var(--text-dark-blue);
-                z-index: 0;
-                opacity: 0;
-                transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+        .timeline-dot-mobile {
+            position: absolute;
+            left: 50%;
+            // top:45%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--text-dark-blue);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 
-                &.visible {
-                    opacity: 1;
-                    transform: translateX(-50%) scale(1.2);
-                }
-&.dot-1 { top: 80px; }
-&.dot-2 { top: 280px; }
-&.dot-3 { top: 480px; }
-
+            &.visible {
+                opacity: 1;
+                transform: translateX(-50%) scale(1.2);
             }
-    
+
+            &.dot-1 {
+                top: 80px;
+            }
+
+            &.dot-2 {
+                top: 280px;
+            }
+
+            &.dot-3 {
+                top: 480px;
+            }
+
+        }
+
 
 
     }
@@ -1716,10 +1734,50 @@
     }
 
     //===================== FOOTER CSS AND ANIMATION CSS END -=============================
-
+    @media(min-width: 680px) and (max-width:800px) {
+        .offer-footer-section {
+            height: 42vh !important;
+            overflow: hidden;
+        }
+    }
 
     // Tablet responsive design
     @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+        .score-number {
+            font-size: 30px !important;
+        }
+
+        .score-text {
+            font-size: 16px !important;
+        }
+
+        .score-img {
+            height: 50px;
+            width: 50px;
+        }
+
+        // Profile tab Screen
+        .reward-icons-div img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .user-name {
+            font-size: 18px !important;
+        }
+
+        .user-contact {
+            font-size: 14px !important;
+        }
+
+        .profile-card-no {
+            font-size: 18px !important;
+        }
+
+        .profile-card-text {
+            font-size: 12px !important;
+        }
+
         .planet-heading {
             font-size: 16px !important;
         }
@@ -1729,7 +1787,7 @@
         }
 
         .offer-footer-section {
-            height: 40vh;
+            height: 47vh;
             overflow: hidden;
         }
 
@@ -1744,6 +1802,85 @@
 
     // Mobile Responsive Design
     @media (max-width: 676px) {
+        .profile-pic {
+            width: 36px !important;
+            height: 36px !important;
+        }
+
+        .btn-edit-profile {
+            font-size: 12px !important;
+            padding: pxToRem(8) pxToRem(8) pxToRem(8) pxToRem(28) !important;
+        }
+
+        .ref-code-div {
+            font-size: 12px !important;
+        }
+
+        .score-number {
+            font-size: 20px !important;
+        }
+
+        .score-text {
+            font-size: 14px !important;
+        }
+
+        .score-img {
+            height: 37px;
+            width: 37px;
+        }
+
+        // Ufo Header start Responsive
+        .till-ship-img {
+            left: -12.7% !important;
+            bottom: -21% !important;
+            width: 56px;
+            height: 50px;
+        }
+
+        .back-text {
+            font-size: 14px !important;
+        }
+
+        .header-meteors {
+            width: 11px;
+            height: 10px;
+        }
+
+        .header-star {
+            width: 7px;
+            height: 7px;
+        }
+
+        .header-text {
+            font-size: 7px !important;
+        }
+
+        // Ufo Header End Responsive
+
+        // profile Responsive
+        .user-name {
+            font-size: 16px !important;
+        }
+
+        .user-contact {
+            font-size: 10px !important;
+        }
+
+        .reward-icons-div img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .profile-card-no {
+            font-size: 16px !important;
+        }
+
+        .profile-card-text {
+            font-size: 10px !important;
+        }
+
+
+        // Footer Responsive
         .planet-heading {
             font-size: 16px !important;
         }
@@ -1801,6 +1938,17 @@
 
                 .program-subtitle {
                     font-size: 12px;
+                }
+            }
+
+
+            @media (min-width: 651px) and (max-width: 1024px) {
+                margin-top: 0px;
+
+                .program-title {
+                    padding-top: 20px;
+                    margin-top: 0 !important;
+                    transform: translateY(0) !important;
                 }
             }
 
@@ -1912,7 +2060,7 @@
                 top: -3%;
             }
 
-            @media (min-width: 176px) and (max-width: 768px) {
+            @media (min-width: 176px) and (max-width: 650px) {
                 min-height: auto;
 
                 .desktop-line {
@@ -1988,9 +2136,83 @@
 
             }
 
+            @media (min-width: 651px) and (max-width: 1024px) {
+                min-height: auto;
 
+                .desktop-line {
+                    display: none;
+                }
 
-            @media (min-width: 1700px) and (max-width: 3000px) {
+                .mobile-line {
+                    display: block;
+                    height: 70vh;
+                    max-width: 60%;
+                    margin: 0 auto;
+                }
+
+                .stepindicator {
+                    transform: translateY(0px);
+                }
+
+                // .step-title {
+                //     font-size: 20px;
+                // }
+
+                // .step-description {
+                //     font-size: 12px;
+                // }
+
+                .step-1 {
+                    left: 40%;
+                    top: 10%;
+                }
+
+                .step-2 {
+                    left: 5%;
+                    top: 35%;
+                }
+
+                .step-3 {
+                    right: 20%;
+                    bottom: 28%;
+                }
+
+                .step-4 {
+                    left: 40%;
+                    top: 86%;
+                }
+
+                .one {
+                    height: 120px;
+                    // width: 30px;
+                    left: 33%;
+                    top: 10%;
+                }
+
+                .two {
+                    height: 120px;
+                    // width: 60px;
+                    left: 18%;
+                    top: 35%;
+                }
+
+                .three {
+                    height: 120px;
+                    // width: 60px;
+                    right: 35%;
+                    bottom: 31%;
+                }
+
+                .four {
+                    height: 120px;
+                    // width: 60px;
+                    left: 54%;
+                    top: 85%;
+                }
+
+            }
+
+            @media (min-width: 1700px) and (max-width: 5000px) {
                 max-width: 1800px;
                 height: auto;
                 min-height: 600px;
@@ -2036,7 +2258,7 @@
                     top: 10%;
                 }
 
-                // Scaled up images
+
                 .one {
                     left: 19%;
                     bottom: -18%;
@@ -2074,10 +2296,17 @@
             margin-top: 15px;
             align-self: self-end;
 
-            @media (max-width : 768px) {
+            @media (max-width : 719px) {
                 width: 158px;
                 height: 32px;
                 font-size: 12px;
+            }
+
+            @media (min-width : 720px) and (max-width : 991px) {
+                width: 341px;
+                height: 52px;
+                font-size: 16px;
+                left: 25%;
             }
 
             // Large screen button styling
@@ -2464,9 +2693,17 @@
         padding: 2.5rem 0 2rem;
         overflow: visible !important;
 
+        @media (max-width: 1024px) {
+
+            &:hover {
+                box-shadow: none !important;
+                animation: none !important;
+                padding-top: 2.5rem !important;
+            }
+        }
 
         @media (max-width: 768px) {
-            height: 300px;
+            // height: 300px;
             margin-top: 100px;
 
             // *  mobile pe hover reset */
@@ -2496,7 +2733,6 @@
 
     .referral-card:hover .referred-card-subtitle {
         color: #ffe14d;
-        ;
     }
 
     @keyframes moveUp {
@@ -2548,7 +2784,7 @@
         }
 
         .slick-next {
-            right: 10px !important;
+            right: -3px !important;
         }
     }
 
@@ -3034,6 +3270,7 @@
 
                 p {
                     color: #656765;
+                    margin-top: 0;
                 }
             }
 
@@ -3107,6 +3344,7 @@
                         font-size: 14px;
                         max-width: 250px;
                         margin-left: 20%;
+                        margin-top: 0;
 
                         @media (max-width : 478px) {
                             max-width: 100px;
@@ -3292,6 +3530,7 @@
     .right-box {
         position: relative;
         transition: all 0.9s ease;
+        cursor: pointer;
 
         &.default-position {
             left: 0%;
@@ -3322,8 +3561,6 @@
         opacity: 0.5;
         transition: all 0.3s ease;
         box-shadow: -25.51px 16.05px 110.21px 0px rgba(85, 2, 76, 0.8);
-
-
     }
 
     // ---------
@@ -3363,26 +3600,268 @@
     }
 
 
-    /* Tablet (max-width: 1024px) */
-    // @media (max-width: 1024px) {
-    //   .scrol-path-0, .scrol-path-1, .scrol-path-2,
-    //   .scrol-path-3, .scrol-path-4, .scrol-path-5, .scrol-path-6 {
-    //     width: 40%;
-    //     left: auto;
+@media (max-width: 768px) {
+    .mobile-horizontal{
+        height: 150px;
+        display: flex;
+        // position: relative;
+    }
+
+
+    .prgicon{
+        // display: flex;
+        width: 30px;
+        transform: translateY(-20px) translateX(-10px);
+    }
+
+    // .prgicon:nth-child(2){
+    // transform: translateY(-20px) translateX(-30px);
+    // }
+    
+
+    .progress-test-mt {
+        margin-top: 0;
+    }
+    .progress-sect-name {
+        line-height: 0;
+        margin-left: 0;
+        position: relative;
+        left: -40px;
+        top: 15px;
+        
+    }
+    
+    .progress-side-sec {
+        display: flex !important;
+        width: 100%;
+        align-items: center !important;
+    }
+
+    
+    .progress-side-hr,
+    .progress-side-hr11,
+    .progress-side-hr-2 {
+        border: pxToRem(2) dashed $light-yellow;
+    transform: translateX(-34px) translateY(-20px) rotate(90deg);
+    
+
+    
+        &.progress-side-hr {
+            // display: flex;
+            border-style: solid;
+        
+        }
+
+        &.progress-side-hr11 {
+            height: pxToRem(46);
+
+        }
+
+        &.progress-side-hr-2 {
+            height: pxToRem(10);
+        }
+
+
+        
+    }
+
+   
+
+}
+
+    /* Mobile Vertical Layout Styles */
+    /* Mobile Vertical Layout Styles - Fixed Alignment */
+
+
+    // .mobile-vertical-layout {
     //     position: relative;
-    //     display: block;
-    //   }
+    //     padding: 1rem;
+    //     gap: 2rem;
+    //     align-items: stretch;
+    //     min-height: 130vh;
+    //     display: flex;
+    //     overflow-y: auto;
+
+    //     /* Left path (line + dots) */
+    //     .mobile-path-container {
+    //         position: relative;
+    //         width: 40px;
+    //         flex-shrink: 0;
+    //         height: 100%;
+    //         min-height: 130vh;
+
+    //         .mobile-vertical-line {
+    //             position: absolute;
+    //             left: 40px;
+    //             top: 0;
+    //             height: 130vh;
+    //             width: 2px;
+    //             border-left: 3px dashed rgba(85, 68, 158, 1);
+    //             animation: moveDash 2s linear infinite;
+    //             z-index: 1;
+    //         }
+
+    //         /* Dots - Starting from top */
+    //         .mobile-dot {
+    //             position: absolute;
+    //             left: 40px;
+    //             transform: translateX(-50%);
+    //             z-index: 2;
+
+    //             &.dot-0 {
+    //                 top: 0px;
+    //             }
+
+    //             &.dot-25 {
+    //                 top: 35vh;
+    //             }
+
+    //             &.dot-50 {
+    //                 top: 65vh;
+    //             }
+
+    //             &.dot-75 {
+    //                 top: 95vh;
+    //             }
+    //         }
+    //     }
+
+    //     /* Right planets - Fixed positioning to align with dots */
+    //     .mobile-planet-main {
+    //         flex: 1;
+    //         position: relative;
+    //         min-height: 130vh;
+    //         height: 100%;
+
+    //         .mobile-planet-section {
+    //             position: absolute;
+    //             width: 100%;
+    //             text-align: center;
+    //             left: 0;
+    //             transform: translateY(-50%);
+
+    //             /* Align planets with corresponding dots */
+    //             &.planet-0 {
+    //                 top: 0px;
+    //                 transform: translateY(0);
+    //             }
+
+    //             &.planet-25 {
+    //                 top: 35vh;
+    //             }
+
+    //             &.planet-50 {
+    //                 top: 65vh;
+    //             }
+
+    //             &.planet-75 {
+    //                 top: 95vh;
+    //             }
+
+    //             .mobile-planet-img {
+    //                 width: 100px;
+    //                 height: 100px;
+    //                 border-radius: 50%;
+    //                 object-fit: contain;
+    //                 margin-bottom: 1rem;
+    //                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    //             }
+    //         }
+    //     }
     // }
 
-    /* Mobile (max-width: 768px) */
-    @media (max-width: 922px) {
+
+    @keyframes moveDash {
+        to {
+            background-position: 0 40px;
+        }
+    }
+
+
+    /* Hide desktop layout on mobile */
+    // @media (max-width: 767px) {
+    //     .desktop-horizontal-layout {
+    //         display: none !important;
+    //     }
+
+    //     // Adjust left sidebar for mobile
+    //     .left-sidebar-main-div {
+    //         margin-bottom: 2rem;
+    //     }
+
+    //     // Mobile specific adjustments
+    //     // .mobile-vertical-layout {
+    //     //     .mobile-planet-section {
+    //     //         animation: fadeInUp 0.6s ease forwards;
+
+    //     //         &:nth-child(1) {
+    //     //             animation-delay: 0.1s;
+    //     //         }
+
+    //     //         &:nth-child(2) {
+    //     //             animation-delay: 0.2s;
+    //     //         }
+
+    //     //         &:nth-child(3) {
+    //     //             animation-delay: 0.3s;
+    //     //         }
+
+    //     //         &:nth-child(4) {
+    //     //             animation-delay: 0.4s;
+    //     //         }
+
+    //     //         &:nth-child(5) {
+    //     //             animation-delay: 0.5s;
+    //     //         }
+
+    //     //         &:nth-child(6) {
+    //     //             animation-delay: 0.6s;
+    //     //         }
+    //     //     }
+    //     // }
+
+    //     // Progress section adjustments for mobile
+    //     .progress-sect {
+    //         margin-bottom: 2rem;
+    //     }
+
+    //     // Planet section overflow for mobile
+    //     .planet-section {
+    //         overflow-y: auto;
+    //         max-height: none;
+    //         height: auto;
+    //         padding-right: 0.5rem;
+
+    //         &::-webkit-scrollbar {
+    //             width: 4px;
+    //         }
+
+    //         &::-webkit-scrollbar-track {
+    //             background: rgba(255, 255, 255, 0.1);
+    //             border-radius: 10px;
+    //         }
+
+    //         &::-webkit-scrollbar-thumb {
+    //             background: rgba(255, 255, 255, 0.3);
+    //             border-radius: 10px;
+    //         }
+
+        //     &::-webkit-scrollbar-thumb:hover {
+        //         background: rgba(255, 255, 255, 0.5);
+        //     }
+        // }
+    
+
+    /* Tablet adjustments */
+    @media (min-width: 300px) and (max-width: 991px) {
+
         .second-screen-pathway {
-            width: 89% !important;
+            width: 92% !important;
         }
 
         .scrol-path-0 {
-            width: 43%;
-            left: 103%;
+            width: 41%;
+            left: 106%;
         }
 
         .scrol-path-1 {
@@ -3396,7 +3875,7 @@
         }
 
         .scrol-path-3 {
-            width: 46%;
+            width: 45%;
             left: 230%;
         }
 
@@ -3406,7 +3885,7 @@
         }
 
         .scrol-path-5 {
-            width: 45%;
+            width: 44%;
             left: 315%;
         }
 
@@ -3415,7 +3894,213 @@
             left: 360%;
         }
 
+
     }
+    /* Tablet adjustments */
+    // @media (min-width: 768px) and (max-width: 991px) {
+    //     .mobile-vertical-layout {
+    //         display: none !important;
+    //     }
+
+    //     .desktop-horizontal-layout {
+    //         display: block !important;
+    //     }
+
+    //     .second-screen-pathway {
+    //         width: 92% !important;
+    //     }
+
+    //     .scrol-path-0 {
+    //         width: 41%;
+    //         left: 105%;
+    //     }
+
+    //     .scrol-path-1 {
+    //         width: 47%;
+    //         left: 144%;
+    //     }
+
+    //     .scrol-path-2 {
+    //         width: 40%;
+    //         left: 190%;
+    //     }
+
+    //     .scrol-path-3 {
+    //         width: 45%;
+    //         left: 230%;
+    //     }
+
+    //     .scrol-path-4 {
+    //         width: 42%;
+    //         left: 275%;
+    //     }
+
+    //     .scrol-path-5 {
+    //         width: 44%;
+    //         left: 315%;
+    //     }
+
+    //     .scrol-path-6 {
+    //         width: 42%;
+    //         left: 360%;
+    //     }
+
+
+    // }
+
+  
+
+    /* Animation keyframes */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive font sizes for mobile */
+    // @media (max-width: 767px) {
+    //     .font-24 {
+    //         font-size: 1.25rem !important;
+    //     }
+
+    //     .font-16 {
+    //         font-size: 0.9rem !important;
+    //     }
+    // }
+
+
+    // @media (max-width: 412px) {
+    //     .mobile-vertical-layout {
+    //         padding: 0.5rem;
+    //         min-height: 150vh;
+    //         height: auto;
+
+    //         .mobile-path-container {
+    //             position: relative;
+    //             width: 40px;
+    //             flex-shrink: 0;
+    //             height: 100%;
+    //             min-height: 150vh;
+
+    //             .mobile-vertical-line {
+    //                 position: absolute;
+    //                 left: 40px;
+    //                 top: 0;
+    //                 height: 135vh;
+    //                 width: 2px;
+    //                 border-left: 3px dashed rgba(85, 68, 158, 1);
+    //                 animation: moveDash 2s linear infinite;
+    //                 z-index: 1;
+    //             }
+
+    //             .mobile-dot {
+    //                 position: absolute;
+    //                 left: 40px;
+    //                 transform: translateX(-50%);
+    //                 z-index: 2;
+
+    //                 &.dot-0 {
+    //                     top: -6px;
+    //                 }
+
+    //                 &.dot-25 {
+    //                     top: 35vh;
+    //                 }
+
+    //                 &.dot-50 {
+    //                     top: 70vh;
+    //                 }
+
+    //                 &.dot-75 {
+    //                     top: 105vh;
+    //                 }
+    //             }
+    //         }
+
+    //         .mobile-planet-main {
+    //             min-height: 150vh;
+    //             height: auto;
+
+    //             .mobile-planet-section {
+    //                 left: 0;
+
+    //                 &.planet-0 {
+    //                     top: 0px;
+    //                     transform: translateY(0);
+    //                 }
+
+    //                 &.planet-25 {
+    //                     top: 35vh;
+    //                 }
+
+    //                 &.planet-50 {
+    //                     top: 70vh;
+    //                 }
+
+    //                 &.planet-75 {
+    //                     top: 105vh;
+    //                 }
+
+
+    //             }
+    //         }
+    //     }
+    // }
+
+    /* Medium mobile screens (413px to 767px) */
+    // @media (min-width: 413px) and (max-width: 767px) {
+    //     .mobile-vertical-layout {
+    //         .mobile-path-container {
+    //             height: 100vh;
+
+    //             .mobile-dot {
+    //                 &.dot-0 {
+    //                     top: -8px;
+    //                 }
+
+    //                 &.dot-25 {
+    //                     top: 30vh;
+    //                 }
+
+    //                 &.dot-50 {
+    //                     top: 60vh;
+    //                 }
+
+    //                 &.dot-75 {
+    //                     top: 90vh;
+    //                 }
+    //             }
+    //         }
+
+    //         .mobile-planet-main {
+    //             .mobile-planet-section {
+    //                 &.planet-0 {
+    //                     top: 0px;
+    //                     transform: translateY(0);
+    //                 }
+
+    //                 &.planet-25 {
+    //                     top: 30vh;
+    //                 }
+
+    //                 &.planet-50 {
+    //                     top: 60vh;
+    //                 }
+
+    //                 &.planet-75 {
+    //                     top: 90vh;
+    //                 }
+
+    //             }
+    //         }
+    //     }
+    // }
 
     // -------------------------------------------------
     // Progress Css End 

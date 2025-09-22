@@ -120,14 +120,14 @@ const Home = () => {
             </div>
             {/* ScoreCards Start Here */}
             <div className='container my-5'>
-                <div className='row pt-5 gap-lg-3 gap-5 justify-content-center'>
+                <div className='row pt-5 g-lg-5 g-4 justify-content-center mx-1'>
                     {ScoreCardData?.map((item, index) => (
-                        <div className='col-10 col-md-4 col-lg' key={index}>
+                        <div className='col col-md col-lg' key={index}>
                             <NavLink to={"/myreferral"} className={"text-decoration-none"}>
                                 <div className='score-card position-relative border-radius-12 d-flex flex-column align-items-center justify-content-center p-3'>
-                                    <img src={item.image} className='position-absolute start-100 top-0 translate-middle' alt="Loading" />
-                                    <p className='font-40 montserrat-bold text-blue mb-0'>{item?.score}</p>
-                                    <p className='text-blue font-32 montserrat-medium'>{item?.title}</p>
+                                    <img src={item.image} className='score-img position-absolute start-100 top-0 translate-middle' alt="Loading" />
+                                    <p className='score-number font-40 montserrat-bold text-blue mb-0 lh-1'>{item?.score}</p>
+                                    <p className='score-text text-blue font-32 montserrat-medium mb-0'>{item?.title}</p>
                                 </div>
                             </NavLink>
 

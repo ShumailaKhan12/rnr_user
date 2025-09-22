@@ -25,7 +25,7 @@ const Navbar = () => {
             <nav className={`navbar fixed-top navbar-expand-md navbar-light ${scrolled ? "nav-bg shadow-sm" : "bg-transparent"
                 }`}>
                 <div className="container-fluid">
-                    <Link className="navbar-brand nav-logo-bg d-flex align-items-center justify-content-center" href="#">
+                    <Link className="navbar-brand nav-logo-bg d-flex align-items-center justify-content-center px-2" href="#">
                         <img src={Logo} className='mb-4' alt="Logo" />
                     </Link>
                     <button

@@ -83,7 +83,7 @@ if (activeStep === 2) progress = 37.5;
                                 )
                             )}
                         </div>
-                        <p className="mt-3 font-20 montserrat-medium lh-sm">{step.text}</p>
+                        <p className=" mt-md-3 font-20 montserrat-medium lh-sm">{step.text}</p>
                     </div>
                 ))}
 
