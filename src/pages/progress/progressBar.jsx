@@ -1,5 +1,10 @@
 const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
+
+  
+
   return (
+
+    
     <ul className=" mobile-horizontal list-unstyled mb-0 ps-4 pt-3 ">
       {planets.map((planet, index) => {
         const [start, end] = planet.range || [0, 0];
@@ -14,7 +19,7 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
             key={index}
             className={`d-flex  ${isActive ? "position-relative" : ""} `}
           >
-            <div className="d-md-grid  progress-side-sec">
+            <div className="d-lg-grid d-grid d-md-flex  progress-side-sec">
               {/* Show previous progress hr if not active */}
               {index !== 0 && (
                 <hr className="opacity-100 progress-side-hr11" />
@@ -23,7 +28,7 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
 
               {/* Show current step image */}
               <img
-                className="md-w-50 mx-auto prgicon"
+                className="lg-w-50 mx-auto prgicon"
                 src={prgicon}
                 alt="prgicon"
               />
@@ -41,7 +46,7 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
 
             {/* Planet Name */}
             <span
-              className={`ms-md-2   progress-sect-name ${isActive && index == 0 ? "d-flex align-items-lg-start align-items-center" : "d-flex align-items-center mt-4 mt-md-0  align-items-lg-end"} ${isActive && index !== 0 ? "d-flex align-items-center" : ""}  ${isActive || Pnt > end
+              className={`ms-lg-2 ms-2   progress-sect-name ${isActive && index == 0 ? "d-flex align-items-lg-start align-items-center" : "d-flex align-items-center mt-4 mt-lg-0  align-items-lg-end"} ${isActive && index !== 0 ? "d-flex align-items-center" : ""}  ${isActive || Pnt > end
                   ? "mt-0"
                   : "progress-test-mt"
                 } space-grotesk-medium font-16 text-blue-2`}

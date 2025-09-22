@@ -3362,25 +3362,7 @@
                     transform: translateX(-50%) rotate(90deg);
                 }
 
-                // .star {
-                //     position: absolute;
-                //     left: 50%;
-                // }
-
-                // .inactive {
-                //     position: absolute;
-                //     left: 50%;
-                // }
-
-                // &.active .dot {
-                //     position: absolute;
-                //     left: 50%;
-                // }
             }
-
-            //    .custom-btn {     
-            //  margin-bottom: 30%;
-            // }
         }
 
     }
@@ -3436,6 +3418,7 @@
         margin-top: 0.25rem;
     }
 
+    
     .progress-sect {
         background: linear-gradient(180deg,
                 rgba(255, 228, 147, 0.2) 47.11%,
@@ -3456,6 +3439,13 @@
 
     .progress-side-sec {
         width: 20%;
+    }
+
+    @media (max-width:768px) {
+            .prgicon:nth-child(1){
+        margin-top: 20px;
+    
+}
     }
 
     .progress-side-hr,
@@ -3600,24 +3590,21 @@
     }
 
 
-@media (max-width: 768px) {
+@media (min-width:768px) and (max-width: 991px) {
     .mobile-horizontal{
-        height: 150px;
         display: flex;
-        // position: relative;
     }
 
+     .progress-sect {
+       width: 100%;
+    }
 
-    .prgicon{
-        // display: flex;
+   
+
+     .prgicon{
         width: 30px;
-        transform: translateY(-20px) translateX(-10px);
+        transform: translateY(-20px) translateX(30px);
     }
-
-    // .prgicon:nth-child(2){
-    // transform: translateY(-20px) translateX(-30px);
-    // }
-    
 
     .progress-test-mt {
         margin-top: 0;
@@ -3626,7 +3613,7 @@
         line-height: 0;
         margin-left: 0;
         position: relative;
-        left: -40px;
+        left: 0px;
         top: 15px;
         
     }
@@ -3642,7 +3629,7 @@
     .progress-side-hr11,
     .progress-side-hr-2 {
         border: pxToRem(2) dashed $light-yellow;
-    transform: translateX(-34px) translateY(-20px) rotate(90deg);
+    transform: translateX(0px) translateY(-20px) rotate(90deg);
     
 
     
@@ -3653,7 +3640,7 @@
         }
 
         &.progress-side-hr11 {
-            height: pxToRem(46);
+            height: pxToRem(48);
 
         }
 
@@ -3669,106 +3656,118 @@
 
 }
 
-    /* Mobile Vertical Layout Styles */
-    /* Mobile Vertical Layout Styles - Fixed Alignment */
+
+// @media (max-width: 578px) {
+
+//     //  .mobile-horizontal{
+//     //     display: flex;
+//     // }
+
+    
+//      .prgicon{
+//         width: 45px;
+//         transform: translateY(-20px) translateX(0px);
+//     }
+
+//     // .progress-test-mt {
+//     //     margin-top: 0;
+//     // }
+//     .progress-sect-name {
+//         line-height: 0;
+//         margin-left: 0;
+//         position: relative;
+//         left:-70px;
+//         top: 15px;
+        
+//     }
+    
+//     .progress-side-sec {
+//         display: flex !important;
+//         width: 100%;
+//         align-items: center !important;
+//     }
+
+    
+//     .progress-side-hr,
+//     .progress-side-hr11,
+//     .progress-side-hr-2 {
+//         border: pxToRem(2) dashed $light-yellow;
+//     transform: translateX(-40px) translateY(-20px) rotate(90deg);
+    
+
+    
+//         // &.progress-side-hr {
+//         //     // display: flex;
+//         //     border-style: solid;
+        
+//         // }
+
+//         &.progress-side-hr11 {
+//             height: pxToRem(100);
+
+//         }
+
+//         &.progress-side-hr-2 {
+//             height: pxToRem(10);
+//         }
 
 
-    // .mobile-vertical-layout {
-    //     position: relative;
-    //     padding: 1rem;
-    //     gap: 2rem;
-    //     align-items: stretch;
-    //     min-height: 130vh;
-    //     display: flex;
-    //     overflow-y: auto;
+        
+//     }
 
-    //     /* Left path (line + dots) */
-    //     .mobile-path-container {
-    //         position: relative;
-    //         width: 40px;
-    //         flex-shrink: 0;
-    //         height: 100%;
-    //         min-height: 130vh;
+// //   .scroll-btn {
+// //     position: absolute;
+// //     top: 50%;
+// //     transform: translateY(-50%);
+// //     background: none;
+// //     border: none;
+    
+// //     // border-radius: 50%;
+// //     // padding: 10px;
+// //     // box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+// //     cursor: pointer;
+// //     z-index: 10;
+// //   }
 
-    //         .mobile-vertical-line {
-    //             position: absolute;
-    //             left: 40px;
-    //             top: 0;
-    //             height: 130vh;
-    //             width: 2px;
-    //             border-left: 3px dashed rgba(85, 68, 158, 1);
-    //             animation: moveDash 2s linear infinite;
-    //             z-index: 1;
-    //         }
+// //   .scroll-btn.left {
+// //     left: -12px;
+// //   }
 
-    //         /* Dots - Starting from top */
-    //         .mobile-dot {
-    //             position: absolute;
-    //             left: 40px;
-    //             transform: translateX(-50%);
-    //             z-index: 2;
+// //   .scroll-btn.right {
+// //     right: -12px;
+// //   }
 
-    //             &.dot-0 {
-    //                 top: 0px;
-    //             }
+// .mobile-horizontal {
+//     display: flex;
+//     overflow-x: hidden; /* hide scrollbar */
+//     scroll-behavior: smooth;
+//   }
 
-    //             &.dot-25 {
-    //                 top: 35vh;
-    //             }
+//   .progress-item {
+//     flex: 0 0 50%; /* ek time pe 2 item show */
+//     box-sizing: border-box;
+//     padding: 10px;
+//     text-align: center;
+//   }
 
-    //             &.dot-50 {
-    //                 top: 65vh;
-    //             }
+//   .scroll-btn {
+//     position: absolute;
+//     top: 40%;
+//     transform: translateY(-50%);
+//     background: none;
+//     border: none;
+//     cursor: pointer;
+//     z-index: 10;
+//   }
 
-    //             &.dot-75 {
-    //                 top: 95vh;
-    //             }
-    //         }
-    //     }
+//   .scroll-btn.left {
+//     left: -13px;
+//   }
 
-    //     /* Right planets - Fixed positioning to align with dots */
-    //     .mobile-planet-main {
-    //         flex: 1;
-    //         position: relative;
-    //         min-height: 130vh;
-    //         height: 100%;
-
-    //         .mobile-planet-section {
-    //             position: absolute;
-    //             width: 100%;
-    //             text-align: center;
-    //             left: 0;
-    //             transform: translateY(-50%);
-
-    //             /* Align planets with corresponding dots */
-    //             &.planet-0 {
-    //                 top: 0px;
-    //                 transform: translateY(0);
-    //             }
-
-    //             &.planet-25 {
-    //                 top: 35vh;
-    //             }
-
-    //             &.planet-50 {
-    //                 top: 65vh;
-    //             }
-
-    //             &.planet-75 {
-    //                 top: 95vh;
-    //             }
-
-    //             .mobile-planet-img {
-    //                 width: 100px;
-    //                 height: 100px;
-    //                 border-radius: 50%;
-    //                 object-fit: contain;
-    //                 margin-bottom: 1rem;
-    //                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    //             }
-    //         }
-    //     }
-    // }
+//   .scroll-btn.right {
+//     right: -13px;
+//   }
+// }
 
 
     @keyframes moveDash {
@@ -3777,80 +3776,6 @@
         }
     }
 
-
-    /* Hide desktop layout on mobile */
-    // @media (max-width: 767px) {
-    //     .desktop-horizontal-layout {
-    //         display: none !important;
-    //     }
-
-    //     // Adjust left sidebar for mobile
-    //     .left-sidebar-main-div {
-    //         margin-bottom: 2rem;
-    //     }
-
-    //     // Mobile specific adjustments
-    //     // .mobile-vertical-layout {
-    //     //     .mobile-planet-section {
-    //     //         animation: fadeInUp 0.6s ease forwards;
-
-    //     //         &:nth-child(1) {
-    //     //             animation-delay: 0.1s;
-    //     //         }
-
-    //     //         &:nth-child(2) {
-    //     //             animation-delay: 0.2s;
-    //     //         }
-
-    //     //         &:nth-child(3) {
-    //     //             animation-delay: 0.3s;
-    //     //         }
-
-    //     //         &:nth-child(4) {
-    //     //             animation-delay: 0.4s;
-    //     //         }
-
-    //     //         &:nth-child(5) {
-    //     //             animation-delay: 0.5s;
-    //     //         }
-
-    //     //         &:nth-child(6) {
-    //     //             animation-delay: 0.6s;
-    //     //         }
-    //     //     }
-    //     // }
-
-    //     // Progress section adjustments for mobile
-    //     .progress-sect {
-    //         margin-bottom: 2rem;
-    //     }
-
-    //     // Planet section overflow for mobile
-    //     .planet-section {
-    //         overflow-y: auto;
-    //         max-height: none;
-    //         height: auto;
-    //         padding-right: 0.5rem;
-
-    //         &::-webkit-scrollbar {
-    //             width: 4px;
-    //         }
-
-    //         &::-webkit-scrollbar-track {
-    //             background: rgba(255, 255, 255, 0.1);
-    //             border-radius: 10px;
-    //         }
-
-    //         &::-webkit-scrollbar-thumb {
-    //             background: rgba(255, 255, 255, 0.3);
-    //             border-radius: 10px;
-    //         }
-
-        //     &::-webkit-scrollbar-thumb:hover {
-        //         background: rgba(255, 255, 255, 0.5);
-        //     }
-        // }
-    
 
     /* Tablet adjustments */
     @media (min-width: 300px) and (max-width: 991px) {
@@ -3896,59 +3821,6 @@
 
 
     }
-    /* Tablet adjustments */
-    // @media (min-width: 768px) and (max-width: 991px) {
-    //     .mobile-vertical-layout {
-    //         display: none !important;
-    //     }
-
-    //     .desktop-horizontal-layout {
-    //         display: block !important;
-    //     }
-
-    //     .second-screen-pathway {
-    //         width: 92% !important;
-    //     }
-
-    //     .scrol-path-0 {
-    //         width: 41%;
-    //         left: 105%;
-    //     }
-
-    //     .scrol-path-1 {
-    //         width: 47%;
-    //         left: 144%;
-    //     }
-
-    //     .scrol-path-2 {
-    //         width: 40%;
-    //         left: 190%;
-    //     }
-
-    //     .scrol-path-3 {
-    //         width: 45%;
-    //         left: 230%;
-    //     }
-
-    //     .scrol-path-4 {
-    //         width: 42%;
-    //         left: 275%;
-    //     }
-
-    //     .scrol-path-5 {
-    //         width: 44%;
-    //         left: 315%;
-    //     }
-
-    //     .scrol-path-6 {
-    //         width: 42%;
-    //         left: 360%;
-    //     }
-
-
-    // }
-
-  
 
     /* Animation keyframes */
     @keyframes fadeInUp {
@@ -3963,144 +3835,7 @@
         }
     }
 
-    /* Responsive font sizes for mobile */
-    // @media (max-width: 767px) {
-    //     .font-24 {
-    //         font-size: 1.25rem !important;
-    //     }
-
-    //     .font-16 {
-    //         font-size: 0.9rem !important;
-    //     }
-    // }
-
-
-    // @media (max-width: 412px) {
-    //     .mobile-vertical-layout {
-    //         padding: 0.5rem;
-    //         min-height: 150vh;
-    //         height: auto;
-
-    //         .mobile-path-container {
-    //             position: relative;
-    //             width: 40px;
-    //             flex-shrink: 0;
-    //             height: 100%;
-    //             min-height: 150vh;
-
-    //             .mobile-vertical-line {
-    //                 position: absolute;
-    //                 left: 40px;
-    //                 top: 0;
-    //                 height: 135vh;
-    //                 width: 2px;
-    //                 border-left: 3px dashed rgba(85, 68, 158, 1);
-    //                 animation: moveDash 2s linear infinite;
-    //                 z-index: 1;
-    //             }
-
-    //             .mobile-dot {
-    //                 position: absolute;
-    //                 left: 40px;
-    //                 transform: translateX(-50%);
-    //                 z-index: 2;
-
-    //                 &.dot-0 {
-    //                     top: -6px;
-    //                 }
-
-    //                 &.dot-25 {
-    //                     top: 35vh;
-    //                 }
-
-    //                 &.dot-50 {
-    //                     top: 70vh;
-    //                 }
-
-    //                 &.dot-75 {
-    //                     top: 105vh;
-    //                 }
-    //             }
-    //         }
-
-    //         .mobile-planet-main {
-    //             min-height: 150vh;
-    //             height: auto;
-
-    //             .mobile-planet-section {
-    //                 left: 0;
-
-    //                 &.planet-0 {
-    //                     top: 0px;
-    //                     transform: translateY(0);
-    //                 }
-
-    //                 &.planet-25 {
-    //                     top: 35vh;
-    //                 }
-
-    //                 &.planet-50 {
-    //                     top: 70vh;
-    //                 }
-
-    //                 &.planet-75 {
-    //                     top: 105vh;
-    //                 }
-
-
-    //             }
-    //         }
-    //     }
-    // }
-
-    /* Medium mobile screens (413px to 767px) */
-    // @media (min-width: 413px) and (max-width: 767px) {
-    //     .mobile-vertical-layout {
-    //         .mobile-path-container {
-    //             height: 100vh;
-
-    //             .mobile-dot {
-    //                 &.dot-0 {
-    //                     top: -8px;
-    //                 }
-
-    //                 &.dot-25 {
-    //                     top: 30vh;
-    //                 }
-
-    //                 &.dot-50 {
-    //                     top: 60vh;
-    //                 }
-
-    //                 &.dot-75 {
-    //                     top: 90vh;
-    //                 }
-    //             }
-    //         }
-
-    //         .mobile-planet-main {
-    //             .mobile-planet-section {
-    //                 &.planet-0 {
-    //                     top: 0px;
-    //                     transform: translateY(0);
-    //                 }
-
-    //                 &.planet-25 {
-    //                     top: 30vh;
-    //                 }
-
-    //                 &.planet-50 {
-    //                     top: 60vh;
-    //                 }
-
-    //                 &.planet-75 {
-    //                     top: 90vh;
-    //                 }
-
-    //             }
-    //         }
-    //     }
-    // }
+ 
 
     // -------------------------------------------------
     // Progress Css End 

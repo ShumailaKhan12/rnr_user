@@ -125,7 +125,7 @@ const Progress = () => {
                 <p className='text-white font-14 montserrat-medium mb-0'> <IoIosArrowBack className='font-18 back-text' /> Back</p>
               </NavLink>
             </div>
-            <div className="col-lg-5 col-9 d-flex  justify-content-end px-0 mt-md-4 pe-3">
+            <div className="col-lg-5 col-9 d-flex  justify-content-end px-0 mt-lg-4 pe-3">
               <div className="till-ship w-75 position-relative tilte-shadow rounded-3">
                 <img
                   className="position-absolute till-ship-img"
@@ -159,7 +159,7 @@ const Progress = () => {
           <div
             className={`row justify-content-between second-screen-xl pt-2 gap-5`}
           >
-            <div className={`col-lg-2 col-md-4 col-12 px-0 d-flex flex-column justify-content-between `}>
+            <div className={`col-lg-2 col-md-12 col-12 px-0 d-flex flex-column justify-content-between `}>
               <div className={`left-sidebar-main-div mx-lg-0 mx-3`}>
                 <p className="text-dark-blue space-grotesk-medium font-16 mb-3">
                   Your Progress So far
