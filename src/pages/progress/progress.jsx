@@ -181,11 +181,11 @@ const Progress = () => {
           >
             <div className="col-lg-3 col-3">
               <NavLink to={"/home"} className={"text-decoration-none"}>
-                <p className='text-white font-14 montserrat-medium mb-0'> <IoIosArrowBack className='font-18 back-text' /> Back</p>
+                <p className='text-white font-14 montserrat-medium mb-0 mt-md-5 mt-lg-0 '> <IoIosArrowBack className='font-18 back-text' /> Back</p>
               </NavLink>
             </div>
-            <div className="col-lg-5 col-9 d-flex  justify-content-end px-0 mt-lg-4 pe-3">
-              <div className="till-ship w-75 position-relative tilte-shadow rounded-3">
+            <div className="col-lg-5 col-9 d-flex  justify-content-end px-0 mb-lg-2 pe-3">
+              <div className="till-ship w-75 position-relative tilte-shadow rounded-3 mt-lg-0  mb-2 mt-md-5">
                 <img
                   className="position-absolute till-ship-img"
                   src={tiltship}
