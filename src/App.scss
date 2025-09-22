@@ -3697,7 +3697,7 @@
                 position: absolute;
                 left: 20px;
                 top: 0;
-                height: 130vh;
+                height: 78vh;
                 width: 2px;
                 border-left: 3px dashed rgba(85, 68, 158, 1);
                 animation: moveDash 2s linear infinite;
@@ -3712,7 +3712,7 @@
                 z-index: 2;
 
                 &.dot-0 {
-                    top: 50px;
+                    top: 0px;
                 }
 
                 &.dot-25 {
@@ -3745,7 +3745,7 @@
 
                 /* Align planets with corresponding dots */
                 &.planet-0 {
-                    top: 50px;
+                    top: 0px;
                     transform: translateY(0);
                 }
 
@@ -3873,7 +3873,7 @@
                     position: absolute;
                     left: 20px;
                     top: 0;
-                    height: 150vh;
+                    height: 110vh;
                     width: 2px;
                     border-left: 3px dashed rgba(85, 68, 158, 1);
                     animation: moveDash 2s linear infinite;
@@ -3887,7 +3887,7 @@
                     z-index: 2;
 
                     &.dot-0 {
-                        top: 30px;
+                        top: -10px;
                     }
 
                     &.dot-25 {
@@ -3912,7 +3912,7 @@
                     left: 0;
 
                     &.planet-0 {
-                        top: 30px;
+                        top: 0px;
                         transform: translateY(0);
                     }
 
@@ -3945,19 +3945,19 @@
             .mobile-path-container {
                 .mobile-dot {
                     &.dot-0 {
-                        top: 80px;
+                        top: -20px;
                     }
 
                     &.dot-25 {
-                        top: 40vh;
+                        top: 25vh;
                     }
 
                     &.dot-50 {
-                        top: 70vh;
+                        top: 50vh;
                     }
 
                     &.dot-75 {
-                        top: 100vh;
+                        top: 75vh;
                     }
                 }
             }
@@ -3965,20 +3965,20 @@
             .mobile-planet-main {
                 .mobile-planet-section {
                     &.planet-0 {
-                        top: 80px;
+                        top: -10px;
                         transform: translateY(0);
                     }
 
                     &.planet-25 {
-                        top: 40vh;
+                        top: 25vh;
                     }
 
                     &.planet-50 {
-                        top: 70vh;
+                        top: 50vh;
                     }
 
                     &.planet-75 {
-                        top: 100vh;
+                        top: 75vh;
                     }
 
                     .mobile-planet-img {
