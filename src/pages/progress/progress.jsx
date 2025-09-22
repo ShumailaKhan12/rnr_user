@@ -103,64 +103,7 @@ const Progress = () => {
   // Get the indices (numbers) of the filtered images
   const imageNumbers = filteredImages.map((image) => images.indexOf(image));
 
-  // Updated MobileVerticalLayout component
-  const MobileVerticalLayout = () => (
-    <div className="mobile-vertical-layout d-flex  justify-content-center align-items-center mt-5 d-block d-md-none">
-      {/* Left side: Dashed line + dots */}
-      <div className="mobile-path-container">
-        <div className="mobile-vertical-line"></div>
-
-        <div className="mobile-dot dot-0"><img src={Frame} alt="dot" /></div>
-        <div className="mobile-dot dot-25"><img src={Frame} alt="dot" /></div>
-        <div className="mobile-dot dot-50"><img src={Frame} alt="dot" /></div>
-        <div className="mobile-dot dot-75"><img src={Frame} alt="dot" /></div>
-        {/* <div className="mobile-dot dot-100"><img src={Frame} alt="dot" /></div> */}
-      </div>
-
-      {/* Right side: Planets */}
-      <div className="mobile-planet-main">
-        {/* Planet A */}
-        <div className="mobile-planet-section planet-0">
-          <img className="mobile-planet-img planet-purple" src={images[0]} alt="Planet A" />
-          <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet A</h4>
-            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br />  <span className='space-grotesk-medium'>1000 Meteors</span></p>
-
-          </div>
-        </div>
-
-        {/* Planet B */}
-        <div className="mobile-planet-section planet-25">
-          <img className="mobile-planet-img planet-yellow blurred" src={images[1]} alt="Planet B" />
-          <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet B</h4>
-            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>You are just  <span className='space-grotesk-medium'>1850 Meteors</span> <br />  away to reach to this planet</p>
-          </div>
-        </div>
-
-        {/* Planet C */}
-        <div className="mobile-planet-section planet-50">
-          <img className="mobile-planet-img planet-green blurred" src={images[2]} alt="Planet C" />
-          <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet C</h4>
-            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Little more consistency and <br /> you will earn  <span className='space-grotesk-medium'> 2080 Meteors</span></p>
-
-          </div>
-        </div>
-
-        {/* Planet D */}
-        <div className="mobile-planet-section planet-75">
-          <img className="mobile-planet-img planet-blue blurred" src={images[3]} alt="Planet D" />
-          <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet D</h4>
-            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'> <span className='space-grotesk-medium'>3080 Meteors</span> to go and <br /> your exclusive reward awaits!!!</p>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
+ 
 
   return (
     <>
@@ -171,7 +114,7 @@ const Progress = () => {
         <div className='container'>
           {/* Header section Start */}
           <div
-            className="row justify-content-between align-items-center mt-4"
+            className="row justify-content-between align-items-center mt-4 "
             style={{
               animation: 'moveDownFade 0.7s forwards'
             }}
@@ -182,7 +125,7 @@ const Progress = () => {
                 <p className='text-white font-14 montserrat-medium mb-0'> <IoIosArrowBack className='font-18 back-text' /> Back</p>
               </NavLink>
             </div>
-            <div className="col-lg-5 col-9 d-flex justify-content-end px-0 mt-md-4 pe-3">
+            <div className="col-lg-5 col-9 d-flex  justify-content-end px-0 mt-md-4 pe-3">
               <div className="till-ship w-75 position-relative tilte-shadow rounded-3">
                 <img
                   className="position-absolute till-ship-img"
@@ -229,9 +172,10 @@ const Progress = () => {
                     // Pnt={MeterUpdateData?.total_meteors}
                     planets={planets}
                     prgicon={prgicon}
+                    borderstar={borderstar}
                   />
 
-                  <div className="text-center mt-34 pb-3">
+                  <div className="text-center mt-34 pb-3 d-none d-lg-block">
                     <img
                       className="w-25"
                       src={borderstar}
@@ -573,7 +517,7 @@ const Progress = () => {
           </div>
           {/* <MobileVerticalLayout /> */}
 
-          <div className='col-lg-3 col-md-5 mb-lg-0 mb-4 d-none d-md-block d-flex justify-content-center'>
+          <div className='col-lg-3 col-md-5 mb-lg-0 mb-4'>
             {/* <NavLink
               to={'/home'}
               className={'text-decoration-none'}
