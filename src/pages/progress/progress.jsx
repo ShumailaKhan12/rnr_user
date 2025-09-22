@@ -254,17 +254,16 @@ const Progress = () => {
               to={'/home'}
               className={'text-decoration-none'}
             > */}
-             
-            
+
+
             </div>
 
             <div className="col-lg-9 desktop-horizontal-layout col-md-12 col-12 pt-4 planet-section overflow-auto hidden-scrollbar">
 
-
               <div className="d-flex mb-2 ">
                 <div className="col-lg-3 col-5 text-center">
                   <img
-                    className={`width-30 width-md-35 width-lg-50 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}     ${0 !== currentIndex ? "blurred" : ""}       `}
+                    className={`width-35 width-md-35 width-lg-50 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}     ${0 !== currentIndex ? "blurred" : ""}       `}
                     src={images[currentIndex]}
                     alt="purple"
                   />
@@ -272,7 +271,7 @@ const Progress = () => {
                 <div className="col-lg-3 col-5"></div>
                 <div className="col-lg-3 col-5 text-center">
                   <img
-                    className={`width-30 width-md-35 width-lg-50 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
+                    className={`width-35 width-md-35 width-lg-50 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
                     src={images[imageNumbers]}
                     alt="yellow"
                   />
@@ -283,7 +282,7 @@ const Progress = () => {
                 ` }
                 >
                   <img
-                    className={`width-30 width-md-35 width-lg-50 width-xl-70 blurred planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex[0] === 1 ? 'yellow' : currentIndex[0] === 2 ? 'green' : 'blue'} ${0 !== currentIndex ? "blurred" : ""}`}
+                    className={`width-35 width-md-35 width-lg-50 width-xl-70 blurred planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex[0] === 1 ? 'yellow' : currentIndex[0] === 2 ? 'green' : 'blue'} ${0 !== currentIndex ? "blurred" : ""}`}
                     src={images[currentIndex]}
                     alt="yellow"
                   />
