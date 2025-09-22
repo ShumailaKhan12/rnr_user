@@ -263,7 +263,7 @@ const Progress = () => {
               <div className="d-flex mb-2 ">
                 <div className="col-lg-3 col-5 text-center">
                   <img
-                    className={`width-35 width-md-35 width-lg-50 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}     ${0 !== currentIndex ? "blurred" : ""}       `}
+                    className={`width-35 width-md-35 width-lg-40 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}     ${0 !== currentIndex ? "blurred" : ""}       `}
                     src={images[currentIndex]}
                     alt="purple"
                   />
@@ -271,7 +271,7 @@ const Progress = () => {
                 <div className="col-lg-3 col-5"></div>
                 <div className="col-lg-3 col-5 text-center">
                   <img
-                    className={`width-35 width-md-35 width-lg-50 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
+                    className={`width-35 width-md-35 width-lg-40 width-xl-70 blurred planet-shadow-${imageNumbers[0] === 0 ? 'purple' : imageNumbers[0] === 1 ? 'yellow' : imageNumbers[0] === 2 ? 'green' : 'blue'}`}
                     src={images[imageNumbers]}
                     alt="yellow"
                   />
@@ -282,7 +282,7 @@ const Progress = () => {
                 ` }
                 >
                   <img
-                    className={`width-35 width-md-35 width-lg-50 width-xl-70 blurred planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex[0] === 1 ? 'yellow' : currentIndex[0] === 2 ? 'green' : 'blue'} ${0 !== currentIndex ? "blurred" : ""}`}
+                    className={`width-35 width-md-35 width-lg-40 width-xl-70 blurred planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex[0] === 1 ? 'yellow' : currentIndex[0] === 2 ? 'green' : 'blue'} ${0 !== currentIndex ? "blurred" : ""}`}
                     src={images[currentIndex]}
                     alt="yellow"
                   />
@@ -429,7 +429,7 @@ const Progress = () => {
                 <div className="col-lg-3 col-5"></div>
                 <div className="col-lg-3 col-5 text-center text-dark-blue second-scrn-padding">
                   <img
-                    className={`width-35 width-md-35 width-lg-50 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'} ${nextIndex !== currentIndex ? "blurred" : ""}`}
+                    className={`width-35 width-md-35 width-lg-40 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'} ${nextIndex !== currentIndex ? "blurred" : ""}`}
                     src={images[nextIndex]}
                     alt="greenplnt"
                   />
@@ -472,7 +472,7 @@ const Progress = () => {
                   className={`col-lg-3 col-5 text-center text-dark-blue`}
                 >
                   <img
-                    className={`width-35 width-md-35 width-lg-50 width-xl-70 planet-shadow-${prevIndex === 0 ? 'purple' : prevIndex === 1 ? 'yellow' : prevIndex === 2 ? 'green' : 'blue'} ${prevIndex !== currentIndex ? "blurred" : ""} `}
+                    className={`width-35 width-md-35 width-lg-40 width-xl-70 planet-shadow-${prevIndex === 0 ? 'purple' : prevIndex === 1 ? 'yellow' : prevIndex === 2 ? 'green' : 'blue'} ${prevIndex !== currentIndex ? "blurred" : ""} `}
                     src={images[prevIndex]}
                     alt="blueplnt"
                   />
@@ -515,7 +515,7 @@ const Progress = () => {
                   className={`col-lg-3 col-5 text-center text-dark-blue`}
                 >
                   <img
-                    className={`width-35 width-md-35 width-lg-50 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'} ${nextIndex !== currentIndex ? "blurred" : ""}`}
+                    className={`width-35 width-md-35 width-lg-40 width-xl-70 planet-shadow-${nextIndex === 0 ? 'purple' : nextIndex === 1 ? 'yellow' : nextIndex === 2 ? 'green' : 'blue'} ${nextIndex !== currentIndex ? "blurred" : ""}`}
                     src={images[nextIndex]}
                     alt="blueplnt"
                   />
@@ -559,13 +559,13 @@ const Progress = () => {
           </div>
           <MobileVerticalLayout />
 
-          <div className='col-lg-4 col-md-5 mb-lg-0  mb-4 d-flex justify-content-md-start justify-content-center '>
+          <div className='col-lg-4  col-md-5 mb-lg-0  mb-4 d-flex justify-content-md-start justify-content-cente '>
             {/* <NavLink
               to={'/home'}
               className={'text-decoration-none'}
             > */}
             <div
-              className={`w-75 d-flex justify-content-evenly background-dark-pink mt-5 rounded-2 position-relative py-2 px-5 left-box `}
+              className={`w-60 d-flex justify-content-evenly background-dark-pink mt-5 rounded-2 position-relative py-2 px-5 left-box `}
               // ref={leftBoxRef}
               id="leftBox"
               onClick={openInviteModal}
