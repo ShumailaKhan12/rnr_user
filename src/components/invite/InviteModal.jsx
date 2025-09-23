@@ -3,6 +3,11 @@ import "../../App.scss";
 import X from "../../assets/Images/invite-modal/X.png";
 import Button from "../button";
 import InviteSuccessModal from "./InviteSuccessModal";
+import { postData } from "../../services/api";
+
+// Toast Messages
+import { toastError, toastSuccess } from '../../utils/toster';
+
 
 const InviteModal = ({ isOpen, onClose }) => {
     const [formData, setFormData] = useState({
@@ -14,6 +19,7 @@ const InviteModal = ({ isOpen, onClose }) => {
     });
 
     const [successModalOpen, setSuccessModalOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -23,13 +29,71 @@ const InviteModal = ({ isOpen, onClose }) => {
         });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form Data:", formData);
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     console.log("Form Data:", formData);
 
-        // Open Success Modal
-        setSuccessModalOpen(true);
+    //     // Open Success Modal
+    //     setSuccessModalOpen(true);
+    // };
+
+    // const handleSubmit = async (e) => {
+    //       e.preventDefault();
+    //     setLoading(true);
+    //     setSuccessModalOpen(true);
+
+    //     try {
+    //         // Login API call
+    //         const response = await postData(' /referral_program/referral/send_invitation', {
+    //             password: data?.password,
+    //             email: data?.email,
+    //         });
+    //         console.log('response: ', response);
+    //     } catch (error) {
+    //         console.log(error)
+    //         if (error?.error) {
+    //             toastError(error?.error);
+    //         } else {
+    //             // toastError(error?.error || 'Login failed');
+    //         }
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // stop page refresh
+        setLoading(true);
+
+        try {
+            const payload = {
+                referrer_id: formData.id,
+                refree_name: formData.name, // Or actual referrer_id if you have it
+                arn: formData.arn,
+                mobile_number: formData.mobile,
+                product: formData.product || null,
+                permission: formData.permission,
+            };
+
+            console.log("Payload:", payload);
+
+            const response = await postData('/referral_program/referral/send_invitation', payload);
+
+            toastSuccess("Invitation sent successfully!");
+            setSuccessModalOpen(true);
+            console.log("Response:", response);
+        } catch (error) {
+            console.error(error);
+            if (error?.error) {
+                toastError(error.error);
+            } else {
+                toastError("Failed to send invitation");
+            }
+        } finally {
+            setLoading(false);
+        }
     };
+
+
 
     if (!isOpen) return null;
 
@@ -118,7 +182,7 @@ const InviteModal = ({ isOpen, onClose }) => {
 
                                 <div className="modal-footer">
                                     <Button
-                                        label="Send Invite"
+                                        label={!loading ? "Send Invite" : "Loading"}
                                         type="submit"
                                         className="btn-custom bg-blue text-white font-16 montserrat-semibold"
                                     />

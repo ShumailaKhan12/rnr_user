@@ -9,6 +9,7 @@ import four from '../../assets/Images/how-it-work/4.png'
 import "../../App.scss";
 import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
 const HowItWorks = () => {
+    
     return (
         <div className="referral-program bg-white montserrat-medium ">
 
