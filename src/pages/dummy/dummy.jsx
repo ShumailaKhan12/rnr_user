@@ -13,7 +13,7 @@ const Dummy = () => {
     sessionStorage.setItem('access_token', dummyToken);
     sessionStorage.setItem('session_id', dummySession);
 
-   
+
     setAccessToken(dummyToken);
     setSessionId(dummySession);
 

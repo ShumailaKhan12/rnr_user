@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import stepindicator from '../../assets/Images/how-it-work/line.svg'
 import one from '../../assets/Images/how-it-work/1.png'
@@ -11,17 +11,46 @@ import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMo
 import { UserContext } from '../../UseContext/useContext';
 
 const HowItWorks = () => {
+const [userData, setUserData] = useState(null);
 
-     const navigate = useNavigate();
-  const { accessToken, sessionId } = useContext(UserContext);
+    const navigate = useNavigate();
+    const { accessToken, sessionId } = useContext(UserContext);
 
-  const handleGoToDashboard = () => {
-    if (accessToken && sessionId) {
-      navigate('/home');
-    } else {
-      alert('Invalid user.');
+
+
+    useEffect(() => {
+  const fetchUserData = async () => {
+    if (!accessToken || !sessionId) {
+      console.warn('No accessToken or sessionId found');
+      return;
+    }
+
+    try {
+      const response = await fetch(`https://cf5fc38f7414.ngrok-free.app/dummy-wealthelite-response?token=${accessToken}&session_id=${sessionId}`);
+      
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+
+      const data = await response.json();
+      console.log(data)
+      setUserData(data);
+      console.log('User Data:', data); 
+    } catch (error) {
+      console.error('Error fetching user data:', error);
     }
   };
+
+  fetchUserData();
+}, [accessToken, sessionId]);
+
+  const handleGoToDashboard = () => {
+        if (data) {
+        navigate('/home');
+        } else {
+        alert('Invalid user.');
+        }
+    };
 
     return (
         <div className="referral-program bg-white montserrat-medium ">
@@ -34,6 +63,13 @@ const HowItWorks = () => {
                             the More You Earn!
                         </p>
                     </div>
+
+{/* {userData && (
+  <div className="text-center mt-4">
+    <h5>User Info:</h5>
+    <pre>{JSON.stringify(userData, null, 2)}</pre>
+  </div>
+)} */}
 
                     <div className="referral-journey">
 
@@ -102,31 +138,3 @@ const HowItWorks = () => {
 
 export default HowItWorks;
 
-
-// import React, { useContext } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import { UserContext } from '../../UseContext/useContext';
-
-// const HowItWorks = () => {
-//   const navigate = useNavigate();
-//   const { accessToken, sessionId } = useContext(UserContext);
-
-//   const handleGoToDashboard = () => {
-//     if (accessToken && sessionId) {
-//       navigate('/home');
-//     } else {
-//       alert('Please click the Dummy button first.');
-//     }
-//   };
-
-//   return (
-//     <div className="text-center mt-5">
-//       <h1>Referral & Earn Program</h1>
-//       <button className="btn btn-primary" onClick={handleGoToDashboard}>
-//         {accessToken && sessionId ? 'Go to Dashboard' : 'Get Started'}
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default HowItWorks;
