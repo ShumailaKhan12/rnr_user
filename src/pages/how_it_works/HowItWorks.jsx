@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import stepindicator from '../../assets/Images/how-it-work/line.svg'
 import one from '../../assets/Images/how-it-work/1.png'
 import two from '../../assets/Images/how-it-work/2.png'
@@ -8,11 +8,23 @@ import three from '../../assets/Images/how-it-work/3.png'
 import four from '../../assets/Images/how-it-work/4.png'
 import "../../App.scss";
 import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
+import { UserContext } from '../../UseContext/useContext';
+
 const HowItWorks = () => {
-    
+
+     const navigate = useNavigate();
+  const { accessToken, sessionId } = useContext(UserContext);
+
+  const handleGoToDashboard = () => {
+    if (accessToken && sessionId) {
+      navigate('/home');
+    } else {
+      alert('Invalid user.');
+    }
+  };
+
     return (
         <div className="referral-program bg-white montserrat-medium ">
-
             <div className="row justify-content-center align-items-center">
                 <div className="referal-row">
                     <div className="program-header text-center ">
@@ -76,7 +88,7 @@ const HowItWorks = () => {
 
                     <div className="text-center mt-5">
                         <NavLink to={"/home"}>
-                            <button className="btn btn-primary get-started-btn ">
+                            <button className="btn btn-primary get-started-btn " onClick={handleGoToDashboard}>
                                 Get Started
                             </button>
                         </NavLink>
@@ -89,3 +101,32 @@ const HowItWorks = () => {
 };
 
 export default HowItWorks;
+
+
+// import React, { useContext } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { UserContext } from '../../UseContext/useContext';
+
+// const HowItWorks = () => {
+//   const navigate = useNavigate();
+//   const { accessToken, sessionId } = useContext(UserContext);
+
+//   const handleGoToDashboard = () => {
+//     if (accessToken && sessionId) {
+//       navigate('/home');
+//     } else {
+//       alert('Please click the Dummy button first.');
+//     }
+//   };
+
+//   return (
+//     <div className="text-center mt-5">
+//       <h1>Referral & Earn Program</h1>
+//       <button className="btn btn-primary" onClick={handleGoToDashboard}>
+//         {accessToken && sessionId ? 'Go to Dashboard' : 'Get Started'}
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default HowItWorks;
