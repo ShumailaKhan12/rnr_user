@@ -3444,7 +3444,6 @@
     @media (max-width:767px) {
         .prgicon:nth-child(1) {
             margin-top: 20px;
-
         }
     }
 
@@ -3516,14 +3515,12 @@
         }
 
 
-
     }
 
     @media (max-width: 998px) {
         .tooltiptext {
+            top: 10%;
             bottom: 80%;
-            left: 70%;
-
             // &::after {
             //     position: absolute;
             //     left: 50%;
@@ -3640,7 +3637,7 @@
 
         .progress-side-sec {
             display: flex !important;
-            // width: 100%;
+            width: 100%;
             align-items: center !important;
         }
 
@@ -3697,7 +3694,7 @@
                 position: absolute;
                 left: 20px;
                 top: 0;
-                height: 78vh;
+                height: 130vh;
                 width: 2px;
                 border-left: 3px dashed rgba(85, 68, 158, 1);
                 animation: moveDash 2s linear infinite;
@@ -3712,7 +3709,7 @@
                 z-index: 2;
 
                 &.dot-0 {
-                    top: 0px;
+                    top: 50px;
                 }
 
                 &.dot-25 {
@@ -3745,7 +3742,7 @@
 
                 /* Align planets with corresponding dots */
                 &.planet-0 {
-                    top: 0px;
+                    top: 50px;
                     transform: translateY(0);
                 }
 
@@ -3873,7 +3870,7 @@
                     position: absolute;
                     left: 20px;
                     top: 0;
-                    height: 110vh;
+                    height: 150vh;
                     width: 2px;
                     border-left: 3px dashed rgba(85, 68, 158, 1);
                     animation: moveDash 2s linear infinite;
@@ -3887,7 +3884,7 @@
                     z-index: 2;
 
                     &.dot-0 {
-                        top: -10px;
+                        top: 30px;
                     }
 
                     &.dot-25 {
@@ -3912,7 +3909,7 @@
                     left: 0;
 
                     &.planet-0 {
-                        top: 0px;
+                        top: 30px;
                         transform: translateY(0);
                     }
 
@@ -3945,19 +3942,19 @@
             .mobile-path-container {
                 .mobile-dot {
                     &.dot-0 {
-                        top: -20px;
+                        top: 80px;
                     }
 
                     &.dot-25 {
-                        top: 25vh;
+                        top: 40vh;
                     }
 
                     &.dot-50 {
-                        top: 50vh;
+                        top: 70vh;
                     }
 
                     &.dot-75 {
-                        top: 75vh;
+                        top: 100vh;
                     }
                 }
             }
@@ -3965,20 +3962,20 @@
             .mobile-planet-main {
                 .mobile-planet-section {
                     &.planet-0 {
-                        top: -10px;
+                        top: 80px;
                         transform: translateY(0);
                     }
 
                     &.planet-25 {
-                        top: 25vh;
+                        top: 40vh;
                     }
 
                     &.planet-50 {
-                        top: 50vh;
+                        top: 70vh;
                     }
 
                     &.planet-75 {
-                        top: 75vh;
+                        top: 100vh;
                     }
 
                     .mobile-planet-img {

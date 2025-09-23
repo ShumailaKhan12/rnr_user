@@ -1,11 +1,11 @@
 const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
 
-
+  
 
   return (
 
-
-    <ul className="mobile-horizontal list-unstyled mb-0 ps-4 pt-3 ">
+    
+    <ul className=" mobile-horizontal list-unstyled mb-0 ps-4 pt-3 ">
       {planets.map((planet, index) => {
         const [start, end] = planet.range || [0, 0];
 
@@ -34,26 +34,26 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
               />
 
               {/* Show active progress hr */}
-              {isActive &&
-                <hr className="opacity-100 progress-side-hr" />
-              }
+              {index == 0 && 
+              <hr className="opacity-100 progress-side-hr" />
+               }
             </div>
 
             {/* Tooltip for current range only */}
-            {isActive && (
+            {index == 0 && (
               <span className="position-absolute space-grotesk-medium font-12 tooltiptext p-2 rounded text-light-yellow">
                 {Pnt} Meteors
               </span>
-            )}
+           )}
 
             {/* Planet Name */}
             <span
-              className={`ms-lg-2 progress-sect-name ${isActive && index == 0 ? "d-flex align-items-lg-start align-items-center" : "d-flex align-items-center mt-4 mt-lg-0 align-items-lg-end"} ${isActive && index !== 0 ? "d-flex align-items-center" : ""} space-grotesk-medium font-16 text-blue-2`}
+              className={`ms-lg-2 progress-sect-name ${index == 0 ? "d-flex align-items-lg-start align-items-center" : "d-flex align-items-center mt-4 mt-lg-0 align-items-lg-end"} ${index !== 0 ? "d-flex align-items-center" : ""} space-grotesk-medium font-16 text-blue-2`}
             >
               {planet.name}
             </span>
 
-
+            
           </li>
         );
       })}
