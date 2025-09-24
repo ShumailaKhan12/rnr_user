@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../../App.scss";
 import X from "../../assets/Images/invite-modal/X.png";
 import Button from "../button";
 import InviteSuccessModal from "./InviteSuccessModal";
 import { postData } from "../../services/api";
+import { UserContext } from '../../UseContext/useContext';
 
 // Toast Messages
 import { toastError, toastSuccess } from '../../utils/toster';
@@ -20,6 +21,7 @@ const InviteModal = ({ isOpen, onClose }) => {
 
     const [successModalOpen, setSuccessModalOpen] = useState(false);
     const [loading, setLoading] = useState(false);
+    const { accessToken, sessionId } = useContext(UserContext);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -76,7 +78,7 @@ const InviteModal = ({ isOpen, onClose }) => {
 
             console.log("Payload:", payload);
 
-            const response = await postData('/referral_program/referral/send_invitation', payload);
+            const response = await postData(`/referral_program/referral/send_invitation?token=${accessToken}&session_id=${sessionId}`,payload);
 
             toastSuccess("Invitation sent successfully!");
             setSuccessModalOpen(true);

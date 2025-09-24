@@ -14,6 +14,7 @@ const HowItWorks = () => {
 
      const navigate = useNavigate();
   const { accessToken, sessionId } = useContext(UserContext);
+  console.log('accessToken: ', accessToken);
 
   const handleGoToDashboard = () => {
     if (accessToken && sessionId) {
