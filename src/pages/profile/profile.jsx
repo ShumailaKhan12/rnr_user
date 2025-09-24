@@ -35,6 +35,44 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { FaEye, FaRegEye } from 'react-icons/fa';
 
 const Profile = () => {
+
+
+
+     const [userData, setUserData] = useState(null);
+      console.log('userData: ', userData);
+  
+    
+      const { accessToken, sessionId } = useContext(UserContext);
+      console.log("accessToken", accessToken)
+      console.log("session_id", sessionId)
+  
+      useEffect(() => {
+          const fetchUserData = async () => {
+              if (!accessToken || !sessionId) {
+                  console.warn('No accessToken or sessionId found');
+                  return;
+              }
+              try {
+ const response = await postData(
+      `/referral_program/dashboard?token=${accessToken}&session_id=${sessionId}`,
+      { dummy: true }
+    );                  console.log('response: ', response);
+                  if (response.status === 200) {
+                      const data = response?.data?.user_data;
+                      console.log("User Data:", data);
+                      setUserData(data);
+                  } else {
+                      console.error("API returned error status:", response.status);
+                  }
+              }
+              catch (error) {
+                  console.log(error);
+              }
+          };
+  
+          fetchUserData();
+      }, [accessToken, sessionId]);
+  
   // Profile form
   const {
     register: registerProfile,
@@ -365,11 +403,11 @@ const Profile = () => {
               <div className="user-details">
                 <h4 className="mb-lg-3 user-name montserrat-semibold font-24 text-uppercase text-primary-color mb-0 lh-1">
                   {/* {UserDataAPI?.part1} */}
-                  Areeba Mujeeb
+                  Areeba Mujeeb  {userData?.name}
                 </h4>
                 <small className="user-contact montserrat-medium font-16 lh-1">
                   {/* {UserDataAPI?.part3}  */}
-                  91234546778 <span> | </span> areeba1234@gmail.com
+                  91234546778 {userData?.mobile_number} <span> | </span> areeba1234@gmail.com {userData?.email}
                   {/* {UserDataAPI?.part2} */}
                 </small>
               </div>

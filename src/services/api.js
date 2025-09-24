@@ -11,6 +11,7 @@ const ApiURL = 'https://b1b41a079b39.ngrok-free.app'; // Replace with your actua
 const api = axios.create({
   baseURL: ApiURL,
   headers: {
+    "ngrok-skip-browser-warning": "true",
     'Content-Type': 'application/json',
   },
 });
@@ -26,9 +27,9 @@ export const getData = async (endpoint, query = {}) => {
 };
 
 // ✅ POST Request: with payload (body)
-export const postData = async (endpoint, payload = {}) => {
+export const postData = async (endpoint, payload = {},  query = {}) => {
   try {
-    const response = await api.post(endpoint, payload);
+    const response = await api.post(endpoint, payload, { params: query });
     return response.data;
   } catch (error) {
     if (

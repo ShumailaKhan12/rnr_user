@@ -9,16 +9,13 @@ import four from '../../assets/Images/how-it-work/4.png'
 import "../../App.scss";
 import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
 import { UserContext } from '../../UseContext/useContext';
-import axios from 'axios';
+import { getData } from '../../services/api';
 
 const HowItWorks = () => {
-    const [userData, setUserData] = useState(null);
-    console.log('userData: ', userData);
 
     const navigate = useNavigate();
-    const { accessToken, sessionId } = useContext(UserContext);
-    console.log("accessToken", accessToken)
-    console.log("session_id", sessionId)
+    const { accessToken, sessionId, userData, setUserData } = useContext(UserContext);
+    // console.log('userDatassssssss: ', userData);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -26,22 +23,16 @@ const HowItWorks = () => {
                 console.warn('No accessToken or sessionId found');
                 return;
             }
-            // const ApiURL = 'https://b1b41a079b39.ngrok-free.app';
             try {
-                const response = await axios.get(`https://b1b41a079b39.ngrok-free.app/referral-program?token=${accessToken}&session_id=${sessionId}`, {
-                    headers: {
-                        "ngrok-skip-browser-warning": "true",
-                        "Content-Type": "application/json",
-                    },
-                });
-                console.log('response: ', response);
-                if (response.status === 200) {
-                    const data = response?.data?.user;
+                const response = await getData(`/referral-program?token=${accessToken}&session_id=${sessionId}`);
+                console.log('response: ', response?.user);
+                // if (response.status === 200) {
+                    const data = response?.user;
                     console.log("User Data:", data);
                     setUserData(data);
-                } else {
-                    console.error("API returned error status:", response.status);
-                }
+                // } else {
+                //     console.error("API returned error status:", response.status);
+                // }
             }
             catch (error) {
                 console.log(error);
@@ -54,17 +45,13 @@ const HowItWorks = () => {
     console.log("userdata", userData)
     console.log('accessToken: ', accessToken);
 
+    
     const handleGoToDashboard = () => {
-        if (!userData) {
-            alert("No user data found");
-            return;
-        }
 
-
-        if (sessionId && accessToken) {
+        if (userData) {
             navigate('/home');
         } else {
-            alert("Session mismatch! Access denied.");
+            alert("No user data found.");
         }
     };
 
@@ -135,11 +122,9 @@ const HowItWorks = () => {
                     </div>
 
                     <div className="text-center mt-5">
-                        <NavLink>
-                            <button className="btn btn-primary get-started-btn " onClick={handleGoToDashboard}>
-                                Get Started
-                            </button>
-                        </NavLink>
+                        <button className="btn btn-primary get-started-btn " onClick={handleGoToDashboard}>
+                            Get Started
+                        </button>
                     </div>
                 </div>
             </div>
