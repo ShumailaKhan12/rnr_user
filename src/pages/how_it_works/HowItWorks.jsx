@@ -9,17 +9,13 @@ import four from '../../assets/Images/how-it-work/4.png'
 import "../../App.scss";
 import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
 import { UserContext } from '../../UseContext/useContext';
-import axios from 'axios';
-import { getData, postData } from '../../services/api';
+import { getData } from '../../services/api';
 
 const HowItWorks = () => {
-    const [userData, setUserData] = useState(null);
-    console.log('userData: ', userData);
 
     const navigate = useNavigate();
-    const { accessToken, sessionId } = useContext(UserContext);
-    console.log("accessToken", accessToken)
-    console.log("session_id", sessionId)
+    const { accessToken, sessionId, userData, setUserData } = useContext(UserContext);
+    // console.log('userDatassssssss: ', userData);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -29,14 +25,14 @@ const HowItWorks = () => {
             }
             try {
                 const response = await getData(`/referral-program?token=${accessToken}&session_id=${sessionId}`);
-                console.log('response: ', response);
-                if (response.status === 200) {
-                    const data = response?.data?.user;
+                console.log('response: ', response?.user);
+                // if (response.status === 200) {
+                    const data = response?.user;
                     console.log("User Data:", data);
                     setUserData(data);
-                } else {
-                    console.error("API returned error status:", response.status);
-                }
+                // } else {
+                //     console.error("API returned error status:", response.status);
+                // }
             }
             catch (error) {
                 console.log(error);
@@ -125,9 +121,9 @@ const HowItWorks = () => {
                     </div>
 
                     <div className="text-center mt-5">
-                            <button className="btn btn-primary get-started-btn " onClick={handleGoToDashboard}>
-                                Get Started
-                            </button>
+                        <button className="btn btn-primary get-started-btn " onClick={handleGoToDashboard}>
+                            Get Started
+                        </button>
                     </div>
                 </div>
             </div>
