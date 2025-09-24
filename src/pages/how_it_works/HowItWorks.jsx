@@ -46,6 +46,7 @@ import axios from 'axios';
         }, [accessToken, sessionId]);
 
         console.log("userdata" ,userData)
+  console.log('accessToken: ', accessToken);
 
         const handleGoToDashboard = () => {
         if (!userData) {
