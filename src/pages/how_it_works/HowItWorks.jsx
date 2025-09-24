@@ -45,6 +45,7 @@ const HowItWorks = () => {
     console.log("userdata", userData)
     console.log('accessToken: ', accessToken);
 
+    
     const handleGoToDashboard = () => {
 
         if (userData) {
