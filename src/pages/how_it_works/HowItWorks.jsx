@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import stepindicator from '../../assets/Images/how-it-work/line.svg'
 import one from '../../assets/Images/how-it-work/1.png'
@@ -9,23 +9,69 @@ import four from '../../assets/Images/how-it-work/4.png'
 import "../../App.scss";
 import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
 import { UserContext } from '../../UseContext/useContext';
+import axios from 'axios';
 
 const HowItWorks = () => {
+    const [userData, setUserData] = useState(null);
+    console.log('userData: ', userData);
 
-     const navigate = useNavigate();
-  const { accessToken, sessionId } = useContext(UserContext);
-  console.log('accessToken: ', accessToken);
+    const navigate = useNavigate();
+    const { accessToken, sessionId } = useContext(UserContext);
+    console.log("accessToken", accessToken)
+    console.log("session_id", sessionId)
 
-  const handleGoToDashboard = () => {
-    if (accessToken && sessionId) {
-      navigate('/home');
-    } else {
-      alert('Invalid user.');
-    }
-  };
+    useEffect(() => {
+        const fetchUserData = async () => {
+            if (!accessToken || !sessionId) {
+                console.warn('No accessToken or sessionId found');
+                return;
+            }
+            // const ApiURL = 'https://b1b41a079b39.ngrok-free.app';
+            try {
+                const response = await axios.get(`https://b1b41a079b39.ngrok-free.app/referral-program?token=${accessToken}&session_id=${sessionId}`, {
+                    headers: {
+                        "ngrok-skip-browser-warning": "true",
+                        "Content-Type": "application/json",
+                    },
+                });
+                console.log('response: ', response);
+                if (response.status === 200) {
+                    const data = response?.data?.user;
+                    console.log("User Data:", data);
+                    setUserData(data);
+                } else {
+                    console.error("API returned error status:", response.status);
+                }
+            }
+            catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchUserData();
+    }, [accessToken, sessionId]);
+
+    console.log("userdata", userData)
+    console.log('accessToken: ', accessToken);
+
+    const handleGoToDashboard = () => {
+        if (!userData) {
+            alert("No user data found");
+            return;
+        }
+
+
+        if (sessionId && accessToken) {
+            navigate('/home');
+        } else {
+            alert("Session mismatch! Access denied.");
+        }
+    };
+
 
     return (
         <div className="referral-program bg-white montserrat-medium ">
+
             <div className="row justify-content-center align-items-center">
                 <div className="referal-row">
                     <div className="program-header text-center ">
@@ -35,6 +81,7 @@ const HowItWorks = () => {
                             the More You Earn!
                         </p>
                     </div>
+
 
                     <div className="referral-journey">
 
@@ -88,7 +135,7 @@ const HowItWorks = () => {
                     </div>
 
                     <div className="text-center mt-5">
-                        <NavLink to={"/home"}>
+                        <NavLink>
                             <button className="btn btn-primary get-started-btn " onClick={handleGoToDashboard}>
                                 Get Started
                             </button>
@@ -103,31 +150,3 @@ const HowItWorks = () => {
 
 export default HowItWorks;
 
-
-// import React, { useContext } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import { UserContext } from '../../UseContext/useContext';
-
-// const HowItWorks = () => {
-//   const navigate = useNavigate();
-//   const { accessToken, sessionId } = useContext(UserContext);
-
-//   const handleGoToDashboard = () => {
-//     if (accessToken && sessionId) {
-//       navigate('/home');
-//     } else {
-//       alert('Please click the Dummy button first.');
-//     }
-//   };
-
-//   return (
-//     <div className="text-center mt-5">
-//       <h1>Referral & Earn Program</h1>
-//       <button className="btn btn-primary" onClick={handleGoToDashboard}>
-//         {accessToken && sessionId ? 'Go to Dashboard' : 'Get Started'}
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default HowItWorks;

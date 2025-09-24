@@ -7,13 +7,13 @@ const Dummy = () => {
   const { setAccessToken, setSessionId } = useContext(UserContext);
 
   const handleClick = () => {
-    const dummyToken = "dummy_token_8281";
-    const dummySession = "dummy_session_8281";
+    const dummyToken = "dummy_token_5474";
+    const dummySession = "dummy_session_5474";
 
     sessionStorage.setItem('access_token', dummyToken);
     sessionStorage.setItem('session_id', dummySession);
 
-   
+
     setAccessToken(dummyToken);
     setSessionId(dummySession);
 
