@@ -122,7 +122,7 @@ const Home = () => {
             <div className='container my-5'>
                 <div className='row pt-5 g-lg-5 g-4 justify-content-center mx-1'>
                     {ScoreCardData?.map((item, index) => (
-                        <div className='col col-md col-lg' key={index}>
+                        <div className='col-6 col-md col-lg' key={index}>
                             <NavLink to={"/myreferral"} className={"text-decoration-none"}>
                                 <div className='score-card position-relative border-radius-12 d-flex flex-column align-items-center justify-content-center p-3'>
                                     <img src={item.image} className='score-img position-absolute start-100 top-0 translate-middle' alt="Loading" />
