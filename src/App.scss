@@ -3444,7 +3444,6 @@
     @media (max-width:767px) {
         .prgicon:nth-child(1) {
             margin-top: 20px;
-
         }
     }
 
@@ -3516,14 +3515,12 @@
         }
 
 
-
     }
 
     @media (max-width: 998px) {
         .tooltiptext {
+            top: 10%;
             bottom: 80%;
-            left: 70%;
-
             // &::after {
             //     position: absolute;
             //     left: 50%;
