@@ -50,16 +50,11 @@ const HowItWorks = () => {
     console.log('accessToken: ', accessToken);
 
     const handleGoToDashboard = () => {
-        if (!userData) {
-            alert("No user data found");
-            return;
-        }
 
-
-        if (sessionId && accessToken) {
+        if (userData) {
             navigate('/home');
         } else {
-            alert("Session mismatch! Access denied.");
+            alert("No user data found.");
         }
     };
 
@@ -130,11 +125,9 @@ const HowItWorks = () => {
                     </div>
 
                     <div className="text-center mt-5">
-                        <NavLink>
                             <button className="btn btn-primary get-started-btn " onClick={handleGoToDashboard}>
                                 Get Started
                             </button>
-                        </NavLink>
                     </div>
                 </div>
             </div>
