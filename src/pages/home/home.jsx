@@ -64,7 +64,6 @@ const faqData = [
 
 const Home = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-
     // Footer Planet animation
     const footerRef = useRef(null);
     const [showFooterPlanet, setShowFooterPlanet] = useState(false);
