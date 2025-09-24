@@ -39,43 +39,38 @@ const faqData = [
 
 const Home = () => {
 
-     const {accessToken, sessionId} = useContext(UserContext)
+    const {accessToken, sessionId} = useContext(UserContext)
 
     const [scoreData, setScoreData] = useState([]);
 
 
 useEffect(() => {
     const fetchScoreData = async () => {
-  try {
-    const data = await postData(
-      `/referral_program/dashboard?token=${accessToken}&session_id=${sessionId}`,
-      { dummy: true }
-    );
-
-    console.log("API Data:", data);
-
-    const formattedData = [
-      {
+        try {
+            const data = await postData(`/referral_program/dashboard?token=${accessToken}&session_id=${sessionId}`,{ dummy: true });
+        
+            const formattedData = [
+        {
         score: data?.rewards?.current_meteors || 0,
         title: "Meteors",
         image: Meteors,
-      },
-      {
+        },
+        {
         score: data?.referrals?.total_referrals || 0,
         title: "Referrals",
         image: Referral,
-      },
-      {
+        },
+        {
         score: data?.referrals?.successful_referrals || 0,
         title: "Approved",
         image: Plane,
-      },
-      {
+        },
+        {
         score: data?.referrals?.pending_referrals || 0,
         title: "Pending",
         image: Clock,
-      },
-      {
+        },
+        {
         score:
           (data?.referrals?.total_referrals || 0) -
           (data?.referrals?.pending_referrals || 0) -
