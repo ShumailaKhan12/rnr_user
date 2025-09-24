@@ -11,6 +11,7 @@ const ApiURL = 'https://b1b41a079b39.ngrok-free.app'; // Replace with your actua
 const api = axios.create({
   baseURL: ApiURL,
   headers: {
+    "ngrok-skip-browser-warning": "true",
     'Content-Type': 'application/json',
   },
 });

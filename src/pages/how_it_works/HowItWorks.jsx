@@ -10,6 +10,7 @@ import "../../App.scss";
 import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
 import { UserContext } from '../../UseContext/useContext';
 import axios from 'axios';
+import { getData, postData } from '../../services/api';
 
 const HowItWorks = () => {
     const [userData, setUserData] = useState(null);
@@ -26,14 +27,8 @@ const HowItWorks = () => {
                 console.warn('No accessToken or sessionId found');
                 return;
             }
-            // const ApiURL = 'https://b1b41a079b39.ngrok-free.app';
             try {
-                const response = await axios.get(`https://b1b41a079b39.ngrok-free.app/referral-program?token=${accessToken}&session_id=${sessionId}`, {
-                    headers: {
-                        "ngrok-skip-browser-warning": "true",
-                        "Content-Type": "application/json",
-                    },
-                });
+                const response = await getData(`/referral-program?token=${accessToken}&session_id=${sessionId}`);
                 console.log('response: ', response);
                 if (response.status === 200) {
                     const data = response?.data?.user;
