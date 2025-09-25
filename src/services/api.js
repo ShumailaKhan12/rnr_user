@@ -5,12 +5,13 @@ const Auth = JSON?.parse(localStorage.getItem('Auth') ?? '{}');
 
 // 🔧 Base URL setup
 // const ApiURL = 'https://elite.intelligence-world.com'; // Replace with your actual API base URL
-const ApiURL = 'https://269479db5721.ngrok-free.app'; // Replace with your actual API base URL
+const ApiURL = 'https://d8d7a59d17a8.ngrok-free.app'; // Replace with your actual API base URL
 
 // 🌐 Axios instance
 const api = axios.create({
   baseURL: ApiURL,
   headers: {
+    "ngrok-skip-browser-warning": "true",
     'Content-Type': 'application/json',
   },
 });
@@ -26,9 +27,9 @@ export const getData = async (endpoint, query = {}) => {
 };
 
 // ✅ POST Request: with payload (body)
-export const postData = async (endpoint, payload = {}) => {
+export const postData = async (endpoint, payload = {},  query = {}) => {
   try {
-    const response = await api.post(endpoint, payload);
+    const response = await api.post(endpoint, payload, { params: query });
     return response.data;
   } catch (error) {
     if (

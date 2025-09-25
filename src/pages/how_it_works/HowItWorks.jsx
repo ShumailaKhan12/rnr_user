@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import stepindicator from '../../assets/Images/how-it-work/line.svg'
 import one from '../../assets/Images/how-it-work/1.png'
 import two from '../../assets/Images/how-it-work/2.png'
@@ -8,7 +8,54 @@ import three from '../../assets/Images/how-it-work/3.png'
 import four from '../../assets/Images/how-it-work/4.png'
 import "../../App.scss";
 import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
+import { UserContext } from '../../UseContext/useContext';
+import { getData } from '../../services/api';
+
 const HowItWorks = () => {
+
+    const navigate = useNavigate();
+    const { accessToken, sessionId, userData, setUserData } = useContext(UserContext);
+    // console.log('userDatassssssss: ', userData);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            if (!accessToken || !sessionId) {
+                console.warn('No accessToken or sessionId found');
+                return;
+            }
+            try {
+                const response = await getData(`/referral-program?token=${accessToken}&session_id=${sessionId}`);
+                console.log('response: ', response?.user);
+                // if (response.status === 200) {
+                    const data = response?.user;
+                    console.log("User Data:", data);
+                    setUserData(data);
+                // } else {
+                //     console.error("API returned error status:", response.status);
+                // }
+            }
+            catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchUserData();
+    }, [accessToken, sessionId]);
+
+    console.log("userdata", userData)
+    console.log('accessToken: ', accessToken);
+
+    
+    const handleGoToDashboard = () => {
+
+        if (userData) {
+            navigate('/home');
+        } else {
+            alert("No user data found.");
+        }
+    };
+
+
     return (
         <div className="referral-program bg-white montserrat-medium ">
 
@@ -21,6 +68,7 @@ const HowItWorks = () => {
                             the More You Earn!
                         </p>
                     </div>
+
 
                     <div className="referral-journey">
 
@@ -74,11 +122,9 @@ const HowItWorks = () => {
                     </div>
 
                     <div className="text-center mt-5">
-                        <NavLink to={"/home"}>
-                            <button className="btn btn-primary get-started-btn ">
-                                Get Started
-                            </button>
-                        </NavLink>
+                        <button className="btn btn-primary get-started-btn " onClick={handleGoToDashboard}>
+                            Get Started
+                        </button>
                     </div>
                 </div>
             </div>
@@ -88,3 +134,4 @@ const HowItWorks = () => {
 };
 
 export default HowItWorks;
+
