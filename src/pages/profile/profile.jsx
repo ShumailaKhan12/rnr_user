@@ -38,11 +38,11 @@ const Profile = () => {
 
 
 
-     const [userData, setUserData] = useState(null);
+    //  const [userData, setUserData] = useState(null);
   
-    
+    const {userData, setUserData} = useContext(UserContext)
       const { accessToken, sessionId } = useContext(UserContext);
-
+const [isLoading, setIsLoading] = useState(true); 
   
    useEffect(() => {
   const fetchUserData = async () => {
@@ -51,18 +51,23 @@ const Profile = () => {
       return;
     }
     try {
+        setIsLoading(true)  
       const response = await postData(
         `/referral_program/dashboard?token=${accessToken}&session_id=${sessionId}`,
         { dummy: true }
       );
       
-      const data = response.user_data
+      const data = response
       setUserData(data);
       console.log('Full API response:', data);
     
     } catch (error) {
       console.log("API Error:", error);
     }
+    finally {
+      setIsLoading(false); // Stop loading after fetch
+    }
+
   };
 
   fetchUserData();
@@ -398,11 +403,11 @@ const Profile = () => {
               <div className="user-details">
                 <h4 className="mb-lg-3 user-name montserrat-semibold font-24 text-uppercase text-primary-color mb-0 lh-1">
                   {/* {UserDataAPI?.part1} */}
-                  {userData?.name}
+                  {userData?.user_data?.name}
                 </h4>
                 <small className="user-contact montserrat-medium font-16 lh-1">
                   {/* {UserDataAPI?.part3}  */}
-                  {userData?.mobile_number} <span> | </span> {userData?.email}
+                  {userData?.user_data?.mobile_number} <span> | </span> {userData?.user_data?.email}
                   {/* {UserDataAPI?.part2} */}
                 </small>
               </div>
@@ -809,7 +814,7 @@ const Profile = () => {
                     className="form-control font-14 text-primary-color montserrat-medium"
                     {...registerProfile('name')}
                     // defaultValue={UserDataAPI?.part1}
-                    defaultValue={userData?.name}
+                    defaultValue={userData?.user_data?.name}
                   />
                   {/* {errorsProfile?.name && (
                     <p className="text-danger">{errorsProfile?.name.message}</p>
@@ -839,7 +844,7 @@ const Profile = () => {
                       }
                     }}
                     // defaultValue={UserDataAPI?.part3}
-                    defaultValue={userData?.mobile_number}
+                    defaultValue={userData?.user_data?.mobile_number}
                   />
                 </div>
 
@@ -856,7 +861,7 @@ const Profile = () => {
                       required: 'Email is required',
                     })}
                     // defaultValue={UserDataAPI?.part2}
-                    defaultValue={userData?.email}
+                    defaultValue={userData?.user_data?.email}
                   />
                   {errorsProfile.email && (
                     <p className="text-danger">{errorsProfile.email.message}</p>
@@ -877,7 +882,7 @@ const Profile = () => {
                       required: 'ARN No. is required',
                     })}
                     // defaultValue={UserDataAPI?.part2}
-                    defaultValue={userData?.arn_id}
+                    defaultValue={userData?.user_data?.arn_id}
                   />
                   {errorsProfile.arn_number && (
                     <p className="text-danger">{errorsProfile.arn_number.message}</p>

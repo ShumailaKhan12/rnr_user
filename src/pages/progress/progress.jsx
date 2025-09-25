@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import PlanetProgress from "./progressBar"
-import { UserContext } from '../../UseContext/useContext';
 // Import Iamges
 import tiltship from "../../assets/Images/progress-img/tillship1.svg";
 import star from "../../assets/Images/progress-img/star.svg";
@@ -18,11 +17,13 @@ import prgicon from "../../assets/Images/progress-img/prgicon.svg";
 import astronot from "../../assets/Images/progress-img/astronot.svg"
 import longarrow from "../../assets/Images/progress-img/lngarw.svg"
 import { IoIosArrowBack } from 'react-icons/io';
-import { NavLink } from 'react-router-dom';
+import { data, NavLink } from 'react-router-dom';
 import InviteModal from '../../components/invite/InviteModal';
 // import dot from '../../assets/Images/progress-img/dot.png'
 import Frame from '../../assets/Images/progress-img/Frame.png'
 import mobileLine from '../../assets/Images/progress-img/mobile-line.png'
+import { UserContext } from '../../UseContext/useContext';
+import { postData } from '../../services/api';
 // import dot from '../../assets/Images/progress-img/dot.png'
 // import Frame from '../../assets/Images/progress-img/Frame.png'
 // Array of planet images for rotation display
@@ -34,6 +35,34 @@ const Progress = () => {
 
   const openInviteModal = () => setIsInviteOpen(true);
   const closeInviteModal = () => setIsInviteOpen(false);
+
+    const { accessToken, sessionId, userData, setUserData } = useContext(UserContext);
+console.log("accessToken", accessToken)
+console.log("sessionid",sessionId)
+console.log("Progess", userData)
+
+
+const [progressData, setProgressData] = useState(null);
+
+console.log(progressData)
+
+useEffect(() => {
+  const fetchUserProgress = async () => {
+    try {
+      if (userData?.Id) {
+        const response = await postData(`referral_program/progress/${userData.Id}`, {});
+        console.log("API Response:", response);
+
+        setProgressData(response); 
+      }
+    } catch (error) {
+      console.error("API Error:", error);
+    }
+  };
+
+  fetchUserProgress();
+}, [userData]);
+
 
   // Context data from UserContext
   // const {
@@ -125,7 +154,7 @@ const Progress = () => {
         <div className="mobile-planet-section planet-0">
           <img className="mobile-planet-img planet-purple" src={images[0]} alt="Planet A" />
           <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet A</h4>
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{ progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
             <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br />  <span className='space-grotesk-medium'>1000 Meteors</span></p>
 
           </div>
@@ -135,7 +164,7 @@ const Progress = () => {
         <div className="mobile-planet-section planet-25">
           <img className="mobile-planet-img planet-yellow blurred" src={images[1]} alt="Planet B" />
           <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet B</h4>
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{ progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
             <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>You are just  <span className='space-grotesk-medium'>1850 Meteors</span> <br />  away to reach to this planet</p>
           </div>
         </div>
@@ -144,7 +173,7 @@ const Progress = () => {
         <div className="mobile-planet-section planet-50">
           <img className="mobile-planet-img planet-green blurred" src={images[2]} alt="Planet C" />
           <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet C</h4>
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{ progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
             <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Little more consistency and <br /> you will earn  <span className='space-grotesk-medium'> 2080 Meteors</span></p>
 
           </div>
@@ -154,7 +183,7 @@ const Progress = () => {
         <div className="mobile-planet-section planet-75">
           <img className="mobile-planet-img planet-blue blurred" src={images[3]} alt="Planet D" />
           <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>Planet D</h4>
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{ progressData?.current_galaxy?.[0]?.galaxy_name } </h4>
             <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'> <span className='space-grotesk-medium'>3080 Meteors</span> to go and <br /> your exclusive reward awaits!!!</p>
 
           </div>
@@ -194,8 +223,8 @@ const Progress = () => {
                 <div className="py-lg-2 py-1 offset-2 text-white d-flex justify-content-evenly align-items-center">
                   <span className="montserrat-bold  header-text font-14 till-ship-border-color pe-3 z-1 position-relative">
                     {/* {ContextHomeDataAPI?.part2} */}
-                    300
-                    <img
+                    {progressData?.total_meteors ?? 0}
+                    <img 
                       className="my-1 mx-2 header-meteors"
                       src={meteor}
                       alt="metero"
@@ -206,7 +235,7 @@ const Progress = () => {
                   </span>
                   <span className="header-text font-14 montserrat-semibold">
                     {/* {ContextHomeDataAPI?.part1} */}
-                    1
+                     {progressData?.total_stars ?? 0}
                     <img className="mx-1 header-star" src={star} alt="star" />
                     <span className="space-grotesk-medium header-text">star</span>
                   </span>
@@ -228,8 +257,11 @@ const Progress = () => {
 
                   <PlanetProgress
                     Pnt={100}
+                    progressData={progressData}
+                    //  Pnt={progressData?.total_meteors ?? 0}
                     // Pnt={MeterUpdateData?.total_meteors}
                     planets={planets}
+                    data={data}
                     prgicon={prgicon}
                     borderstar={borderstar}
                   />
@@ -297,7 +329,7 @@ const Progress = () => {
 
                 <div className="col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0">
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                    Planet A
+                    { progressData?.current_galaxy?.[0]?.galaxy_name || "Planet A"}  
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[
                     currentIndex
@@ -340,7 +372,7 @@ const Progress = () => {
 
                 <div className="col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0">
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                    Planet C
+                    { progressData?.current_galaxy?.[0]?.galaxy_name || "Planet C"}
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[
                     imageNumbers
@@ -385,7 +417,7 @@ const Progress = () => {
                 <div className={`col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0`}
                 >
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                    Planet E
+                     { progressData?.current_galaxy?.[0]?.galaxy_name || "Planet E"}
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[4]
                     ?.milestone_name
@@ -435,7 +467,7 @@ const Progress = () => {
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1">
-                      Planet B
+                      { progressData?.current_galaxy?.[0]?.galaxy_name || "Planet B"}
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[
                       nextIndex
@@ -478,7 +510,7 @@ const Progress = () => {
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1">
-                      Planet D
+                      { progressData?.current_galaxy?.[0]?.galaxy_name || "Planet D"}
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[
                       prevIndex
@@ -521,7 +553,7 @@ const Progress = () => {
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1">
-                      Planet F
+                      { progressData?.current_galaxy?.[0]?.galaxy_name || "Planet F"}
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[5]
                       ?.milestone_name
