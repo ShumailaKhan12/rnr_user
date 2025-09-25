@@ -9,6 +9,8 @@ import './styles/_variables.scss';
 import './styles/main.scss';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import AppRoutes from './routes/appRoutes';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import HowItWorks from './pages/HowItWorks';
 // import Home from './pages/home/home';
 
@@ -16,6 +18,7 @@ function App() {
 
   return (
     <>
+     <ToastContainer />
       <AppRoutes />
     </>
   )

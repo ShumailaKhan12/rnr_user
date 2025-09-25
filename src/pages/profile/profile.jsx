@@ -38,41 +38,41 @@ const Profile = () => {
 
 
 
-     const [userData, setUserData] = useState(null);
-      console.log('userData: ', userData);
+    //  const [userData, setUserData] = useState(null);
   
-    
+    const {userData, setUserData} = useContext(UserContext)
       const { accessToken, sessionId } = useContext(UserContext);
-      console.log("accessToken", accessToken)
-      console.log("session_id", sessionId)
+const [isLoading, setIsLoading] = useState(true); 
   
-      useEffect(() => {
-          const fetchUserData = async () => {
-              if (!accessToken || !sessionId) {
-                  console.warn('No accessToken or sessionId found');
-                  return;
-              }
-              try {
- const response = await postData(
-      `/referral_program/dashboard?token=${accessToken}&session_id=${sessionId}`,
-      { dummy: true }
-    );                  console.log('response: ', response);
-                  if (response.status === 200) {
-                      const data = response?.data?.user_data;
-                      console.log("User Data:", data);
-                      setUserData(data);
-                  } else {
-                      console.error("API returned error status:", response.status);
-                  }
-              }
-              catch (error) {
-                  console.log(error);
-              }
-          };
-  
-          fetchUserData();
-      }, [accessToken, sessionId]);
-  
+   useEffect(() => {
+  const fetchUserData = async () => {
+    if (!accessToken || !sessionId) {
+      console.warn('No accessToken or sessionId found');
+      return;
+    }
+    try {
+        setIsLoading(true)  
+      const response = await postData(
+        `/referral_program/dashboard?token=${accessToken}&session_id=${sessionId}`,
+        { dummy: true }
+      );
+      
+      const data = response
+      setUserData(data);
+      console.log('Full API response:', data);
+    
+    } catch (error) {
+      console.log("API Error:", error);
+    }
+    finally {
+      setIsLoading(false); // Stop loading after fetch
+    }
+
+  };
+
+  fetchUserData();
+}, [accessToken, sessionId]);
+
   // Profile form
   const {
     register: registerProfile,
@@ -403,11 +403,11 @@ const Profile = () => {
               <div className="user-details">
                 <h4 className="mb-lg-3 user-name montserrat-semibold font-24 text-uppercase text-primary-color mb-0 lh-1">
                   {/* {UserDataAPI?.part1} */}
-                  Areeba Mujeeb  {userData?.name}
+                  {userData?.user_data?.name}
                 </h4>
                 <small className="user-contact montserrat-medium font-16 lh-1">
                   {/* {UserDataAPI?.part3}  */}
-                  91234546778 {userData?.mobile_number} <span> | </span> areeba1234@gmail.com {userData?.email}
+                  {userData?.user_data?.mobile_number} <span> | </span> {userData?.user_data?.email}
                   {/* {UserDataAPI?.part2} */}
                 </small>
               </div>
@@ -810,9 +810,11 @@ const Profile = () => {
                   </label>
                   <input
                     type="text"
+                    disabled
                     className="form-control font-14 text-primary-color montserrat-medium"
                     {...registerProfile('name')}
-                    defaultValue={UserDataAPI?.part1}
+                    // defaultValue={UserDataAPI?.part1}
+                    defaultValue={userData?.user_data?.name}
                   />
                   {/* {errorsProfile?.name && (
                     <p className="text-danger">{errorsProfile?.name.message}</p>
@@ -826,6 +828,7 @@ const Profile = () => {
                   </label>
                   <input
                     type="text"
+                    disabled
                     className="form-control font-14 text-primary-color montserrat-medium"
                     {...registerProfile('mobile', {
                       maxLength: { value: 10, message: 'Max length is 10' },
@@ -840,7 +843,8 @@ const Profile = () => {
                         e.preventDefault();
                       }
                     }}
-                    defaultValue={UserDataAPI?.part3}
+                    // defaultValue={UserDataAPI?.part3}
+                    defaultValue={userData?.user_data?.mobile_number}
                   />
                 </div>
 
@@ -851,11 +855,13 @@ const Profile = () => {
                   </label>
                   <input
                     type="email"
+                    disabled
                     className="form-control font-14 text-primary-color montserrat-medium"
                     {...registerProfile('email', {
                       required: 'Email is required',
                     })}
-                    defaultValue={UserDataAPI?.part2}
+                    // defaultValue={UserDataAPI?.part2}
+                    defaultValue={userData?.user_data?.email}
                   />
                   {errorsProfile.email && (
                     <p className="text-danger">{errorsProfile.email.message}</p>
@@ -870,11 +876,13 @@ const Profile = () => {
                   </label>
                   <input
                     type="text"
+                    disabled
                     className="form-control font-14 text-primary-color montserrat-medium"
                     {...registerProfile('arn_number', {
                       required: 'ARN No. is required',
                     })}
-                    defaultValue={UserDataAPI?.part2}
+                    // defaultValue={UserDataAPI?.part2}
+                    defaultValue={userData?.user_data?.arn_id}
                   />
                   {errorsProfile.arn_number && (
                     <p className="text-danger">{errorsProfile.arn_number.message}</p>

@@ -2,7 +2,7 @@ import React from 'react'
 import '../../App.scss'
 import X from '../../assets/Images/invite-modal/X.png'
 
-const InviteSuccessModal = ({ setSuccessModalOpen, onClose }) => {
+const InviteSuccessModal = ({ setSuccessModalOpen, onClose, messageHeading, message }) => {
     const handleClose = () => {
         setSuccessModalOpen(false); // Success modal close
         onClose(); // Outer Invite modal bhi close
@@ -17,13 +17,16 @@ const InviteSuccessModal = ({ setSuccessModalOpen, onClose }) => {
                 >
                     <img src={X} alt="close" />
                 </button>
-                <h2 className='text-primary-color font-24 montserrat-semibold text-center'>Invite Sent Successfully!</h2>
+                <h2 className='text-primary-color font-24 montserrat-semibold text-center'>
+                   {messageHeading} 
+                </h2>
                 <p className='space-grotesk-medium font-18 text-primary-color text-center'>
-                    Your invitation has been sent. <br />
-                    Your friend will receive an Acknowledgement <br /> shortly.
+                    {message}
+                    {/* Your invitation has been sent. <br />
+                    Your friend will receive an Acknowledgement <br /> shortly. */}
                 </p>
                 <button
-                    className="btn-submit bg-blue font-16 text-white montserrat-medium "
+                    className="btn-submit bg-blue font-16 text-white montserrat-medium mt-4"
                     onClick={() => setSuccessModalOpen(false)} // Ye sirf success modal band karega
                 >
                     Send Another Invite
