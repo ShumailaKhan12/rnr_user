@@ -7,7 +7,9 @@ export const UserProvider = ({ children }) => {
 
   const [accessToken, setAccessToken] = useState(null);
   const [sessionId, setSessionId] = useState(null);
-const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState(null);
+
+
   useEffect(() => {
     const token = sessionStorage.getItem('access_token');
     const session = sessionStorage.getItem('session_id');

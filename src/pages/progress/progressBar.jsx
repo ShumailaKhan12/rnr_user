@@ -1,6 +1,7 @@
-const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
+const PlanetProgress = ({ Pnt, prgicon, planets, borderstar, progressData }) => {
 
-  
+  console.log(progressData)
+  // const galaxyName = progressData?.current_galaxy?.[0]?.galaxy_name ?? "";
 
   return (
 
@@ -50,7 +51,9 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
             <span
               className={`ms-lg-2 progress-sect-name ${isActive && index == 0 ? "d-flex align-items-lg-start align-items-center" : "d-flex align-items-center mt-4 mt-lg-0 align-items-lg-end"} ${isActive && index !== 0 ? "d-flex align-items-center" : ""} space-grotesk-medium font-16 text-blue-2`}
             >
-              {planet.name}
+              {/* {planet.name} */}
+              {/* {galaxyName} */}
+               {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet"}
             </span>
 
             
