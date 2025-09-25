@@ -34,13 +34,13 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
               />
 
               {/* Show active progress hr */}
-              {index == 0 && 
+              {isActive && 
               <hr className="opacity-100 progress-side-hr" />
                }
             </div>
 
             {/* Tooltip for current range only */}
-            {index == 0 && (
+            {isActive && (
               <span className="position-absolute space-grotesk-medium font-12 tooltiptext p-2 rounded text-light-yellow">
                 {Pnt} Meteors
               </span>
@@ -48,7 +48,7 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
 
             {/* Planet Name */}
             <span
-              className={`ms-lg-2 progress-sect-name ${index == 0 ? "d-flex align-items-lg-start align-items-center" : "d-flex align-items-center mt-4 mt-lg-0 align-items-lg-end"} ${index !== 0 ? "d-flex align-items-center" : ""} space-grotesk-medium font-16 text-blue-2`}
+              className={`ms-lg-2 progress-sect-name ${isActive && index == 0 ? "d-flex align-items-lg-start align-items-center" : "d-flex align-items-center mt-4 mt-lg-0 align-items-lg-end"} ${isActive && index !== 0 ? "d-flex align-items-center" : ""} space-grotesk-medium font-16 text-blue-2`}
             >
               {planet.name}
             </span>

@@ -18,6 +18,7 @@ const InviteModal = ({ isOpen, onClose }) => {
     // UseStates
     const [successModalOpen, setSuccessModalOpen] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [apiMessage, setApiMessage] = useState("");
 
     // UseContext
     const { accessToken, sessionId } = useContext(UserContext);
@@ -42,6 +43,7 @@ const InviteModal = ({ isOpen, onClose }) => {
             const response = await postData(`/referral_program/referral/send_invitation?token=${accessToken}&session_id=${sessionId}`, payload);
 
             // toastSuccess(response?.message);
+            setApiMessage(response?.message || "Invitation sent successfully!");
             setSuccessModalOpen(true);
             reset();
             console.log("Response:", response);
@@ -152,7 +154,7 @@ const InviteModal = ({ isOpen, onClose }) => {
 
             {/* Success Modal */}
             {successModalOpen && (
-                <InviteSuccessModal setSuccessModalOpen={setSuccessModalOpen} onClose={onClose} />
+                <InviteSuccessModal setSuccessModalOpen={setSuccessModalOpen} onClose={onClose} message={apiMessage} />
 
             )}
         </>
