@@ -67,13 +67,13 @@ const AcknowlegmentModal = ({ onClose }) => {
 
   return (
     <div
-      className="modal fade show overlay"
+      className="modal fade show overlay overflow-hidden"
       tabIndex="-1"
       role="dialog"
       aria-hidden="true"
       style={{ display: "block" }}
     >
-      <div className="modal-dialog modal-dialog-centered my-custom-dialog bg-gradient-color text-primary-color" role="document">
+      <div className="modal-dialog overflow-auto badge modal-dialog-centered my-custom-dialog bg-gradient-color text-primary-color" role="document">
         <div className="modal-content custom-modal-content">
           {/* Close */}
           <button className="close-btn" onClick={onClose}>
@@ -96,7 +96,7 @@ const AcknowlegmentModal = ({ onClose }) => {
             <p className="font-14"><strong>Date -</strong> dd-mm-yyyy</p>
 
             <p className="fw-bold mb-1 font-14">Details of Referrer -</p>
-            <p className="font-14">
+            <p className="font-14 flex-wrap">
               The invite has been sent by <strong>Sakshee</strong>, holding
               mobile number{" "}
               <strong><a href="tel:9685492401">9685492401</a></strong>{" "}
