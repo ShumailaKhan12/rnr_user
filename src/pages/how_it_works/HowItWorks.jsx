@@ -10,6 +10,8 @@ import "../../App.scss";
 import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
 import { UserContext } from '../../UseContext/useContext';
 import { getData } from '../../services/api';
+import { toast } from 'react-toastify';
+import { toastError } from '../../utils/toster';
 
 const HowItWorks = () => {
 
@@ -51,7 +53,8 @@ const HowItWorks = () => {
         if (userData) {
             navigate('/home');
         } else {
-            alert("No user data found.");
+            // toast.error("No user data found." );
+             toastError("No user data found");
         }
     };
 

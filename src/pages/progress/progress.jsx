@@ -36,32 +36,33 @@ const Progress = () => {
   const openInviteModal = () => setIsInviteOpen(true);
   const closeInviteModal = () => setIsInviteOpen(false);
 
-    const { accessToken, sessionId, userData, setUserData } = useContext(UserContext);
-console.log("accessToken", accessToken)
-console.log("sessionid",sessionId)
-console.log("Progess", userData)
+  const { accessToken, sessionId, userData, setUserData ,ContextHomeDataAPI } = useContext(UserContext);
+  console.log('ContextHomeDataAPI: ', ContextHomeDataAPI);
+  console.log("accessToken", accessToken)
+  console.log("sessionid", sessionId)
+  console.log("Progess", userData)
 
 
-const [progressData, setProgressData] = useState(null);
+  const [progressData, setProgressData] = useState(null);
 
-console.log(progressData)
+  console.log(progressData)
 
-useEffect(() => {
-  const fetchUserProgress = async () => {
-    try {
-      if (userData?.Id) {
-        const response = await postData(`referral_program/progress/${userData.Id}`, {});
-        console.log("API Response:", response);
+  // useEffect(() => {
+  //   const fetchUserProgress = async () => {
+  //     try {
+  //       if (userData?.Id) {
+  //         const response = await postData(`referral_program/progress/${userData.Id}`, {});
+  //         console.log("API Response:", response);
 
-        setProgressData(response); 
-      }
-    } catch (error) {
-      console.error("API Error:", error);
-    }
-  };
+  //         setProgressData(response);
+  //       }
+  //     } catch (error) {
+  //       console.error("API Error:", error);
+  //     }
+  //   };
 
-  fetchUserProgress();
-}, [userData]);
+  //   fetchUserProgress();
+  // }, [userData]);
 
 
   // Context data from UserContext
@@ -154,7 +155,7 @@ useEffect(() => {
         <div className="mobile-planet-section planet-0">
           <img className="mobile-planet-img planet-purple" src={images[0]} alt="Planet A" />
           <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{ progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
             <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br />  <span className='space-grotesk-medium'>1000 Meteors</span></p>
 
           </div>
@@ -164,7 +165,7 @@ useEffect(() => {
         <div className="mobile-planet-section planet-25">
           <img className="mobile-planet-img planet-yellow blurred" src={images[1]} alt="Planet B" />
           <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{ progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
             <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>You are just  <span className='space-grotesk-medium'>1850 Meteors</span> <br />  away to reach to this planet</p>
           </div>
         </div>
@@ -173,7 +174,7 @@ useEffect(() => {
         <div className="mobile-planet-section planet-50">
           <img className="mobile-planet-img planet-green blurred" src={images[2]} alt="Planet C" />
           <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{ progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
             <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Little more consistency and <br /> you will earn  <span className='space-grotesk-medium'> 2080 Meteors</span></p>
 
           </div>
@@ -183,7 +184,7 @@ useEffect(() => {
         <div className="mobile-planet-section planet-75">
           <img className="mobile-planet-img planet-blue blurred" src={images[3]} alt="Planet D" />
           <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{ progressData?.current_galaxy?.[0]?.galaxy_name } </h4>
+            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{progressData?.current_galaxy?.[0]?.galaxy_name} </h4>
             <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'> <span className='space-grotesk-medium'>3080 Meteors</span> to go and <br /> your exclusive reward awaits!!!</p>
 
           </div>
@@ -224,7 +225,7 @@ useEffect(() => {
                   <span className="montserrat-bold  header-text font-14 till-ship-border-color pe-3 z-1 position-relative">
                     {/* {ContextHomeDataAPI?.part2} */}
                     {progressData?.total_meteors ?? 0}
-                    <img 
+                    <img
                       className="my-1 mx-2 header-meteors"
                       src={meteor}
                       alt="metero"
@@ -235,7 +236,7 @@ useEffect(() => {
                   </span>
                   <span className="header-text font-14 montserrat-semibold">
                     {/* {ContextHomeDataAPI?.part1} */}
-                     {progressData?.total_stars ?? 0}
+                    {progressData?.total_stars ?? 0}
                     <img className="mx-1 header-star" src={star} alt="star" />
                     <span className="space-grotesk-medium header-text">star</span>
                   </span>
@@ -329,7 +330,7 @@ useEffect(() => {
 
                 <div className="col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0">
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                    { progressData?.current_galaxy?.[0]?.galaxy_name || "Planet A"}  
+                    {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet A"}
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[
                     currentIndex
@@ -372,7 +373,7 @@ useEffect(() => {
 
                 <div className="col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0">
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                    { progressData?.current_galaxy?.[0]?.galaxy_name || "Planet C"}
+                    {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet C"}
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[
                     imageNumbers
@@ -417,7 +418,7 @@ useEffect(() => {
                 <div className={`col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0`}
                 >
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                     { progressData?.current_galaxy?.[0]?.galaxy_name || "Planet E"}
+                    {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet E"}
                     {/* {
                   ContextFaqsDataAPI?.galaxy_data?.milestones[4]
                     ?.milestone_name
@@ -467,7 +468,7 @@ useEffect(() => {
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1">
-                      { progressData?.current_galaxy?.[0]?.galaxy_name || "Planet B"}
+                      {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet B"}
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[
                       nextIndex
@@ -510,7 +511,7 @@ useEffect(() => {
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1">
-                      { progressData?.current_galaxy?.[0]?.galaxy_name || "Planet D"}
+                      {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet D"}
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[
                       prevIndex
@@ -553,7 +554,7 @@ useEffect(() => {
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1">
-                      { progressData?.current_galaxy?.[0]?.galaxy_name || "Planet F"}
+                      {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet F"}
                       {/* {
                     ContextFaqsDataAPI?.galaxy_data?.milestones[5]
                       ?.milestone_name

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import { UserContext } from '../../UseContext/useContext';
 // Images
 import ReferralUfo from '../../assets/Images/MyReferral/UFO-LEFT.svg';
 import HoverUfo from '../../assets/Images/MyReferral/referral-ufo.svg';
@@ -14,27 +14,30 @@ const ReferralCards = ({ RefralDataAPI }) => {
   // const [isTablet, setIsTablet] = useState(window.innerWidth < 992);
   const [slidesToShow, setSlidesToShow] = useState(window.innerWidth < 992 ? 1 : 3);
 
+
+  const { ContextHomeDataAPI } = useContext(UserContext);
+
   useEffect(() => {
     const handleResize = () => {
-    setSlidesToShow(window.innerWidth < 992 ? 1 : window.innerWidth < 1200 ? 2 : 3);
-  }
+      setSlidesToShow(window.innerWidth < 992 ? 1 : window.innerWidth < 1200 ? 2 : 3);
+    }
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-   }, []);
+  }, []);
 
 
-// useEffect(() => {
-//   const handleResize = () => {
-//     setSlidesToShow(window.innerWidth < 992 ? 1 : window.innerWidth < 1200 ? 2 : 3);
-//   };
-//   window.addEventListener("resize", handleResize);
-//   return () => window.removeEventListener("resize", handleResize);
-// }, []);
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setSlidesToShow(window.innerWidth < 992 ? 1 : window.innerWidth < 1200 ? 2 : 3);
+  //   };
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
 
   const cardsData = [
     {
       id: 1,
-      count: `${RefralDataAPI?.part1}`,
+      count: `${ContextHomeDataAPI?.referrals?.total_referrals}`,
       title: 'Total Referrals',
       subtitle: "People You've Referred",
       image: ReferralUfo,
@@ -42,7 +45,7 @@ const ReferralCards = ({ RefralDataAPI }) => {
     },
     {
       id: 2,
-      count: `${RefralDataAPI?.part2}`,
+      count: `${ContextHomeDataAPI?.referrals?.successful_referrals}`,
       title: 'Converted Referrals',
       subtitle: "Earning's by Referrals",
       image: ReferralUfo,
@@ -50,7 +53,7 @@ const ReferralCards = ({ RefralDataAPI }) => {
     },
     {
       id: 3,
-      count: `${RefralDataAPI?.part3}`,
+      count: `${ContextHomeDataAPI?.referrals?.pending_referrals}`,
       title: 'Pending Referrals',
       subtitle: 'No of Invites Waiting to Join',
       image: ReferralUfo,
@@ -77,35 +80,35 @@ const ReferralCards = ({ RefralDataAPI }) => {
   //   ],
 
   const sliderSettings = {
-  dots: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: slidesToShow,
-  slidesToScroll: 1,
-  arrows: true,
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: slidesToShow,
+    slidesToScroll: 1,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
       },
-    },
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
       },
-    },
-    {
-      breakpoint: 768, 
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
       },
-    },
-  ],
+    ],
   };
 
 
@@ -128,18 +131,18 @@ const ReferralCards = ({ RefralDataAPI }) => {
         View
       </button> */}
     </div>
-    
+
   );
 
   return (
     <div className="">
-        <Slider {...sliderSettings} className="referral-slider">
-          {cardsData.map((card) => (
-            <div key={card.id}>
-              <Card card={card} />
-            </div>
-          ))}
-        </Slider>
+      <Slider {...sliderSettings} className="referral-slider">
+        {cardsData.map((card) => (
+          <div key={card.id}>
+            <Card card={card} />
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };

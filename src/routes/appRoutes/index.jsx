@@ -8,11 +8,13 @@ import UserFaqs from '../../pages/profile/userFaqs';
 import Progress from '../../pages/progress/progress';
 import Dummy from '../../pages/dummy/dummy'
 import Acknowledgement from '../../pages/acknowledgement/acknowledgement';
+import PageNotFound from '../../pages/pageNotFound/PageNotFound';
 const AppRoutes = () => {
   return (
     <>
       <HashRouter>
         <Routes>
+          <Route path="*" element={<PageNotFound />} />
           <Route path="/" element={<HowItWorks />} />
           <Route path="/dummy" element={<Dummy />} />
           <Route path="/acknowledge" element={<Acknowledgement />} />

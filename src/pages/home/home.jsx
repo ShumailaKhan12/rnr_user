@@ -20,7 +20,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { getData, postData } from '../../services/api';
 import { UserContext } from '../../UseContext/useContext';
 
-   
+
 const faqData = [
     {
         question: "What is Wealth Elite’s Reward & Referral Program?",
@@ -39,58 +39,61 @@ const faqData = [
 
 const Home = () => {
 
-    const {accessToken, sessionId} = useContext(UserContext)
+    const { accessToken, sessionId, ContextHomeDataAPI, setContextHomeDataAPI } = useContext(UserContext)
+    console.log('ContextHomeDataAPI: ', ContextHomeDataAPI);
 
-    const [scoreData, setScoreData] = useState([]);
+    // const [scoreData, setScoreData] = useState([]);
 
 
-useEffect(() => {
-    const fetchScoreData = async () => {
-        try {
-            const data = await postData(`/referral_program/dashboard?token=${accessToken}&session_id=${sessionId}`,{ dummy: true });
-        
-            const formattedData = [
+    useEffect(() => {
+        const fetchScoreData = async () => {
+            try {
+                const data = await postData(`/referral_program/dashboard?token=${accessToken}&session_id=${sessionId}`, { dummy: true });
+                console.log('data: ', data);
+
+                setContextHomeDataAPI(data);
+            } catch (error) {
+                console.error("Error fetching score data:", error);
+            }
+        };
+
+        if (accessToken && sessionId) {
+            fetchScoreData();
+        }
+    }, [accessToken, sessionId]);
+
+
+    // ScoreCard Data Showed Here
+    const ScoreCard = [
         {
-        score: data?.rewards?.current_meteors || 0,
-        title: "Meteors",
-        image: Meteors,
+            score: ContextHomeDataAPI?.rewards?.current_meteors || 0,
+            title: "Meteors",
+            image: Meteors,
         },
         {
-        score: data?.referrals?.total_referrals || 0,
-        title: "Referrals",
-        image: Referral,
+            score: ContextHomeDataAPI?.referrals?.total_referrals || 0,
+            title: "Referrals",
+            image: Referral,
         },
         {
-        score: data?.referrals?.successful_referrals || 0,
-        title: "Approved",
-        image: Plane,
+            score: ContextHomeDataAPI?.referrals?.successful_referrals || 0,
+            title: "Approved",
+            image: Plane,
         },
         {
-        score: data?.referrals?.pending_referrals || 0,
-        title: "Pending",
-        image: Clock,
+            score: ContextHomeDataAPI?.referrals?.pending_referrals || 0,
+            title: "Pending",
+            image: Clock,
         },
         {
-        score:
-          (data?.referrals?.total_referrals || 0) -
-          (data?.referrals?.pending_referrals || 0) -
-          (data?.referrals?.successful_referrals || 0),
-        title: "Rejected",
-        image: Cross,
-      },
+            score:
+                (ContextHomeDataAPI?.referrals?.total_referrals || 0) -
+                (ContextHomeDataAPI?.referrals?.pending_referrals || 0) -
+                (ContextHomeDataAPI?.referrals?.successful_referrals || 0),
+            title: "Rejected",
+            image: Cross,
+        },
     ];
-
-    setScoreData(formattedData);
-  } catch (error) {
-    console.error("Error fetching score data:", error);
-  }
-};
-
-    if (accessToken && sessionId) {
-        fetchScoreData();
-    }
-}, [accessToken, sessionId]);
-
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     // Footer Planet animation
@@ -149,7 +152,7 @@ useEffect(() => {
             {/* ScoreCards Start Here */}
             <div className='container my-5'>
                 <div className='row pt-5 g-lg-5 g-4 justify-content-center mx-1'>
-                    {scoreData?.map((item, index) => (
+                    {ScoreCard?.map((item, index) => (
                         <div className='col-6 col-md col-lg' key={index}>
                             <NavLink to={"/myreferral"} className={"text-decoration-none"}>
                                 <div className='score-card position-relative border-radius-12 d-flex flex-column align-items-center justify-content-center p-3'>

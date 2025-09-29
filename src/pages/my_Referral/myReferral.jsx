@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 
 // Import Third PArty Components
 import { IoIosArrowBack } from "react-icons/io";
@@ -8,6 +8,7 @@ import ReferralCards from './referralCards';
 import FAQ from "../../components/faq";
 import TrackModal from './trackModal';
 import { NavLink } from 'react-router-dom';
+import { UserContext } from '../../UseContext/useContext';
 
 
 // Import Json
@@ -62,6 +63,9 @@ const referralData = [
 ];
 const MyReferral = () => {
 
+     const {ContextHomeDataAPI } = useContext(UserContext);
+      console.log('ContextHomeeeeeeeeeeeeee: ', ContextHomeDataAPI);
+
   // Footer Planet animation
   const footerRef = useRef(null);
   const [showFooterPlanet, setShowFooterPlanet] = useState(false);
@@ -114,18 +118,18 @@ const MyReferral = () => {
                   </tr>
                 </thead>
                 <tbody className='referral-table-body text-center'>
-                  {referralData?.map((item, index) => (
+                  {ContextHomeDataAPI?.referrals?.all_referrals?.map((item, index) => (
                     <tr key={index}>
                       <td scope="row" className='text-start ps-5 d-flex'>
                         <span className='referral-table-user rounded-circle me-3'></span>
                         <div>
                           <p className='font-size-16 montserrat-semibold mb-0'>{item?.name}</p>
-                          <p className='font-size-14 montserrat-medium mb-0'>{item?.email}</p>
+                          <p className='font-size-14 montserrat-medium mb-0'>{item?.mobile_number}</p>
                         </div>
                       </td>
-                      <td className='font-size-16 montserrat-semibold'>{item?.referredOn}</td>
-                      <td className='font-size-16 montserrat-semibold'>{item?.status}</td>
-                      <td className='font-size-16 montserrat-semibold'>{item?.points}</td>
+                      <td className='font-size-16 montserrat-semibold'>{item?.date}</td>
+                      <td className='font-size-16 montserrat-semibold'>{item?.acknowledgement_status}</td>
+                      <td className='font-size-16 montserrat-semibold'>{item?.earning}</td>
                       <td className='font-size-24 montserrat-medium'>
                         {/* {item?.referral_status !== "completed" ? ( */}
                           <>
