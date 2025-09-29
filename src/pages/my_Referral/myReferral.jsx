@@ -129,7 +129,7 @@ const MyReferral = () => {
                       </td>
                       <td className='font-size-16 montserrat-semibold'>{item?.date}</td>
                       <td className='font-size-16 montserrat-semibold'>{item?.acknowledgement_status}</td>
-                      <td className='font-size-16 montserrat-semibold'>{item?.earning}</td>
+                      <td className='font-size-16 montserrat-semibold'>{item?.earning || "-" }</td>
                       <td className='font-size-24 montserrat-medium'>
                         {/* {item?.referral_status !== "completed" ? ( */}
                           <>

@@ -36,16 +36,13 @@ const Progress = () => {
   const openInviteModal = () => setIsInviteOpen(true);
   const closeInviteModal = () => setIsInviteOpen(false);
 
-  const { accessToken, sessionId, userData, setUserData ,ContextHomeDataAPI } = useContext(UserContext);
-  console.log('ContextHomeDataAPI: ', ContextHomeDataAPI);
-  console.log("accessToken", accessToken)
-  console.log("sessionid", sessionId)
-  console.log("Progess", userData)
+  const {ContextHomeDataAPI } = useContext(UserContext);
+  console.log('ContextHomeDataAPI progresss: ', ContextHomeDataAPI);
 
 
   const [progressData, setProgressData] = useState(null);
 
-  console.log(progressData)
+  // console.log(progressData)
 
   // useEffect(() => {
   //   const fetchUserProgress = async () => {
@@ -330,35 +327,9 @@ const Progress = () => {
 
                 <div className="col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0">
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                    {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet A"}
-                    {/* {
-                  ContextFaqsDataAPI?.galaxy_data?.milestones[
-                    currentIndex
-                  ]?.milestone_name
-                } */}
+                    {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_name || "Planet A"}
                   </h4>
                   <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
-                  {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[
-                currentIndex
-                  ]?.milestone_description
-                ?.split(/(\d+\s*(?:Star|Meteors))/gi)
-                ?.map((part, index) =>
-                  /(\d+\s*(?:Star|Meteors))/i.test(part) ? (
-                    <span
-                      className="space-grotesk-medium"
-                      key={index}
-                    >
-                      {part}
-                    </span>
-                  ) : (
-                    <p
-                      className="space-grotesk-regular font-14 my-0"
-                      key={index}
-                    >
-                      {part}
-                    </p>
-                  ),
-                 )} */}
                 </div>
 
                 <div
@@ -374,11 +345,6 @@ const Progress = () => {
                 <div className="col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0">
                   <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
                     {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet C"}
-                    {/* {
-                  ContextFaqsDataAPI?.galaxy_data?.milestones[
-                    imageNumbers
-                  ]?.milestone_name
-                } */}
                   </h4>
 
                   <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
