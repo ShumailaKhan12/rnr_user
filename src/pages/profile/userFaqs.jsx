@@ -19,16 +19,24 @@ const UserFaqs = () => {
   // Josn
   const FaqData = [
     {
-      question: "What is Wealth Elite’s Reward & Referral Program?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      question: "How do I report a bug or technical issue?",
+      answer: "You can submit a bug report from the Help and support section via call or mail or you can also send through Send Support, including screenshots and a short description of the issue."
     },
     {
-      question: "What is Wealth Elite’s Reward & Referral Program?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      question: "Do rewards expire?",
+      answer: "Some rewards may have an expiry date like coupons but not meteors and stars."
     },
     {
-      question: "What is Wealth Elite’s Reward & Referral Program?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      question: "How can I change my registered email or phone number?",
+      answer: "You can not update them from here you can only view."
+    },
+    {
+      question: "My rewards are not showing. What should I do?",
+      answer: "Refresh your dashboard. If the issue persists, contact support with your user ID."
+    },
+    {
+      question: "How long does it take to resolve issues?",
+      answer: "Most issues are resolved within 24–48 hours, depending on the complexity."
     },
   ]
 

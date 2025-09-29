@@ -36,7 +36,7 @@ const Progress = () => {
   const openInviteModal = () => setIsInviteOpen(true);
   const closeInviteModal = () => setIsInviteOpen(false);
 
-  const {ContextHomeDataAPI } = useContext(UserContext);
+  const { ContextHomeDataAPI } = useContext(UserContext);
   console.log('ContextHomeDataAPI progresss: ', ContextHomeDataAPI);
 
 
@@ -279,24 +279,22 @@ const Progress = () => {
 
               </div>
             </div>
-            <div className='d-flex align-items-center justify-content-center d-block d-md-none'>
-              {/* <NavLink
-              to={'/home'}
-              className={'text-decoration-none'}
-            > */}
-
-
-            </div>
 
             <div className="col-lg-9 desktop-horizontal-layout col-md-12 col-12 pt-4 planet-section overflow-auto hidden-scrollbar">
 
-              <div className="d-flex mb-2 ">
+              <div className="d-flex mb-0">
                 <div className="col-lg-3 col-5 text-center">
                   <img
                     className={`width-35 width-md-35 width-lg-40 width-xl-70 planet-shadow-${currentIndex === 0 ? 'purple' : currentIndex === 1 ? 'yellow' : currentIndex === 2 ? 'green' : 'blue'}     ${0 !== currentIndex ? "blurred" : ""}       `}
                     src={images[currentIndex]}
                     alt="purple"
                   />
+                  <div className='text-center text-dark-blue'>
+                    <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
+                      {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_name || "Planet A"}
+                    </h4>
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text mb-0'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_description} <br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_reward_meteors} Meteors</span></p>
+                  </div>
                 </div>
                 <div className="col-lg-3 col-5"></div>
                 <div className="col-lg-3 col-5 text-center">
@@ -305,6 +303,12 @@ const Progress = () => {
                     src={images[imageNumbers]}
                     alt="yellow"
                   />
+                  <div className='text-center text-dark-blue'>
+                    <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
+                      {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[2]?.milestone_name || "Planet C"}
+                    </h4>
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text mb-0'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[2]?.milestone_description} <br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[2]?.milestone_reward_meteors} Meteors</span></p>
+                  </div>
                 </div>
                 <div className="col-lg-3 col-5"></div>
                 <div
@@ -316,24 +320,24 @@ const Progress = () => {
                     src={images[currentIndex]}
                     alt="yellow"
                   />
+                  <div className='text-center text-dark-blue'>
+                    <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
+                      {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[4]?.milestone_name || "Planet E"}
+                    </h4>
+
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text mb-0'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[4]?.milestone_description} <br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[4]?.milestone_reward_meteors} Meteors</span></p>
+                  </div>
                 </div>
               </div>
-              <div className="d-flex position-relative">
+              <div className="d-flex position-relative pb-5">
                 <img
                   className="position-absolute second-screen-pathway px-0"
                   src={pathway}
                   alt="pathway"
                 />
 
-                <div className="col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0">
-                  <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                    {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_name || "Planet A"}
-                  </h4>
-                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
-                </div>
-
                 <div
-                  className={`col-lg-3 col-5`}
+                  className={`col-lg-4 col-6`}
                 >
                   <img
                     className="position-absolute a scrol-path-0 px-0"
@@ -342,38 +346,9 @@ const Progress = () => {
                   />
                 </div>
 
-                <div className="col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0">
-                  <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                    {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet C"}
-                  </h4>
-
-                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
-
-                  {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[
-                imageNumbers
-                  ]?.milestone_description
-                  ?.split(/(\d+\s*(?:Star|Meteors))/gi)
-                ?.map((part, index) =>
-                  /(\d+\s*(?:Star|Meteors))/i.test(part) ? (
-                    <span
-                      className="space-grotesk-medium"
-                      key={index}
-                    >
-                      {part}
-                    </span>
-                  ) : (
-                    <p
-                      className="space-grotesk-regular font-14 my-0"
-                      key={index}
-                    >
-                      {part}
-                    </p>
-                  ),
-                )} */}
-                </div>
 
                 <div
-                  className={`col-lg-3 col-5`}
+                  className={`col-lg-4 col-6`}
                 >
                   <img
                     className="position-absolute a scrol-path-1 px-0"
@@ -381,39 +356,8 @@ const Progress = () => {
                     alt="pathway"
                   />
                 </div>
-                <div className={`col-lg-3 col-5 text-center text-dark-blue mt-4 pt-4 px-0`}
-                >
-                  <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                    {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet E"}
-                    {/* {
-                  ContextFaqsDataAPI?.galaxy_data?.milestones[4]
-                    ?.milestone_name
-                } */}
-                  </h4>
 
-                  <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
-
-                  {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[4]?.milestone_description
-                ?.split(/(\d+\s*(?:Star|Meteors))/gi)
-                ?.map((part, index) =>
-                  /(\d+\s*(?:Star|Meteors))/i.test(part) ? (
-                    <span
-                      className="space-grotesk-medium"
-                      key={index}
-                    >
-                      {part}
-                    </span>
-                  ) : (
-                    <p
-                      className="space-grotesk-regular font-14 my-0"
-                      key={index}
-                    >
-                      {part}
-                    </p>
-                  ),
-                )} */}
-                </div>
-                <div
+                {/* <div
                   className={`col-lg-3 col-6`}
                 >
                   <img
@@ -421,10 +365,10 @@ const Progress = () => {
                     src={pathbottom}
                     alt="pathway"
                   />
-                </div>
+                </div> */}
 
               </div>
-              <div className="d-flex mt-md-5 mt-lg-0">
+              <div className="d-flex mt-5 pt-5">
                 <div className="col-lg-3 col-5"></div>
                 <div className="col-lg-3 col-5 text-center text-dark-blue second-scrn-padding">
                   <img
@@ -434,36 +378,9 @@ const Progress = () => {
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1">
-                      {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet B"}
-                      {/* {
-                    ContextFaqsDataAPI?.galaxy_data?.milestones[
-                      nextIndex
-                    ]?.milestone_name
-                  } */}
+                      {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[1]?.milestone_name || "Planet B"}
                     </h4>
-                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
-
-                    {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[
-                  nextIndex
-                ]?.milestone_description
-                  ?.split(/(\d+\s*(?:Star|Meteors))/gi)
-                  ?.map((part, index) =>
-                    /(\d+\s*(?:Star|Meteors))/i.test(part) ? (
-                      <span
-                        className="space-grotesk-medium"
-                        key={index}
-                      >
-                        {part}
-                      </span>
-                    ) : (
-                      <p
-                        className="space-grotesk-regular font-14 my-0"
-                        key={index}
-                      >
-                        {part}
-                      </p>
-                    ),
-                  )} */}
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[1]?.milestone_description}<br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[1]?.milestone_reward_meteors} Meteors</span></p>
                   </div>
                 </div>
                 <div className="col-lg-3 col-5"></div>
@@ -477,40 +394,13 @@ const Progress = () => {
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1">
-                      {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet D"}
-                      {/* {
-                    ContextFaqsDataAPI?.galaxy_data?.milestones[
-                      prevIndex
-                    ]?.milestone_name
-                  } */}
+                      {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[3]?.milestone_name || "Planet D"}
                     </h4>
-                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
-
-                    {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[
-                  prevIndex
-                ]?.milestone_description
-                  ?.split(/(\d+\s*(?:Star|Meteors))/gi) // Non-capturing group for the words
-                  ?.map((part, index) =>
-                    /(\d+\s*(?:Star|Meteors))/i.test(part) ? (
-                      <span
-                        className="space-grotesk-medium"
-                        key={index}
-                      >
-                        {part}
-                      </span>
-                    ) : (
-                      <p
-                        className="space-grotesk-regular font-14 my-0"
-                        key={index}
-                      >
-                        {part}
-                      </p>
-                    ),
-                  )} */}
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[3]?.milestone_description} <br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[3]?.milestone_reward_meteors} Meteors</span></p>
                   </div>
                 </div>
                 <div className="col-lg-3 col-5"></div>
-                <div
+                {/* <div
                   className={`col-lg-3 col-5 text-center text-dark-blue`}
                 >
                   <img
@@ -521,35 +411,11 @@ const Progress = () => {
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1">
                       {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet F"}
-                      {/* {
-                    ContextFaqsDataAPI?.galaxy_data?.milestones[5]
-                      ?.milestone_name
-                  } */}
                     </h4>
 
                     <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br /> <span className='space-grotesk-medium'>1000 Meteors</span></p>
-
-                    {/* {ContextFaqsDataAPI?.galaxy_data?.milestones[5]?.milestone_description
-                  ?.split(/(\d+\s*(?:Star|Meteors))/gi) // Non-capturing group for the words
-                  ?.map((part, index) =>
-                    /(\d+\s*(?:Star|Meteors))/i.test(part) ? (
-                      <span
-                        className="space-grotesk-medium"
-                        key={index}
-                      >
-                        {part}
-                      </span>
-                    ) : (
-                      <p
-                        className="space-grotesk-regular font-14 my-0"
-                        key={index}
-                      >
-                        {part}
-                      </p>
-                    ),
-                  )} */}
                   </div>
-                </div>
+                </div> */}
 
 
               </div>
@@ -559,13 +425,8 @@ const Progress = () => {
           <MobileVerticalLayout />
 
           <div className='col-lg-4  col-md-5 mb-lg-0  mb-4 d-flex justify-content-md-start justify-content-cente '>
-            {/* <NavLink
-              to={'/home'}
-              className={'text-decoration-none'}
-            > */}
             <div
               className={`w-60 d-flex justify-content-evenly background-dark-pink mt-5 rounded-2 position-relative py-2 px-5 left-box `}
-              // ref={leftBoxRef}
               id="leftBox"
               onClick={openInviteModal}
             >
@@ -579,11 +440,10 @@ const Progress = () => {
               </span>
               <img src={longarrow} alt="longarrow" />
             </div>
-            {/* </NavLink> */}
           </div>
 
         </div>
-      </section>
+      </section >
       <InviteModal isOpen={isInviteOpen} onClose={closeInviteModal} />
     </>
   );

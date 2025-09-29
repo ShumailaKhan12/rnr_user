@@ -14,16 +14,20 @@ import { UserContext } from '../../UseContext/useContext';
 // Import Json
 const faqData = [
   {
-    question: "What is Wealth Elite’s Reward & Referral Program?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    question: "How does the referral system work?",
+    answer: "You can invite friends using your invitation link that will be auto generated when you refer and the invitation will be sent to the referee on WhatsApp. When they join, you both earn rewards."
   },
   {
-    question: "What is Wealth Elite’s Reward & Referral Program?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    question: "Can I invite unlimited friends?",
+    answer: "Yes, you can refer as many friends as you like. The more you invite, the more you earn."
   },
   {
-    question: "What is Wealth Elite’s Reward & Referral Program?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    question: "When do I receive my referral reward?",
+    answer: "Rewards are credited once your friend successfully signs up and meets the referral conditions."
+  },
+   {
+    question: "What happens if two people refer the same person?",
+    answer: "The first valid referral recorded in our system will be eligible for rewards."
   },
 ];
 
