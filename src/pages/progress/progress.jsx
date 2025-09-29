@@ -133,63 +133,130 @@ const Progress = () => {
   const imageNumbers = filteredImages.map((image) => images.indexOf(image));
 
 
-  const MobileVerticalLayout = () => (
-    <div className="mobile-vertical-layout d-flex  justify-content-center align-items-center  d-block d-md-none">
+  // const MobileVerticalLayout = () => (
+  //   <div className="mobile-vertical-layout d-flex  justify-content-center align-items-center  d-block d-md-none">
+  //     {/* Left side: Dashed line + dots */}
+  //     <div className="mobile-path-container">
+  //       <div className="mobile-vertical-line"></div>
+
+  //       <div className="mobile-dot dot-0"><img src={Frame} alt="dot" /></div>
+  //       <div className="mobile-dot dot-25"><img src={Frame} alt="dot" /></div>
+  //       <div className="mobile-dot dot-50"><img src={Frame} alt="dot" /></div>
+  //       <div className="mobile-dot dot-75"><img src={Frame} alt="dot" /></div>
+  //       {/* <div className="mobile-dot dot-100"><img src={Frame} alt="dot" /></div> */}
+  //     </div>
+
+  //     {/* Right side: Planets */}
+  //     <div className="mobile-planet-main">
+  //       {/* Planet A */}
+  //       <div className="mobile-planet-section planet-0">
+  //         <img className="mobile-planet-img planet-purple" src={images[0]} alt="Planet A" />
+  //         <div className="mobile-planet-info">
+  //           <h4 className='font-22 space-grotesk-medium text-dark-blue'>{progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
+  //           <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br />  <span className='space-grotesk-medium'>1000 Meteors</span></p>
+
+  //         </div>
+  //       </div>
+
+  //       {/* Planet B */}
+  //       <div className="mobile-planet-section planet-25">
+  //         <img className="mobile-planet-img planet-yellow blurred" src={images[1]} alt="Planet B" />
+  //         <div className="mobile-planet-info">
+  //           <h4 className='font-22 space-grotesk-medium text-dark-blue'>{progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
+  //           <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>You are just  <span className='space-grotesk-medium'>1850 Meteors</span> <br />  away to reach to this planet</p>
+  //         </div>
+  //       </div>
+
+  //       {/* Planet C */}
+  //       <div className="mobile-planet-section planet-50">
+  //         <img className="mobile-planet-img planet-green blurred" src={images[2]} alt="Planet C" />
+  //         <div className="mobile-planet-info">
+  //           <h4 className='font-22 space-grotesk-medium text-dark-blue'>{progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
+  //           <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Little more consistency and <br /> you will earn  <span className='space-grotesk-medium'> 2080 Meteors</span></p>
+
+  //         </div>
+  //       </div>
+
+  //       {/* Planet D */}
+  //       <div className="mobile-planet-section planet-75">
+  //         <img className="mobile-planet-img planet-blue blurred" src={images[3]} alt="Planet D" />
+  //         <div className="mobile-planet-info">
+  //           <h4 className='font-22 space-grotesk-medium text-dark-blue'>{progressData?.current_galaxy?.[0]?.galaxy_name} </h4>
+  //           <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'> <span className='space-grotesk-medium'>3080 Meteors</span> to go and <br /> your exclusive reward awaits!!!</p>
+
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
+
+const MobileVerticalLayout = () => {
+  const dotPositions = [0, 25, 50, 75]; 
+
+  const planetData = [
+    {
+      name: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_name || "Planet A",
+      message: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_description,
+      highlight: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_reward_meteors,
+    },
+    {
+      name: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[1]?.milestone_name || "Planet A",
+      message: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[1]?.milestone_description,
+      highlight: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[1]?.milestone_reward_meteors,
+    },
+    {
+      name: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[2]?.milestone_name || "Planet A",
+      message: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[2]?.milestone_description,
+      highlight:ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[2]?.milestone_reward_meteors,
+    },
+    {
+      name: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[3]?.milestone_name || "Planet A",
+      message: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[3]?.milestone_description,
+      highlight: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[3]?.milestone_reward_meteors,
+    },
+  ];
+
+  const colorClasses = ['purple', 'yellow', 'green', 'blue'];
+
+  return (
+    <div className="mobile-vertical-layout d-flex justify-content-center align-items-center d-block d-md-none">
       {/* Left side: Dashed line + dots */}
       <div className="mobile-path-container">
         <div className="mobile-vertical-line"></div>
-
-        <div className="mobile-dot dot-0"><img src={Frame} alt="dot" /></div>
-        <div className="mobile-dot dot-25"><img src={Frame} alt="dot" /></div>
-        <div className="mobile-dot dot-50"><img src={Frame} alt="dot" /></div>
-        <div className="mobile-dot dot-75"><img src={Frame} alt="dot" /></div>
-        {/* <div className="mobile-dot dot-100"><img src={Frame} alt="dot" /></div> */}
+        {dotPositions.map((pos) => (
+          <div className={`mobile-dot dot-${pos}`} key={pos}>
+            <img src={Frame} alt="dot" />
+          </div>
+        ))}
       </div>
 
       {/* Right side: Planets */}
       <div className="mobile-planet-main">
-        {/* Planet A */}
-        <div className="mobile-planet-section planet-0">
-          <img className="mobile-planet-img planet-purple" src={images[0]} alt="Planet A" />
-          <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
-            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Complete the level and earn <br />  <span className='space-grotesk-medium'>1000 Meteors</span></p>
-
+        {planetData.map((planet, index) => (
+          <div className={`mobile-planet-section planet-${dotPositions[index]}`} key={index}>
+            <img
+              className={`mobile-planet-img planet-${colorClasses[index]} ${index !== 0 ? 'blurred' : ''}`}
+              src={images[index]}
+              alt={`Planet ${index}`}
+            />
+            <div className="mobile-planet-info">
+              <h4 className="font-22 space-grotesk-medium text-dark-blue">{planet.name}</h4>
+              <p className="lh-sm text-blue font-16 space-grotesk-regular text-center planet-text">
+                {planet.message && (
+                  <>
+                    {planet.message}
+                    <br />
+                  </>
+                )}
+                <span className="space-grotesk-medium">{planet.highlight}</span>
+              </p>
+            </div>
           </div>
-        </div>
-
-        {/* Planet B */}
-        <div className="mobile-planet-section planet-25">
-          <img className="mobile-planet-img planet-yellow blurred" src={images[1]} alt="Planet B" />
-          <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
-            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>You are just  <span className='space-grotesk-medium'>1850 Meteors</span> <br />  away to reach to this planet</p>
-          </div>
-        </div>
-
-        {/* Planet C */}
-        <div className="mobile-planet-section planet-50">
-          <img className="mobile-planet-img planet-green blurred" src={images[2]} alt="Planet C" />
-          <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{progressData?.current_galaxy?.[0]?.galaxy_name}</h4>
-            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>Little more consistency and <br /> you will earn  <span className='space-grotesk-medium'> 2080 Meteors</span></p>
-
-          </div>
-        </div>
-
-        {/* Planet D */}
-        <div className="mobile-planet-section planet-75">
-          <img className="mobile-planet-img planet-blue blurred" src={images[3]} alt="Planet D" />
-          <div className="mobile-planet-info">
-            <h4 className='font-22 space-grotesk-medium text-dark-blue'>{progressData?.current_galaxy?.[0]?.galaxy_name} </h4>
-            <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'> <span className='space-grotesk-medium'>3080 Meteors</span> to go and <br /> your exclusive reward awaits!!!</p>
-
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
-
+};
 
   return (
     <>
