@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
 
-  if (!accessToken || !sessionId || !isLoggedIn) {
+  if (!accessToken || !sessionId ) {
     return <Navigate to="/" replace />;
   }
 
