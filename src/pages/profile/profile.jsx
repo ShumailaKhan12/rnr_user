@@ -21,6 +21,7 @@ import meteor from '../../assets/icons/profile/meteorGroup.svg';
 import { postData } from '../../services/api';
 
 // UserContext
+import { UserContext } from '../../UseContext/useContext';
 
 // Utilities
 import { DecryptFunction } from '../../utils/decryptFunction';
@@ -30,48 +31,14 @@ import { toastError, toastSuccess } from '../../utils/toster';
 
 // Components
 import Navbar from '../../components/navbar';
-import { UserContext } from '../../UseContext/useContext';
 import { IoIosArrowBack } from 'react-icons/io';
 import { FaEye, FaRegEye } from 'react-icons/fa';
 
 const Profile = () => {
+  // UseContext
+  const { ContextHomeDataAPI } = useContext(UserContext)
+  console.log('ContextHomeDataAPI profile: ', ContextHomeDataAPI);
 
-
-
-    //  const [userData, setUserData] = useState(null);
-  
-    const {userData, setUserData} = useContext(UserContext)
-      const { accessToken, sessionId } = useContext(UserContext);
-const [isLoading, setIsLoading] = useState(true); 
-  
-   useEffect(() => {
-  const fetchUserData = async () => {
-    if (!accessToken || !sessionId) {
-      console.warn('No accessToken or sessionId found');
-      return;
-    }
-    try {
-        setIsLoading(true)  
-      const response = await postData(
-        `/referral_program/dashboard?token=${accessToken}&session_id=${sessionId}`,
-        { dummy: true }
-      );
-      
-      const data = response
-      setUserData(data);
-      console.log('Full API response:', data);
-    
-    } catch (error) {
-      console.log("API Error:", error);
-    }
-    finally {
-      setIsLoading(false); // Stop loading after fetch
-    }
-
-  };
-
-  fetchUserData();
-}, [accessToken, sessionId]);
 
   // Profile form
   const {
@@ -403,29 +370,24 @@ const [isLoading, setIsLoading] = useState(true);
               <div className="user-details">
                 <h4 className="mb-lg-3 user-name montserrat-semibold font-24 text-uppercase text-primary-color mb-0 lh-1">
                   {/* {UserDataAPI?.part1} */}
-                  {userData?.user_data?.name}
+                  {ContextHomeDataAPI?.user_data?.name}
                 </h4>
                 <small className="user-contact montserrat-medium font-16 lh-1">
                   {/* {UserDataAPI?.part3}  */}
-                  {userData?.user_data?.mobile_number} <span> | </span> {userData?.user_data?.email}
+                  {ContextHomeDataAPI?.user_data?.mobile_number} <span> | </span> {ContextHomeDataAPI?.user_data?.email}
                   {/* {UserDataAPI?.part2} */}
                 </small>
               </div>
             </div>
             <div className="d-flex h-max-content mt-lg-0 mt-3">
-              {/* {UserDataAPI?.part10 ? ( */}
-              <span className="ref-code-div font-14 montserrat-medium me-4 px-3 rounded-2 d-flex align-items-center justify-content-center">
+              {/* <span className="ref-code-div font-14 montserrat-medium me-4 px-3 rounded-2 d-flex align-items-center justify-content-center">
                 <span className="text-ref-code montserrat-medium">
                   Ref code
                 </span>
                 <span className="digit-ref-code montserrat-semibold px-2">
-                  {/* {UserDataAPI?.part10} */}
                   123
                 </span>
-              </span>
-              {/* ) : (
-                ' '
-              )} */}
+              </span> */}
 
               <button
                 className="btn background-text-blue font-14 montserrat-semibold btn-sm btn-edit-profile position-relative pe-3"
@@ -814,7 +776,7 @@ const [isLoading, setIsLoading] = useState(true);
                     className="form-control font-14 text-primary-color montserrat-medium"
                     {...registerProfile('name')}
                     // defaultValue={UserDataAPI?.part1}
-                    defaultValue={userData?.user_data?.name}
+                    defaultValue={ContextHomeDataAPI?.user_data?.name}
                   />
                   {/* {errorsProfile?.name && (
                     <p className="text-danger">{errorsProfile?.name.message}</p>
@@ -844,7 +806,7 @@ const [isLoading, setIsLoading] = useState(true);
                       }
                     }}
                     // defaultValue={UserDataAPI?.part3}
-                    defaultValue={userData?.user_data?.mobile_number}
+                    defaultValue={ContextHomeDataAPI?.user_data?.mobile_number}
                   />
                 </div>
 
@@ -861,7 +823,7 @@ const [isLoading, setIsLoading] = useState(true);
                       required: 'Email is required',
                     })}
                     // defaultValue={UserDataAPI?.part2}
-                    defaultValue={userData?.user_data?.email}
+                    defaultValue={ContextHomeDataAPI?.user_data?.email}
                   />
                   {errorsProfile.email && (
                     <p className="text-danger">{errorsProfile.email.message}</p>
@@ -882,7 +844,7 @@ const [isLoading, setIsLoading] = useState(true);
                       required: 'ARN No. is required',
                     })}
                     // defaultValue={UserDataAPI?.part2}
-                    defaultValue={userData?.user_data?.arn_id}
+                    defaultValue={ContextHomeDataAPI?.user_data?.arn_id}
                   />
                   {errorsProfile.arn_number && (
                     <p className="text-danger">{errorsProfile.arn_number.message}</p>

@@ -73,7 +73,7 @@ const AcknowlegmentModal = ({ onClose }) => {
       aria-hidden="true"
       style={{ display: "block" }}
     >
-      <div className="modal-dialog overflow-auto badge modal-dialog-centered my-custom-dialog bg-gradient-color text-primary-color" role="document">
+      <div className="modal-dialog overflow-auto badge modal-dialog-centered my-custom-dialog text-primary-color" role="document">
         <div className="modal-content custom-modal-content">
           {/* Close */}
           <button className="close-btn" onClick={onClose}>
