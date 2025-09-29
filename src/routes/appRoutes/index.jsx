@@ -9,7 +9,8 @@ import Progress from '../../pages/progress/progress';
 import Dummy from '../../pages/dummy/dummy'
 import Acknowledgement from '../../pages/acknowledgement/acknowledgement';
 import PageNotFound from '../../pages/pageNotFound/PageNotFound';
-import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+// import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 const AppRoutes = () => {
   
   return (
@@ -20,8 +21,7 @@ const AppRoutes = () => {
           <Route path="/" element={<HowItWorks />} />
           <Route path="/dummy" element={<Dummy />} />
           <Route path="/acknowledge" element={<Acknowledgement />} />
-
-
+          
           <Route path="/home"  element={ <PrivateRoute><Home /></PrivateRoute>}/>
           <Route path="/myreferral" element={<PrivateRoute><MyReferral /></PrivateRoute>} />
           <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
