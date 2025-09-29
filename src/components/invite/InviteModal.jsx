@@ -21,9 +21,10 @@ const InviteModal = ({ isOpen, onClose }) => {
     const [apiMessage, setApiMessage] = useState("");
     const [messageApiHeading, setApiMessageHeading] = useState("")
     // UseContext
-    const { accessToken, sessionId } = useContext(UserContext);
-    const { userData } = useContext(UserContext);
-    console.log('userData Inviteeeeeeeeeee: ', userData);
+    const { accessToken, sessionId , ContextHomeDataAPI} = useContext(UserContext);
+    // const { userData } = useContext(UserContext);
+    
+    console.log('userData Inviteeeeeeeeeee: ', ContextHomeDataAPI);
 
     // API Functions
     const onSubmit = async (formData) => {
