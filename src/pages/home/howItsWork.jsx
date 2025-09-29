@@ -19,7 +19,7 @@ const HomeHowitworks = ({ isActive, isExiting }) => {
   const [showSteps, setShowSteps] = useState(true);
   const [showExit, setShowExit] = useState(false);
   const [scrollDir, setScrollDir] = useState('down'); // Local scroll direction
-  const Auth = JSON?.parse(localStorage.getItem('Auth') ?? '{}');
+  const Auth = JSON?.parse(sessionStorage.getItem('Auth') ?? '{}');
 
 
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);

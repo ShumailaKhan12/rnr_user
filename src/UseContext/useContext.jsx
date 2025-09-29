@@ -11,8 +11,8 @@ export const UserProvider = ({ children }) => {
 
 
   useEffect(() => {
-    const token = sessionStorage.getItem('access_token');
-    const session = sessionStorage.getItem('session_id');
+    const token = localStorage.getItem('access_token');
+    const session = localStorage.getItem('session_id');
     if (token && session) {
       setAccessToken(token);
       setSessionId(session);
@@ -21,13 +21,27 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     if (accessToken && sessionId) {
-      sessionStorage.setItem('access_token', accessToken);
-      sessionStorage.setItem('session_id', sessionId);
+      localStorage.setItem('access_token', accessToken);
+      localStorage.setItem('session_id', sessionId);
     }
   }, [accessToken, sessionId]);
 
 
-  const [ContextHomeDataAPI, setContextHomeDataAPI] = useState();
+  // const [ContextHomeDataAPI, setContextHomeDataAPI] = useState();
+
+    const [ContextHomeDataAPI, setContextHomeDataAPI] = useState(() => {
+    const savedData = localStorage.getItem('ContextHomeDataAPI');
+    return savedData ? JSON.parse(savedData) : null;
+  });
+
+
+useEffect(() => {
+  if (ContextHomeDataAPI) {
+    localStorage.setItem('ContextHomeDataAPI', JSON.stringify(ContextHomeDataAPI));
+  }
+}, [ContextHomeDataAPI]);
+
+
   const [ContextFaqsDataAPI, setContextFaqsDataAPI] = useState();
   const [ContextMyRewardDataAPI, setContextMyRewardDataAPI] = useState();
   const [ContextInviteRefferAPI, setContextInviteRefferAPI] = useState();

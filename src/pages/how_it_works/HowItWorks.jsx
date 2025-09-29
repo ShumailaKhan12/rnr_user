@@ -9,14 +9,14 @@ import four from '../../assets/Images/how-it-work/4.png'
 import "../../App.scss";
 import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
 import { UserContext } from '../../UseContext/useContext';
-import { getData } from '../../services/api';
+import { getData, postData } from '../../services/api';
 import { toast } from 'react-toastify';
 import { toastError } from '../../utils/toster';
 
 const HowItWorks = () => {
 
     const navigate = useNavigate();
-    const { accessToken, sessionId, userData, setUserData } = useContext(UserContext);
+    const { accessToken, sessionId, userData, setUserData,ContextHomeDataAPI , setContextHomeDataAPI} = useContext(UserContext);
     // console.log('userDatassssssss: ', userData);
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const HowItWorks = () => {
                 // if (response.status === 200) {
                     const data = response?.user;
                     console.log("User Data:", data);
-                    setUserData(data);
+                    setContextHomeDataAPI(data);
                 // } else {
                 //     console.error("API returned error status:", response.status);
                 // }
@@ -44,19 +44,20 @@ const HowItWorks = () => {
         fetchUserData();
     }, [accessToken, sessionId]);
 
-    console.log("userdata", userData)
+    console.log("userdata", ContextHomeDataAPI)
     console.log('accessToken: ', accessToken);
 
     
     const handleGoToDashboard = () => {
 
-        if (userData) {
+        if (ContextHomeDataAPI) {
             navigate('/home');
         } else {
-            // toast.error("No user data found." );
+        
              toastError("No user data found");
         }
     };
+
 
 
     return (
