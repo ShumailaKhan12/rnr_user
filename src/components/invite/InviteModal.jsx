@@ -21,9 +21,10 @@ const InviteModal = ({ isOpen, onClose }) => {
     const [apiMessage, setApiMessage] = useState("");
     const [messageApiHeading, setApiMessageHeading] = useState("")
     // UseContext
-    const { accessToken, sessionId } = useContext(UserContext);
-    const { userData } = useContext(UserContext);
-    console.log('userData Inviteeeeeeeeeee: ', userData);
+    const { accessToken, sessionId , ContextHomeDataAPI} = useContext(UserContext);
+    // const { userData } = useContext(UserContext);
+    
+    console.log('userData Inviteeeeeeeeeee: ', ContextHomeDataAPI);
 
     // API Functions
     const onSubmit = async (formData) => {
@@ -97,8 +98,15 @@ const InviteModal = ({ isOpen, onClose }) => {
                                         <label className="font-16 montserrat-medium text-primary-color">Referee Mobile</label>
                                         <input
                                             type="text"
+                                              maxLength={10}
                                             className="form-control"
-                                            {...register("mobile", { required: "Mobile is required" })}
+                                            {...register("mobile", {
+                                                required: "Mobile is required",
+                                                pattern: {
+                                                    value: /^[6-9]\d{9}$/,
+                                                    message: 'Invalid mobile number',
+                                                },
+                                            })}
                                         />
                                         {errors.mobile && <span className="text-danger">{errors.mobile.message}</span>}
 
