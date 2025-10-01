@@ -64,6 +64,7 @@ const Home = () => {
         if (accessToken && sessionId) {
             fetchScoreData();
         }
+
     }, [accessToken, sessionId]);
 
 

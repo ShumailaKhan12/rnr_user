@@ -10,10 +10,11 @@ const Dummy = () => {
     const dummyToken = "dummy_token_5474";
     const dummySession = "dummy_session_5474";
 
-    sessionStorage.setItem('access_token', dummyToken);
-    sessionStorage.setItem('session_id', dummySession);
+    localStorage.setItem('access_token', dummyToken);
+    localStorage.setItem('session_id', dummySession);
+localStorage.setItem('isLoggedIn', 'true');
 
-
+  localStorage.setItem('cameFromDummy', 'true')
     setAccessToken(dummyToken);
     setSessionId(dummySession);
 
