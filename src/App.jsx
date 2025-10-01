@@ -13,7 +13,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { UserContext } from './UseContext/useContext';
 import { postData } from './services/api';
-import { AuthFlowProvider } from './UseContext/AuthFlowContext ';
+// import { AuthFlowProvider } from './UseContext/AuthFlowContext ';
 // import HowItWorks from './pages/HowItWorks';
 // import Home from './pages/home/home';
 
@@ -48,9 +48,9 @@ function App() {
   return (
     <>
      <ToastContainer />
-    <AuthFlowProvider>
+    {/* <AuthFlowProvider> */}
         <AppRoutes />
-    </AuthFlowProvider>
+    {/* </AuthFlowProvider> */}
     </>
   )
 }

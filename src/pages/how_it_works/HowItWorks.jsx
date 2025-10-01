@@ -1,47 +1,45 @@
 
-    import React, { useContext, useEffect, useState } from 'react';
-    import { Link, NavLink, useNavigate } from 'react-router-dom';
-    import stepindicator from '../../assets/Images/how-it-work/line.svg'
-    import one from '../../assets/Images/how-it-work/1.png'
-    import two from '../../assets/Images/how-it-work/2.png'
-    import three from '../../assets/Images/how-it-work/3.png'
-    import four from '../../assets/Images/how-it-work/4.png'
-    import "../../App.scss";
-    import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
-    import { UserContext } from '../../UseContext/useContext';
-//     import { getData, postData } from '../../services/api';
-    import { toast } from 'react-toastify';
-    import { toastError } from '../../utils/toster';
-import axios from "axios";
-    import { useAuthFlow } from '../../UseContext/AuthFlowContext ';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import stepindicator from '../../assets/Images/how-it-work/line.svg'
+import one from '../../assets/Images/how-it-work/1.png'
+import two from '../../assets/Images/how-it-work/2.png'
+import three from '../../assets/Images/how-it-work/3.png'
+import four from '../../assets/Images/how-it-work/4.png'
+import "../../App.scss";
+import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
+import { UserContext } from '../../UseContext/useContext';
+import { getData, postData } from '../../services/api';
+import { toast } from 'react-toastify';
+import { toastError } from '../../utils/toster';
 
     const HowItWorks = () => {
 
-        const navigate = useNavigate();
-        const { accessToken, sessionId, userData, setUserData,ContextHomeDataAPI , setContextHomeDataAPI} = useContext(UserContext);
-        // console.log('userDatassssssss: ', userData);
-    const { setIsAllowed } = useAuthFlow();
-        useEffect(() => {
-            const fetchUserData = async () => {
-                if (!accessToken || !sessionId) {
-                    console.warn('No accessToken or sessionId found');
-                    return;
-                }
-                try {
-                    const response = await axios.get(`https://dev.wealthelite.in/Ai/ai/get-users-list`);
-                    console.log('response: ', response?.data?.data);
-                    // if (response.status === 200) {
-                        const data = response?.data?.data;
-                        console.log("User Data:", data);
-                        setContextHomeDataAPI(data);
-                    // } else {
-                    //     console.error("API returned error status:", response.status);
-                    // }
-                }
-                catch (error) {
-                    console.log(error);
-                }
-            };
+    const navigate = useNavigate();
+    const { accessToken, sessionId, userData, setUserData,ContextHomeDataAPI , setContextHomeDataAPI} = useContext(UserContext);
+    // console.log('userDatassssssss: ', userData);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            if (!accessToken || !sessionId) {
+                console.warn('No accessToken or sessionId found');
+                return;
+            }
+            try {
+                const response = await getData(`/referral-program?token=${accessToken}&session_id=${sessionId}`);
+                console.log('response: ', response?.user);
+                // if (response.status === 200) {
+                    const data = response?.user;
+                    console.log("User Data:", data);
+                    setContextHomeDataAPI(data);
+                // } else {
+                //     console.error("API returned error status:", response.status);
+                // }
+            }
+            catch (error) {
+                console.log(error);
+            }
+        };
 
             fetchUserData();
         }, [accessToken, sessionId]);
@@ -53,7 +51,7 @@ import axios from "axios";
         const handleGoToDashboard = () => {
 
             if (ContextHomeDataAPI) {
-                    setIsAllowed(true);
+                    // setIsAllowed(true);
                 navigate('/home');
             } else {
             
