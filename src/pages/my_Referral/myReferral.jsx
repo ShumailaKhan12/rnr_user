@@ -14,19 +14,19 @@ import { UserContext } from '../../UseContext/useContext';
 // Import Json
 const faqData = [
   {
-    question: "How does the referral system work?",
+    question: "Q1. How does the referral system work?",
     answer: "You can invite friends using your invitation link that will be auto generated when you refer and the invitation will be sent to the referee on WhatsApp. When they join, you both earn rewards."
   },
   {
-    question: "Can I invite unlimited friends?",
+    question: "Q2. Can I invite unlimited friends?",
     answer: "Yes, you can refer as many friends as you like. The more you invite, the more you earn."
   },
   {
-    question: "When do I receive my referral reward?",
+    question: "Q3. When do I receive my referral reward?",
     answer: "Rewards are credited once your friend successfully signs up and meets the referral conditions."
   },
    {
-    question: "What happens if two people refer the same person?",
+    question: "Q4. What happens if two people refer the same person?",
     answer: "The first valid referral recorded in our system will be eligible for rewards."
   },
 ];
