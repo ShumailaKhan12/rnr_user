@@ -1,35 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../../App.scss";
 import X from "../../assets/Images/invite-modal/X.png";
 import Button from "../button";
 import InviteSuccessModal from "./InviteSuccessModal";
+import { postData } from "../../services/api";
+import { UserContext } from '../../UseContext/useContext';
+
+// Toast Messages
+import { toastError, toastSuccess } from '../../utils/toster';
+import { useForm } from "react-hook-form";
+
 
 const InviteModal = ({ isOpen, onClose }) => {
-    const [formData, setFormData] = useState({
-        name: "",
-        mobile: "",
-        arn: "",
-        product: "",
-        permission: false,
-    });
+    // useForm setup
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
+    // UseStates
     const [successModalOpen, setSuccessModalOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [apiMessage, setApiMessage] = useState("");
+    const [messageApiHeading, setApiMessageHeading] = useState("")
+    // UseContext
+    const { accessToken, sessionId , ContextHomeDataAPI} = useContext(UserContext);
+    // const { userData } = useContext(UserContext);
+    
+    console.log('userData Inviteeeeeeeeeee: ', ContextHomeDataAPI);
 
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
-        setFormData({
-            ...formData,
-            [name]: type === "checkbox" ? checked : value,
-        });
+    // API Functions
+    const onSubmit = async (formData) => {
+        setLoading(true);
+        try {
+            const payload = {
+                referrer_id: userData.Id,
+                refree_name: formData.name, // Or actual referrer_id if you have it
+                arn: formData.arn,
+                mobile_number: formData.mobile,
+                product: formData.product || null,
+                permission: formData.permission,
+            };
+
+            console.log("Payload:", payload);
+
+            const response = await postData(`/referral_program/referral/send_invitation?token=${accessToken}&session_id=${sessionId}`, payload);
+
+            setApiMessageHeading(response?.success)
+            setApiMessage(response?.message || "Invitation sent successfully!");
+            setSuccessModalOpen(true);
+            reset();
+            console.log("Response:", response);
+        } catch (error) {
+            console.error(error);
+            if (error?.message) {
+                toastError(error.message);
+            } else {
+                toastError("Failed to send invitation");
+            }
+        } finally {
+            setLoading(false);
+        }
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form Data:", formData);
 
-        // Open Success Modal
-        setSuccessModalOpen(true);
-    };
 
     if (!isOpen) return null;
 
@@ -50,30 +81,35 @@ const InviteModal = ({ isOpen, onClose }) => {
                                 <h2 className="modal-title font-30 montserrat-semibold text-primary-color">Invite a MFD</h2>
                             </div>
 
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="modal-body">
                                     <div className="form-group mb-3">
                                         <label className="font-16 montserrat-medium text-primary-color">Referee Name</label>
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="name"
-                                            value={formData.name}
-                                            onChange={handleChange}
-                                            required
+                                            {...register("name", { required: "Name is required" })}
                                         />
+                                        {errors.name && <span className="text-danger">{errors.name.message}</span>}
+
                                     </div>
 
                                     <div className="form-group mb-3">
                                         <label className="font-16 montserrat-medium text-primary-color">Referee Mobile</label>
                                         <input
                                             type="text"
+                                              maxLength={10}
                                             className="form-control"
-                                            name="mobile"
-                                            value={formData.mobile}
-                                            onChange={handleChange}
-                                            required
+                                            {...register("mobile", {
+                                                required: "Mobile is required",
+                                                pattern: {
+                                                    value: /^[6-9]\d{9}$/,
+                                                    message: 'Invalid mobile number',
+                                                },
+                                            })}
                                         />
+                                        {errors.mobile && <span className="text-danger">{errors.mobile.message}</span>}
+
                                     </div>
 
                                     <div className="form-group mb-3">
@@ -81,11 +117,10 @@ const InviteModal = ({ isOpen, onClose }) => {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            name="arn"
-                                            value={formData.arn}
-                                            onChange={handleChange}
-                                            required
+                                            {...register("arn", { required: "ARN is required" })}
                                         />
+                                        {errors.arn && <span className="text-danger">{errors.arn.message}</span>}
+
                                     </div>
 
                                     <div className="form-group mt-2 mb-1">
@@ -93,9 +128,7 @@ const InviteModal = ({ isOpen, onClose }) => {
                                             Product of Interest (Optional)
                                             <select
                                                 className="form-select"
-                                                name="product"
-                                                value={formData.product}
-                                                onChange={handleChange}
+                                                {...register("product")}
                                             >
                                                 <option value="Select">Select</option>
                                                 <option value="product1">Product 1</option>
@@ -107,10 +140,8 @@ const InviteModal = ({ isOpen, onClose }) => {
                                     <label className="checkbox-label font-16 montserrat-medium text-primary-color">
                                         <input
                                             type="checkbox"
-                                            name="permission"
-                                            checked={formData.permission}
-                                            onChange={handleChange}
-                                            required
+                                            {...register("permission", { required: true })}
+
                                         />
                                         I Confirm I Have Permission To Share Referee Details
                                     </label>
@@ -118,7 +149,7 @@ const InviteModal = ({ isOpen, onClose }) => {
 
                                 <div className="modal-footer">
                                     <Button
-                                        label="Send Invite"
+                                        label={!loading ? "Send Invite" : "Loading"}
                                         type="submit"
                                         className="btn-custom bg-blue text-white font-16 montserrat-semibold"
                                     />
@@ -131,7 +162,8 @@ const InviteModal = ({ isOpen, onClose }) => {
 
             {/* Success Modal */}
             {successModalOpen && (
-                <InviteSuccessModal setSuccessModalOpen={setSuccessModalOpen} onClose={onClose} />
+                <InviteSuccessModal setSuccessModalOpen={setSuccessModalOpen} onClose={onClose}
+                    messageHeading={messageApiHeading === true ? "Invitation Sent Successfully!!" : "Invitataion Failed!!"} message={apiMessage} />
 
             )}
         </>

@@ -1,40 +1,79 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../../App.scss";
 import contract from "../../assets/Images/acknowledgement/contract.png";
 import X from "../../assets/Images/invite-modal/X.png";
 import AcknowledgmentSuccessModal from "./AcknowledgmentSuccessModal";
 import AcknowledgmentDeclineModal from "./AcknowledgmentDeclineModal";
+import { postData } from "../../services/api";
+import { UserContext } from '../../UseContext/useContext';
+// Toast Messages
+import { toastError } from '../../utils/toster';
 
 const AcknowlegmentModal = ({ onClose }) => {
-  const [step, setStep] = useState("ack"); 
+// UseStates
   // "ack" = main acknowledgement, "success" = accepted, "decline" = declined
+  const [step, setStep] = useState("ack");
+  const [loading, setLoading] = useState(false);
+  const [apiMessage, setApiMessage] = useState("");
+
+  // USeContext
+  const { userData } = useContext(UserContext);
+  console.log('userDataaaaaaaa: ', userData);
+  const ref_id = userData?.Id
+  const mobile_number = userData?.mobile_number
+
+  // API Function
+
+  const handleAccept = async () => {
+    setLoading(true);
+    try {
+      const payload = {
+        acknowledgemenet_Status: "Accepted",
+      };
+
+      const response = await postData(`/referral/acknowledge/${ref_id}/${mobile_number}`, payload);
+      console.log("Acknowledge Response:", response);
+      setApiMessage(response?.message || "Acknowledgement successful!");
+      setStep("success"); // move to success modal
+
+    } catch (error) {
+      console.error("Acknowledge Error:", error?.error);
+       toastError(error?.error || "Something went wrong");
+      // setApiMessage(error?.error || "Something went wrong");
+      // setStep("success"); // optional → show decline modal if API fails
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   if (step === "success") {
     return (
-      <AcknowledgmentSuccessModal 
-        onClose={onClose} 
-        onContinue={onClose} 
+      <AcknowledgmentSuccessModal
+        onClose={onClose}
+        onContinue={onClose}
+        message={apiMessage}
       />
     );
   }
 
   if (step === "decline") {
     return (
-      <AcknowledgmentDeclineModal 
-        onClose={onClose} 
+      <AcknowledgmentDeclineModal
+        onClose={onClose}
       />
     );
   }
 
   return (
     <div
-      className="modal fade show overlay"
+      className="modal fade show overlay overflow-hidden"
       tabIndex="-1"
       role="dialog"
       aria-hidden="true"
       style={{ display: "block" }}
     >
-      <div className="modal-dialog modal-dialog-centered my-custom-dialog bg-gradient-color text-primary-color" role="document">
+      <div className="modal-dialog overflow-auto badge modal-dialog-centered my-custom-dialog text-primary-color" role="document">
         <div className="modal-content custom-modal-content">
           {/* Close */}
           <button className="close-btn" onClick={onClose}>
@@ -57,7 +96,7 @@ const AcknowlegmentModal = ({ onClose }) => {
             <p className="font-14"><strong>Date -</strong> dd-mm-yyyy</p>
 
             <p className="fw-bold mb-1 font-14">Details of Referrer -</p>
-            <p className="font-14">
+            <p className="font-14 flex-wrap">
               The invite has been sent by <strong>Sakshee</strong>, holding
               mobile number{" "}
               <strong><a href="tel:9685492401">9685492401</a></strong>{" "}
@@ -93,9 +132,10 @@ const AcknowlegmentModal = ({ onClose }) => {
             <button
               type="button"
               className="btn btn-primary bg-blue"
-              onClick={() => setStep("success")}
+              // onClick={() => setStep("success")}
+              onClick={handleAccept}
             >
-              Accept
+              {loading ? "Processing..." : "Accept"}
             </button>
           </div>
         </div>

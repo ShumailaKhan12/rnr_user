@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 
 // Import Common Components
 import Navbar from '../../components/navbar';
@@ -15,56 +15,91 @@ import Clock from "../../assets/icons/scoreCard/clock.svg";
 import Cross from "../../assets/icons/scoreCard/cross.svg";
 import HomeHowitworks from './howItsWork';
 import ReferralTimeline from '../../components/ReferalTimeline/ReferalTimeline';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+// import { UserContext } from '../../UseContext/useContext';
+import { getData, postData } from '../../services/api';
+import { UserContext } from '../../UseContext/useContext';
 
-// Import Json
-const ScoreCardData = [
-    {
-        score: 1900,
-        title: "Meteors",
-        image: Meteors,
-    },
-    {
-        score: 2000,
-        title: "Referrals",
-        image: Referral,
-    },
-    {
-        score: 300,
-        title: "Approved",
-        image: Plane,
-    },
-    {
-        score: 500,
-        title: "Pending",
-        image: Clock,
-    },
-    {
-        score: 1000,
-        title: "Rejected",
-        image: Cross,
-    },
-];
 
 const faqData = [
     {
-        question: "What is Wealth Elite’s Reward & Referral Program?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        question: "Q1. What is this platform about?",
+        answer: "This is a kind of Loyalty Program in which if you refer a MFD then you'll get meteors and stars that will give you benefit if you further purchase a product and also to the one you've referrred to."
     },
     {
-        question: "What is Wealth Elite’s Reward & Referral Program?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        question: "How do I get started?",
+        answer: "Simply click on Invite a MFD and fill the details of MFD to whom you want to refer and earn the meteors"
     },
     {
-        question: "What is Wealth Elite’s Reward & Referral Program?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        question: "Is my data secure here?",
+        answer: "Yes, we use industry-standard encryption and secure servers to keep your data safe."
+    },
+  {
+        question: "Do I need to pay to join?",
+        answer: "No, joining is completely free. You can explore features and earn rewards without any upfront cost."
     },
 ];
 
 
 const Home = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const { accessToken, sessionId, ContextHomeDataAPI, setContextHomeDataAPI } = useContext(UserContext)
+    console.log('ContextHomeDataAPI: ', ContextHomeDataAPI);
+
+    // const [scoreData, setScoreData] = useState([]);
+
+
+    useEffect(() => {
+        const fetchScoreData = async () => {
+            try {
+                const data = await postData(`/referral_program/dashboard?token=${accessToken}&session_id=${sessionId}`, { dummy: true });
+                console.log('data: ', data);
+
+                setContextHomeDataAPI(data);
+            } catch (error) {
+                console.error("Error fetching score data:", error);
+            }
+        };
+
+        if (accessToken && sessionId) {
+            fetchScoreData();
+        }
+    }, [accessToken, sessionId]);
+
+
+    // ScoreCard Data Showed Here
+    const ScoreCard = [
+        {
+            score: ContextHomeDataAPI?.rewards?.current_meteors || 0,
+            title: "Meteors",
+            image: Meteors,
+        },
+        {
+            score: ContextHomeDataAPI?.referrals?.total_referrals || 0,
+            title: "Referrals",
+            image: Referral,
+        },
+        {
+            score: ContextHomeDataAPI?.referrals?.successful_referrals || 0,
+            title: "Approved",
+            image: Plane,
+        },
+        {
+            score: ContextHomeDataAPI?.referrals?.pending_referrals || 0,
+            title: "Pending",
+            image: Clock,
+        },
+        {
+            score:
+                (ContextHomeDataAPI?.referrals?.total_referrals || 0) -
+                (ContextHomeDataAPI?.referrals?.pending_referrals || 0) -
+                (ContextHomeDataAPI?.referrals?.successful_referrals || 0),
+            title: "Rejected",
+            image: Cross,
+        },
+    ];
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
     // Footer Planet animation
     const footerRef = useRef(null);
     const [showFooterPlanet, setShowFooterPlanet] = useState(false);
@@ -121,8 +156,8 @@ const Home = () => {
             {/* ScoreCards Start Here */}
             <div className='container my-5'>
                 <div className='row pt-5 g-lg-5 g-4 justify-content-center mx-1'>
-                    {ScoreCardData?.map((item, index) => (
-                        <div className='col col-md col-lg' key={index}>
+                    {ScoreCard?.map((item, index) => (
+                        <div className='col-6 col-md col-lg' key={index}>
                             <NavLink to={"/myreferral"} className={"text-decoration-none"}>
                                 <div className='score-card position-relative border-radius-12 d-flex flex-column align-items-center justify-content-center p-3'>
                                     <img src={item.image} className='score-img position-absolute start-100 top-0 translate-middle' alt="Loading" />

@@ -3,8 +3,9 @@ import "../../App.scss";
 import X from '../../assets/Images/invite-modal/X.png';
 import submitIcon from '../../assets/Images/acknowledgement/submit-icon.png';
 import Button from "../button";
+import { NavLink } from "react-router-dom";
 
-const AcknowledgmentSuccessModal = ({ onClose }) => {
+const AcknowledgmentSuccessModal = ({ onClose, message }) => {
     return (
         <div
             className="modal fade show overlay"
@@ -23,12 +24,13 @@ const AcknowledgmentSuccessModal = ({ onClose }) => {
                     {/* Content */}
                     <div className="modal-body text-center p-4">
                         <img src={submitIcon} alt="success" className="mb-3" />
-                        <h1 className="success-title text-primary-color font-20">Acknowledgment Submitted</h1>
-                        <Button 
+                        <h1 className="success-title text-primary-color font-20">{message}</h1>
+                        <NavLink to={"/"}>
+                            <Button 
                             label="Continue"
                             className="btn-custom bg-blue text-white font-20"
-                            onClick={onClose} 
                         />
+                        </NavLink>
                     </div>
                 </div>
             </div>

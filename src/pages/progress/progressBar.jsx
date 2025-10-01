@@ -1,5 +1,11 @@
-const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
+const PlanetProgress = ({ Pnt, prgicon, planets, borderstar, progressData }) => {
+
+  console.log(progressData)
+  // const galaxyName = progressData?.current_galaxy?.[0]?.galaxy_name ?? "";
+
   return (
+
+    
     <ul className=" mobile-horizontal list-unstyled mb-0 ps-4 pt-3 ">
       {planets.map((planet, index) => {
         const [start, end] = planet.range || [0, 0];
@@ -12,9 +18,9 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
         return (
           <li
             key={index}
-            className={`d-flex  ${isActive ? "position-relative" : ""} `}
+            className={`d-flex position-relative `} 
           >
-            <div className="d-md-grid  progress-side-sec">
+            <div className="d-lg-grid d-grid d-md-flex progress-side-sec">
               {/* Show previous progress hr if not active */}
               {index !== 0 && (
                 <hr className="opacity-100 progress-side-hr11" />
@@ -23,13 +29,15 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
 
               {/* Show current step image */}
               <img
-                className="md-w-50 mx-auto prgicon"
+                className="lg-w-50 mx-auto prgicon"
                 src={prgicon}
                 alt="prgicon"
               />
 
               {/* Show active progress hr */}
-              {isActive && <hr className="opacity-100 progress-side-hr" />}
+              {isActive && 
+              <hr className="opacity-100 progress-side-hr" />
+               }
             </div>
 
             {/* Tooltip for current range only */}
@@ -37,16 +45,15 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
               <span className="position-absolute space-grotesk-medium font-12 tooltiptext p-2 rounded text-light-yellow">
                 {Pnt} Meteors
               </span>
-            )}
+           )}
 
             {/* Planet Name */}
             <span
-              className={`ms-md-2   progress-sect-name ${isActive && index == 0 ? "d-flex align-items-lg-start align-items-center" : "d-flex align-items-center mt-4 mt-md-0  align-items-lg-end"} ${isActive && index !== 0 ? "d-flex align-items-center" : ""}  ${isActive || Pnt > end
-                  ? "mt-0"
-                  : "progress-test-mt"
-                } space-grotesk-medium font-16 text-blue-2`}
+              className={`ms-lg-2 progress-sect-name ${isActive && index == 0 ? "d-flex align-items-lg-start align-items-center" : "d-flex align-items-center mt-4 mt-lg-0 align-items-lg-end"} ${isActive && index !== 0 ? "d-flex align-items-center" : ""} space-grotesk-medium font-16 text-blue-2`}
             >
-              {planet.name}
+              {/* {planet.name} */}
+              {/* {galaxyName} */}
+               {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet"}
             </span>
 
             
@@ -54,9 +61,9 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar }) => {
         );
       })}
 
-      <li className="galaxy-star d-flex flex-column align-items-center flex-fill  mt-34 pb-3 d-lg-none d-block">
-        <img className="w-44 " src={borderstar} alt="borderstar" />
-        <h4 className="my-0  text-center text-blue-2 font-18 space-grotesk-medium">
+      <li className="galaxy-star d-flex flex-column align-items-center flex-fill mt-34 pb-3 d-lg-none d-block">
+        <img className="w-44" src={borderstar} alt="borderstar" />
+        <h4 className="my-0 text-center text-blue-2 font-18 space-grotesk-medium">
           Galaxy Complete
         </h4>
       </li>

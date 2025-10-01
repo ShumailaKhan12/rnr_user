@@ -21,20 +21,25 @@ import meteor from '../../assets/icons/profile/meteorGroup.svg';
 import { postData } from '../../services/api';
 
 // UserContext
+import { UserContext } from '../../UseContext/useContext';
 
 // Utilities
-import { DecryptFunction } from '../../utils/decryptFunction';
+// import { DecryptFunction } from '../../utils/decryptFunction';
 
 // Toast messages
 import { toastError, toastSuccess } from '../../utils/toster';
 
 // Components
 import Navbar from '../../components/navbar';
-import { UserContext } from '../../UseContext/useContext';
 import { IoIosArrowBack } from 'react-icons/io';
 import { FaEye, FaRegEye } from 'react-icons/fa';
 
 const Profile = () => {
+  // UseContext
+  const { ContextHomeDataAPI } = useContext(UserContext)
+  console.log('ContextHomeDataAPI profile: ', ContextHomeDataAPI);
+
+ const rewards = ContextHomeDataAPI?.rewards || {};
   // Profile form
   const {
     register: registerProfile,
@@ -176,7 +181,7 @@ const Profile = () => {
 
   // Handle message form submit
   const handleMessageSubmit = async (e) => {
-    const decrypt = await DecryptFunction(Auth)
+    // const decrypt = await DecryptFunction(Auth)
     e.preventDefault();
     try {
       setIsMessageModalOpen(false);
@@ -210,14 +215,14 @@ const Profile = () => {
   // =================================
 
   const HandleAPI = async () => {
-    const decrypt = await DecryptFunction(Auth)
+    // const decrypt = await DecryptFunction(Auth)
     try {
       const enyptData = await postData('/profile', {
         user_id: decrypt?.part3,
         log_alt: decrypt?.part2,
         mode: decrypt?.part1,
       });
-      const Decrpty = await DecryptFunction(enyptData);
+      // const Decrpty = await DecryptFunction(enyptData);
       setUserDataAPI(Decrpty);
     } catch (error) { }
   };
@@ -238,7 +243,7 @@ const Profile = () => {
 
   const onFormSubmit = async (data) => {
     try {
-      const decrypt = await DecryptFunction(Auth)
+      // const decrypt = await DecryptFunction(Auth)
       const enyptData = await postData('/update-profile', {
         user_id: decrypt?.part3,
         log_alt: decrypt?.part2,
@@ -258,7 +263,7 @@ const Profile = () => {
           log_alt: decrypt?.part2,
           mode: decrypt?.part1,
         });
-        const Decrpty = await DecryptFunction(response);
+        // const Decrpty = await DecryptFunction(response);
         setUserDataAPI(Decrpty);
       }
     } catch (error) {
@@ -332,6 +337,7 @@ const Profile = () => {
     navigate('/login');
   };
 
+  
   return (
     <section className="profile-section" id="Profile_Section">
       {/* <Navbar /> */}
@@ -365,29 +371,24 @@ const Profile = () => {
               <div className="user-details">
                 <h4 className="mb-lg-3 user-name montserrat-semibold font-24 text-uppercase text-primary-color mb-0 lh-1">
                   {/* {UserDataAPI?.part1} */}
-                  Areeba Mujeeb
+                  {ContextHomeDataAPI?.user_data?.name}
                 </h4>
                 <small className="user-contact montserrat-medium font-16 lh-1">
                   {/* {UserDataAPI?.part3}  */}
-                  91234546778 <span> | </span> areeba1234@gmail.com
+                  {ContextHomeDataAPI?.user_data?.mobile_number} <span> | </span> {ContextHomeDataAPI?.user_data?.email}
                   {/* {UserDataAPI?.part2} */}
                 </small>
               </div>
             </div>
             <div className="d-flex h-max-content mt-lg-0 mt-3">
-              {/* {UserDataAPI?.part10 ? ( */}
-              <span className="ref-code-div font-14 montserrat-medium me-4 px-3 rounded-2 d-flex align-items-center justify-content-center">
+              {/* <span className="ref-code-div font-14 montserrat-medium me-4 px-3 rounded-2 d-flex align-items-center justify-content-center">
                 <span className="text-ref-code montserrat-medium">
                   Ref code
                 </span>
                 <span className="digit-ref-code montserrat-semibold px-2">
-                  {/* {UserDataAPI?.part10} */}
                   123
                 </span>
-              </span>
-              {/* ) : (
-                ' '
-              )} */}
+              </span> */}
 
               <button
                 className="btn background-text-blue font-14 montserrat-semibold btn-sm btn-edit-profile position-relative pe-3"
@@ -413,8 +414,8 @@ const Profile = () => {
             {[
               {
                 // value: UserDataAPI?.part9,
-                value: 122,
-                label: 'Total Rewards',
+                value:  rewards?.total_meteors ??0 ,
+                label: 'Total Meteors',
                 RewardIcons: Reward,
               },
               // {
@@ -425,20 +426,20 @@ const Profile = () => {
               // },
               {
                 // value: UserDataAPI?.part6,
-                value: 122,
+                value: rewards?.redeemed_meteors ?? 0,
                 label: 'Total Redeemed',
                 RewardIcons: Redeemed,
               },
               {
                 // value: UserDataAPI?.part4,
-                value: 122,
-                label: 'Pending Rewards',
+                value: rewards?.total_stars ?? 0,
+                label: 'Total Stars',
                 RewardIcons: Pending,
               },
               {
                 // value: UserDataAPI?.part4,
-                value: 122,
-                label: 'Available Cash',
+                value: rewards?.total_currency ?? 0,
+                label: 'Total Currency',
                 RewardIcons: Pending,
               },
             ].map((item, idx) => (
@@ -462,7 +463,7 @@ const Profile = () => {
         </div>
 
         {/* Invite Links */}
-        <div className="row mb-4 g-3">
+        {/* <div className="row mb-4 g-3">
           <h3 className="font-18 montserrat-semibold text-light-color mt-0 mb-12">
             Reward Review
           </h3>
@@ -472,16 +473,14 @@ const Profile = () => {
                 ref={linkRef}
                 type="text"
                 className="w-100 text-light-color montserrat-medium font-14 input-profile-copy-link bg-light-purple-transparent border-0"
-                // value={UserDataAPI?.part7}
                 value={UserDataAPI?.part7}
                 readOnly
               />
               <button
                 className="btn position-absolute btn-profile-copy-link font-14 text-white montserrat-regular bg-primary-color"
-                // onClick={() => copyToClipboard(inviteLink)}
                 onClick={() => handleCopy(linkRef, 'link')}
               >
-                {/* Copy Link */}
+               
                 {copiedLink ? 'Copied!' : 'Copy Link'}
               </button>
             </div>
@@ -492,21 +491,21 @@ const Profile = () => {
                 ref={codeRef}
                 type="text"
                 className="w-100 text-light-color montserrat-medium font-14 input-profile-copy-link bg-light-purple-transparent border-0"
-                // value={UserDataAPI?.part8}
+              
                 value={UserDataAPI?.part8}
                 readOnly
               />
               <button
                 className="btn position-absolute btn-profile-copy-link font-14 text-white montserrat-regular bg-primary-color"
-                // onClick={() => copyToClipboard(inviteCode)}
+              
                 onClick={() => handleCopy(codeRef, 'code')}
               >
-                {/* Copy Code */}
+              
                 {copiedCode ? 'Copied!' : 'Copy Code'}
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Accordions */}
         <div className="accordion" id="profileAccordion">
@@ -537,7 +536,7 @@ const Profile = () => {
                       ContextFaqsDataAPI?.conversion_data[0]?.conversion_rates
                         ?.meteors_to_stars
                     }{' '} */}
-                    <span className="font-16 montserrat-semibold">Meteors</span>
+                    <span className="font-16 montserrat-semibold">Meteors {rewards.total_meteors}</span>
                   </span>
                   <span className=" text-light-color">|</span>
                   <span
@@ -548,7 +547,7 @@ const Profile = () => {
                       ContextFaqsDataAPI?.conversion_data[0]?.conversion_rates
                         ?.stars
                     }{' '} */}
-                    <span className="font-16 montserrat-semibold">Stars</span>
+                    <span className="font-16 montserrat-semibold">Stars {rewards.total_stars}</span>
                   </span>
                   <span className=" text-light-color">|</span>
                   <span
@@ -561,7 +560,7 @@ const Profile = () => {
                     } */}
                     <span className="font-16 montserrat-semibold">
                       {' '}
-                      Cash/Points
+                      Cash/Points {rewards.total_currency}
                     </span>
                   </span>
                 </div>
@@ -772,9 +771,11 @@ const Profile = () => {
                   </label>
                   <input
                     type="text"
+                    disabled
                     className="form-control font-14 text-primary-color montserrat-medium"
                     {...registerProfile('name')}
-                    defaultValue={UserDataAPI?.part1}
+                    // defaultValue={UserDataAPI?.part1}
+                    defaultValue={ContextHomeDataAPI?.user_data?.name}
                   />
                   {/* {errorsProfile?.name && (
                     <p className="text-danger">{errorsProfile?.name.message}</p>
@@ -788,6 +789,7 @@ const Profile = () => {
                   </label>
                   <input
                     type="text"
+                    disabled
                     className="form-control font-14 text-primary-color montserrat-medium"
                     {...registerProfile('mobile', {
                       maxLength: { value: 10, message: 'Max length is 10' },
@@ -802,7 +804,8 @@ const Profile = () => {
                         e.preventDefault();
                       }
                     }}
-                    defaultValue={UserDataAPI?.part3}
+                    // defaultValue={UserDataAPI?.part3}
+                    defaultValue={ContextHomeDataAPI?.user_data?.mobile_number}
                   />
                 </div>
 
@@ -813,11 +816,13 @@ const Profile = () => {
                   </label>
                   <input
                     type="email"
+                    disabled
                     className="form-control font-14 text-primary-color montserrat-medium"
                     {...registerProfile('email', {
                       required: 'Email is required',
                     })}
-                    defaultValue={UserDataAPI?.part2}
+                    // defaultValue={UserDataAPI?.part2}
+                    defaultValue={ContextHomeDataAPI?.user_data?.email}
                   />
                   {errorsProfile.email && (
                     <p className="text-danger">{errorsProfile.email.message}</p>
@@ -832,11 +837,13 @@ const Profile = () => {
                   </label>
                   <input
                     type="text"
+                    disabled
                     className="form-control font-14 text-primary-color montserrat-medium"
                     {...registerProfile('arn_number', {
                       required: 'ARN No. is required',
                     })}
-                    defaultValue={UserDataAPI?.part2}
+                    // defaultValue={UserDataAPI?.part2}
+                    defaultValue={ContextHomeDataAPI?.user_data?.arn_id}
                   />
                   {errorsProfile.arn_number && (
                     <p className="text-danger">{errorsProfile.arn_number.message}</p>
