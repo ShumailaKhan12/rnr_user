@@ -31,7 +31,7 @@ const InviteModal = ({ isOpen, onClose }) => {
         setLoading(true);
         try {
             const payload = {
-                referrer_id: userData.Id,
+                referrer_id: ContextHomeDataAPI?.user_data?.Id,
                 refree_name: formData.name, // Or actual referrer_id if you have it
                 arn: formData.arn,
                 mobile_number: formData.mobile,
