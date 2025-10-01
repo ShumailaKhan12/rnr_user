@@ -27,15 +27,15 @@ const faqData = [
         answer: "This is a kind of Loyalty Program in which if you refer a MFD then you'll get meteors and stars that will give you benefit if you further purchase a product and also to the one you've referrred to."
     },
     {
-        question: "How do I get started?",
+        question: "Q2. How do I get started?",
         answer: "Simply click on Invite a MFD and fill the details of MFD to whom you want to refer and earn the meteors"
     },
     {
-        question: "Is my data secure here?",
+        question: "Q3. Is my data secure here?",
         answer: "Yes, we use industry-standard encryption and secure servers to keep your data safe."
     },
   {
-        question: "Do I need to pay to join?",
+        question: "Q4. Do I need to pay to join?",
         answer: "No, joining is completely free. You can explore features and earn rewards without any upfront cost."
     },
 ];

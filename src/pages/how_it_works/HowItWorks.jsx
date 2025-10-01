@@ -9,9 +9,10 @@
     import "../../App.scss";
     import stepindicatorMobile from '../../assets/Images/how-it-work/stepindicatorMobile.png'
     import { UserContext } from '../../UseContext/useContext';
-    import { getData, postData } from '../../services/api';
+//     import { getData, postData } from '../../services/api';
     import { toast } from 'react-toastify';
     import { toastError } from '../../utils/toster';
+import axios from "axios";
     import { useAuthFlow } from '../../UseContext/AuthFlowContext ';
 
     const HowItWorks = () => {
@@ -27,10 +28,10 @@
                     return;
                 }
                 try {
-                    const response = await getData(`/referral-program?token=${accessToken}&session_id=${sessionId}`);
-                    console.log('response: ', response?.user);
+                    const response = await axios.get(`https://dev.wealthelite.in/Ai/ai/get-users-list`);
+                    console.log('response: ', response?.data?.data);
                     // if (response.status === 200) {
-                        const data = response?.user;
+                        const data = response?.data?.data;
                         console.log("User Data:", data);
                         setContextHomeDataAPI(data);
                     // } else {
