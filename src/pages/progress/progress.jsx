@@ -329,6 +329,7 @@ const MobileVerticalLayout = () => {
                     data={data}
                     prgicon={prgicon}
                     borderstar={borderstar}
+                    ContextHomeDataAPI={ContextHomeDataAPI}
                   />
 
                   <div className="text-center mt-34 pb-3 d-none d-lg-block">

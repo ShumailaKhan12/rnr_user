@@ -1,6 +1,11 @@
-const PlanetProgress = ({ Pnt, prgicon, planets, borderstar, progressData }) => {
+// import { useContext } from "react";
+// import { UserContext } from "../../UseContext/useContext";
 
-  console.log(progressData)
+const PlanetProgress = ({ Pnt, prgicon, planets, borderstar, progressData,ContextHomeDataAPI }) => {
+
+    // const { ContextHomeDataAPI } = useContext(UserContext);
+  
+  console.log(ContextHomeDataAPI)
   // const galaxyName = progressData?.current_galaxy?.[0]?.galaxy_name ?? "";
 
   return (
@@ -53,7 +58,8 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar, progressData }) => 
             >
               {/* {planet.name} */}
               {/* {galaxyName} */}
-               {progressData?.current_galaxy?.[0]?.galaxy_name || "Planet"}
+{ContextHomeDataAPI?.admin_galaxies?.[index]?.milestone_name || `Planet ${index + 1}`}
+
             </span>
 
             
