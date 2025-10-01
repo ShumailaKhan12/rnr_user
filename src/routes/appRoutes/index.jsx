@@ -18,10 +18,9 @@ const AppRoutes = () => {
       <HashRouter>
         <Routes>
           <Route path="*" element={<PageNotFound />} />
-          <Route path="/" element={<HowItWorks />} />
-          <Route path="/dummy" element={<Dummy />} />
-          <Route path="/acknowledge" element={<Acknowledgement />} />
-          
+          <Route path="/" element={<Dummy />} />
+          <Route path="/howitworks" element={<HowItWorks />} />
+          <Route path="/acknowledge" element={<Acknowledgement />} />      
           <Route path="/home"  element={ <PrivateRoute><Home /></PrivateRoute>}/>
           <Route path="/myreferral" element={<PrivateRoute><MyReferral /></PrivateRoute>} />
           <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
