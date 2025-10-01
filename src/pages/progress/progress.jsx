@@ -358,9 +358,9 @@ const MobileVerticalLayout = () => {
                   />
                   <div className='text-center text-dark-blue'>
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                      {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_name || "Planet A"}
+                      {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestone_name || "Planet A"}
                     </h4>
-                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text mb-0'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_description} <br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_reward_meteors} Meteors</span></p>
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text mb-0'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestone_description} <br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestone_reward_meteors} Meteors</span></p>
                   </div>
                 </div>
                 <div className="col-lg-3 col-5"></div>
@@ -372,9 +372,9 @@ const MobileVerticalLayout = () => {
                   />
                   <div className='text-center text-dark-blue'>
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                      {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[2]?.milestone_name || "Planet C"}
+                      {ContextHomeDataAPI?.admin_galaxies?.[2]?.milestone_name || "Planet C"}
                     </h4>
-                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text mb-0'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[2]?.milestone_description} <br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[2]?.milestone_reward_meteors} Meteors</span></p>
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text mb-0'>{ContextHomeDataAPI?.admin_galaxies[2]?.milestone_description} <br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies?.[2]?.milestone_reward_meteors} Meteors</span></p>
                   </div>
                 </div>
                 <div className="col-lg-3 col-5"></div>
@@ -389,10 +389,10 @@ const MobileVerticalLayout = () => {
                   />
                   <div className='text-center text-dark-blue'>
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1 pt-md-2">
-                      {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[4]?.milestone_name || "Planet E"}
+                      {ContextHomeDataAPI?.admin_galaxies?.[4]?.milestone_name || "Planet E"}
                     </h4>
 
-                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text mb-0'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[4]?.milestone_description} <br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[4]?.milestone_reward_meteors} Meteors</span></p>
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text mb-0'>{ContextHomeDataAPI?.admin_galaxies?.[4]?.milestone_description} <br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies[4]?.milestone_reward_meteors} Meteors</span></p>
                   </div>
                 </div>
               </div>
@@ -445,9 +445,9 @@ const MobileVerticalLayout = () => {
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1">
-                      {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[1]?.milestone_name || "Planet B"}
+                      {ContextHomeDataAPI?.admin_galaxies[1]?.milestone_name || "Planet B"}
                     </h4>
-                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[1]?.milestone_description}<br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[1]?.milestone_reward_meteors} Meteors</span></p>
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>{ContextHomeDataAPI?.admin_galaxies[1]?.milestone_description}<br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies[1]?.milestone_reward_meteors} Meteors</span></p>
                   </div>
                 </div>
                 <div className="col-lg-3 col-5"></div>
@@ -461,9 +461,9 @@ const MobileVerticalLayout = () => {
                   />
                   <div className=" text-center text-dark-blue">
                     <h4 className="mb-lg-2 mb-0 space-grotesk-medium font-24 planet-heading lh-sm-1">
-                      {ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[3]?.milestone_name || "Planet D"}
+                      {ContextHomeDataAPI?.admin_galaxies[3]?.milestone_name || "Planet D"}
                     </h4>
-                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[3]?.milestone_description} <br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[3]?.milestone_reward_meteors} Meteors</span></p>
+                    <p className='lh-sm text-blue font-16 space-grotesk-regular text-center planet-text'>{ContextHomeDataAPI?.admin_galaxies[3]?.milestone_description} <br /> <span className='space-grotesk-medium'>{ContextHomeDataAPI?.admin_galaxies[3]?.milestone_reward_meteors} Meteors</span></p>
                   </div>
                 </div>
                 <div className="col-lg-3 col-5"></div>
