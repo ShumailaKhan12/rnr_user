@@ -17,10 +17,11 @@ const AcknowlegmentModal = ({ onClose }) => {
   const [apiMessage, setApiMessage] = useState("");
 
   // USeContext
-  const { userData } = useContext(UserContext);
+  const { userData, ContextHomeDataAPI } = useContext(UserContext);
+  console.log('ContextHomeDataAPI: ', ContextHomeDataAPI);
   console.log('userDataaaaaaaa: ', userData);
-  const ref_id = userData?.Id
-  const mobile_number = userData?.mobile_number
+  const ref_id = ContextHomeDataAPI?.user_data?.Id
+  const mobile_number = ContextHomeDataAPI?.user_data?.mobile_number
 
   // API Function
 
@@ -99,7 +100,7 @@ const AcknowlegmentModal = ({ onClose }) => {
             <p className="font-14 flex-wrap">
               The invite has been sent by <strong>Sakshee</strong>, holding
               mobile number{" "}
-              <strong><a href="tel:9685492401">9685492401</a></strong>{" "}
+              <strong><a href="tel:9685492401">{ContextHomeDataAPI?.user_data?.mobile_number}</a></strong>{" "}
               and email ID{" "}
               <strong><a href="mailto:sak123@gmail.com">sak123@gmail.com</a></strong>{" "}
               with referral code <strong>WESAK11</strong>.

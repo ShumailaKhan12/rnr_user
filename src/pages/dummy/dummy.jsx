@@ -18,7 +18,7 @@ const Dummy = () => {
     setSessionId(dummySession);
 
   
-    navigate('/');
+    navigate('/howitworks');
   };
 
   return (

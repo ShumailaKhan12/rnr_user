@@ -18,7 +18,7 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar, progressData }) => 
         return (
           <li
             key={index}
-            className={`d-flex position-relative `}
+            className={`d-flex position-relative `} 
           >
             <div className="d-lg-grid d-grid d-md-flex progress-side-sec">
               {/* Show previous progress hr if not active */}
