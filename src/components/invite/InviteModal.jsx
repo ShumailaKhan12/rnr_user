@@ -1,65 +1,112 @@
-import React, { useState, useContext } from "react";
-import "../../App.scss";
-import X from "../../assets/Images/invite-modal/X.png";
-import Button from "../button";
-import InviteSuccessModal from "./InviteSuccessModal";
-import { postData } from "../../services/api";
-import { UserContext } from '../../UseContext/useContext';
+    import React, { useState, useContext } from "react";
+    import "../../App.scss";
+    import X from "../../assets/Images/invite-modal/X.png";
+    import Button from "../button";
+    import InviteSuccessModal from "./InviteSuccessModal";
+    import { postData } from "../../services/api";
+    import { UserContext } from '../../UseContext/useContext';
 
-// Toast Messages
-import { toastError, toastSuccess } from '../../utils/toster';
-import { useForm } from "react-hook-form";
+    // Toast Messages
+    import { toastError, toastSuccess } from '../../utils/toster';
+    import { useForm } from "react-hook-form";
 
 
-const InviteModal = ({ isOpen, onClose }) => {
-    // useForm setup
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const InviteModal = ({ isOpen, onClose }) => {
+        // useForm setup
+        const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    // UseStates
-    const [successModalOpen, setSuccessModalOpen] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [apiMessage, setApiMessage] = useState("");
-    const [messageApiHeading, setApiMessageHeading] = useState("")
-    // UseContext
-    const { accessToken, sessionId , ContextHomeDataAPI} = useContext(UserContext);
-    // const { userData } = useContext(UserContext);
-    
-    console.log('userData Inviteeeeeeeeeee: ', ContextHomeDataAPI);
+        // UseStates
+        const [successModalOpen, setSuccessModalOpen] = useState(false);
+        const [loading, setLoading] = useState(false);
+        const [apiMessage, setApiMessage] = useState("");
+        const [messageApiHeading, setApiMessageHeading] = useState("")
+        // UseContext
+        const { accessToken, sessionId , ContextHomeDataAPI} = useContext(UserContext);
+        // const { userData } = useContext(UserContext);
+        
+        console.log('userData Inviteeeeeeeeeee: ', ContextHomeDataAPI);
 
-    // API Functions
+        // API Functions
+        // const onSubmit = async (formData) => {
+        //     setLoading(true);
+        //     try {
+        //         const payload = {
+        //             referrer_id: ContextHomeDataAPI?.user_data?.Id,
+        //             refree_name: formData.name, // Or actual referrer_id if you have it
+        //             arn: formData.arn,
+        //             mobile_number: formData.mobile,
+        //             product: formData.product || null,
+        //             permission: formData.permission,
+        //         };
+
+        //         console.log("Payload:", payload);
+
+        //         const response = await postData(`/referral_program/referral/send_invitation?token=${accessToken}&session_id=${sessionId}`, payload);
+
+        //         setApiMessageHeading(response?.success)
+        //         setApiMessage(response?.message || "Invitation sent successfully!");
+        //         setSuccessModalOpen(true);
+        //         reset();
+        //         console.log("Response:", response);
+        //     } catch (error) {
+        //         console.error(error);
+        //         if (error?.message) {
+        //             toastError(error.message);
+        //         } else {
+        //             toastError("Failed to send invitation");
+        //         }
+        //     } finally {
+        //         setLoading(false);
+        //     }
+        // };
+
     const onSubmit = async (formData) => {
-        setLoading(true);
-        try {
-            const payload = {
-                referrer_id: ContextHomeDataAPI?.user_data?.Id,
-                refree_name: formData.name, // Or actual referrer_id if you have it
-                arn: formData.arn,
-                mobile_number: formData.mobile,
-                product: formData.product || null,
-                permission: formData.permission,
-            };
+    setLoading(true);
+    try {
+        const payload = {
+        referrer_id: ContextHomeDataAPI?.user_data?.Id,
+        refree_name: formData.name,
+        arn: formData.arn,
+        mobile_number: formData.mobile,
+        product: formData.product || null,
+        permission: formData.permission,
+        };
 
-            console.log("Payload:", payload);
+        const response = await postData(
+        `/referral_program/referral/send_invitation?token=${accessToken}&session_id=${sessionId}`,
+        payload
+        );
 
-            const response = await postData(`/referral_program/referral/send_invitation?token=${accessToken}&session_id=${sessionId}`, payload);
+        console.log("Full API Response:", response);
 
-            setApiMessageHeading(response?.success)
-            setApiMessage(response?.message || "Invitation sent successfully!");
-            setSuccessModalOpen(true);
-            reset();
-            console.log("Response:", response);
-        } catch (error) {
-            console.error(error);
-            if (error?.message) {
-                toastError(error.message);
-            } else {
-                toastError("Failed to send invitation");
-            }
-        } finally {
-            setLoading(false);
+
+        if (!response?.success) {
+        toastError(response?.message || "Something went wrong.");
+        return;
         }
-    };
 
+        setApiMessageHeading(response?.success);
+        setApiMessage(response?.message || "Invitation sent successfully!");
+        setSuccessModalOpen(true);
+        reset();
+
+    const inviteLink = response?.link;
+        const mobileWithCountryCode = `91${formData.mobile}`;
+
+        if (inviteLink) {
+        const encodedMessage = encodeURIComponent(inviteLink);
+        const whatsappLink = `https://wa.me/${mobileWithCountryCode}?text=${encodedMessage}`;
+      window.open(whatsappLink, '_blank');
+    } else {
+      toastError("Invite link not found in response.");
+    }
+  } catch (error) {
+    console.error(error);
+    toastError(error?.message || "Failed to send invitation");
+  } finally {
+    setLoading(false);
+  }
+};
 
 
     if (!isOpen) return null;

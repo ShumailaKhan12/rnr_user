@@ -195,24 +195,24 @@ const MobileVerticalLayout = () => {
 
   const planetData = [
     {
-      name: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_name || "Planet A",
-      message: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_description,
-      highlight: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[0]?.milestone_reward_meteors,
+      name:ContextHomeDataAPI?.admin_galaxies?.[0]?.milestone_name || "Planet A",
+      message: ContextHomeDataAPI?.admin_galaxies[0]?.milestone_description ,
+      highlight: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestone_reward_meteors+" Meteors" ,
     },
     {
-      name: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[1]?.milestone_name || "Planet A",
-      message: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[1]?.milestone_description,
-      highlight: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[1]?.milestone_reward_meteors,
+      name: ContextHomeDataAPI?.admin_galaxies?.[1]?.milestone_name || "Planet A",
+      message: ContextHomeDataAPI?.admin_galaxies?.[1]?.milestone_description,
+      highlight: ContextHomeDataAPI?.admin_galaxies?.[1]?.milestone_reward_meteors+" Meteors",
     },
     {
-      name: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[2]?.milestone_name || "Planet A",
-      message: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[2]?.milestone_description,
-      highlight:ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[2]?.milestone_reward_meteors,
+      name: ContextHomeDataAPI?.admin_galaxies?.[2]?.milestone_name || "Planet A",
+      message: ContextHomeDataAPI?.admin_galaxies?.[2]?.milestone_description,
+      highlight:ContextHomeDataAPI?.admin_galaxies?.[2]?.milestone_reward_meteors+" Meteors",
     },
     {
-      name: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[3]?.milestone_name || "Planet A",
-      message: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[3]?.milestone_description,
-      highlight: ContextHomeDataAPI?.admin_galaxies?.[0]?.milestones?.[3]?.milestone_reward_meteors,
+      name: ContextHomeDataAPI?.admin_galaxies?.[3]?.milestone_name || "Planet A",
+      message: ContextHomeDataAPI?.admin_galaxies?.[3]?.milestone_description,
+      highlight: ContextHomeDataAPI?.admin_galaxies?.[2]?.milestone_reward_meteors+" Meteors",
     },
   ];
 
