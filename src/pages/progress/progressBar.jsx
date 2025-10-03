@@ -1,16 +1,16 @@
 // import { useContext } from "react";
 // import { UserContext } from "../../UseContext/useContext";
 
-const PlanetProgress = ({ Pnt, prgicon, planets, borderstar, progressData,ContextHomeDataAPI }) => {
+const PlanetProgress = ({ Pnt, prgicon, planets, borderstar, progressData, ContextHomeDataAPI }) => {
 
-    // const { ContextHomeDataAPI } = useContext(UserContext);
-  
+  // const { ContextHomeDataAPI } = useContext(UserContext);
+
   console.log(ContextHomeDataAPI)
   // const galaxyName = progressData?.current_galaxy?.[0]?.galaxy_name ?? "";
 
   return (
 
-    
+
     <ul className=" mobile-horizontal list-unstyled mb-0 ps-4 pt-3 ">
       {planets.map((planet, index) => {
         const [start, end] = planet.range || [0, 0];
@@ -23,7 +23,7 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar, progressData,Contex
         return (
           <li
             key={index}
-            className={`d-flex position-relative `} 
+            className={`d-flex position-relative `}
           >
             <div className="d-lg-grid d-grid d-md-flex progress-side-sec">
               {/* Show previous progress hr if not active */}
@@ -40,9 +40,9 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar, progressData,Contex
               />
 
               {/* Show active progress hr */}
-              {isActive && 
-              <hr className="opacity-100 progress-side-hr" />
-               }
+              {isActive &&
+                <hr className="opacity-100 progress-side-hr" />
+              }
             </div>
 
             {/* Tooltip for current range only */}
@@ -50,7 +50,7 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar, progressData,Contex
               <span className="position-absolute space-grotesk-medium font-12 tooltiptext p-2 rounded text-light-yellow">
                 {Pnt} Meteors
               </span>
-           )}
+            )}
 
             {/* Planet Name */}
             <span
@@ -58,11 +58,11 @@ const PlanetProgress = ({ Pnt, prgicon, planets, borderstar, progressData,Contex
             >
               {/* {planet.name} */}
               {/* {galaxyName} */}
-{ContextHomeDataAPI?.admin_galaxies?.[index]?.milestone_name || `Planet ${index + 1}`}
+              {ContextHomeDataAPI?.admin_galaxies?.[index]?.milestone_name || `Planet ${index + 1}`}
 
             </span>
 
-            
+
           </li>
         );
       })}
