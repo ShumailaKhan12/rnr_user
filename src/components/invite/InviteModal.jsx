@@ -96,7 +96,7 @@
         if (inviteLink) {
         const encodedMessage = encodeURIComponent(inviteLink);
         const whatsappLink = `https://wa.me/${mobileWithCountryCode}?text=${encodedMessage}`;
-      window.open(whatsappLink, '_blank');
+        window.open(whatsappLink, '_blank');
     } else {
       toastError("Invite link not found in response.");
     }

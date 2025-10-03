@@ -2493,11 +2493,12 @@
 
     // ================== Acknowledment css ==============
     .my-custom-dialog .modal-dialog {
-  max-width: 600px;
-  width: 90vw;
-}
+        max-width: 600px;
+        width: 90vw;
+    }
+
     .my-custom-dialog .modal-content {
-        max-height: 90vh;  
+        max-height: 90vh;
         overflow-y: auto;
         overflow-x: hidden;
 
@@ -2509,33 +2510,34 @@
         scrollbar-width: none;
 
         .modal-header {
-             text-align: center;
+            text-align: center;
 
             .modal-title {
                 text-align: center;
                 width: 100%;
-                
+
             }
         }
 
         .modal-body {
             text-align: left;
             overflow: visible;
-            word-break: break-word;  
-                white-space: normal;
+            word-break: break-word;
+            white-space: normal;
 
-         &::-webkit-scrollbar {
-            display: none;
-        }
+            &::-webkit-scrollbar {
+                display: none;
+            }
 
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
             .checkbox-label {
                 display: flex;
                 align-items: flex-start;
                 flex-wrap: nowrap;
                 gap: 8px;
-                word-break: break-word;  
+                word-break: break-word;
                 white-space: normal;
 
                 input[type="checkbox"] {
@@ -2583,8 +2585,8 @@
             justify-content: center;
             gap: 12px;
             gap: 12px;
-  padding: 1rem;
-  border-top: 1px solid #ddd;
+            padding: 1rem;
+            border-top: 1px solid #ddd;
 
 
             .btn {
@@ -3650,14 +3652,14 @@
             line-height: 0;
             margin-left: 0;
             position: relative;
-            left: 0px;
+            left: -10px;
             top: 15px;
 
         }
 
         .progress-side-sec {
             display: flex !important;
-            width: 100%;
+            // width: 100%;
             align-items: center !important;
         }
 
@@ -3677,7 +3679,7 @@
             }
 
             &.progress-side-hr11 {
-                height: pxToRem(48);
+                height: pxToRem(100);
 
             }
 
@@ -4123,38 +4125,38 @@
     }
 
     .error-bg {
-  background: url(./assets/Images/Error-img/error-bg.svg) center no-repeat;
-  min-height: 100vh;
-  background-size: cover;
+        background: url(./assets/Images/Error-img/error-bg.svg) center no-repeat;
+        min-height: 100vh;
+        background-size: cover;
 
-  .error-img {
-    width: 100%;
-    max-width: 852px;
-    height: auto;
-    max-height: 409px;
-  }
-}
-
-// Responsive for Tablets
-@media (max-width: 768px) {
-  .error-bg {
-    padding: 1.5rem;
-
-    .error-img {
-      max-width: 600px;
+        .error-img {
+            width: 100%;
+            max-width: 852px;
+            height: auto;
+            max-height: 409px;
+        }
     }
-  }
-}
 
-// Responsive for Mobiles
-@media (max-width: 480px) {
-  .error-bg {
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem;
+    // Responsive for Tablets
+    @media (max-width: 768px) {
+        .error-bg {
+            padding: 1.5rem;
 
-    .error-img {
-      max-width: 320px;
+            .error-img {
+                max-width: 600px;
+            }
+        }
     }
-  }
-}
+
+    // Responsive for Mobiles
+    @media (max-width: 480px) {
+        .error-bg {
+            flex-direction: column;
+            text-align: center;
+            padding: 1rem;
+
+            .error-img {
+                max-width: 320px;
+            }
+        }
+    }
